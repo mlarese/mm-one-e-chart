@@ -26,7 +26,7 @@ export const mutations = {
 }
 
 export const actions = {
-  addToChart ({commit}, {item,quantity}) {
+  addToCart ({commit}, {item,quantity}) {
     commit('addToList', {item, quantity})
   },
   removeFromCart ({commit}, index) {
