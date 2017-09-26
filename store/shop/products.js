@@ -1,4 +1,5 @@
 import _filter from 'lodash/filter'
+import _get from 'lodash/get'
 
 /**
  * record = {
@@ -12,6 +13,7 @@ import _filter from 'lodash/filter'
  * }
  */
 
+const root = {root: true}
 export const state = () => ({
   groups: {
     field: 'group',
@@ -44,6 +46,23 @@ export const mutations = {
 }
 
 export const actions = {
+  loadGroups ({commit, dispatch, state}) {
+    return dispatch('api/get', '/groups', root)
+      .then(res => {
+        let data = _get(res, 'data.data', res.data)
+        commit('groupList', data)
+        if (state.groups.list.length > 0) {
+          commit('currentGroup', state.groups.list[0])
+        }
+      })
+  },
+  loadProducts ({commit, dispatch}) {
+    return dispatch('api/get', '/products', root)
+      .then(res => {
+        let data = _get(res, 'data.data', res.data)
+        commit('list', data)
+      })
+  },
   changeGroup ({commit}, group) {
     commit('currentGroup', group)
   },

@@ -26,7 +26,7 @@ export const mutations = {
 }
 
 export const actions = {
-  addToCart ({commit}, {item,quantity}) {
+  addToCart ({commit}, {item, quantity}) {
     commit('addToList', {item, quantity})
   },
   removeFromCart ({commit}, index) {
@@ -38,7 +38,7 @@ export const actions = {
   decrementQuantity ({state, commit}, {index, quantity}) {
     commit('decrementQuantity', {index, quantity})
     let record = state.list[index]
-    if (record.quantity <= 0){
+    if (record.quantity <= 0) {
       commit('removeFromList', index)
     }
   }

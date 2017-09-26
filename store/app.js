@@ -1,4 +1,3 @@
-const root = {root: true};
 export const state = () => ({
 
 })
