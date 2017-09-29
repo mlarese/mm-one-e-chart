@@ -90,8 +90,11 @@ if (isMock) {
       {id: 3, title: 'Computer pentium 5', description: 'Computer pentium 5', inventory: 3, image: '', group: 'Elettronica', price: 300},
       {id: 4, title: 'Piatti piani', description: 'Piatti piani', inventory: 1, image: '', group: 'Casalinghi', price: 10},
       {id: 5, title: 'Piatti fondi', description: 'Piatti fondi', inventory: 1, image: '', group: 'Casalinghi', price: 20},
-      {id: 6, title: 'Notebook pentium 5', description: 'Notebook pentium 5', inventory: 3, image: '', group: 'Elettronica', price: 500},
-      {id: 7, title: 'Notebook centrino', description: 'Notebook centrino', inventory: 3, image: '', group: 'Elettronica', price: 400}
+      {id: 11, title: 'Notebook pentium 5', description: 'Notebook pentium 5', inventory: 3, image: '', group: 'Elettronica', price: 500},
+      {id: 22, title: 'Mouse', description: 'Mouse', inventory: 3, image: '', group: 'Elettronica', price: 400},
+      {id: 99, title: 'Keyboard', description: 'Keyboard', inventory: 3, image: '', group: 'Elettronica', price: 100},
+      {id: 1234, title: 'Monitor flat', description: 'Monitor flat', inventory: 3, image: '', group: 'Elettronica', price: 200},
+      {id: 435, title: 'Notebook amd', description: 'Notebook amd', inventory: 3, image: '', group: 'Elettronica', price: 300}
     ]
     return [200, {data}]
   })
