@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "test":  "ava --serial --verbose"
+    "test": "ava --serial --verbose"
   },
   "ava": {
     "require": [
@@ -28,10 +28,12 @@
     "axios-mock-adapter": "^1.9.0",
     "es6-promise": "^4.1.1",
     "lodash": "^4.17.4",
+    "logrocket-vuex": "0.0.3",
     "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "cross-env": "^5.0.5",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "vue-clicky": "^1.1.0"
   }
 }

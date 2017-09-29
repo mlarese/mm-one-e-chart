@@ -1,13 +1,7 @@
 export const state = () => ({
-
+  name: 'shop name'
 })
 
 export const mutations = {
 
 }
-
-export const actions = {
-
-}
-
-export const getters = {}
