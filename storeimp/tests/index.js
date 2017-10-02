@@ -7,10 +7,22 @@ export const state = () => {
 export const mutations = { }
 
 const root = {root: true}
+
 export const actions = {
   test: ({dispatch, getters}) => {
     dispatch('testAddProductToCart')
     dispatch('testRemoveProductFromCart')
+    dispatch('testApiErrors')
+  },
+  testApiErrors: ({dispatch}) => {
+    dispatch('api/get', '/testerror500', root)
+      .then(res => {
+        console.log('then testerror500')
+        return res
+      })
+      .catch(err => {
+        return err
+      })
   },
   testAddProductToCart: ({dispatch, getters}) => {
     const products = getters.products

@@ -5,13 +5,12 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
+  import {mapState} from 'vuex'
+  export default {
+    computed: {
+      ...mapState('api', ['error'])
+    }
   }
-}
 </script>
 
 <style>

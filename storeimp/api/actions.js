@@ -21,7 +21,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
-        return err
+        return Promise.reject(err)
       })
   },
   post ({commit}, url, data) {
@@ -37,7 +37,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
-        return err
+        return Promise.reject(err)
       })
   },
   put ({commit}, url, data) {
@@ -53,7 +53,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
-        return err
+        return Promise.reject(err)
       })
   },
   delete ({commit}, url) {
@@ -69,7 +69,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
-        return err
+        return Promise.reject(err)
       })
   }
 }
@@ -77,6 +77,11 @@ export const actions = {
 const isMock = true
 if (isMock) {
   const mock = new MockAdapter(instance, { delayResponse: 200 })
+
+  mock
+    .onGet('/testerror500').reply(500)
+    .onGet('/testerror403').reply(403)
+    .onGet('/testtimeout').timeout()
 
   mock.onGet('/groups').reply(config => {
     const data = ['Elettronica', 'Abbigliamento', 'Casalinghi', 'Elettrodomestici']
