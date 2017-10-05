@@ -1,14 +1,27 @@
 <template>
-  <section class="container">
-
-  </section>
+  <div>
+    <template v-for="(roomRow, keys, index) in roomsCart">
+      <template v-for="({item, quantity, room}, itemsIndex) in roomRow">
+        <div v-if="itemsIndex===0">- {{room.reservation_detail_code}} total: {{room.reservation_detail_price}}</div>
+         <div>{{item.title}} q = {{quantity}}</div>
+      </template>
+    </template>
+    <br>
+    <div>Total cart: {{totalCartPrice}} </div>
+    <br>
+    <button @click="add">Add Mouse</button>
+  </div>
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapState, mapGetters, mapActions} from 'vuex'
   export default {
+    methods: {
+      ...mapActions('tests', ['add'])
+    },
     computed: {
-      ...mapState('api', ['error'])
+      ...mapState('api', ['error']),
+      ...mapGetters('shop/linearcart', ['roomsCart', 'findByProduct', 'totalCartPrice'])
     }
   }
 </script>
