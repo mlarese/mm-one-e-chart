@@ -28,7 +28,9 @@ export const mutations = {
       quantity,
       room,
       roomId: room.reservation_detail_id,
-      productId: item.product_id
+      productId: item.product_id,
+      roomPrice: room.reservation_detail_price,
+      productPrice: item.product_price
     }
 
     state.list.push(row)
