@@ -8,8 +8,12 @@
     </template>
     <br>
     <div>Total cart: {{totalCartPrice}} </div>
+    <div>Total rooms: {{totalRoomsPrice}} - {{totalRoomsQuantity}} rooms</div>
+    <div>--------------------------------------</div>
+    <div>Gran Total: {{granTotal}} </div>
     <br>
-    <button @click="add">Add Mouse</button>
+    <button @click="add">Add 1 Mouse</button>
+    <button @click="remove">Decrement Monitor from sng</button>
   </div>
 </template>
 
@@ -17,11 +21,11 @@
   import {mapState, mapGetters, mapActions} from 'vuex'
   export default {
     methods: {
-      ...mapActions('tests', ['add'])
+      ...mapActions('tests', ['add', 'remove'])
     },
     computed: {
       ...mapState('api', ['error']),
-      ...mapGetters('shop/linearcart', ['roomsCart', 'findByProduct', 'totalCartPrice'])
+      ...mapGetters('shop/linearcart', ['roomsCart', 'findByProduct', 'totalCartPrice', 'totalRoomsPrice', 'granTotal', 'totalRoomsQuantity'])
     }
   }
 </script>

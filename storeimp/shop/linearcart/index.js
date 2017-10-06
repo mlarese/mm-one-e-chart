@@ -13,11 +13,14 @@ export const state = () => ({
 })
 
 export const mutations = {
+  remove (state, index) {
+    state.list.splice(index, 1)
+  },
   incrementQuantity (state, {index, quantity}) {
     state.list[index].quantity += quantity
   },
   decrementQuantity (state, {index, quantity}) {
-    state.list[index].productQuantity -= quantity
+    state.list[index].quantity -= quantity
   },
   add (state, {item, quantity, room}) {
     const row = {

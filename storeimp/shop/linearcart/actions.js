@@ -7,5 +7,18 @@ export const actions = {
     } else {
       commit('incrementQuantity', {index, quantity})
     }
+  },
+  removeFromCart ({commit, getters, state}, {rowId, productId, quantity = 0}) {
+    const index = getters.findIndexByRoomAndProduct(rowId, productId)
+
+    if (index >= 0) {
+      const row = state.list[index]
+
+      if (row.quantity - quantity === 0 || quantity === 0) {
+        commit('remove', index)
+      } else {
+        commit('decrementQuantity', {index, quantity})
+      }
+    }
   }
 }
