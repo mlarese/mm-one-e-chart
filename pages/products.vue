@@ -1,9 +1,12 @@
 <template>
   <div>
     <h4>Prodotti</h4>
-    <template v-for="product in list">
-      <div>- ({{product.product_id}}) {{product.product_name}} q.ty={{product.inventory}}  available = {{productStatus(product).availableQuantity}}   </div>
+    <template v-for="{product_id} in products">
+      <product-item :product="productAndCart(product_id)" />
     </template>
+
+    <cart></cart>
+
 
     <nuxt-link to="/cart">Real Cart</nuxt-link>
   </div>
@@ -11,22 +14,14 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import ProductItem from './ProductItem'
+  import cart from './cart'
   export default {
-    methods: {
-      productStatus ({product_id, inventory}) {
-        let cartQuantity = this.totalQuantityByProduct[product_id] || 0
-        const availableQuantity = inventory - cartQuantity
-        return {
-          product_id,
-          inventory,
-          cartQuantity,
-          availableQuantity
-        }
-      }
+    components: {
+      ProductItem, cart
     },
     computed: {
-      ...mapGetters('shop/products', ['list']),
-      ...mapGetters('shop/linearcart', ['totalQuantityByProduct'])
+      ...mapGetters('shop', ['products', 'productAndCart'])
     }
   }
 </script>
