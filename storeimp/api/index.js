@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import {actions} from './actions'
+import {getters} from './getters'
 
 export const state = () => {
   return {
@@ -24,4 +26,12 @@ export const mutations = {
   hasError (state, payLoad = false) {
     state.hasError = payLoad
   }
+}
+
+export default {
+  namespaced: true,
+  mutations,
+  actions,
+  getters,
+  state
 }

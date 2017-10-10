@@ -29,8 +29,11 @@
     "es6-promise": "^4.1.1",
     "lodash": "^4.17.4",
     "logrocket-vuex": "0.0.3",
+    "lz-string": "^1.4.4",
     "normalizr": "^3.2.3",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "vue-localstorage": "^0.4.2",
+    "vuex-persist": "^0.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

@@ -1,14 +1,16 @@
 <template>
   <div>
-    <h4>Prodotti</h4>
-    <template v-for="{product_id} in products">
-      <product-item :product="productAndCart(product_id)" />
-    </template>
+    <div style="background: black; color: white;padding:10px;margin-bottom:10px">
+        <h4>Prodotti</h4>
+        <template v-for="{product_id} in products">
+          <product-item :product="productAndCart(product_id)" />
+        </template>
+    </div>
 
-    <cart></cart>
-
-
-    <nuxt-link to="/cart">Real Cart</nuxt-link>
+    <div style="background: black; color: white;padding:10px;">
+      <h4>Carrello</h4>
+      <cart />
+    </div>
   </div>
 </template>
 

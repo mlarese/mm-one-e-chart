@@ -1,3 +1,6 @@
+import {actions} from './actions'
+import {getters} from './getters'
+
 /**
  * record = {
  *  id
@@ -39,4 +42,12 @@ export const mutations = {
       .find(product => product.id === item.id)
       .inventory -= quantity
   }
+}
+
+export default {
+  namespaced: true,
+  mutations,
+  actions,
+  getters,
+  state
 }

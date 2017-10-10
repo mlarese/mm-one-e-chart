@@ -15,8 +15,6 @@
     <br>
     <button @click="add">Add 1 Mouse</button>
     <button @click="remove">Decrement Monitor from sng</button>
-
-    <div><nuxt-link to="/products">Products</nuxt-link></div>
   </div>
 </template>
 

@@ -1,3 +1,6 @@
+import {actions} from './actions'
+import {getters} from './getters'
+
 /**
  * @typedef room {
  *    @type reservation_detail_id
@@ -35,4 +38,12 @@ export const mutations = {
 
     state.list.push(row)
   }
+}
+
+export default {
+  namespaced: true,
+  mutations,
+  actions,
+  getters,
+  state
 }

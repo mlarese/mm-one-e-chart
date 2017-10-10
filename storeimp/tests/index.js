@@ -57,3 +57,11 @@ export const getters = {
     return rootState.shop.products.list
   }
 }
+
+export default {
+  namespaced: true,
+  mutations,
+  actions,
+  getters,
+  state
+}
