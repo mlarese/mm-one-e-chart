@@ -12,6 +12,7 @@ import {getters} from './getters'
  * }
  */
 export const state = () => ({
+  type: 'linearcart',
   list: []
 })
 

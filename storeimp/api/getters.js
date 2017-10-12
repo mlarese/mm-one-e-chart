@@ -1,1 +1,3 @@
-export const getters = {}
+export const getters = {
+  isAjax: state => state.isAjax
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nuxt-router-container">
     <nuxt/>
   </div>
 </template>
@@ -57,5 +57,9 @@ html
 {
   color: #fff;
   background-color: #35495e;
+}
+
+.nuxt-router-container{
+  padding:10px;
 }
 </style>

@@ -13,21 +13,35 @@ import {getters} from './getters'
  * }
  */
 
-export const state = () => ({
+const oState = {
   groups: {
     field: 'group',
     list: [],
-    current: ''
+    current: '',
+    id: 'groups'
   },
-  list: []
-})
 
+  perPage: 10,
+  page: 1,
+  list: []
+}
+
+export const state = () => oState
 export const mutations = {
+  setPage (state, page) {
+    state.page = page
+  },
+  incrementPage (state) {
+    state.page++
+  },
   setCurrentGroup (state, payLoad) {
     state.groups.current = payLoad
   },
   setList (state, payLoad = []) {
     state.list = payLoad
+  },
+  pushToList (state, payLoad) {
+    state.list.push(payLoad)
   },
   setGroupList (state, payLoad = []) {
     state.groups.list = payLoad

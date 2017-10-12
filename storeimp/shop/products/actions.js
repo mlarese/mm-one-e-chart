@@ -1,24 +1,23 @@
-import _get from 'lodash/get'
-
 const root = {root: true}
 
 export const actions = {
   loadGroups ({commit, dispatch, state}) {
-    return dispatch('api/get', '/groups', root)
+    return dispatch('api/get', {url: '/groups'}, root)
       .then(res => {
-        let data = _get(res, 'data.data', res.data)
-        commit('setGroupList', data)
+        commit('setGroupList', res.data)
         if (state.groups.list.length > 0) {
-          commit('setCurrentGroup', state.groups.list[0])
+          commit('setCurrentGroup', state.groups.list[0].group_id)
         }
       })
   },
-  loadProducts ({commit, dispatch}) {
-    return dispatch('api/get', '/products', root)
-      .then(res => {
-        let data = _get(res, 'data.data', res.data)
-        commit('setList', data)
-      })
+  loadProducts ({commit, dispatch, state}) {
+    const {perPage, page} = state
+    const options = {
+      params: {perPage, page}
+    }
+    console.log(state)
+    return dispatch('api/get', {url: '/products', options}, root)
+      .then(res => commit('setList', res.data))
   },
   changeGroup ({commit}, group) {
     commit('setCurrentGroup', group)

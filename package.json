@@ -30,9 +30,13 @@
     "lodash": "^4.17.4",
     "logrocket-vuex": "0.0.3",
     "lz-string": "^1.4.4",
+    "node-sass": "^4.5.3",
     "normalizr": "^3.2.3",
     "nuxt": "^1.0.0-rc11",
+    "sass-loader": "^6.0.6",
+    "vue-infinite-loading": "^2.2.1",
     "vue-localstorage": "^0.4.2",
+    "vue-mugen-scroll": "^0.2.5",
     "vuex-persist": "^0.2.0"
   },
   "devDependencies": {
