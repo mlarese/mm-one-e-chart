@@ -1,9 +1,9 @@
 <template>
   <div>
     <template v-for="(roomRow, keys, index) in roomsCart">
-      <template v-for="({item, quantity, room, productPrice}, itemsIndex) in roomRow">
-        <div style="margin-top:10px" v-if="itemsIndex===0">- {{room.reservation_detail_code}} total: {{room.reservation_detail_price}}</div>
-        <div>({{item.product_id}}) {{item.product_name}} q.tà={{quantity}} prezzo={{productPrice}}</div>
+      <template v-for="({rowId, productId, productName, quantity, room, productPrice, roomDescription, roomPrice}, itemsIndex) in roomRow">
+        <div style="margin-top:10px" v-if="itemsIndex===0">- {{roomDescription}} total: {{roomPrice}}</div>
+        <div> ({{rowId}}) {{productId}}-{{productName}} q.tà={{quantity}} prezzo={{productPrice}}</div>
       </template>
     </template>
 
@@ -12,17 +12,35 @@
     <div>Total rooms: {{totalRoomsPrice}} - {{totalRoomsQuantity}} rooms</div>
     <div>--------------------------------------</div>
     <div>Gran Total: {{granTotal}} </div>
-    <br>
-    <button @click="add">Add 1 Mouse</button>
-    <button @click="remove">Decrement Monitor from sng</button>
+
+    <div style="text-align: center; margin-top:30px">
+      <div>
+        <button @click="add({productId: 2})">Add pid 2 on triple</button>
+        <button @click="add({productId: 4})">Add pid 4 on triple</button>
+        <button @click="add({productId: 4, roomDescription: 'single', rowId: 122, roomId: 2, roomPrice: 800})">Add pid 4 on single</button>
+      </div>
+      <div>
+        <button @click="resetCart">Reset local cart</button>
+        <button @click="loadCart">Load cart</button>
+      </div>
+      <div>
+        <sup-decimals />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex'
+  import SupDecimals from '../components/display/SupDecimals'
+
   export default {
+    components: {
+      SupDecimals
+    },
     methods: {
-      ...mapActions('tests', ['add', 'remove'])
+      ...mapActions('tests', ['add', 'remove']),
+      ...mapActions('shop/linearcart', ['loadCart', 'resetCart'])
     },
     computed: {
       ...mapState('api', ['error']),
@@ -60,5 +78,9 @@
 .links
 {
   padding-top: 15px;
+}
+
+button {
+  width:200px;
 }
 </style>

@@ -1,5 +1,6 @@
 // import Vue from 'vue'
 import Vuex from 'vuex'
+import app from '../storeimp/app'
 import api from '../storeimp/api'
 import shop from '../storeimp/shop'
 import tests from '../storeimp/tests'
@@ -23,6 +24,7 @@ const createStore = () => {
   return new Vuex.Store({
     // plugins: [vuexLocal.plugin],
     modules: {
+      app,
       api,
       shop,
       tests

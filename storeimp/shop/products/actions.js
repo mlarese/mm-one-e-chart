@@ -6,21 +6,30 @@ export const actions = {
       .then(res => {
         commit('setGroupList', res.data)
         if (state.groups.list.length > 0) {
-          commit('setCurrentGroup', state.groups.list[0].group_id)
+          dispatch('changeGroup', state.groups.list[0].group_id)
         }
+        return res
       })
   },
-  loadProducts ({commit, dispatch, state}) {
+  loadProducts ({commit, dispatch, state, getters}) {
     const {perPage, page} = state
+    const category = getters.groupCurrent
+
     const options = {
-      params: {perPage, page}
+      params: {perPage, page, category}
     }
-    console.log(state)
     return dispatch('api/get', {url: '/products', options}, root)
-      .then(res => commit('setList', res.data))
+      .then(res => {
+        commit('pushProducts', res.data)
+        commit('incrementPage')
+        return res
+      })
   },
-  changeGroup ({commit}, group) {
+  changeGroup ({commit, dispatch}, group) {
     commit('setCurrentGroup', group)
+    commit('setPage', 1)
+    commit('setList')
+    return dispatch('loadProducts')
   },
   commitProduct ({commit}, {item, quantity}) {
     commit('decrementInventory', {item, quantity})

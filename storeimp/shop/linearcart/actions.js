@@ -1,12 +1,28 @@
-export const actions = {
-  addToCart ({commit, getters}, {item, quantity, room}) {
-    const index = getters.findIndexByRoomAndProduct(room.reservation_detail_id, item.product_id)
+const root = {root: true}
 
+export const actions = {
+  saveCart ({dispatch, commit, getters}) {
+    const url = '/cart'
+    const data = getters.cart
+    return dispatch('api/post', {url, data}, root)
+  },
+  resetCart ({dispatch, commit}) {
+    commit('setCart')
+  },
+  loadCart ({dispatch, commit}, cart) {
+    return dispatch('api/get', {url: '/cart'}, root)
+      .then(res => commit('setCart', res.data))
+  },
+  addToCart ({commit, getters, dispatch}, cartItem) {
+    const {quantity, rowId, productId} = cartItem
+    const index = getters.findIndexByRowAndProduct(rowId, productId)
     if (index < 0) {
-      commit('add', {item, quantity, room})
+      commit('add', cartItem)
     } else {
       commit('incrementQuantity', {index, quantity})
     }
+
+    return dispatch('saveCart')
   },
   removeFromCart ({commit, getters, state}, {rowId, productId, quantity = 0}) {
     const index = getters.findIndexByRoomAndProduct(rowId, productId)

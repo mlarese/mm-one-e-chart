@@ -18,8 +18,8 @@ export const getters = {
     const cart = _get(keyListQuantityByProduct, productId, 0)
     const inventory = product.inventory || 0
     const available = inventory - cart
-    const productName = product.product_name
-    const productPrice = product.product_price
+    const productName = product.productName
+    const productPrice = product.productPrice
 
     return {
       product,

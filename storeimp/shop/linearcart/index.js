@@ -1,15 +1,17 @@
 import {actions} from './actions'
 import {getters} from './getters'
-
 /**
- * @typedef room {
- *    @type reservation_detail_id
- *    @type reservation_detail_code
- *    @type reservation_detail_name
- *    @type reservation_detail_price
- *    @type reservation_detail_room_id
- *    @type reservation_detail_room_board
- * }
+ * @typedef {Object} CartItem
+ *  @property  {number} inventory
+ *  @property  {number} quantity
+ *  @property  {number} productId
+ *  @property  {string} productType
+ *  @property  {number} productPrice
+ *  @property  {string} productName
+ *  @property  {number} rowId
+ *  @property  {number} roomId
+ *  @property  {number} roomPrice
+ *  @property  {string} roomDescription
  */
 export const state = () => ({
   type: 'linearcart',
@@ -17,6 +19,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setCart (state, cart = []) {
+    state.list = cart
+  },
   remove (state, index) {
     state.list.splice(index, 1)
   },
@@ -26,18 +31,13 @@ export const mutations = {
   decrementQuantity (state, {index, quantity}) {
     state.list[index].quantity -= quantity
   },
-  add (state, {item, quantity, room}) {
-    const row = {
-      item,
-      quantity,
-      room,
-      roomId: room.reservation_detail_id,
-      productId: item.product_id,
-      roomPrice: room.reservation_detail_price,
-      productPrice: item.product_price
-    }
-
-    state.list.push(row)
+  /**
+   *
+   * @param state
+   * @param cartItem CartItem
+   */
+  add (state, cartItem) {
+    state.list.push(cartItem)
   }
 }
 

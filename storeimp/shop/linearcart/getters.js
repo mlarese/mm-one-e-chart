@@ -10,11 +10,11 @@ export const getters = {
   roomsCart: state => _groupBy(state.list, 'roomId'),
   productsCart: state => _groupBy(state.list, 'productId') || [],
   filterByProduct: state => productId => _filter(state.list, {productId}),
-  findByRoomAndProduct: (state, getters) => (roomId, productId) => (
-    getters.roomsCart[roomId] ? getters.roomsCart[roomId].find(item => item.productId === productId) : null
+  findByRowAndProduct: (state, getters) => (rowId, productId) => (
+    getters.roomsCart[rowId] ? getters.roomsCart[rowId].find(item => item.productId === productId) : null
   ),
-  findIndexByRoomAndProduct: (state) => (roomId, productId) => (
-    state.list.findIndex(item => item.productId === productId && item.roomId === roomId)
+  findIndexByRowAndProduct: (state) => (rowId, productId) => (
+    state.list.findIndex(item => item.productId === productId && item.rowId === rowId)
   ),
   totalCartPrice: (state, getters) => _reduce(state.list, (total, row) => total + (row.quantity * row.productPrice), 0),
   totalCartQuantity: (state, getters) => _reduce(state.list, (total, row) => total + (row.quantity || 0), 0),
@@ -23,9 +23,9 @@ export const getters = {
   granTotal: (state, getters) => (getters.totalCartPrice || 0 + getters.totalRoomsPrice || 0),
   totalQuantityByProduct: (state, getters) =>
     _reduce(
-      _map(getters.productsCart, (row, key) => ({product_id: key, quantity: _sumBy(row, 'quantity') || 0})),
-      (result, {product_id, quantity}) => {
-        (result[product_id] = result[product_id] || 0 + quantity || 0)
+      _map(getters.productsCart, (row, key) => ({productId: key, quantity: _sumBy(row, 'quantity') || 0})),
+      (result, {productId, quantity}) => {
+        (result[productId] = result[productId] || 0 + quantity || 0)
         return result
       }, {}
     )

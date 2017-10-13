@@ -1,603 +1,803 @@
+import _filter from 'lodash/filter'
 export const products = [
   {
-    'group_id': 3,
-    'product_price': 664,
-    'product_name': 'et laboris velit',
-    'product_id': 1
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 22,
+    'productPrice': 547,
+    'productName': 'Lorem aliqua adipisicing',
+    'productId': 1
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 100,
+    'productPrice': 132,
+    'productName': 'sunt do pariatur',
+    'productId': 2
+  },
+  {
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 53,
+    'productPrice': 91,
+    'productName': 'cillum eu anim',
+    'productId': 3
+  },
+  {
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 58,
+    'productPrice': 293,
+    'productName': 'veniam irure adipisicing',
+    'productId': 4
+  },
+  {
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 78,
+    'productPrice': 211,
+    'productName': 'elit ipsum eu',
+    'productId': 5
+  },
+  {
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 30,
+    'productPrice': 545,
+    'productName': 'excepteur laborum cupidatat',
+    'productId': 6
+  },
+  {
+    'productType': 'd',
+    'groupId': 2,
+    'inventory': 81,
+    'productPrice': 717,
+    'productName': 'dolor qui dolore',
+    'productId': 7
+  },
+  {
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 23,
+    'productPrice': 535,
+    'productName': 'tempor ex duis',
+    'productId': 8
+  },
+  {
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 100,
+    'productPrice': 824,
+    'productName': 'enim magna ea',
+    'productId': 9
+  },
+  {
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 45,
+    'productPrice': 536,
+    'productName': 'qui adipisicing amet',
+    'productId': 10
+  },
+  {
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 72,
+    'productPrice': 901,
+    'productName': 'amet do sit',
+    'productId': 11
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 14,
+    'productPrice': 201,
+    'productName': 'labore sint incididunt',
+    'productId': 12
+  },
+  {
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 44,
+    'productPrice': 713,
+    'productName': 'sunt aliqua voluptate',
+    'productId': 13
   },
   {
-    'group_id': 1,
-    'product_price': 262,
-    'product_name': 'voluptate consectetur adipisicing',
-    'product_id': 2
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 58,
+    'productPrice': 922,
+    'productName': 'do nisi anim',
+    'productId': 14
   },
   {
-    'group_id': 4,
-    'product_price': 834,
-    'product_name': 'consectetur elit incididunt',
-    'product_id': 3
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 35,
+    'productPrice': 691,
+    'productName': 'cillum tempor commodo',
+    'productId': 15
   },
   {
-    'group_id': 1,
-    'product_price': 397,
-    'product_name': 'mollit aliquip deserunt',
-    'product_id': 4
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 63,
+    'productPrice': 243,
+    'productName': 'consequat culpa Lorem',
+    'productId': 16
   },
   {
-    'group_id': 3,
-    'product_price': 964,
-    'product_name': 'exercitation nostrud duis',
-    'product_id': 5
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 8,
+    'productPrice': 402,
+    'productName': 'culpa do adipisicing',
+    'productId': 17
   },
   {
-    'group_id': 1,
-    'product_price': 208,
-    'product_name': 'nisi qui nulla',
-    'product_id': 6
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 35,
+    'productPrice': 189,
+    'productName': 'laboris ut minim',
+    'productId': 18
   },
   {
-    'group_id': 4,
-    'product_price': 818,
-    'product_name': 'nostrud dolore in',
-    'product_id': 7
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 76,
+    'productPrice': 34,
+    'productName': 'mollit incididunt sunt',
+    'productId': 19
   },
   {
-    'group_id': 3,
-    'product_price': 254,
-    'product_name': 'ea ut amet',
-    'product_id': 8
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 26,
+    'productPrice': 540,
+    'productName': 'amet enim tempor',
+    'productId': 20
   },
   {
-    'group_id': 2,
-    'product_price': 236,
-    'product_name': 'proident labore officia',
-    'product_id': 9
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 12,
+    'productPrice': 151,
+    'productName': 'occaecat enim ad',
+    'productId': 21
   },
   {
-    'group_id': 1,
-    'product_price': 567,
-    'product_name': 'minim pariatur mollit',
-    'product_id': 10
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 80,
+    'productPrice': 956,
+    'productName': 'velit exercitation enim',
+    'productId': 22
   },
   {
-    'group_id': 1,
-    'product_price': 966,
-    'product_name': 'proident laboris pariatur',
-    'product_id': 11
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 2,
+    'productPrice': 64,
+    'productName': 'in ullamco pariatur',
+    'productId': 23
   },
   {
-    'group_id': 4,
-    'product_price': 638,
-    'product_name': 'ea amet do',
-    'product_id': 12
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 4,
+    'productPrice': 771,
+    'productName': 'aute sint irure',
+    'productId': 24
   },
   {
-    'group_id': 4,
-    'product_price': 399,
-    'product_name': 'enim dolor labore',
-    'product_id': 13
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 77,
+    'productPrice': 155,
+    'productName': 'dolore aliqua elit',
+    'productId': 25
   },
   {
-    'group_id': 4,
-    'product_price': 385,
-    'product_name': 'nostrud ipsum Lorem',
-    'product_id': 14
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 48,
+    'productPrice': 289,
+    'productName': 'ullamco ea veniam',
+    'productId': 26
   },
   {
-    'group_id': 3,
-    'product_price': 906,
-    'product_name': 'esse in velit',
-    'product_id': 15
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 11,
+    'productPrice': 365,
+    'productName': 'tempor velit nostrud',
+    'productId': 27
   },
   {
-    'group_id': 3,
-    'product_price': 957,
-    'product_name': 'eu consequat sunt',
-    'product_id': 16
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 86,
+    'productPrice': 433,
+    'productName': 'id voluptate labore',
+    'productId': 28
   },
   {
-    'group_id': 4,
-    'product_price': 580,
-    'product_name': 'veniam laborum est',
-    'product_id': 17
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 58,
+    'productPrice': 235,
+    'productName': 'laborum sunt magna',
+    'productId': 29
   },
   {
-    'group_id': 3,
-    'product_price': 304,
-    'product_name': 'mollit magna culpa',
-    'product_id': 18
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 90,
+    'productPrice': 252,
+    'productName': 'cillum incididunt ex',
+    'productId': 30
   },
   {
-    'group_id': 2,
-    'product_price': 915,
-    'product_name': 'cillum ea laborum',
-    'product_id': 19
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 53,
+    'productPrice': 70,
+    'productName': 'adipisicing non exercitation',
+    'productId': 31
   },
   {
-    'group_id': 1,
-    'product_price': 162,
-    'product_name': 'minim et quis',
-    'product_id': 20
+    'productType': 'a',
+    'groupId': 4,
+    'inventory': 53,
+    'productPrice': 448,
+    'productName': 'laborum nulla labore',
+    'productId': 32
   },
   {
-    'group_id': 3,
-    'product_price': 247,
-    'product_name': 'esse sit consectetur',
-    'product_id': 21
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 2,
+    'productPrice': 716,
+    'productName': 'ipsum reprehenderit eiusmod',
+    'productId': 33
   },
   {
-    'group_id': 4,
-    'product_price': 177,
-    'product_name': 'non culpa cupidatat',
-    'product_id': 22
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 24,
+    'productPrice': 272,
+    'productName': 'magna id dolore',
+    'productId': 34
   },
   {
-    'group_id': 3,
-    'product_price': 48,
-    'product_name': 'minim esse consectetur',
-    'product_id': 23
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 36,
+    'productPrice': 515,
+    'productName': 'mollit ullamco pariatur',
+    'productId': 35
   },
   {
-    'group_id': 3,
-    'product_price': 167,
-    'product_name': 'in mollit qui',
-    'product_id': 24
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 70,
+    'productPrice': 908,
+    'productName': 'sit nulla anim',
+    'productId': 36
   },
   {
-    'group_id': 4,
-    'product_price': 876,
-    'product_name': 'nisi ullamco in',
-    'product_id': 25
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 21,
+    'productPrice': 883,
+    'productName': 'sint culpa reprehenderit',
+    'productId': 37
   },
   {
-    'group_id': 1,
-    'product_price': 378,
-    'product_name': 'cillum reprehenderit consequat',
-    'product_id': 26
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 17,
+    'productPrice': 538,
+    'productName': 'incididunt duis ut',
+    'productId': 38
   },
   {
-    'group_id': 1,
-    'product_price': 728,
-    'product_name': 'eu esse incididunt',
-    'product_id': 27
+    'productType': 'd',
+    'groupId': 2,
+    'inventory': 41,
+    'productPrice': 912,
+    'productName': 'eu cupidatat deserunt',
+    'productId': 39
   },
   {
-    'group_id': 3,
-    'product_price': 883,
-    'product_name': 'nulla fugiat nulla',
-    'product_id': 28
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 30,
+    'productPrice': 442,
+    'productName': 'exercitation et proident',
+    'productId': 40
   },
   {
-    'group_id': 2,
-    'product_price': 913,
-    'product_name': 'laboris esse sit',
-    'product_id': 29
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 73,
+    'productPrice': 592,
+    'productName': 'ullamco sunt enim',
+    'productId': 41
   },
   {
-    'group_id': 4,
-    'product_price': 682,
-    'product_name': 'aute non pariatur',
-    'product_id': 30
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 85,
+    'productPrice': 271,
+    'productName': 'quis quis deserunt',
+    'productId': 42
   },
   {
-    'group_id': 1,
-    'product_price': 279,
-    'product_name': 'laboris commodo minim',
-    'product_id': 31
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 63,
+    'productPrice': 928,
+    'productName': 'quis qui occaecat',
+    'productId': 43
   },
   {
-    'group_id': 3,
-    'product_price': 74,
-    'product_name': 'ipsum pariatur consectetur',
-    'product_id': 32
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 40,
+    'productPrice': 247,
+    'productName': 'magna cillum pariatur',
+    'productId': 44
   },
   {
-    'group_id': 3,
-    'product_price': 812,
-    'product_name': 'voluptate voluptate consectetur',
-    'product_id': 33
+    'productType': 'a',
+    'groupId': 4,
+    'inventory': 56,
+    'productPrice': 384,
+    'productName': 'qui ex laboris',
+    'productId': 45
   },
   {
-    'group_id': 4,
-    'product_price': 748,
-    'product_name': 'id enim mollit',
-    'product_id': 34
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 44,
+    'productPrice': 369,
+    'productName': 'enim proident anim',
+    'productId': 46
   },
   {
-    'group_id': 4,
-    'product_price': 777,
-    'product_name': 'sunt nulla ut',
-    'product_id': 35
+    'productType': 'a',
+    'groupId': 4,
+    'inventory': 38,
+    'productPrice': 522,
+    'productName': 'ipsum deserunt minim',
+    'productId': 47
   },
   {
-    'group_id': 1,
-    'product_price': 220,
-    'product_name': 'ea sunt ullamco',
-    'product_id': 36
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 45,
+    'productPrice': 966,
+    'productName': 'laboris in voluptate',
+    'productId': 48
   },
   {
-    'group_id': 1,
-    'product_price': 432,
-    'product_name': 'enim tempor esse',
-    'product_id': 37
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 68,
+    'productPrice': 774,
+    'productName': 'officia in exercitation',
+    'productId': 49
   },
   {
-    'group_id': 3,
-    'product_price': 367,
-    'product_name': 'officia cillum veniam',
-    'product_id': 38
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 66,
+    'productPrice': 283,
+    'productName': 'qui tempor esse',
+    'productId': 50
   },
   {
-    'group_id': 2,
-    'product_price': 900,
-    'product_name': 'nisi anim esse',
-    'product_id': 39
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 20,
+    'productPrice': 685,
+    'productName': 'ipsum id dolor',
+    'productId': 51
   },
   {
-    'group_id': 2,
-    'product_price': 317,
-    'product_name': 'ex consectetur enim',
-    'product_id': 40
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 98,
+    'productPrice': 361,
+    'productName': 'nisi mollit aliqua',
+    'productId': 52
   },
   {
-    'group_id': 4,
-    'product_price': 268,
-    'product_name': 'cupidatat nisi esse',
-    'product_id': 41
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 59,
+    'productPrice': 106,
+    'productName': 'veniam irure cillum',
+    'productId': 53
   },
   {
-    'group_id': 4,
-    'product_price': 416,
-    'product_name': 'ad ut ipsum',
-    'product_id': 42
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 49,
+    'productPrice': 956,
+    'productName': 'excepteur officia commodo',
+    'productId': 54
   },
   {
-    'group_id': 1,
-    'product_price': 676,
-    'product_name': 'in nulla Lorem',
-    'product_id': 43
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 35,
+    'productPrice': 916,
+    'productName': 'dolor proident Lorem',
+    'productId': 55
   },
   {
-    'group_id': 2,
-    'product_price': 284,
-    'product_name': 'laboris nisi consectetur',
-    'product_id': 44
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 58,
+    'productPrice': 100,
+    'productName': 'deserunt deserunt aliquip',
+    'productId': 56
   },
   {
-    'group_id': 3,
-    'product_price': 92,
-    'product_name': 'adipisicing cillum Lorem',
-    'product_id': 45
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 10,
+    'productPrice': 530,
+    'productName': 'sunt ut labore',
+    'productId': 57
   },
   {
-    'group_id': 1,
-    'product_price': 630,
-    'product_name': 'ad commodo proident',
-    'product_id': 46
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 20,
+    'productPrice': 485,
+    'productName': 'qui aute occaecat',
+    'productId': 58
   },
   {
-    'group_id': 3,
-    'product_price': 393,
-    'product_name': 'cillum culpa ut',
-    'product_id': 47
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 52,
+    'productPrice': 732,
+    'productName': 'nisi quis laborum',
+    'productId': 59
   },
   {
-    'group_id': 3,
-    'product_price': 825,
-    'product_name': 'tempor voluptate excepteur',
-    'product_id': 48
+    'productType': 'd',
+    'groupId': 2,
+    'inventory': 19,
+    'productPrice': 992,
+    'productName': 'nulla aliqua nisi',
+    'productId': 60
   },
   {
-    'group_id': 4,
-    'product_price': 368,
-    'product_name': 'consequat voluptate id',
-    'product_id': 49
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 76,
+    'productPrice': 756,
+    'productName': 'laborum qui ullamco',
+    'productId': 61
   },
   {
-    'group_id': 1,
-    'product_price': 543,
-    'product_name': 'labore reprehenderit minim',
-    'product_id': 50
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 97,
+    'productPrice': 912,
+    'productName': 'consequat dolor voluptate',
+    'productId': 62
   },
   {
-    'group_id': 3,
-    'product_price': 635,
-    'product_name': 'anim tempor et',
-    'product_id': 51
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 100,
+    'productPrice': 531,
+    'productName': 'sunt sunt esse',
+    'productId': 63
   },
   {
-    'group_id': 2,
-    'product_price': 347,
-    'product_name': 'magna in in',
-    'product_id': 52
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 14,
+    'productPrice': 612,
+    'productName': 'ad id officia',
+    'productId': 64
   },
   {
-    'group_id': 4,
-    'product_price': 176,
-    'product_name': 'ut esse officia',
-    'product_id': 53
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 36,
+    'productPrice': 339,
+    'productName': 'do anim quis',
+    'productId': 65
   },
   {
-    'group_id': 2,
-    'product_price': 538,
-    'product_name': 'cillum cillum ullamco',
-    'product_id': 54
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 32,
+    'productPrice': 516,
+    'productName': 'do velit esse',
+    'productId': 66
   },
   {
-    'group_id': 3,
-    'product_price': 949,
-    'product_name': 'adipisicing excepteur ad',
-    'product_id': 55
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 2,
+    'productPrice': 145,
+    'productName': 'velit fugiat velit',
+    'productId': 67
   },
   {
-    'group_id': 3,
-    'product_price': 553,
-    'product_name': 'est ea non',
-    'product_id': 56
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 92,
+    'productPrice': 879,
+    'productName': 'in Lorem labore',
+    'productId': 68
   },
   {
-    'group_id': 3,
-    'product_price': 528,
-    'product_name': 'mollit exercitation consequat',
-    'product_id': 57
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 57,
+    'productPrice': 111,
+    'productName': 'mollit et ut',
+    'productId': 69
   },
   {
-    'group_id': 3,
-    'product_price': 873,
-    'product_name': 'enim exercitation tempor',
-    'product_id': 58
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 92,
+    'productPrice': 240,
+    'productName': 'nostrud cupidatat excepteur',
+    'productId': 70
   },
   {
-    'group_id': 4,
-    'product_price': 716,
-    'product_name': 'voluptate excepteur ea',
-    'product_id': 59
+    'productType': 'a',
+    'groupId': 2,
+    'inventory': 12,
+    'productPrice': 566,
+    'productName': 'duis fugiat laboris',
+    'productId': 71
   },
   {
-    'group_id': 2,
-    'product_price': 977,
-    'product_name': 'quis cupidatat quis',
-    'product_id': 60
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 3,
+    'productPrice': 88,
+    'productName': 'duis qui voluptate',
+    'productId': 72
   },
   {
-    'group_id': 2,
-    'product_price': 601,
-    'product_name': 'aliqua nostrud fugiat',
-    'product_id': 61
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 78,
+    'productPrice': 372,
+    'productName': 'proident est id',
+    'productId': 73
   },
   {
-    'group_id': 2,
-    'product_price': 591,
-    'product_name': 'velit labore minim',
-    'product_id': 62
+    'productType': 'd',
+    'groupId': 2,
+    'inventory': 20,
+    'productPrice': 407,
+    'productName': 'cupidatat esse commodo',
+    'productId': 74
   },
   {
-    'group_id': 2,
-    'product_price': 76,
-    'product_name': 'ad sit aute',
-    'product_id': 63
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 96,
+    'productPrice': 904,
+    'productName': 'est sit irure',
+    'productId': 75
   },
   {
-    'group_id': 1,
-    'product_price': 333,
-    'product_name': 'nulla Lorem et',
-    'product_id': 64
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 34,
+    'productPrice': 455,
+    'productName': 'deserunt tempor aliquip',
+    'productId': 76
   },
   {
-    'group_id': 4,
-    'product_price': 147,
-    'product_name': 'ad ullamco cillum',
-    'product_id': 65
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 64,
+    'productPrice': 926,
+    'productName': 'adipisicing nulla consectetur',
+    'productId': 77
   },
   {
-    'group_id': 4,
-    'product_price': 94,
-    'product_name': 'consectetur sint laboris',
-    'product_id': 66
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 93,
+    'productPrice': 162,
+    'productName': 'fugiat ullamco consectetur',
+    'productId': 78
   },
   {
-    'group_id': 2,
-    'product_price': 835,
-    'product_name': 'ullamco laborum duis',
-    'product_id': 67
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 20,
+    'productPrice': 341,
+    'productName': 'nostrud dolore cupidatat',
+    'productId': 79
   },
   {
-    'group_id': 3,
-    'product_price': 289,
-    'product_name': 'laborum reprehenderit aute',
-    'product_id': 68
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 48,
+    'productPrice': 545,
+    'productName': 'aliquip sunt labore',
+    'productId': 80
   },
   {
-    'group_id': 2,
-    'product_price': 557,
-    'product_name': 'deserunt eiusmod ut',
-    'product_id': 69
+    'productType': 'a',
+    'groupId': 4,
+    'inventory': 91,
+    'productPrice': 580,
+    'productName': 'veniam voluptate sunt',
+    'productId': 81
   },
   {
-    'group_id': 2,
-    'product_price': 376,
-    'product_name': 'est amet do',
-    'product_id': 70
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 46,
+    'productPrice': 857,
+    'productName': 'dolore duis et',
+    'productId': 82
   },
   {
-    'group_id': 1,
-    'product_price': 920,
-    'product_name': 'anim Lorem aliquip',
-    'product_id': 71
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 91,
+    'productPrice': 764,
+    'productName': 'tempor dolore dolore',
+    'productId': 83
   },
   {
-    'group_id': 4,
-    'product_price': 354,
-    'product_name': 'duis ipsum ullamco',
-    'product_id': 72
+    'productType': 'a',
+    'groupId': 1,
+    'inventory': 17,
+    'productPrice': 331,
+    'productName': 'incididunt ex cillum',
+    'productId': 84
   },
   {
-    'group_id': 1,
-    'product_price': 255,
-    'product_name': 'esse enim amet',
-    'product_id': 73
+    'productType': 'b',
+    'groupId': 2,
+    'inventory': 40,
+    'productPrice': 361,
+    'productName': 'do laboris voluptate',
+    'productId': 85
   },
   {
-    'group_id': 4,
-    'product_price': 106,
-    'product_name': 'amet et in',
-    'product_id': 74
+    'productType': 'd',
+    'groupId': 4,
+    'inventory': 4,
+    'productPrice': 768,
+    'productName': 'esse ipsum adipisicing',
+    'productId': 86
   },
   {
-    'group_id': 4,
-    'product_price': 701,
-    'product_name': 'ut dolore irure',
-    'product_id': 75
-  },
-  {
-    'group_id': 2,
-    'product_price': 693,
-    'product_name': 'excepteur ipsum duis',
-    'product_id': 76
-  },
-  {
-    'group_id': 3,
-    'product_price': 608,
-    'product_name': 'ad deserunt veniam',
-    'product_id': 77
-  },
-  {
-    'group_id': 1,
-    'product_price': 430,
-    'product_name': 'mollit laboris elit',
-    'product_id': 78
-  },
-  {
-    'group_id': 2,
-    'product_price': 665,
-    'product_name': 'quis aliquip non',
-    'product_id': 79
-  },
-  {
-    'group_id': 2,
-    'product_price': 353,
-    'product_name': 'veniam Lorem aliquip',
-    'product_id': 80
-  },
-  {
-    'group_id': 2,
-    'product_price': 902,
-    'product_name': 'sit aute dolor',
-    'product_id': 81
-  },
-  {
-    'group_id': 4,
-    'product_price': 64,
-    'product_name': 'incididunt ea fugiat',
-    'product_id': 82
-  },
-  {
-    'group_id': 4,
-    'product_price': 690,
-    'product_name': 'nisi fugiat eiusmod',
-    'product_id': 83
-  },
-  {
-    'group_id': 1,
-    'product_price': 298,
-    'product_name': 'nisi mollit laboris',
-    'product_id': 84
-  },
-  {
-    'group_id': 2,
-    'product_price': 600,
-    'product_name': 'reprehenderit officia ullamco',
-    'product_id': 85
-  },
-  {
-    'group_id': 4,
-    'product_price': 57,
-    'product_name': 'enim dolor ea',
-    'product_id': 86
-  },
-  {
-    'group_id': 2,
-    'product_price': 872,
-    'product_name': 'ad qui tempor',
-    'product_id': 87
-  },
-  {
-    'group_id': 1,
-    'product_price': 176,
-    'product_name': 'officia tempor voluptate',
-    'product_id': 88
-  },
-  {
-    'group_id': 3,
-    'product_price': 270,
-    'product_name': 'labore pariatur qui',
-    'product_id': 89
-  },
-  {
-    'group_id': 4,
-    'product_price': 761,
-    'product_name': 'dolore eiusmod non',
-    'product_id': 90
-  },
-  {
-    'group_id': 4,
-    'product_price': 100,
-    'product_name': 'mollit voluptate mollit',
-    'product_id': 91
-  },
-  {
-    'group_id': 4,
-    'product_price': 473,
-    'product_name': 'sint proident irure',
-    'product_id': 92
-  },
-  {
-    'group_id': 1,
-    'product_price': 835,
-    'product_name': 'laborum ea eiusmod',
-    'product_id': 93
-  },
-  {
-    'group_id': 1,
-    'product_price': 618,
-    'product_name': 'adipisicing mollit nulla',
-    'product_id': 94
-  },
-  {
-    'group_id': 1,
-    'product_price': 44,
-    'product_name': 'anim excepteur labore',
-    'product_id': 95
-  },
-  {
-    'group_id': 3,
-    'product_price': 608,
-    'product_name': 'laborum do voluptate',
-    'product_id': 96
-  },
-  {
-    'group_id': 4,
-    'product_price': 537,
-    'product_name': 'est duis sint',
-    'product_id': 97
-  },
-  {
-    'group_id': 2,
-    'product_price': 423,
-    'product_name': 'ullamco esse proident',
-    'product_id': 98
-  },
-  {
-    'group_id': 4,
-    'product_price': 454,
-    'product_name': 'voluptate qui tempor',
-    'product_id': 99
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 53,
+    'productPrice': 448,
+    'productName': 'id cupidatat commodo',
+    'productId': 87
+  },
+  {
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 67,
+    'productPrice': 290,
+    'productName': 'magna culpa commodo',
+    'productId': 88
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 52,
+    'productPrice': 43,
+    'productName': 'proident dolor veniam',
+    'productId': 89
+  },
+  {
+    'productType': 'd',
+    'groupId': 3,
+    'inventory': 26,
+    'productPrice': 263,
+    'productName': 'enim cillum laborum',
+    'productId': 90
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 48,
+    'productPrice': 835,
+    'productName': 'velit sit fugiat',
+    'productId': 91
+  },
+  {
+    'productType': 'a',
+    'groupId': 4,
+    'inventory': 87,
+    'productPrice': 820,
+    'productName': 'culpa nisi quis',
+    'productId': 92
+  },
+  {
+    'productType': 'd',
+    'groupId': 2,
+    'inventory': 49,
+    'productPrice': 133,
+    'productName': 'duis pariatur veniam',
+    'productId': 93
+  },
+  {
+    'productType': 'b',
+    'groupId': 3,
+    'inventory': 15,
+    'productPrice': 689,
+    'productName': 'ea ut adipisicing',
+    'productId': 94
+  },
+  {
+    'productType': 'a',
+    'groupId': 3,
+    'inventory': 19,
+    'productPrice': 617,
+    'productName': 'nisi consectetur ea',
+    'productId': 95
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 8,
+    'productPrice': 618,
+    'productName': 'et aliqua Lorem',
+    'productId': 96
+  },
+  {
+    'productType': 'd',
+    'groupId': 1,
+    'inventory': 52,
+    'productPrice': 825,
+    'productName': 'et cupidatat sit',
+    'productId': 97
+  },
+  {
+    'productType': 'b',
+    'groupId': 1,
+    'inventory': 64,
+    'productPrice': 265,
+    'productName': 'esse veniam duis',
+    'productId': 98
+  },
+  {
+    'productType': 'b',
+    'groupId': 4,
+    'inventory': 61,
+    'productPrice': 429,
+    'productName': 'et ea ipsum',
+    'productId': 99
   }
 ]
 
 export const productsFn = config => {
-  const {page, perPage} = config.params
+  const {page, perPage, category} = config.params
   const offset = (page - 1) * perPage
-  let selectedProducts = products.slice(offset, offset + perPage)
+
+  let selectedProducts = _filter(products.slice(offset, offset + perPage), p => p.groupId === category)
   return [200, selectedProducts]
 }

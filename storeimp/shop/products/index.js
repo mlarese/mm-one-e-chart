@@ -1,16 +1,13 @@
 import {actions} from './actions'
 import {getters} from './getters'
-
 /**
- * record = {
- *  id
- *  title
- *  description
- *  inventory
- *  image
- *  group
- *  price
- * }
+ * @typedef {Object} ProductItem
+ *  @property {string} productType
+ *  @property {number} groupId
+ *  @property {number} inventory
+ *  @property {number} productPrice
+ *  @property {string} productName
+ *  @property {number} productId
  */
 
 const oState = {
@@ -20,8 +17,7 @@ const oState = {
     current: '',
     id: 'groups'
   },
-
-  perPage: 10,
+  perPage: 20,
   page: 1,
   list: []
 }
@@ -36,6 +32,9 @@ export const mutations = {
   },
   setCurrentGroup (state, payLoad) {
     state.groups.current = payLoad
+  },
+  pushProducts (state, payLoad = []) {
+    state.list = state.list = [...state.list, ...payLoad]
   },
   setList (state, payLoad = []) {
     state.list = payLoad
