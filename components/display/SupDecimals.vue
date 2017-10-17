@@ -10,16 +10,18 @@
 
 <script>
   import numeral from 'numeral'
-  import {mapState} from 'vuex'
 
   export default {
+    name: 'SupDecimals',
     props: {
       number: {default: 2345.897},
       prefix: {default: '&euro;'},
-      suffix: {default: ''}
+      suffix: {default: ''},
+      locale: {default: 'it'},
+      decimal: {default: ','},
+      thousands: {default: '.'}
     },
     computed: {
-      ...mapState('app', ['thousands', 'decimal', 'locale']),
       numberPart () {
         return numeral(this.number).format('0,0.00').split(this.decimal)
       },

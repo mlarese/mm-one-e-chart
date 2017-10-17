@@ -1,8 +1,9 @@
-import numeral from 'numeral'
+import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
-  init ({commit, dispatch}, currentLocale = {thousands: '.', decimal: ',', locale: 'it'}) {
-    numeral.locale(currentLocale.locale)
-    commit('setLocale', locale)
+  init ({commit, dispatch}, {locale = 'it'}) {
+    const localeData = changeLocale(locale)
+    const {thousands, decimal} = localeData.delimiters
+    commit('setLocale', {locale, thousands, decimal})
   }
 }

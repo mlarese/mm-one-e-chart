@@ -24,7 +24,7 @@
         <button @click="loadCart">Load cart</button>
       </div>
       <div>
-        <sup-decimals />
+        <sup-decimals number="1234.568" />
       </div>
     </div>
   </div>
@@ -32,11 +32,11 @@
 
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex'
-  import SupDecimals from '../components/display/SupDecimals'
+  import {SupDecimalsVxConnect} from '../components/display/subdecimalshoc'
 
   export default {
     components: {
-      SupDecimals
+      SupDecimals: SupDecimalsVxConnect('app')
     },
     methods: {
       ...mapActions('tests', ['add', 'remove']),
