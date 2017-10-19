@@ -4,6 +4,8 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
+    serverInstances: {},
+    absServer: null,
     isAjax: false,
     error: {},
     hasError: false
@@ -11,6 +13,9 @@ export const state = () => {
 }
 
 export const mutations = {
+  setAbsServer (state, payLoad) {
+    state.absServer = payLoad
+  },
   isAjax (state, payLoad = false) {
     state.isAjax = payLoad
   },

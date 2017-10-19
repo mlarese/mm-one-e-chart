@@ -3,7 +3,11 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
-    products: []
+    products: [],
+    pagination: {
+      page: 0,
+      itemsPerPage: 10
+    }
   }
 }
 

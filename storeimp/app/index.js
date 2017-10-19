@@ -3,6 +3,7 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
+    absServer: null,
     locale: {
       thousands: '.',
       decimal: ',',

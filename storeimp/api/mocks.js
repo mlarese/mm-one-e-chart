@@ -1,11 +1,11 @@
 import MockAdapter from 'axios-mock-adapter'
-import {instance} from './axios'
+import axios from 'axios'
 import {productsFn} from './fixtures/products'
 import {categories} from './fixtures/categories'
 import {flowSetup, structureConfig} from './fixtures/booking'
 import {cart, cartPost} from './fixtures/cart'
 
-const mock = new MockAdapter(instance, {delayResponse: 300})
+const mock = new MockAdapter(axios, {delayResponse: 300})
 
 mock
   .onGet('/catalog/3/categories').reply(config => [200, categories])

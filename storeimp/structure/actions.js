@@ -1,4 +1,4 @@
-import {instance} from '../api/axios'
+import axios from 'axios'
 
 export const actions = {
   init ({commit}, structureConfig) {
@@ -8,9 +8,9 @@ export const actions = {
     commit('setStructureConfig', structureConfig)
     commit('setInited')
 
-    instance.defaults.headers.common['StructureId'] = structureId
-    instance.defaults.headers.common['PortalId'] = portalId
-    instance.defaults.headers.common['UserLanguageCode'] = userLanguageCode
+    axios.defaults.headers.common['StructureId'] = structureId
+    axios.defaults.headers.common['PortalId'] = portalId
+    axios.defaults.headers.common['UserLanguageCode'] = userLanguageCode
 
     return Promise.resolve({})
   }

@@ -1,12 +1,18 @@
-import {instance} from './axios'
+import axios from 'axios'
 import './mocks'
 
 export const actions = {
-  get ({commit}, {url, options = {}}) {
+  init ({commit}, {absServer}) {
+    console.log('--- api.init')
+
+    commit('setAbsServer', absServer)
+  },
+  get ({commit, getters}, {url, options = {}}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return instance.get(url, options)
+
+    return axios.get(url, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -20,11 +26,11 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  post ({commit}, {url, data}) {
+  post ({commit}, {url, data, options = {}}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return instance.post(url, data)
+    return axios.post(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -37,11 +43,11 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  put ({commit}, {url, data}) {
+  put ({commit}, {url, data, options = {}}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return instance.put(url, data)
+    return axios.put(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -54,11 +60,11 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  delete ({commit}, {url}) {
+  delete ({commit}, {url, options = {}}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return instance.delete(url)
+    return axios.delete(url, options)
       .then(res => {
         commit('isAjax')
         return res

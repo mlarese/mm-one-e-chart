@@ -5,9 +5,14 @@ export const actions = {
     console.log('--- categories.loadCategories')
     const loadCategoriesActions = []
 
-    _forEach(partners, partner =>
-      loadCategoriesActions.push(dispatch('api/get', {url: `/catalog/${partner}/categories`}, {root: true}))
-    )
+    _forEach(partners, partner => {
+      let payLoad = {
+        url: `/catalog/${partner}/categories`,
+        options: {baseURL: rootGetters['api/absServer']}
+      }
+
+      loadCategoriesActions.push(dispatch('api/get', payLoad, {root: true}))
+    })
 
     return Promise.all(loadCategoriesActions)
       .then(responses => {

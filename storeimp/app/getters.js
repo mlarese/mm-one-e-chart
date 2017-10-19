@@ -5,5 +5,6 @@ export const getters = {
   decimal: state => state.locale.decimal,
   thousands: state => state.locale.thousands,
   partners: (state, getters, rootState) => _values(rootState['booking'].structureConfig.partnerId),
-  currentCategory: (state, getters, rootState) => rootState['booking'].structureConfig.defaultCategory
+  currentCategory: (state, getters, rootState) => rootState['booking'].structureConfig.defaultCategory,
+  absServer: (state, getters, rootState) => rootState['booking'].absServer
 }

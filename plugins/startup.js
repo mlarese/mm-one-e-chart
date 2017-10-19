@@ -6,9 +6,9 @@ const structureConfig = {
   portalId: 1,
   userLanguageCode: 'it'
 }
-
+const absServer = 'https://absservername.abs-one.com/RESTfulAPI'
 export default ({app, store}) => {
   console.log('-- startup')
-  return store.dispatch('app/init', {locale, structureConfig, store}, {root: true})
+  return store.dispatch('app/init', {locale, structureConfig, store, absServer}, {root: true})
     .then(() => { console.log('-- startup then') })
 }

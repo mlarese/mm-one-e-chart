@@ -1,25 +1,32 @@
 import {changeLocale} from '../../assets/localehlp'
 
+const defineWatchers = ({store, getters, dispatch}) => {
+  store.watch(state => getters.currentCategory, () => {
+    if (getters.currentCategory !== null) {
+      dispatch('products/loadProducts', {getters}, {root: true})
+    }
+  })
+}
+
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig, store}) {
+  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig, store, absServer}) {
     console.log('-- app.init')
+    defineWatchers({store, getters, dispatch})
+
     const localeData = changeLocale(locale)
     commit('setLocale', {...localeData.delimiters, locale})
 
-    const configActions = [
-      dispatch('booking/loadFlowSetup', null, {root: true}),
-      dispatch('booking/loadStructureConfig', null, {root: true})
-    ]
-
-    console.dir(store.getters)
-
-    store.watch(getters.get(), () => {
-      console.dir(arguments)
-    })
-    return dispatch('structure/init', structureConfig, {root: true})
+    return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
-        return Promise.all(configActions)
-          .then(() => dispatch('categories/loadCategories', {partners: rootGetters['app/partners']}, {root: true}))
+        return dispatch('structure/init', structureConfig, {root: true})
+          .then(() => {
+            const configActions = [
+              dispatch('booking/loadFlowSetup', null, {root: true}),
+              dispatch('booking/loadStructureConfig', null, {root: true})
+            ]
+            return Promise.all(configActions)
+              .then(() => dispatch('categories/loadCategories', {partners: rootGetters['app/partners']}, {root: true}))
+          })
       })
   }
 }
