@@ -8,7 +8,7 @@ import {cart, cartPost} from './fixtures/cart'
 const mock = new MockAdapter(instance, {delayResponse: 300})
 
 mock
-  .onGet('/catalog/partner/categories').reply(config => [200, categories])
+  .onGet('/catalog/3/categories').reply(config => [200, categories])
   .onGet('/cart').reply(config => [200, cart])
   .onPost('/cart').reply(cartPost)
   .onGet('/products').reply(productsFn)
