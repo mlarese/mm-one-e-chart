@@ -2,8 +2,11 @@
 import Vuex from 'vuex'
 import app from '../storeimp/app'
 import api from '../storeimp/api'
-import shop from '../storeimp/shop'
-import tests from '../storeimp/tests'
+import structure from '../storeimp/structure'
+import booking from '../storeimp/booking'
+import categories from '../storeimp/categories'
+import products from '../storeimp/products'
+
 // import VuexPersistence from 'vuex-persist'
 // import VueLocalStorage from 'vue-localstorage'
 // import lz from 'lz-string'
@@ -26,8 +29,10 @@ const createStore = () => {
     modules: {
       app,
       api,
-      shop,
-      tests
+      booking,
+      structure,
+      categories,
+      products
     }
   })
 }

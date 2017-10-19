@@ -12,6 +12,8 @@ export const actions = {
         return res
       })
       .catch(err => {
+        console.dir(err)
+
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
@@ -28,6 +30,7 @@ export const actions = {
         return res
       })
       .catch(err => {
+        console.log(err)
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
@@ -44,6 +47,7 @@ export const actions = {
         return res
       })
       .catch(err => {
+        console.log(err)
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
@@ -60,6 +64,7 @@ export const actions = {
         return res
       })
       .catch(err => {
+        console.log(err)
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)

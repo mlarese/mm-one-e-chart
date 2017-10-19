@@ -1,0 +1,185 @@
+Lettura configurazione flusso acquisto
+
+GET https://absservername.abs-one.com/RESTfulAPI/booking/flowSetup/
+
+Header
+-----------------------------------------------------------------
+StructureId
+PortalId
+UserLanguageCode
+
+Response
+------------------------------------------------------------------
+
+array(
+	'stepRoomsEnable' => true,
+	'alternativeRoomsEnable' => true,
+	'stepEcommerceEnable' => true,
+	'stepAllianzEnable' => false,
+	'roomsFirst' => false
+)
+
+
+------------------------------------------------------------------
+
+Lettura configurazione struttura
+
+GET https://absservername.abs-one.com/RESTfulAPI/booking/config/
+
+Header
+------------------------------------------------------------------
+
+StructureId
+PortalId
+UserLanguageCode
+
+Response
+------------------------------------------------------------------
+
+array(
+	'specialServicesEnabled' => true,
+	'productCatalogOpen' => true,
+	'defaultCategory' => 0,
+	'shops' => array(2,56),
+	'partnerId' => array('2'=>3),
+	'ecommerceHosts' => array('2' =>'http://ecommerce.abs-one.com','56' => 'http://ecommerce.abs-one.com')
+)
+
+------------------------------------------------------------------
+
+
+------------------------------------------------------------------
+
+Lettura servizi speciali
+
+GET https://absservername.abs-one.com/RESTfulAPI/booking/specialservices/[:id]
+Header
+------------------------------------------------------------------
+
+StructureId
+PortalId
+UserLanguageCode
+
+Response
+------------------------------------------------------------------
+
+array(
+0 => array(
+        'id' => 1,
+        'code' => '1',
+        'name'=> 'Prodotto 1',
+        'photo' => 'http://...',
+        'description'=> 'dddddd',
+        'shortDescription' => 'dd',
+        'type' => 'specialservice' --'specialservice|simple|withvariants|treatment|productbundle'
+        'price' =>100.00,
+        'priceFrom'=>100.00
+        'priceType' => 'perperson' -- 'product|perperson | pernight |perreservation | perpesonpernight'
+        'order' => 0,
+	)
+)
+
+------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------
+
+Lettura categorie ecommerce (restituisce i servizi speciali farlocchi...)
+
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/partner/1/categories/[:id]
+Header
+------------------------------------------------------------------
+
+StructureId
+PortalId
+UserLanguageCode
+// no PartnerId ( 0 se non settato)
+
+Response
+------------------------------------------------------------------
+
+array(
+0 => array(
+        'id' => 1,
+        'code' => '1',
+        'name'=> 'Wellness',
+        'photo' => 'http://...',
+        'description'=> 'dddddd',
+        'shortDescription' => 'dd',
+        'order' => 0
+	)
+)
+
+------------------------------------------------------------------
+
+
+Lettura prodotti ecommerce
+
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products/[:page]
+Header
+------------------------------------------------------------------
+
+StructureId
+PortalId
+UserLanguageCode
+PartnerId ( ex:0 opzionale)
+Collection ( ex:home,offers opzionale)
+CategoryId (ex:1)
+ItemsPerPage
+Response
+------------------------------------------------------------------
+
+array(
+0 => array(
+    'id' => 1,
+    'sku' => '1',
+    'name'=> 'Prodotto 1',
+    'photo' => 'http://...',
+    'description'=> 'dddddd',
+    'shortDescription' => 'dd',
+    'type' => 'specialservice' --'specialservice|simple|withvariants|treatment|productbundle',
+    'price' => 100.0
+    'priceFrom' => 100.0
+    'priceType' => 'product'
+    'order' => 0,
+)
+)
+
+------------------------------------------------------------------
+
+
+
+Lettura prodotto
+
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/product/[:id]
+Header
+------------------------------------------------------------------
+
+StructureId
+PortalId
+UserLanguageCode
+
+Response
+------------------------------------------------------------------
+
+array(
+0 => array(
+    'id' => 1,
+    'sku' => '1',
+    'name'=> 'Prodotto 1',
+    'photo' => 'http://...',
+    'gallery' => array(array('url'=>'','title'=>'','alt'=>'','order'=>0))
+    'description'=> 'dddddd',
+    'shortDescription' => 'dd',
+    'type' => 'withvariants' --'specialservice|simple|withvariants|treatment|productbundle',
+    'price' => 100.0
+    'priceFrom' => 100.0
+    'priceType' => 'product'
+    'variants' => array(),
+    'order' => 0,
+)
+)
+
+------------------------------------------------------------------
