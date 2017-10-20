@@ -1,6 +1,6 @@
-export const absServer = (state, getters, rootState) => rootState['api'].absServer
+export const absServer = (state, getters, rootState) => rootState.api.servers['abs'] || null
 
 export const getters = {
   isAjax: state => state.isAjax,
-  absServer
+  server: state => serverName => state.servers[serverName]
 }

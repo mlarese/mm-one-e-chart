@@ -2,17 +2,22 @@ import axios from 'axios'
 import './mocks'
 
 export const actions = {
-  init ({commit}, {absServer}) {
+  init ({commit, dispatch}, {absServerUrl}) {
     console.log('--- api.init')
-
-    commit('setAbsServer', absServer)
+    dispatch('addServer', {key: 'abs', url: absServerUrl})
   },
-  get ({commit, getters}, {url, options = {}}) {
+  addServer ({commit}, {key, url}) {
+    const instance = axios.create({baseURL: url, timeout: 1000})
+    commit('addServer', {key, instance})
+  },
+  get ({commit, getters}, {url, options = {}, serverName = 'abs'}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
 
-    return axios.get(url, options)
+    const instance = getters.server(serverName)
+    console.log('******* api.get', url, 'on', serverName)
+    return instance.get(url, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -26,11 +31,12 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  post ({commit}, {url, data, options = {}}) {
+  post ({commit, getters}, {url, data, options = {}, serverName = 'abs'}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return axios.post(url, data, options)
+    const instance = getters.server(serverName)
+    return instance.post(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -43,11 +49,12 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  put ({commit}, {url, data, options = {}}) {
+  put ({commit, getters}, {url, data, options = {}}, serverName = 'abs') {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return axios.put(url, data, options)
+    const instance = getters.server(serverName)
+    return instance.put(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -60,11 +67,12 @@ export const actions = {
         return Promise.reject(err)
       })
   },
-  delete ({commit}, {url, options = {}}) {
+  delete ({commit, getters}, {url, options = {}}, serverName = 'abs') {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    return axios.delete(url, options)
+    const instance = getters.server(serverName)
+    return instance.delete(url, options)
       .then(res => {
         commit('isAjax')
         return res

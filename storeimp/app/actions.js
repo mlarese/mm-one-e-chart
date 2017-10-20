@@ -1,31 +1,35 @@
 import {changeLocale} from '../../assets/localehlp'
 
-const defineWatchers = ({store, getters, dispatch}) => {
+const defineWatchers = ({store, getters, dispatch, rootGetters}) => {
   store.watch(state => getters.currentCategory, () => {
     if (getters.currentCategory !== null) {
-      dispatch('products/loadProducts', {getters}, {root: true})
+      const category = rootGetters['categories/category'](getters.currentCategory)
+      dispatch('products/loadProducts', {category}, {root: true})
     }
   })
 }
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig, store, absServer}) {
+  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig: structureOptions, store, absServer}) {
     console.log('-- app.init')
-    defineWatchers({store, getters, dispatch})
+    defineWatchers({store, getters, dispatch, rootGetters})
 
     const localeData = changeLocale(locale)
     commit('setLocale', {...localeData.delimiters, locale})
 
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
-        return dispatch('structure/init', structureConfig, {root: true})
+        return dispatch('structure/init', structureOptions, {root: true})
           .then(() => {
             const configActions = [
-              dispatch('booking/loadFlowSetup', null, {root: true}),
-              dispatch('booking/loadStructureConfig', null, {root: true})
+              dispatch('booking/loadFlowSetup', structureOptions, {root: true}),
+              dispatch('booking/loadStructureConfig', structureOptions, {root: true})
             ]
             return Promise.all(configActions)
-              .then(() => dispatch('categories/loadCategories', {partners: rootGetters['app/partners']}, {root: true}))
+              .then(() => {
+                return dispatch('categories/loadCategories', {partners: rootGetters['booking/partners']}, {root: true})
+                  .then(() => commit('setCurrentCategory', rootGetters['booking/structureConfig'].defaultCategory))
+              })
           })
       })
   }

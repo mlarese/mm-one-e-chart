@@ -1,17 +1,21 @@
 import _forEach from 'lodash/forEach'
 
 export const actions = {
-  loadCategories ({commit, dispatch, rootGetters}, {partners = []}) {
+  loadCategories ({commit, dispatch, rootGetters}, {partners = [], userLanguageCode}) {
     console.log('--- categories.loadCategories')
     const loadCategoriesActions = []
+    const url = '/catalog/partner/categories'
 
     _forEach(partners, partner => {
-      let payLoad = {
-        url: `/catalog/${partner}/categories`,
-        options: {baseURL: rootGetters['api/absServer']}
+      const options = {
+        headers: {
+          ShopId: partner.shopId,
+          UserLanguageCode: userLanguageCode,
+          PartnerId: partner.partnerId
+        }
       }
-
-      loadCategoriesActions.push(dispatch('api/get', payLoad, {root: true}))
+      let serverName = partner.shopId
+      loadCategoriesActions.push(dispatch('api/get', {url, options, serverName}, {root: true}))
     })
 
     return Promise.all(loadCategoriesActions)

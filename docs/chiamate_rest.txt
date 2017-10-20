@@ -41,7 +41,7 @@ array(
 	'productCatalogOpen' => true,
 	'defaultCategory' => 0,
 	'shops' => array(2,56),
-	'partnerId' => array('2'=>3),
+	'partnerIds' => array('2'=>3),
 	'ecommerceHosts' => array('2' =>'http://ecommerce.abs-one.com','56' => 'http://ecommerce.abs-one.com')
 )
 
@@ -88,14 +88,13 @@ array(
 
 Lettura categorie ecommerce (restituisce i servizi speciali farlocchi...)
 
-GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/partner/1/categories/[:id]
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/partner/categories/[:id]
 Header
 ------------------------------------------------------------------
 
-StructureId
-PortalId
+ShopId
 UserLanguageCode
-// no PartnerId ( 0 se non settato)
+PartnerId ( 0 se non settato)
 
 Response
 ------------------------------------------------------------------
@@ -104,6 +103,10 @@ array(
 0 => array(
         'id' => 1,
         'code' => '1',
+
+        'shopId' => '2',  // da integrare
+        'partnerId' => '3',  // da integrare
+
         'name'=> 'Wellness',
         'photo' => 'http://...',
         'description'=> 'dddddd',
@@ -111,6 +114,7 @@ array(
         'order' => 0
 	)
 )
+
 
 ------------------------------------------------------------------
 
@@ -121,8 +125,7 @@ GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products/[:page]
 Header
 ------------------------------------------------------------------
 
-StructureId
-PortalId
+ShopId
 UserLanguageCode
 PartnerId ( ex:0 opzionale)
 Collection ( ex:home,offers opzionale)

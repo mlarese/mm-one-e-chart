@@ -8,10 +8,10 @@ import {cart, cartPost} from './fixtures/cart'
 const mock = new MockAdapter(axios, {delayResponse: 300})
 
 mock
-  .onGet('/catalog/3/categories').reply(config => [200, categories])
+  .onGet('/catalog/partner/categories').reply(config => [200, categories])
   .onGet('/cart').reply(config => [200, cart])
   .onPost('/cart').reply(cartPost)
-  .onGet('/products').reply(productsFn)
+  .onGet('/catalog/products/0').reply(productsFn)
   .onGet('/booking/flowSetup').reply(config => [200, flowSetup])
   .onGet('/booking/config').reply(config => [200, structureConfig])
   .onGet('/testerror500').reply(500)

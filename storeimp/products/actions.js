@@ -1,8 +1,9 @@
 export const actions = {
-  loadProducts ({dispatch, commit, getters}, {currentCategory}) {
+  loadProducts ({dispatch, commit, getters}, {category}) {
     console.log('--- products.loadProducts')
     const page = getters.page
-    const url = `https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products/${page}`
-    return dispatch('api/get', {url})
+    const url = `/catalog/products/${page}`
+    console.dir(category)
+    return dispatch('api/get', {url, serverName: category.shopId}, {root: true})
   }
 }

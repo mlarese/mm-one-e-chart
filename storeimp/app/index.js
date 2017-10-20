@@ -4,6 +4,7 @@ import {getters} from './getters'
 export const state = () => {
   return {
     absServer: null,
+    currentCategory: null,
     locale: {
       thousands: '.',
       decimal: ',',
@@ -13,6 +14,10 @@ export const state = () => {
 }
 
 export const mutations = {
+  setCurrentCategory (state, payLoad) {
+    console.log('setCurrentCategory Payload', payLoad)
+    state.currentCategory = payLoad
+  },
   setLocale (state, payLoad) {
     state.locale = payLoad
   }
