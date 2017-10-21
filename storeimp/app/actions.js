@@ -32,5 +32,8 @@ export const actions = {
               })
           })
       })
+  },
+  changeCategory ({commit}, categoryId) {
+    commit('setCurrentCategory', categoryId)
   }
 }

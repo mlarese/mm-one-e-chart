@@ -15,7 +15,6 @@ export const state = () => {
 
 export const mutations = {
   setCurrentCategory (state, payLoad) {
-    console.log('setCurrentCategory Payload', payLoad)
     state.currentCategory = payLoad
   },
   setLocale (state, payLoad) {

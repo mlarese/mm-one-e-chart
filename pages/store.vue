@@ -1,11 +1,22 @@
 <template>
     <div>
-        <h6>Store</h6>
+        <button @click="onChangeCategory">Change category</button>
     </div>
 </template>
 <script>
+  import {mapActions} from 'vuex'
   export default {
-    components: {},
-    props: []
+    data () {
+      return {
+        category: 0
+      }
+    },
+    methods: {
+      ...mapActions('app', ['changeCategory']),
+      onChangeCategory () {
+        this.category++
+        this.changeCategory(this.category)
+      }
+    }
   }
 </script>
