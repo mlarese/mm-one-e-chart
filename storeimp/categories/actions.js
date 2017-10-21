@@ -25,5 +25,18 @@ export const actions = {
         return categories
       })
       .then(categories => commit('setCategories', categories))
+  },
+  loadCategory ({commit, dispatch}, {category, userLanguageCode}) {
+    const {id, shopId, partnerId} = category
+    const options = {
+      headers: {
+        ShopId: shopId,
+        UserLanguageCode: userLanguageCode,
+        PartnerId: partnerId
+      }
+    }
+    const serverName = shopId
+    const url = `/catalog/partner/categories/${id}`
+    return dispatch('api/get', {url, options, serverName}, {root: true})
   }
 }

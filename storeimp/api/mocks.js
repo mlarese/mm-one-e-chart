@@ -9,6 +9,7 @@ const mock = new MockAdapter(axios, {delayResponse: 300})
 
 mock
   .onGet('/catalog/partner/categories').reply(config => [200, categories])
+  .onGet('/catalog/partner/categories/1').reply(config => [200, categories.find(c => c.id === 1)])
   .onGet('/cart').reply(config => [200, cart])
   .onPost('/cart').reply(cartPost)
   .onGet('/booking/specialservices').reply(servicesFn)

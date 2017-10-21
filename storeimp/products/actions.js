@@ -1,16 +1,63 @@
 export const actions = {
-  loadProducts ({dispatch, commit, getters}, {category}) {
+  loadProductsOrServices ({dispatch, commit, getters}, {
+    itemsPerPage,
+    page,
+    structureId,
+    portalId,
+    category,
+    userLanguageCode,
+    collection = null
+  }) {
     console.log('--- products.loadProducts')
-    const page = getters.page
 
     if (category.id === 0) {
-      const url = `/booking/specialservices`
-      return dispatch('api/get', {url}, {root: true})
-        .then(res => commit('setProducts', res.data))
+      return dispatch('loadSpecialServices', {portalId, structureId, userLanguageCode})
+        .then(res => {
+          commit('setProducts', res.data)
+          return res
+        })
     } else {
-      const url = `/catalog/products/${page}`
-      return dispatch('api/get', {url, serverName: category.shopId}, {root: true})
-        .then(res => commit('setProducts', res.data))
+      return dispatch('loadEcommerceProducts', {itemsPerPage, page, category, userLanguageCode, collection})
+        .then(res => {
+          commit('setProducts', res.data)
+          return res
+        })
     }
+  },
+  loadSpecialServices ({commit, dispatch}, {structureId, portalId, userLanguageCode}) {
+    const url = `/booking/specialservices`
+    const options = {
+      headers: {
+        StructureId: structureId,
+        PortalId: portalId,
+        UserLanguageCode: userLanguageCode
+      }
+    }
+    return dispatch('api/get', {url, options}, {root: true})
+      .then(res => res)
+  },
+  loadEcommerceProducts ({dispatch, commit, getters}, {
+    itemsPerPage,
+    page,
+    category,
+    userLanguageCode,
+    collection = null
+  }) {
+    const {shopId, id, partnerId} = category
+    const url = `/catalog/products/${page}`
+    const options = {
+      headers: {
+        ShopId: shopId,
+        UserLanguageCode: userLanguageCode,
+        PartnerId: partnerId,
+        Collection: collection,
+        CategoryId: id,
+        ItemsPerPage: itemsPerPage
+      }
+    }
+
+    const serverName = shopId
+    return dispatch('api/get', {url, options, serverName}, {root: true})
+      .then(res => res)
   }
 }
