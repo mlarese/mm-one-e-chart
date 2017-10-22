@@ -8,7 +8,7 @@ export const actions = {
     userLanguageCode,
     collection = null
   }) {
-    console.log('--- products.loadProducts')
+    console.log('--- products.loadProductsOrServices')
 
     if (category.id === 0) {
       return dispatch('loadSpecialServices', {portalId, structureId, userLanguageCode})
@@ -24,8 +24,12 @@ export const actions = {
         })
     }
   },
-  loadSpecialServices ({commit, dispatch}, {structureId, portalId, userLanguageCode}) {
-    const url = `/booking/specialservices`
+  loadSpecialServices ({commit, dispatch}, {structureId, portalId, userLanguageCode, serviceId = null}) {
+    let url = `/booking/specialservices`
+
+    if (serviceId !== null) {
+        url = `/booking/specialservices/${serviceId}`
+    }
     const options = {
       headers: {
         StructureId: structureId,
@@ -36,7 +40,7 @@ export const actions = {
     return dispatch('api/get', {url, options}, {root: true})
       .then(res => res)
   },
-  loadEcommerceProducts ({dispatch, commit, getters}, {
+  loadEcommerceProducts ({dispatch, commit, getters, productId = null}, {
     itemsPerPage,
     page,
     category,
@@ -44,7 +48,9 @@ export const actions = {
     collection = null
   }) {
     const {shopId, id, partnerId} = category
+
     const url = `/catalog/products/${page}`
+    if (productId === null )
     const options = {
       headers: {
         ShopId: shopId,

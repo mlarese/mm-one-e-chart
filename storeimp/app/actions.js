@@ -4,7 +4,7 @@ const defineWatchers = ({store, getters, dispatch, rootGetters}) => {
   store.watch(state => getters.currentCategory, () => {
     if (getters.currentCategory !== null) {
       const category = rootGetters['categories/category'](getters.currentCategory)
-      dispatch('products/loadProducts', {category}, {root: true})
+      dispatch('products/loadProductsOrServices', {category}, {root: true})
     }
   })
 }

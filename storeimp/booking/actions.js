@@ -7,6 +7,7 @@ const getOptions = ({structureId, portalId, userLanguageCode}) => ({
     UserLanguageCode: userLanguageCode
   }
 })
+
 export const actions = {
   init ({commit, dispatch}, {absServer}) {
     commit('setAbsServer', absServer)
