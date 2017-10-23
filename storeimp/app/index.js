@@ -9,7 +9,8 @@ export const state = () => {
       thousands: '.',
       decimal: ',',
       locale: 'it'
-    }
+    },
+    currentProduct: null
   }
 }
 

@@ -26,8 +26,7 @@ export const actions = {
       })
       .then(categories => commit('setCategories', categories))
   },
-  loadCategory ({commit, dispatch}, {category, userLanguageCode}) {
-    const {id, shopId, partnerId} = category
+  selectCategory ({commit, dispatch}, {id, shopId, partnerId, userLanguageCode}) {
     const options = {
       headers: {
         ShopId: shopId,
@@ -38,5 +37,9 @@ export const actions = {
     const serverName = shopId
     const url = `/catalog/partner/categories/${id}`
     return dispatch('api/get', {url, options, serverName}, {root: true})
+      .then(res => {
+        commit('setSelectedCategory, res.data')
+        return res
+      })
   }
 }

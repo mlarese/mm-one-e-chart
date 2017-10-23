@@ -3,13 +3,24 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
-    products: []
+    products: [],
+    selectedProduct: {},
+    pagination: {
+      page: 0,
+      itemsPerPage: 10
+    }
   }
 }
 
 export const mutations = {
   setProducts (state, payLoad) {
     state.products = payLoad
+  },
+  setPage (state, payLoad = 0) {
+    state.pagination.page = payLoad
+  },
+  setSelectedProduct (state, payLoad = {}) {
+    state.selectedProduct = payLoad
   }
 }
 

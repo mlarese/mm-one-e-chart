@@ -121,10 +121,10 @@ array(
 
 Lettura prodotti ecommerce
 
-GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products/[:page]
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products
 Header
 ------------------------------------------------------------------
-
+Page
 ShopId
 UserLanguageCode
 PartnerId ( ex:0 opzionale)
@@ -156,7 +156,7 @@ array(
 
 Lettura prodotto
 
-GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/product/[:id]
+GET https://ecommerceservername.abs-one.com/RESTfulAPI/catalog/products/[:id]
 Header
 ------------------------------------------------------------------
 

@@ -1,4 +1,5 @@
 import {actions} from './actions'
+import {getters} from './getters'
 
 export const state = () => {
   return {
@@ -24,5 +25,6 @@ export default {
   namespaced: true,
   mutations,
   actions,
+  getters,
   state
 }

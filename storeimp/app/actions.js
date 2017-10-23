@@ -1,19 +1,8 @@
 import {changeLocale} from '../../assets/localehlp'
 
-const defineWatchers = ({store, getters, dispatch, rootGetters}) => {
-  store.watch(state => getters.currentCategory, () => {
-    if (getters.currentCategory !== null) {
-      const category = rootGetters['categories/category'](getters.currentCategory)
-      dispatch('products/loadProductsOrServices', {category}, {root: true})
-    }
-  })
-}
-
 export const actions = {
   init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig: structureOptions, store, absServer}) {
     console.log('-- app.init')
-    defineWatchers({store, getters, dispatch, rootGetters})
-
     const localeData = changeLocale(locale)
     commit('setLocale', {...localeData.delimiters, locale})
 
@@ -28,12 +17,52 @@ export const actions = {
             return Promise.all(configActions)
               .then(() => {
                 return dispatch('categories/loadCategories', {partners: rootGetters['booking/partners']}, {root: true})
-                  .then(() => commit('setCurrentCategory', rootGetters['booking/structureConfig'].defaultCategory))
+                  .then(() => {
+                    return dispatch('changeCategory', rootGetters['booking/structureConfig'].defaultCategory)
+                  })
               })
           })
       })
   },
-  changeCategory ({commit}, categoryId) {
+  changeCategory ({commit, dispatch}, categoryId) {
     commit('setCurrentCategory', categoryId)
+    dispatch('loadPaginatedProductsOrServices')
+  },
+  changeProductPage ({commit, dispatch}, page) {
+    dispatch('products/changePaginationPage', page, {root: true})
+      .then(() => dispatch('loadPaginatedProductsOrServices'))
+  },
+  loadPaginatedProductsOrServices ({commit, dispatch, rootGetters, getters}) {
+    console.log('--- app.loadPaginatedProductsOrServices')
+    const category = getters.currentCategoryOb
+
+    const payload = {
+      itemsPerPage: rootGetters['products/itemsPerPage'],
+      page: rootGetters['products/page'],
+      structureId: rootGetters['structure/structureId'],
+      portalId: rootGetters['structure/portalId'],
+      category,
+      userLanguageCode: rootGetters['structure/userLanguageCode'],
+      collection: null
+    }
+
+    return dispatch('products/loadProductsOrServices', payload, {root: true})
+  },
+  selectProduct ({commit, dispatch, rootGetters, getters}, itemId) {
+    console.log('--- app.loadPaginatedProduct')
+    const category = getters.currentCategoryOb
+
+    const payload = {
+      itemsPerPage: rootGetters['products/itemsPerPage'],
+      page: rootGetters['products/page'],
+      structureId: rootGetters['structure/structureId'],
+      portalId: rootGetters['structure/portalId'],
+      category,
+      userLanguageCode: rootGetters['structure/userLanguageCode'],
+      collection: null,
+      itemId
+    }
+
+    return dispatch('products/selectProduct', payload, {root: true})
   }
 }

@@ -7,7 +7,20 @@ export const products = [
     'priceFrom': 911,
     'price': 526,
     'photo': '',
-    'shortDescription': 'laboris magna veniam eu fugiat labore aliqua tempor',
+    'shortDescription': 'Simple laboris magna veniam eu fugiat labore aliqua tempor',
+    'description': 'sint reprehenderit exercitation incididunt occaecat ad eu nostrud',
+    'name': 'ex id exercitation',
+    'code': 1,
+    'id': 1
+  },
+  {
+    'priceType': 'perperson',
+    'type': 'specialservice',
+    'inventory': 18,
+    'priceFrom': 911,
+    'price': 526,
+    'photo': '',
+    'shortDescription': 'Special laboris magna veniam eu fugiat labore aliqua tempor',
     'description': 'sint reprehenderit exercitation incididunt occaecat ad eu nostrud',
     'name': 'ex id exercitation',
     'code': 1,
@@ -1292,10 +1305,14 @@ export const products = [
 console.log('--- total mock products', products.length)
 export const productsFn = c => {
   let selectedProducts = _filter(products, p => p.type !== 'specialservice')
+  console.log('---- Headers ----')
+  console.dir(c.headers)
   return [200, selectedProducts]
 }
 
 export const servicesFn = c => {
   let selectedProducts = _filter(products, p => p.type === 'specialservice')
+  console.log('---- Headers ----')
+  console.dir(c.headers)
   return [200, selectedProducts]
 }

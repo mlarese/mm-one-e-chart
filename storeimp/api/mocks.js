@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
-import {productsFn, servicesFn} from './fixtures/products'
+import {productsFn, servicesFn, products} from './fixtures/products'
 import {categories} from './fixtures/categories'
 import {flowSetup, structureConfig} from './fixtures/booking'
 import {cart, cartPost} from './fixtures/cart'
@@ -13,7 +13,9 @@ mock
   .onGet('/cart').reply(config => [200, cart])
   .onPost('/cart').reply(cartPost)
   .onGet('/booking/specialservices').reply(servicesFn)
-  .onGet('/catalog/products/0').reply(productsFn)
+  .onGet('/catalog/products').reply(productsFn)
+  .onGet('/booking/specialservices/1').reply(config => [200, products.find(p => (p.id === 1 && p.type === 'specialservice'))])
+  .onGet('/catalog/products/1').reply(config => [200, products.find(p => (p.id === 1 && p.type === 'simple'))])
   .onGet('/booking/flowSetup').reply(config => [200, flowSetup])
   .onGet('/booking/config').reply(config => [200, structureConfig])
   .onGet('/testerror500').reply(500)
