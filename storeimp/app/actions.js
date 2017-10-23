@@ -1,18 +1,20 @@
 import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structureConfig: structureOptions, store, absServer}) {
+  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structure, store, absServer, cart}) {
     console.log('-- app.init')
     const localeData = changeLocale(locale)
     commit('setLocale', {...localeData.delimiters, locale})
+    commit('setUserLanguageCode', locale)
 
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
-        return dispatch('structure/init', structureOptions, {root: true})
+        return dispatch('structure/init', structure, {root: true})
           .then(() => {
             const configActions = [
-              dispatch('booking/loadFlowSetup', structureOptions, {root: true}),
-              dispatch('booking/loadStructureConfig', structureOptions, {root: true})
+              dispatch('cart/init', cart, {root: true}),
+              dispatch('booking/loadFlowSetup', {...structure, userLanguageCode: locale}, {root: true}),
+              dispatch('booking/loadStructureConfig', {...structure, userLanguageCode: locale}, {root: true})
             ]
             return Promise.all(configActions)
               .then(() => {
@@ -42,7 +44,7 @@ export const actions = {
       structureId: rootGetters['structure/structureId'],
       portalId: rootGetters['structure/portalId'],
       category,
-      userLanguageCode: rootGetters['structure/userLanguageCode'],
+      userLanguageCode: getters['userLanguageCode'],
       collection: null
     }
 
@@ -58,7 +60,7 @@ export const actions = {
       structureId: rootGetters['structure/structureId'],
       portalId: rootGetters['structure/portalId'],
       category,
-      userLanguageCode: rootGetters['structure/userLanguageCode'],
+      userLanguageCode: getters['userLanguageCode'],
       collection: null,
       itemId
     }

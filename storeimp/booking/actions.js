@@ -20,7 +20,7 @@ export const actions = {
       })
     }
   },
-  loadFlowSetup ({commit, dispatch, getters, rootState}, {structureId, portalId, userLanguageCode}) {
+  loadFlowSetup ({commit, dispatch, getters, rootState}, {structureId = null, portalId = null, userLanguageCode}) {
     console.log('--- booking.loadFlowSetup')
     const url = '/booking/flowSetup'
     const options = getOptions({structureId, portalId, userLanguageCode})

@@ -3,8 +3,8 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
-    absServer: null,
     currentCategory: null,
+    userLanguageCode: 'it',
     locale: {
       thousands: '.',
       decimal: ',',
@@ -20,6 +20,9 @@ export const mutations = {
   },
   setLocale (state, payLoad) {
     state.locale = payLoad
+  },
+  setUserLanguageCode (state, payLoad) {
+    state.userLanguageCode = payLoad
   }
 }
 

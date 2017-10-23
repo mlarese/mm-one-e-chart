@@ -1,5 +1,7 @@
 Lettura configurazione flusso acquisto
-
+***************************************************
+                    OK
+***************************************************
 GET https://absservername.abs-one.com/RESTfulAPI/booking/flowSetup/
 
 Header
@@ -21,7 +23,9 @@ array(
 
 
 ------------------------------------------------------------------
-
+***************************************************
+                    OK
+***************************************************
 Lettura configurazione struttura
 
 GET https://absservername.abs-one.com/RESTfulAPI/booking/config/

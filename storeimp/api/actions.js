@@ -2,13 +2,14 @@ import axios from 'axios'
 import './mocks'
 
 export const actions = {
-  init ({commit, dispatch}, {absServerUrl}) {
+  init ({commit, dispatch}, {absServer}) {
     console.log('--- api.init')
-    dispatch('addServer', {key: 'abs', url: absServerUrl})
+    dispatch('addServer', {key: 'abs', url: absServer})
   },
   addServer ({commit}, {key, url}) {
-    const instance = axios.create({baseURL: url, timeout: 1000})
-    commit('addServer', {key, instance})
+    const baseURL = `${url}/RESTfulAPI`
+    const instance = axios.create({baseURL, timeout: 1000})
+    commit('addServer', {key, instance, baseURL})
   },
   get ({commit, getters}, {url, options = {}, serverName = 'abs'}) {
     commit('isAjax', true)

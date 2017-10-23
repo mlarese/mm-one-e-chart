@@ -6,6 +6,7 @@ import structure from '../storeimp/structure'
 import booking from '../storeimp/booking'
 import categories from '../storeimp/categories'
 import products from '../storeimp/products'
+import cart from '../storeimp/cart'
 
 // import VuexPersistence from 'vuex-persist'
 // import VueLocalStorage from 'vue-localstorage'
@@ -32,7 +33,8 @@ const createStore = () => {
       booking,
       structure,
       categories,
-      products
+      products,
+      cart
     }
   })
 }

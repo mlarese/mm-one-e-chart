@@ -22,18 +22,6 @@ export let cart = [
     'roomId': 1,
     'roomPrice': 1200,
     'roomDescription': 'triple'
-  },
-  {
-    'quantity': 1,
-    'productType': 'b',
-    'inventory': 58,
-    'productPrice': 293,
-    'productName': 'veniam irure adipisicing',
-    'productId': 4,
-    'rowId': 122,
-    'roomId': 2,
-    'roomPrice': 800,
-    'roomDescription': 'single'
   }
 ]
 

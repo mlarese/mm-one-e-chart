@@ -3,20 +3,19 @@ import {getters} from './getters'
 
 export const state = () => {
   return {
-    inited: false,
-    structureConfig: {
-      structureId: 0,
-      portalId: 0
+    cart: {
+      id: 0,
+      items: []
     }
   }
 }
 
 export const mutations = {
-  setInited (state, payLoad = true) {
-    state.inited = payLoad
+  setCart (state, payLoad) {
+    state.cart = payLoad
   },
-  setStructureConfig (state, payLoad) {
-    state.structureConfig = payLoad
+  add (state, {rowId, product, quantity}) {
+
   }
 }
 
