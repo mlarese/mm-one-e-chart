@@ -4,9 +4,11 @@ export const actions = {
     commit('setCart', cart)
   },
   removeProduct ({commit, dispatch}, {cartIndex}) {
+    if (cartIndex < 0) return
     commit('removeProduct', {cartIndex})
   },
-  removeQuantity ({state, commit, dispatch, getters}, {cartIndex, quantity}) {
+  removeQuantity ({state, commit, dispatch, getters}, {cartIndex, quantity = 1}) {
+    if (cartIndex < 0) return
     const cartItem = getters.items[cartIndex]
 
     if (cartItem.quantity > quantity) {
@@ -15,6 +17,7 @@ export const actions = {
       commit('removeProduct', {cartIndex})
     }
   },
+
   addProduct ({commit, dispatch}, {rowId, product, quantity}) {
     commit('addProduct', {rowId, product, quantity})
   },

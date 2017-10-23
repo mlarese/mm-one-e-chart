@@ -18,7 +18,9 @@ export const mutations = {
     state.cart.items.push({rowId, ...product, quantity})
   },
   removeProduct (state, {cartIndex}) {
-    state.cart.items.splice(cartIndex, 1)
+    if (cartIndex && cartIndex > 0) {
+      state.cart.items.splice(cartIndex, 1)
+    }
   },
   addQuantity (state, {cartIndex, quantity = 1}) {
     state.cart.items[cartIndex].quantity += quantity
