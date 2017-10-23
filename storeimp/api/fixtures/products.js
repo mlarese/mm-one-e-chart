@@ -35,7 +35,7 @@ export const products = [
     'photo': '',
     'shortDescription': 'irure anim aliqua irure commodo id ut occaecat',
     'description': 'commodo elit consequat fugiat do minim officia mollit',
-    'name': 'reprehenderit ullamco eiusmod',
+    'name': 'Item with productId 2 reprehenderit ullamco eiusmod',
     'code': 2,
     'id': 2
   },
