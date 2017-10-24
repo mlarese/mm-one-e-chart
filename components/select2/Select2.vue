@@ -1,32 +1,36 @@
 <template>
-    <select>
-        <slot></slot>
+    <select v-model="model" class="form-control">
+        <option disabled>Select...</option>
+        <option v-for="opt in options" :value="opt.id">{{ opt.text }}</option>
     </select>
 </template>
 <script>
   export default {
-    components: {},
-    props: ['options', 'value'],
-    mounted: function () {
-      var vm = this
-      $(this.$el)
-        .select2({ data: this.options })
-        .val(this.value)
-        .trigger('change')
-        .on('change', function () {
-          vm.$emit('input', this.value)
-        })
-    },
-    watch: {
-      value: function (value) {
-        $(this.$el).val(value).trigger('change');
+    props: {
+      'options': {
+        type: Array,
+        required: true,
+        default: () => []
       },
-      options: function (options) {
-        $(this.$el).empty().select2({ data: options })
+      'value': {
+        default: () => ''
       }
     },
-    destroyed: function () {
-      $(this.$el).off().select2('destroy')
+    data () {
+      return {
+        model: ''
+      }
+    },
+    mounted () {
+      this.model = this.value
+    },
+    watch: {
+      model (model) {
+        this.$emit('input', model)
+      },
+      value (value) {
+        this.model = value
+      }
     }
   }
 </script>

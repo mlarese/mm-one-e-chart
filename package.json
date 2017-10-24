@@ -54,12 +54,10 @@
     "vue-infinite-loading": "^2.2.1",
     "vue-localstorage": "^0.4.2",
     "vue-mugen-scroll": "^0.2.5",
-    "vue-search-select": "^2.3.12",
     "vue-select": "^2.3.0",
     "vue-server-renderer": "^2.5.2",
-    "vue-strap": "^1.1.37",
     "vue-template-compiler": "^2.5.2",
-    "vuestrap": "^1.0.3",
+    "vue2-select2": "0.0.2",
     "vuex": "^3.0.0",
     "vuex-persist": "^0.2.1"
   },

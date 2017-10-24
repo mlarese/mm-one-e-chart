@@ -10,6 +10,8 @@
 
                 <div class="STSS__roomsNew__item__ssr__qty pull-left">
                     <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
+
+                    <select2 style="width: 50px;display:inline-block" v-model="item.quantity+''" :options="options" />
                 </div>
                 <div class="STSS__roomsNew__item__price pull-right">
                     <sup-decimals :number="item.price" />
@@ -24,6 +26,7 @@
   import IconRemove from '../icons/IconRemove'
   import {SupDecimalsVxConnect} from '../display/subdecimalshoc'
   import {mapActions} from 'vuex'
+  import Select2 from 'vue-select'
 
   const SupDecimals = SupDecimalsVxConnect('app')
 
@@ -34,7 +37,15 @@
         this.removeProduct({cartIndex: this.index})
       }
     },
-
+    computed: {
+      options () {
+        let options = []
+        for (let i = 0; i < 10; i++) {
+          options.push(i + '')
+        }
+        return options
+      }
+    },
     props: {
       index: {default: 0},
       item: {
@@ -42,11 +53,12 @@
           name: 'transfer to aeroporto di vce',
           previousAmount: '£1020',
           discount: -32,
-          price: '£4200'
+          price: '£4200',
+          quantity: 1
         })
       }
     },
-    components: {IconRemove, SupDecimals}
+    components: {IconRemove, SupDecimals, Select2}
   }
 </script>
 
@@ -60,6 +72,28 @@
           padding: 2px;
       }
 
+  }
+
+  .v-select input[type=search],
+  .v-select input[type=search]:focus {
+      height:20px;
+      font-size: 10px;
+      width: 0 !important;
+  }
+  .v-select .selected-tag {
+      height: 20px;
+      padding: 2px .25em;
+      line-height: 10px;
+      font-size: 12px;
+  }
+  .v-select .open-indicator {
+      position: absolute;
+      bottom: 6px;
+      right: 10px;
+      cursor: pointer;
+      pointer-events: all;
+      opacity: 1;
+      height: 15px;
   }
 
 </style>
