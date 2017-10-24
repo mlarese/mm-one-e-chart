@@ -17,7 +17,6 @@ export const actions = {
       commit('removeProduct', {cartIndex})
     }
   },
-
   addProduct ({commit, dispatch}, {rowId, product, quantity}) {
     commit('addProduct', {rowId, product, quantity})
   },
