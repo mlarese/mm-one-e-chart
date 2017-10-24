@@ -1,9 +1,9 @@
 <template>
     <em>
-        <span v-html="prefix"></span>
-        <span v-text="intPart"></span>
+        <em  v-html="prefix"></em>
+        <em v-text="intPart"></em>
         <sup>
-            <span v-text="decimal"></span><span v-text="decPart"></span>
+            {{decimal}}{{decPart}}
         </sup>
     </em>
 </template>

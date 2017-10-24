@@ -25,8 +25,7 @@ export let cart = [
   }
 ]
 
-export const cartPost = (config) => {
-  const {data} = config
-  cart = data
+export const cartPost = (c) => {
+  console.dir(c)
   return [200, {status: 'OK', error: false, errorMessage: ''}]
 }

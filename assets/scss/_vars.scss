@@ -1,0 +1,128 @@
+/////////////////////////////////////////////////////////////////////
+
+// 1 - Modifiche griglia bootstap
+
+//Aggiungo misura aggiuntiva a bootstap xxs che comprende i dispositivi tra 320 e 480
+$screen-xxs-min: 			320px;
+$screen-xxs-max:			($screen-xs-min - 1) !default;
+
+@include responsive-invisibility('.visible-xxs');
+@media (max-width: $screen-xxs-max) {
+  @include responsive-invisibility('.hidden-xxs');
+}
+@media (min-width: $screen-xxs-min) and (max-width: $screen-xxs-max) {
+  @include responsive-visibility('.visible-xxs');
+}
+
+/////////////////////////////////////////////////////////////////////
+
+// 2 - Font
+
+$font-family-sans-serif:	'Roboto', sans-serif;
+
+$font-size-base:			14px !default;
+$font-size-large:			ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:			ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$slick-font-path: "/fonts/" !default;
+$slick-loader-path: "/" !default;
+
+//Price
+$font-price:				Georgia;
+
+/////////////////////////////////////////////////////////////////////
+
+// 3 - Colori
+
+//Generali
+$background-color: 				#FFF;
+$primary-color:					#636363;
+$font-base-color:				#353535;
+$font-gary1-color:				lighten($font-base-color, 33%); //#898989
+$font-gary2-color:				#acacac;
+$link-base-color:				#ee8113;
+$focus-input-color: 			$link-base-color;
+$hover-button-color: 			#d4d4d4;
+$white:							#ffffff;
+$border-color:					#f1f1f1;
+$border-color-2:				#d1d1d1;
+$orange: 						#ef8b33;
+$black: 						#000000;
+$gray-color:					#939393;
+$gray-color-2:					#696969;
+
+//Steps
+$steps-label-color:				lighten($primary-color, 20%) !default; //#969696
+$steps-label-active-color:		$primary-color;
+$steps-line-color:				$primary-color;
+$steps-round-border:			$background-color;
+
+//Search Bar
+$seach-field-color:				#FFF;
+$seach-back-color:				#f1f1f1;
+$search-font-color:				$font-base-color;
+$search-highlight-color: 		#ee8113;
+$sarch-ico-fill:				$font-base-color;
+
+$date-picker-bkg-color:			$seach-field-color;
+$date-picker-border-color:		#bababa;
+$date-picker-active-days-bkg:	$date-picker-bkg-color;
+$date-picker-weekend-days-bkg:	$seach-back-color;
+$date-picker-days-color:		$font-base-color;
+$date-picker-sel-border-color:	$search-highlight-color;
+$date-picker-sel-bkg-color:		lighten($date-picker-sel-border-color, 40%); //#fce7d1
+$date-picker-ico-fill:			$font-base-color;
+
+$search-button-modify-color:	#C9C9C9;
+$search-button-search-text:		#fff;
+$search-button-search-color:	linear-gradient(lighten($search-highlight-color, 15%) 0%, $search-highlight-color 100%);
+
+//Lista camere
+$list-top-boder-color: 			$seach-back-color;
+$list-odd-item-bkg-color:		$seach-back-color;
+$list-title-color:				#000;
+$list-room-banner-color:		$search-highlight-color;
+$list-text-color:				$primary-color;
+
+//Tariffe in Step2
+$rate-item-bkg-color:			#FFF;
+$rate-ite-border-color:			$seach-back-color;
+$rate-item-font-color:			$font-base-color;
+$rate-item-high-price-color:	$link-base-color;
+$rate-svg-ico-color1:			#8f8f8f;
+$rate-select-arrow-color:		$rate-item-font-color;
+$rate-select-bkg-color:			$font-base-color;
+
+
+//Camere Step Sevizi Speciali
+$room-ss-item-bkg-color:		$seach-back-color;
+$ss-resume-bkg-color:			#fcecdc;
+$ss-tit-border-color:			$seach-back-color;
+$ss-btn-notactive-color: 		$font-base-color;
+$ss-btn-notactive-bkg-color: 	$search-button-modify-color;
+$ss-acc-text-color:				#8f8f8f;
+
+//Step3
+$st3-sep-border-color: 			#d7d7d7;
+$st3-font-label-color:			#aaa;
+$st3-all-title-bkg-color:		$seach-back-color;
+$st3-all-wrapp-borer-color:		$seach-back-color;
+$st3-all-base-font-color:		#5b5b5b;
+$st3-all-norm-price-color:		#ee8113;
+$st3-all-plus-price-color:		#3abf00;
+$st3-all-box-base-color:		#878787;
+$st3-cc-border-color:			#3abf00;
+
+
+/////////////////////////////////////////////////////////////////////
+
+//4 - Dimensioni
+
+//steps
+$circle-steps:					18px;
+
+//guest bar
+$guest-select-room-width:		278px;
+
+//resume mobile booking data
+$mobile-resume-height: 			75px;

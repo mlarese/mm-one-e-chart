@@ -37,6 +37,8 @@ export const actions = {
     commit('error')
     commit('hasError')
     const instance = getters.server(serverName)
+    console.log('******* api.post', url, 'on', serverName)
+
     return instance.post(url, data, options)
       .then(res => {
         commit('isAjax')

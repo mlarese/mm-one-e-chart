@@ -1,18 +1,24 @@
 <template>
-    <div class="group-bar">
-        <template v-for="{group_id, group_name} in groupList">
-            <input
-                class="group-bar-item"
-                type="radio"
-                :value="group_id"
-                name="group"
-                @change="changeGroup(group_id)"
-                v-model="current"
-            />
-            <span v-text="group_name"></span>
-        </template>
-    </div>
+    <form class="group-bar">
+        <div class="ST2-book__slider">
+            <template v-for="{group_id, group_name} in groupList">
+                <div>
+                    <input
+                        :id="group_id"
+                        class="group-bar-item"
+                        type="radio"
+                        :value="group_id"
+                        name="group"
+                        @change="changeGroup(group_id)"
+                        v-model="current"
+                    />
+                    <label :for="group_id" v-text="group_name"></label>
+                </div>
+            </template>
+        </div>
+    </form>
 </template>
+
 <script>
   export default {
     methods: {
@@ -47,7 +53,6 @@
 
 <style lang="scss">
     .group-bar{
-        background: coral;
         padding: 4px;
         input {
             margin-left:18px;

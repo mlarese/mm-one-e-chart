@@ -4,6 +4,11 @@
   "description": "E chart for mmone booking",
   "author": "mauro.larese",
   "private": true,
+  "config": {
+    "nuxt": {
+      "port": "4000"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -24,24 +29,37 @@
     ]
   },
   "dependencies": {
+    "@nuxtjs/font-awesome": "^1.0.2",
     "axios": "^0.16.2",
     "axios-mock-adapter": "^1.9.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.28.7",
     "es6-promise": "^4.1.1",
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4",
     "logrocket-vuex": "0.0.3",
     "lz-string": "^1.4.4",
     "node-sass": "^4.5.3",
     "normalizr": "^3.2.3",
     "numeral": "^2.0.6",
-    "nuxt": "^1.0.0-rc11",
+    "nuxt": "1.0.0-rc11",
     "sass-loader": "^6.0.6",
+    "select2": "^4.0.4",
+    "select2-bootstrap-theme": "0.1.0-beta.10",
+    "slick-carousel": "^1.8.1",
     "vue": "^2.5.2",
+    "vue-i18n": "^7.3.2",
     "vue-infinite-loading": "^2.2.1",
     "vue-localstorage": "^0.4.2",
     "vue-mugen-scroll": "^0.2.5",
+    "vue-search-select": "^2.3.12",
+    "vue-select": "^2.3.0",
     "vue-server-renderer": "^2.5.2",
+    "vue-strap": "^1.1.37",
     "vue-template-compiler": "^2.5.2",
+    "vuestrap": "^1.0.3",
     "vuex": "^3.0.0",
     "vuex-persist": "^0.2.1"
   },
@@ -56,6 +74,8 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "vue-clicky": "^1.1.0"
+    "vue-clicky": "^1.1.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   }
 }

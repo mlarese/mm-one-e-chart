@@ -12,7 +12,7 @@ export const actions = {
         return dispatch('structure/init', structure, {root: true})
           .then(() => {
             const configActions = [
-              dispatch('cart/init', cart, {root: true}),
+              dispatch('cart/init', {cart, ...structure}, {root: true}),
               dispatch('booking/loadFlowSetup', {...structure, userLanguageCode: locale}, {root: true}),
               dispatch('booking/loadStructureConfig', {...structure, userLanguageCode: locale}, {root: true})
             ]

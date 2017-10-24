@@ -17,7 +17,8 @@ module.exports = {
     ]
   },
   plugins: [
-    '~plugins/startup.js'
+    '~plugins/startup.js',
+    { src: '~plugins/i18n.js', injectAs: 'i18n' }
   ],
   /*
   ** Customize the progress-bar color

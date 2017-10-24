@@ -1,0 +1,957 @@
+.STSS{
+	float: left;
+	width: 100%;
+	&__title{
+		@extend .ST1-rooms__title;
+		&--lnz{
+			@extend .ST1-rooms__title--lnz;	
+		}
+	}
+	&__rooms{
+		list-style: none;
+		padding-left: 0;
+		float: left;
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 0;
+		&__item{
+			background-color: $room-ss-item-bkg-color;
+			&__pic{
+				@extend .ST1-list__item__img;
+			}
+			&__txt{
+				padding-left: 0;
+				padding-right: $grid-gutter-width;
+				&__title{
+					font-size: $font-size-base + 3px;
+					line-height: $font-size-base + 5px;
+					text-transform: uppercase;
+					color: $list-title-color;
+					display: inline-block;
+					float: left;
+					margin-top: 5px;
+					font-weight: 300;
+					@media (min-width: $screen-sm-min) {
+						margin-top: 15px;
+					}
+				}
+				
+				//Vecchiume
+				.details{
+					float:left;
+					width: 100%;
+					border-bottom: 3px solid $rate-item-bkg-color;
+					margin-bottom: 10px;
+
+					.price{
+						color: $list-room-banner-color;
+						display: inline-block;
+						font: {
+							family: $font-price;
+							size: $font-size-base + 5px;
+							line-height: $font-size-base + 5px;
+							style: italic;
+							weight: bold;
+						}
+						@media (min-width: $screen-sm-min) {
+							float: right;
+							margin-top: -8px;
+						}
+					}
+
+					.mtips{
+						margin-left: 5px;
+						position: relative;
+						.svg-ico{
+							$size: 20px;
+							height: $size;
+							width: $size;
+						}
+						&:hover{
+							.svg-ico{
+								@extend .anim-shake;        
+							}
+						}
+					}
+				}
+
+				.policy{
+					float: left;
+					margin-bottom: 10px;
+						a{
+								color: $link-base-color;
+						}
+				}
+
+					&__pax{
+						@extend .ST1-list__item__pax;
+						margin-bottom:5px;
+						width: 100%;
+					}
+					&__trt{
+						clear: left;
+						margin-bottom: 5px;
+						float: left;
+						display: inline-block;
+						@media (min-width: $screen-sm-min) {
+							line-height: $font-size-base + 5px;
+						}
+					}
+			}
+		}
+	}	
+			//BEM elemento padre STSS__rooms__item__txt
+			&__specOff{
+				float: left;
+				width: 100%;
+				padding-top: 15px;
+				margin-top: 5px;
+				border-top: 3px solid $rate-item-bkg-color;
+				> strong {
+					font-size: $font-size-base;
+					line-height: $font-size-base;
+					text-transform: uppercase;
+					color: $list-title-color;
+					display: inline-block;
+					float: left;
+					margin-top: 5px;
+					margin-bottom: 10px;
+					font-weight: 400;
+				}
+				&__list{
+					list-style: none;
+					float:left;
+					padding-left: 0;
+					width: 100%;
+					margin-bottom:5px;
+					li {
+						float: left;
+						width: 100%;
+						margin: 5px 0 0;
+						> div:not(.price){
+							display: inline-block;
+							font-weight: bold;
+						}
+						.removeAcc{
+							.svg-ico{
+								@extend .rot-90;
+								fill: $font-base-color;
+								$size: 18px;
+								height: $size;
+								width: $size;
+							}
+						}
+					}
+						&__price{
+							margin:0 !important;
+						}
+
+				}
+			}
+	&__content {
+		@media (max-width: $screen-sm-max) { padding-right: 0px; }
+		@media (max-width: $screen-xs-max) { 
+			padding-left: 15px; 
+			padding-right: 15px;
+		}
+		&__subtitle {
+			color: $black;
+			font-size: 21px;
+			font-weight: 300;
+			padding: 20px 15px;
+			float: left;
+			width: 100%;
+			border-bottom: 1px solid $border-color;
+			position: relative;
+			margin: 0;
+			&:after {
+				border-bottom: 1px solid $border-color;
+				content: '';
+				height: 65px;
+				width: 30px;
+				position: absolute;
+				top: 0;
+				right: -30px;
+				@media (max-width: $screen-xs-max) { display: none; }
+			}
+		}
+		&__moreInfo {
+			a { 
+				color: $black; 
+				font-size: 13px;
+			}
+			p { font-size: 13px; }
+		}
+		&__pagination {
+			margin-bottom: 15px;
+			a {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: $black;
+				background-color: $seach-back-color;
+				&.active {
+					color: $white;
+					background-color: $gray-color-2;
+				}
+			}
+		}
+		&__protection { 
+			margin-top: 15px;
+			&__container {
+				border: 1px solid $border-color; 
+				padding: 25px 15px;
+			}
+			&__title {
+				font-size: 17px;
+				font-weight: bold;
+				margin-top: 0;
+				display: inline-block;
+			}
+			&__list {
+				display: inline-block;
+				ul { 
+					list-style: none; 
+					padding: 0;
+					height: 115px;
+					margin-bottom: 25px;
+				}
+				li {
+					font-size: 13px;
+					color: $gray-color;
+					span { margin: 0 5px; }
+					svg {
+						width: 14px;
+						height: 14px;
+					}
+				}
+			}
+			&__select {
+				display: block;
+				width: 100%;
+				position: relative;
+				small {
+					font-size: 13px;
+					position: absolute;
+					left: 40px;
+					top: 8px;
+				}
+				.select2 {
+					width: 100%!important;
+					.base-select-custom {
+						background: url("/images/svg/family26.svg") no-repeat 8px 8px;
+						background-size: 26px;
+						width: 100%;
+						margin-top: 5px;
+						padding: 5px 40px;
+						font-size: 13px;
+						height: 45px;
+						line-height: 47px;
+					}
+				}
+			}
+			&__price {
+				display: block;
+				width: 100%;
+				margin-top: 20px;
+				span {
+					font-size: 15px;
+					color: $gray-color;
+				}
+				em {
+					color: $orange;
+					font-weight: bold;
+					font-size:31px;
+					font-family: $font-price;
+					sup { font-size: 15px; }
+				}
+				&--add {
+					em { color: $st3-all-plus-price-color; }
+				}
+			}
+			&__button {
+				display: block;
+				width: 100%;
+				margin-top: 20px;
+				button {
+					border: 2px solid $orange;
+					border-radius: 2px;
+					text-align: center;
+					font-weight: bold;
+					font-size: 12px;
+					color: $orange;
+					background: transparent;
+					height: 42px;
+					line-height: 42px;
+					width: 145px;
+					&:hover {
+						color: $white;
+						background: $orange;
+					}
+				}
+				&--add {
+					button {
+						color: $st3-all-plus-price-color;
+						border-color: $st3-all-plus-price-color;
+						svg {
+							width: 19px;
+							height: 14px;
+							fill: $st3-all-plus-price-color;
+						}
+						&:hover {
+							color: $st3-all-plus-price-color;
+							border-color: $st3-all-plus-price-color;
+							background: transparent;
+						}
+					}
+				}
+			}
+			&__info {
+				display: block;
+				width: 100%;
+				margin-top: 20px;
+				em { font-size: 13px; }
+				a:hover { text-decoration: underline }
+			}
+		}
+		&__notes {
+			margin-top: 25px;
+			font-size: 12px;
+			line-height: 21px;
+		}
+	}
+	&__accList{
+		float:left;
+		width: 100%;
+		&__resume{
+			background-color:$ss-resume-bkg-color;
+			padding: 10px 15px;
+			float: left;
+			width: 100%;
+			text-align: right;
+			&__back,
+			&__goOn{
+				@extend .active-button;
+				padding: 10px 15px;
+				border: none;
+				margin-top: 10px;
+				@media (min-width: $screen-sm-min) {
+					margin-top: 0;
+				}
+				&:hover{
+					@extend .hvr-bob;
+				}
+			}
+			&__back{
+				background: $search-button-modify-color;
+      			color: $font-base-color;
+      			float: left;
+			}
+			> div{
+				small{
+					font:{
+						family: $font-family-sans-serif;
+						size: $font-size-base;
+						line-height: $font-size-base;
+					}
+					@media (min-width: $screen-sm-min) {
+						font:{
+							size: $font-size-base + 4px;
+							line-height: $font-size-base + 4px;
+						}
+					}
+				}
+				span{
+					margin: 0 5px 5px;
+					font: {
+						family: $font-price;
+						size: $font-size-base + 5px;
+						line-height: $font-size-base + 5px;
+						style: italic;
+						weight: bold;
+					}
+					@media (min-width: $screen-sm-min) {
+						font:{
+							size: $font-size-base + 12px;
+							line-height: $font-size-base + 12px;
+						}
+					}
+				}
+			}
+		}
+		&__txt{
+			text-transform:uppercase;
+			margin-top: 15px;
+			padding-bottom: 10px;
+			margin-bottom: 15px;
+			float: left;
+			border-bottom: 2px solid $ss-tit-border-color;
+			font:{
+				family: $font-family-sans-serif;
+				size: $font-size-base + 5px;
+				line-height: $font-size-base + 5px;
+			}
+		}
+	}
+	&__accItem{
+		float: left;
+		width: 100%;
+		border: 2px solid $ss-tit-border-color;
+		margin-bottom: 15px;
+		&__img{
+			width: 16.66667%;
+			float: left;
+			padding-right:0;
+			@media (min-width: $screen-sm-min) {
+				width: 13%;
+			}
+		}
+		&__desc{
+			width: 83.33334%;
+			float: left;
+			padding-right:15px;
+			padding-left: 15px;
+			color: $ss-acc-text-color;
+			&--acc {
+				width: 60%;
+				padding-left: 10px;
+				padding-right: 0;
+				.accessoryName{
+					margin-top: 5px;
+					font-size: 15px;
+				}
+				@media (max-width: $screen-xs-max) { width: 53%; }
+			}
+			@media (min-width: $screen-sm-min) {
+				width: 35%;
+				&--acc {
+					width: 60%;
+				}
+			}
+			ul{
+				list-style: none;
+				float: left;
+				padding:0; 
+			}
+			p{
+				float: left;
+			}
+
+			.accessoryName{
+				@extend .STSS__rooms__item__txt__title;
+				width: 100%;
+				margin-bottom: 5px;
+			}
+			&__tgl{
+				@extend .ST1-list__item__more-txt;
+				display: block;
+				clear: left;
+				float: left;
+				margin-bottom: 10px;
+				&:after{
+					transition: width 0s ease-out .1s;
+					width: 0;
+				}
+				&.collapsed{
+					&:after{
+						width: 2px;
+					}
+				}
+				&-txt{
+					clear: left;
+				}
+			}
+			&__short{
+				display: block;
+				clear: left;
+				float: left;
+				margin-bottom: 10px;
+				max-width: 250px;
+				font-size: 13px;
+				strong { color: $black; }
+				&--note {
+					color: $primary-color;
+					svg {
+						width:17px;
+						height: 19px;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+		&__qty {
+			&__label {
+				float: left;
+				line-height: 40px;
+				@media (max-width: $screen-xs-max) { 
+					margin-top: 10px; 
+					line-height: inherit;
+				}
+				&--discount {
+					margin-top: 15px;
+				}
+			}
+			.select2-container--bootstrap { width: 65px!important; }
+		}
+		&__priceNew {
+			@media (max-width: $screen-xs-max) { 
+				margin-bottom: 10px; 
+				padding-left: 15px;
+			}
+			small {
+				font-size: 12px;
+				color: $font-gary2-color;
+				display: block;
+				width: 100%;
+				text-align: right;
+				margin-top: 7px;
+			}
+			em {
+				display: block;
+				width: 100%;
+				text-align: right;
+				color: $orange;
+				font-size: 26px;
+				font-weight: bold;
+				font-family: $font-price;
+				margin-bottom: 9px;
+				sup { font-size: 15px; }
+				i { font-size: 19px; }
+				@media (max-width: $screen-xs-max) { margin-bottom: 15px; }
+			}
+			button {
+				border: 2px solid $orange;
+				border-radius: 2px;
+				text-align: center;
+				font-weight: bold;
+				font-size: 12px;
+				color: $orange;
+				background: transparent;
+				height: 42px;
+				line-height: 42px;
+				width: 115px;
+				&:hover {
+					color: $white;
+					background: $orange;
+				}
+			}
+			&--add {
+				em {
+					color: $st3-all-plus-price-color;
+				}
+				button {
+					color: $st3-all-plus-price-color;
+					border-color: $st3-all-plus-price-color;
+					svg {
+						width: 19px;
+						height: 14px;
+						fill: $st3-all-plus-price-color;
+					}
+					&:hover {
+						color: $st3-all-plus-price-color;
+						border-color: $st3-all-plus-price-color;
+						background: transparent;
+					}
+				}
+
+			}
+		}
+		&__price{
+			float: right;
+			padding-right: 15px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			@media (min-width: $screen-sm-min) {
+				margin-top: 35px;
+			}
+			.itemPriceAccessories{
+				font:{
+					family: $font-family-sans-serif;
+					size: $font-size-base;
+					line-height: $font-size-base;
+				}
+				small{
+					color: $ss-acc-text-color;
+					font-size: 100%;}
+				span{
+					color: $list-room-banner-color;
+					font: {
+						family: $font-price;
+						size: $font-size-base +10px;
+						line-height: $font-size-base + 10px;
+						style: italic;
+						weight: bold;
+					}
+					margin: 0 1px;
+				}
+			}
+			&__add{
+				color: $list-room-banner-color;
+				border: 2px solid $list-room-banner-color;
+				border-radius: 5px;
+				background-color: #FFf;
+				text-transform: uppercase;
+				padding: 8px 20px;
+				font: {
+					family: $font-family-sans-serif; 
+					size: $font-size-base;
+					weight: bold;
+				}
+				&.newDel{
+					outline-color: transparent !important;
+					color: $ss-btn-notactive-color;
+					background-color: $ss-btn-notactive-bkg-color;
+					border: 2px solid $ss-btn-notactive-bkg-color;
+				}
+				&:hover{
+					@extend .hvr-bob;
+				}
+			}
+			select{
+				border: 2px solid darken($ss-tit-border-color,10%);
+				border-radius: 5px;
+				padding: 8px;
+			}
+		}
+	}
+	&__roomsNew {
+		@media (max-width: $screen-sm-max) { padding-left: 0px; }
+		@media (max-width: $screen-xs-max) { 
+			padding-right: 15px; 
+			padding-left: 15px;
+		}
+		&__title {
+			background: $seach-back-color;
+			font-style: italic;
+			font-family: $font-price;	
+			text-align: center;
+			width: 100%;
+			height: 65px;
+			line-height: 65px;
+			margin: 0;
+		}
+		&__item {
+			background: $seach-back-color;
+			margin-top: 2px;
+			float: left; 
+			width: 100%;
+			padding-right: 15px;
+			&__image {
+				margin:0 10px 15px 0;
+			}
+			&__title {
+				font-size:15px;
+				font-weight: 500;
+				margin: 10px 0;
+			}
+			&__desc {
+				color: $gray-color;
+				font-size: 13px;
+				svg {
+					width: 20px;
+					height: 20px;
+					fill: $gray-color;
+					margin-right: 10px;
+				}
+			}
+			&__price {
+				text-align: right;
+				del {
+					color: $primary-color;
+					font-size: 12px;
+				}
+				em {
+					font-weight: bold;
+					font-size: 19px;
+					font-family: $font-price;
+					color: $primary-color;
+				}
+				span {
+					color: $orange;
+					font-size: 12px;
+				}
+			}
+			&__ssr {
+				>div { 
+					border-top:1px solid $border-color-2; 
+					padding: 8px 0;
+					float: left;
+					width: 100%;
+					position:relative;
+					strong {
+						width: 100%;
+						display: block;
+						margin-bottom: 10px;
+					}
+				}
+				&__qty {
+					&__label {
+						font-size: 12px;
+						color: $gray-color
+					}
+					.select2-container--bootstrap { 
+						width: 40px!important; 
+						.base-select-custom { 
+					    	height: 20px; 
+							padding: 3px 5px;
+							line-height: 12px;
+							.select2-selection__arrow:before,
+							.select2-selection__arrow:after {
+								border-width: 5px 5px 0 5px;
+								margin-left: 0;
+							}
+					    }
+					}
+				}
+				&__remove {
+					position:absolute;
+					top:8px;
+					right: 0;
+					width: 12px;
+					height: 12px;
+					svg {
+						width: 12px;
+						height: 12px;
+						fill: $gray-color;
+					}
+				}
+			}
+		}
+		&__total {
+			background: $ss-resume-bkg-color;
+			margin-top: 2px;
+			float: left; 
+			width: 100%;
+			padding: 10px 15px;
+			&__link {
+				color: $black;
+				font-size: 12px;
+				text-decoration: underline;
+				display: block;
+				margin-bottom: 10px;
+			}
+			&__label {
+				font-size: 15px;
+			}
+			&__price {
+				font-weight: bold;
+				font-size: 25px;
+				font-family: $font-price;
+				sup { font-size: 15px; }
+			}
+			&__highlight {
+				color: $orange;
+				font-size: 14px;
+				display: block;
+				margin-top: 10px;
+			}
+		}
+		&__acc {
+			background: $seach-back-color;
+			margin-top: 2px;
+			float: left; 
+			width: 100%;
+			>div { 
+				padding: 8px 0;
+				float: left;
+				width: 100%;
+				position:relative;
+				strong {
+					width: 100%;
+					display: block;
+					margin-bottom: 10px;
+				}
+			}
+			&__msg {
+				float: left;
+				width: 100%;
+				color: $primary-color;
+				font-size: 12px;
+				line-height: 17px;
+				margin: 10px 0;
+			}
+			&__price { padding-top: 25px; }
+		}
+		&__send {
+			background: $seach-back-color;
+			float: left; 
+			width: 100%;
+			padding: 25px 0;
+			margin-bottom: 20px;
+			button {
+				background: linear-gradient(#f3a75a 0%, #ee8113 100%);
+				border-radius: 3px;
+				color: $white;
+				font-size: 14px;
+				font-weight: bold;
+				text-transform: uppercase;
+				outline: none !important;
+				height: 45px;
+				padding: 9px 12px;
+				border: none;
+				width: 165px;
+				&:hover { 
+					color: $white; 
+					animation-name: hvr-bob-float, hvr-bob;
+					animation-duration: .3s, 1.5s;
+					animation-delay: 0s, .3s;
+					animation-timing-function: ease-out, ease-in-out;
+					animation-iteration-count: 1, infinite;
+					animation-fill-mode: forwards;
+					animation-direction: normal, alternate;
+				}
+			}
+		}
+	}
+}
+/*Modal Dettaglio*/
+.modalDet {
+	.close {
+		svg {
+			fill: $white;
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.modal-dialog { 
+		width: 710px; 
+		@media (max-width: $screen-xs-max) { width: auto; }
+	}
+	.modal-header { 
+		border-color: $white; 
+		padding: 15px 0;
+	}
+	.modal-body {
+		background: $white;
+		padding: 30px 40px!important;
+		width: 100%;
+		img { max-width: 100%; }
+		h4 {
+			color: $black;
+			margin-bottom: 30px;
+		}
+		@media (max-width: $screen-xs-max) {
+			padding: 15px!important;
+			h4 { margin-bottom: 10px; }
+		}
+	}
+	.panel-heading { margin-top: 20px; }
+	&__price {
+		display: block;
+		width: 100%;
+		margin-bottom: 20px;
+		@media (max-width: $screen-xs-max) { margin-bottom: 10px; }
+		del {
+			color: $gray-color-2;
+			font-size: 18px;
+		}
+		b {
+			color: $black;
+			font-size: 18px;
+		}
+		em {
+			font-size: 35px;
+			font-family: $font-price;
+			font-weight: bold;
+			color: $orange;
+			sup { font-size: 21px; }
+		}
+	}
+	&__text {
+		display: block;
+		width: 100%;
+		margin-bottom: 20px;
+		@media (max-width: $screen-xs-max) { margin-bottom: 10px; }
+		span {
+			display: block;
+			margin-bottom: 10px;
+		}
+		svg {
+			width: 20px;
+			height: 21px;
+			vertical-align: middle;
+		}
+	}
+	&__selectVar {
+		margin-bottom: 20px;
+		@media (max-width: $screen-xs-max) { margin-bottom: 10px; }
+		label {
+			font-weight: normal;
+			display: block;
+		}
+		.select2-container {
+			width: auto!important;
+			font-size: 13px;	
+		}
+		.select2-container--bootstrap {
+			.select2-selection--single { padding-right: 30px;  }
+			.base-select-custom .select2-selection__arrow {
+				&:before,
+				&:after {
+					border-width: 5px 5px 0 5px;
+					top: 54%;
+				}
+			}	
+		}
+	}
+	&__qty {
+		&__label { 
+			display: block; 
+			margin-bottom: 5px;
+		}
+		.select2-container { width: 55px!important; }
+		.select2-container--bootstrap {
+			.select2-selection--single { padding-right: 30px;  }
+			.base-select-custom .select2-selection__arrow {
+				&:before,
+				&:after {
+					border-width: 5px 5px 0 5px;
+					top: 54%;
+				}
+			}	
+		}
+	}
+	&__submit {
+		background: $orange;
+		border-radius: 3px;
+		color: $white;
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		outline: none !important;
+		height: 40px;
+		padding: 9px 12px;
+		border: none;
+		width: 200px;
+		margin-top: 25px;
+		&:hover {
+			color: $white;
+			animation-name: hvr-bob-float, hvr-bob;
+			animation-duration: .3s, 1.5s;
+			animation-delay: 0s, .3s;
+			animation-timing-function: ease-out, ease-in-out;
+			animation-iteration-count: 1, infinite;
+			animation-fill-mode: forwards;
+			animation-direction: normal, alternate;
+		}
+	}
+	&__desc {
+		&__short {
+			@extend .STSS__accItem__desc__short;
+			color: $ss-acc-text-color;
+			max-width: inherit!important;
+		}
+		&__tgl {
+			@extend .STSS__accItem__desc__tgl;
+			&-txt {
+				float: left;
+				width: 100%;
+				color: $ss-acc-text-color;
+				font-size: 13px;
+				strong { color: $black; }
+			}
+		}
+	}
+}

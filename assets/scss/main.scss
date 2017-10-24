@@ -1,0 +1,61 @@
+@import 'bootstrap';
+@import '../../node_modules/select2/src/scss/core';
+@import '../../node_modules/select2-bootstrap-theme/src/select2-bootstrap';
+@import 'vars';
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+@import '../../node_modules/slick-carousel/slick/slick-theme.scss';
+@import 'utils';
+@import 'typography';
+@import 'steps';
+@import 'searchBar';
+@import 'step1Body';
+@import 'step2Body';
+@import 'step2Resume';
+@import 'stepSSBody';
+@import 'step3Body';
+@import 'step4Body';
+@import 'loader';
+@import 'modalCarousel';
+
+body{
+	font:{
+		family: $font-family-sans-serif;
+		size: $font-size-base;
+		color: $font-base-color;
+	}
+	min-width: 320px;
+}
+
+a,
+a:hover,
+a:focus{
+	text-decoration: none;
+	color: $link-base-color;
+}
+.form-control{
+	border-radius: 2px;
+}
+.select2-container--bootstrap.select2-container--focus .select2-selection, 
+.select2-container--bootstrap.select2-container--open .select2-selection,
+.form-control:focus {
+    border-color:rgba(238, 119, 19, 0.4);
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(238, 119, 19, 0.6);
+}
+
+#conditions,
+.errors-box{
+	width: 100%;
+	margin: 0 0 15px ;
+	padding: 15px;
+	border:{
+		radius: 4px;
+	}
+	p{
+		margin:0;
+	}
+}
+
+#disclaimer{
+	float: left;
+}
