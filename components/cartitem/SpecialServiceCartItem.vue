@@ -1,6 +1,7 @@
 <template>
-    <div class="cart-item">
-        <div class="STSS__roomsNew__acc col-xs-12">
+    <div class="special-service-cart-item">
+        <div class="STSS__roomsNew__item">
+            <div class="STSS__roomsNew__item__ssr col-xs-12">
             <div>
                 <strong>{{item.description}}</strong>
 
@@ -16,6 +17,7 @@
                 </div>
                 <i v-if="false" class="STSS__roomsNew__acc__msg">Il pagamento avviene all’arrivo nella struttura turistica il giorno del check-in</i>
             </div>
+        </div>
         </div>
     </div>
 </template>
@@ -51,15 +53,19 @@
 </script>
 
 <style lang="scss">
-  .cart-item{
+  .special-service-cart-item{
       .STSS__roomsNew__item__ssr__qty__label{
         margin-right: 4px;
       }
-
       select {
           padding: 2px;
       }
-
+      padding: 0px;
+      margin-top: 0px;
+      .STSS__roomsNew__item {
+          margin-top: 0px;
+          padding-right: 0px;
+      }
   }
 
 </style>
