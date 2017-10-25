@@ -9,8 +9,9 @@ const getOptions = ({structureId, portalId, userLanguageCode}) => ({
 })
 
 export const actions = {
-  init ({commit, dispatch}, {absServer}) {
-    commit('setAbsServer', absServer)
+  init ({commit, dispatch}, {flowSetup, structureConfig}) {
+    commit('setFlowSetup', flowSetup)
+    return dispatch('setStructureConfig', structureConfig)
   },
   addEcommerceServers ({dispatch, state}) {
     console.log('--- booking.addEcommerceServers')
@@ -37,8 +38,12 @@ export const actions = {
 
     return dispatch('api/get', {url, options}, root)
       .then(res => {
-        commit('setStructureConfig', res.data)
-        dispatch('addEcommerceServers')
+        dispatch('setStructureConfig', res.data)
       })
+  },
+  setStructureConfig ({commit, dispatch}, structureConfig) {
+    commit('setStructureConfig', structureConfig)
+    return dispatch('addEcommerceServers')
   }
+
 }

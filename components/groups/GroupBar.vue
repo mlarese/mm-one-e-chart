@@ -1,7 +1,7 @@
 <template>
     <form class="group-bar">
         <div class="ST2-book__slider">
-            <template v-for="{id, description, code} in groupList">
+            <template v-for="{id, description, name, code} in groupList">
                 <div>
                     <input
                         :id="id"
@@ -12,10 +12,8 @@
                         @change="changeGroup(id)"
                         v-model="current"
                     />
-                    <label :for="id" v-text="description"></label>
-
+                    <label :for="id" v-text="name"></label>
                 </div>
-
             </template>
         </div>
     </form>

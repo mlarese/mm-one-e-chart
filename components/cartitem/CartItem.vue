@@ -2,7 +2,7 @@
     <div class="cart-item">
         <div class="STSS__roomsNew__acc col-xs-12">
             <div>
-                <strong>{{item.description}}</strong>
+                <strong>{{item.name}}</strong>
 
                 <a class="STSS__roomsNew__item__ssr__remove" href="#" @click="onRemoveProduct">
                    <icon-remove />
@@ -25,11 +25,9 @@
 
 <script>
   import IconRemove from '../icons/IconRemove'
-  import {SupDecimalsVxConnect} from '../display/subdecimalshoc'
+  import SupDecimals from '../display/SupDecimalsVx'
   import {mapActions} from 'vuex'
   import Select2 from 'vue-select'
-
-  const SupDecimals = SupDecimalsVxConnect('app')
 
   export default {
     methods: {

@@ -1,13 +1,14 @@
 <template>
+
     <span class="sub-decimals">
         <del v-if="hasDiscount">
             <span v-html="prefix"></span>
             {{numberFromFormatted}}
         </del>
         <span v-if="hasDiscount" class="sub-decimals-discount">&nbsp; -{{discount}}% </span>
-        <em>
-            <em v-html="prefix"></em>
-            <em v-text="intPart"></em>
+        <em class="sub-decimals-em">
+            <del v-html="prefix"></del>
+            {{intPart}}
             <sup>{{decimal}}{{decPart}}</sup>
         </em>
     </span>
@@ -51,3 +52,10 @@
     }
   }
 </script>
+<style lang="scss">
+    .sub-decimals {
+        .sub-decimals-em {
+            white-space: nowrap;
+        }
+    }
+</style>

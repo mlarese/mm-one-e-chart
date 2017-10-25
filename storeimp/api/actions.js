@@ -8,7 +8,12 @@ export const actions = {
   },
   addServer ({commit}, {key, url}) {
     const baseURL = `${url}/RESTfulAPI`
-    const instance = axios.create({baseURL, timeout: 1000})
+
+    const instance = axios.create({
+      timeout: 90000,
+      withCredentials: true,
+      baseURL
+    })
     commit('addServer', {key, instance, baseURL})
   },
   get ({commit, getters}, {url, options = {}, serverName = 'abs'}) {
@@ -18,6 +23,13 @@ export const actions = {
 
     const instance = getters.server(serverName)
     console.log('******* api.get', url, 'on', serverName)
+    if (!options.headers) {
+      options.headers = {}
+    }
+
+    options.headers['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
+    options.headers['Content-Type'] = 'application/json'
+
     return instance.get(url, options)
       .then(res => {
         commit('isAjax')

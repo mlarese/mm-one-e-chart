@@ -1,9 +1,10 @@
 import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {locale = 'it', structure, store, absServer, cart}) {
+  init ({commit, dispatch, getters, rootGetters}, {flowSetup, structureConfig, locale = 'it', structure, store, absServer, cart}) {
     console.log('-- app.init')
     const localeData = changeLocale(locale)
+    const userLanguageCode = locale
     commit('setLocale', {...localeData.delimiters, locale})
     commit('setUserLanguageCode', locale)
 
@@ -13,12 +14,11 @@ export const actions = {
           .then(() => {
             const configActions = [
               dispatch('cart/init', {cart, ...structure}, {root: true}),
-              dispatch('booking/loadFlowSetup', {...structure, userLanguageCode: locale}, {root: true}),
-              dispatch('booking/loadStructureConfig', {...structure, userLanguageCode: locale}, {root: true})
+              dispatch('booking/init', {flowSetup, structureConfig}, {root: true})
             ]
             return Promise.all(configActions)
               .then(() => {
-                return dispatch('categories/loadCategories', {partners: rootGetters['booking/partners']}, {root: true})
+                return dispatch('categories/loadCategories', {userLanguageCode, partners: rootGetters['booking/partners']}, {root: true})
                   .then(() => {
                     return dispatch('changeCategory', rootGetters['booking/structureConfig'].defaultCategory)
                   })

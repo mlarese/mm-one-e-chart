@@ -24,10 +24,8 @@
 
 <script>
   import IconRemove from '../icons/IconRemove'
-  import {SupDecimalsVxConnect} from '../display/subdecimalshoc'
+  import SupDecimals from '../display/SupDecimalsVx'
   import {mapActions} from 'vuex'
-
-  const SupDecimals = SupDecimalsVxConnect('app')
 
   export default {
     methods: {

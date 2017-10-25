@@ -4,5 +4,8 @@ export const getters = {
   thousands: state => state.locale.thousands,
   currentCategory: state => state.currentCategory,
   userLanguageCode: state => state.userLanguageCode,
-  currentCategoryOb: (state, getters, rootState, rootGetters) => rootGetters['categories/category'](getters.currentCategory)
+  currentCategoryOb: (state, getters, rootState, rootGetters) => {
+    console.log('--- currentCategoryOb getters.currentCategory', getters.currentCategory)
+    return rootGetters['categories/category'](getters.currentCategory)
+  }
 }

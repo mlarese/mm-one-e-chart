@@ -13,7 +13,7 @@ export const state = () => {
     structureConfig: {
       specialServicesEnabled: false,
       productCatalogOpen: false,
-      defaultCategory: null,
+      defaultCategory: 0,
       shops: [],
       partnerIds: {},
       ecommerceHosts: {}

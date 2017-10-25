@@ -21,7 +21,16 @@ export const actions = {
     return Promise.all(loadCategoriesActions)
       .then(responses => {
         let categories = []
-        _forEach(responses, ({data}) => categories.push(...data))
+        _forEach(responses, ({data, config}) => {
+          const {ShopId, PartnerId} = config.headers
+          console.dir(config.headers)
+          _forEach(data, c => {
+            c.shopId = ShopId
+            c.partnerId = PartnerId
+          })
+          categories.push(...data)
+        })
+
         return categories
       })
       .then(categories => commit('setCategories', categories))
