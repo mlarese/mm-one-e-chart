@@ -148,7 +148,9 @@ array(
     'shortDescription' => 'dd',
     'type' => 'specialservice' --'specialservice|simple|withvariants|treatment|productbundle',
     'price' => 100.0
-    'priceFrom' => 100.0
+    'finalPrice' => 0
+    'discount' => ''
+    'priceFrom' => ''
     'priceType' => 'product'
     'order' => 0,
 )

@@ -9,13 +9,10 @@ const absServer = 'https://absservername.abs-one.com'
 let cart = {
   id: 1,
   items: [
-    {...products[2], quantity: 1, rowId: 1},
-    {...products[2], quantity: 2, rowId: 2},
-    {...products[2], quantity: 2, rowId: 8},
-    {...products[3], quantity: 1, rowId: 1},
-    {...products[3], quantity: 1, rowId: 2},
-    {...products[3], quantity: 1, rowId: 8},
-    {...products[4], quantity: 3, rowId: 8},
+    {...products[1], quantity: 2, rowId: 21},
+    {...products[2], quantity: 1, rowId: 31},
+    {...products[3], quantity: 1, rowId: 58},
+    {...products[4], quantity: 3, rowId: 68},
     {...products[12], quantity: 11, rowId: 8}
   ]
 }

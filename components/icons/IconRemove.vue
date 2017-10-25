@@ -1,5 +1,5 @@
 <template>
-    <svg xml:space="preserve" viewBox="0 0 612 612" height="612px" width="612px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="svg-ico" version="1.1">
+    <svg v-if="visible" xml:space="preserve" viewBox="0 0 612 612" height="612px" width="612px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="svg-ico" version="1.1">
                     <g>
                       <g>
                         <g>
@@ -14,3 +14,11 @@
                     </g>
                   </svg>
 </template>
+
+<script>
+    export default {
+      props: {
+        visible: {default: true}
+      }
+    }
+</script>

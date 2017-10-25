@@ -13,7 +13,7 @@
                     <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
                 </div>
                 <div class="STSS__roomsNew__item__price pull-right">
-                    <sup-decimals :number="item.price" />
+                    <sup-decimals :numberFrom="item.priceFrom" :number="item.finalPrice" :discount="item.discount" />
                 </div>
                 <i v-if="false" class="STSS__roomsNew__acc__msg">Il pagamento avviene all’arrivo nella struttura turistica il giorno del check-in</i>
             </div>

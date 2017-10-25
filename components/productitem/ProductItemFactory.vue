@@ -8,12 +8,12 @@
     props: ['product'],
     computed: {
       currentComponent () {
-        if (product.type === 'test'){
+        if (this.product.type === 'test') {
           return 'product-item'
         } else {
           return 'product-item'
         }
       }
-    },
+    }
   }
 </script>
