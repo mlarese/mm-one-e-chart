@@ -8,12 +8,12 @@ export const products = [
     'name': 'INGR.PISC.+ WELLNESS GIORNALIERO (anche giorni fest.) - BU01',
     'description': 'Questo buono comprende l’ingresso GIORNALIERO alle piscine termali e all’area wellness.\r\nLa piscina termale coperta ha una temperatura di 32°-33°C e prosegue anche all\'esterno, cosicché anche nelle fredde giornate d\'inverno si può uscire, rimanendo immersi nell\'acqua calda.\r\nL’ingresso all’Area Wellness comprende la sauna finlandese, la biosauna alle erbe, il bagno alle erbe, il bagno ipersalino, il polarium, le docce emozionali, la piscina termale con idromassaggi e la cabina salina secca.\r\n \r\nInformarsi al n° 0431-441400 per gli orari e giorni di apertura.\r\nBUONO VALIDO 12 MESI DALLA DATA DELL\' ORDINE\r\n \r\ncod. BU01\r\n ',
     'shortdescription': '',
-    'type': 'simple',
+    'type': 'specialservice',
     'photo': 'http://ecommerce.abs-one.com/photobook/eShops_2/bu01_sauna.jpg',
-    'finalPrice': '',
+    'finalPrice': '100',
     'price': '27.00',
-    'priceFrom': '',
-    'discount': ''
+    'priceFrom': '200',
+    'discount': '10'
   },
   {
     'id': '121843',

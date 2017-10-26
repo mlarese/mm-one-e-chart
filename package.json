@@ -6,6 +6,7 @@
   "private": true,
   "config": {
     "nuxt": {
+      "host": "0.0.0.0",
       "port": "4000"
     }
   },
@@ -55,7 +56,9 @@
     "vue-localstorage": "^0.4.2",
     "vue-mugen-scroll": "^0.2.5",
     "vue-select": "^2.3.0",
+    "vue-select2": "^0.2.6",
     "vue-server-renderer": "^2.5.2",
+    "vue-slick": "^1.1.11",
     "vue-template-compiler": "^2.5.2",
     "vue2-select2": "0.0.2",
     "vuex": "^3.0.0",
@@ -72,8 +75,8 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "vue-clicky": "^1.1.0",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "vue-clicky": "^1.1.0"
   }
 }

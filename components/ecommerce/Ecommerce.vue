@@ -2,7 +2,8 @@
     <div class="ecommerce bound_box ST2-book STSS__accList">
         <div class="col-xs-12 col-md-8 no-p-l STSS__content">
            <group-bar :groupList="categories" :groupCurrent="currentCategory" @change-group="changeCategory" />
-           <span class="ST2-book__choose">Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".</span>
+
+            <span class="ST2-book__choose">Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".</span>
 
             <span class="produts-list">
                 <template v-for="(product, index) in products">

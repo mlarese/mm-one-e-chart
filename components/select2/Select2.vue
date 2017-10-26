@@ -1,36 +1,40 @@
 <template>
-    <select v-model="model" class="form-control">
-        <option disabled>Select...</option>
-        <option v-for="opt in options" :value="opt.id">{{ opt.text }}</option>
+    <select v-bind:value="value">
+        <option v-for="option in options" v-bind:value="option.value">{{ option.name }}</option>
     </select>
 </template>
+
 <script>
+  import $ from 'jquery'
+  import 'select2'
+  import 'select2/dist/css/select2.css'
   export default {
-    props: {
-      'options': {
-        type: Array,
-        required: true,
-        default: () => []
-      },
-      'value': {
-        default: () => ''
-      }
-    },
+    name: 'select2',
     data () {
       return {
-        model: ''
+        mounted: false
       }
     },
+    props: {
+      value: {default: ''},
+      options: {default: () => []},
+      config: {default: () => {}}
+    },
+
     mounted () {
-      this.model = this.value
-    },
-    watch: {
-      model (model) {
-        this.$emit('input', model)
-      },
-      value (value) {
-        this.model = value
+      if (this.mounted) {
+        return
       }
+      $(this.$el).ready(() => {
+        $(this.$el).select2(this.config)
+        $(this.$el).on('change', (e) => {
+          this.$emit('input', e.target.value)
+        })
+      })
+      this.mounted = true
+    },
+    beforeDestroy () {
+      $(this.$el).select2('destroy')
     }
   }
 </script>

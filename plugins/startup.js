@@ -10,6 +10,7 @@ const absServer = 'https://reservation.abs.tmp'
 let cart = {
   id: 1,
   items: [
+    {...products[0], quantity: 2, rowId: 21},
     {...products[1], quantity: 2, rowId: 21},
     {...products[2], quantity: 1, rowId: 31},
     {...products[3], quantity: 1, rowId: 58},

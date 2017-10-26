@@ -10,7 +10,8 @@
     components: {Ecommerce},
     head: {
       link: [
-        { rel: 'stylesheet', href: 'css/main.css' }
+        { rel: 'stylesheet', href: 'css/main.css' },
+        { rel: 'stylesheet', href: 'css/extend.css' }
       ]
     }
   }
