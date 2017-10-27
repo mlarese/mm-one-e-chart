@@ -1,6 +1,8 @@
 import {actions} from './actions'
 import {getters} from './getters'
+import {mutations as insuranceMutations} from './insurance/mutations'
 import _cloneDeep from 'lodash/cloneDeep'
+import _filter from 'lodash/filter'
 
 const cartBackup = state => {
   state.backupCart = _cloneDeep(state.cart)
@@ -14,6 +16,7 @@ export const state = () => {
     cart: {
       id: 0,
       items: [],
+      rooms: [],
       insurance: {
         hasInsurance: false,
         totalPax: 0,
@@ -26,6 +29,21 @@ export const state = () => {
 }
 
 export const mutations = {
+  addRoom (state, payLoad) {
+    cartBackup(state)
+    state.cart.rooms.push(payLoad)
+  },
+  removeRoom (state, roomIndex) {
+    cartBackup(state)
+    let items = _filter(state.cart.items, item => item.rowId !== roomIndex)
+
+    state.cart.rooms.splice(roomIndex, 1)
+    state.cart.items = items
+  },
+  setRooms (state, payLoad) {
+    cartBackup(state)
+    state.cart.rooms = payLoad
+  },
   setCart (state, payLoad) {
     cartBackup(state)
     state.cart = payLoad
@@ -46,6 +64,10 @@ export const mutations = {
       state.cart.items.splice(cartIndex, 1)
     }
   },
+  setQuantity (state, {cartIndex, quantity}) {
+    cartBackup(state)
+    state.cart.items[cartIndex].quantity = quantity
+  },
   addQuantity (state, {cartIndex, quantity = 1}) {
     cartBackup(state)
     state.cart.items[cartIndex].quantity += quantity
@@ -56,7 +78,8 @@ export const mutations = {
   },
   restoreBackup (state) {
     state.cart = _cloneDeep(state.backupCart)
-  }
+  },
+  ...insuranceMutations
 }
 
 export default {

@@ -12,7 +12,6 @@ export const actions = {
     commit('removeProduct', {cartIndex})
     return dispatch('cloneToRemote')
   },
-
   removeQuantity ({state, commit, dispatch, getters}, {cartIndex, quantity = 1}) {
     if (cartIndex < 0) return
     const cartItem = getters.items[cartIndex]
@@ -32,12 +31,23 @@ export const actions = {
     commit('addQuantity', {cartIndex, quantity})
     dispatch('cloneToRemote')
   },
+  setQuantity ({commit, dispatch, getters}, {cartIndex, quantity}) {
+    commit('setQuantity', {cartIndex, quantity})
+    dispatch('cloneToRemote')
+  },
   restoreBackup ({commit}) {
     commit('restoreBackup')
   },
+  changeQuantity ({commit, dispatch}, {cartIndex, quantity}) {
+    if (quantity === 0) {
+      return dispatch('removeProduct', {cartIndex})
+    } else {
+      return dispatch('setQuantity', {cartIndex, quantity})
+    }
+  },
   cloneToRemote ({dispatch, commit, getters, state}) {
     const url = '/booking/cart'
-    const data = getters.items
+    const data = getters.cart
     const options = {
       headers: {
         CartId: getters.id,
