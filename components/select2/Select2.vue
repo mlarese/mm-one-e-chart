@@ -1,6 +1,6 @@
 <template>
-    <select v-bind:value="value">
-        <option v-for="option in options" v-bind:value="option.value">{{ option.name }}</option>
+    <select :value="value">
+        <option v-for="option in options" :value="option.value">{{ option.name }}</option>
     </select>
 </template>
 

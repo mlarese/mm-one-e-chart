@@ -1,15 +1,15 @@
 <template>
-    <div class="container no-pd-xs">
+    <div class="insurance-page container no-pd-xs">
         <div class="bound_box ST2-book STSS__accList">
-            <ecommerce />
+            <insurance />
         </div>
     </div>
 </template>
 <script>
-  import Ecommerce from '../components/ecommerce/Ecommerce'
+  import Insurance from '../components/insurance/Insurance'
 
   export default {
-    components: {Ecommerce},
+    components: {Insurance},
     head: {
       link: [
         { rel: 'stylesheet', href: 'css/main.css' },

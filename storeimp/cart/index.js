@@ -19,8 +19,6 @@ export const state = () => {
       rooms: [],
       insurance: {
         hasInsurance: false,
-        totalPax: 0,
-        guests: [],
         insuranceType: null,
         total: 0
       }

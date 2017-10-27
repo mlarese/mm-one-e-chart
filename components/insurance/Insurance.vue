@@ -1,7 +1,7 @@
 <template>
-    <div class="ecommerce">
+    <div class="insurance">
         <div class="col-xs-12 col-md-8 no-p-l STSS__content">
-           <products />
+            <insurance-selector />
         </div>
 
         <aside class="col-xs-12 col-md-4 no-p-r STSS__roomsNew">
@@ -11,9 +11,11 @@
 </template>
 <script>
   import Cart from '../cart/Cart'
-  import Products from '../products/Products'
+  import InsuranceSelector from './InsuranceSelector'
 
   export default {
-    components: {Cart, Products}
+    components: {
+      Cart, InsuranceSelector
+    }
   }
 </script>
