@@ -5,7 +5,7 @@ export const mutations = {
   setInsuranceType (state, payLoad) {
     state.cart.insurance.insuranceType = payLoad
   },
-  setInsuranceTotal (state, payLoad) {
-    state.cart.insurance.total = payLoad
+  setInsuranceTotals (state, payLoad) {
+    state.cart.insurance.totals = payLoad
   }
 }

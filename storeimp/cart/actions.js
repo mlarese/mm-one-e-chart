@@ -1,9 +1,16 @@
 import {actions as insuranceActions} from './insurance/actions'
+import _extend from 'lodash/extend'
+import _cloneDeep from 'lodash/cloneDeep'
 
 export const actions = {
-  init ({commit}, {cart, structureId, portalId}) {
+  init ({commit, state, getters}, {cart, structureId, portalId}) {
     console.log('--- cart.init')
-    commit('setCart', cart)
+
+    const oldCart = _cloneDeep(getters.cart)
+    const newCart = _extend({}, oldCart, cart)
+
+    console.dir(newCart)
+    commit('setCart', newCart)
     commit('setStructureId', structureId)
     commit('setPortalId', portalId)
   },

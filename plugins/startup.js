@@ -9,6 +9,14 @@ const absServer = 'https://reservation.abs.tmp'
 
 let cart = {
   id: 1,
+  insurance: {
+    hasInsurance: true,
+    insuranceType: 'protection',
+    totals: {
+      protection: 52.28,
+      protectionPlus: 153.20
+    }
+  },
   items: [
     {...products[0], quantity: 2, rowId: 21},
     {...products[1], quantity: 2, rowId: 21},
@@ -39,6 +47,7 @@ const structureConfig = {
 
 export default ({app, store}) => {
   console.log('-- startup')
+
   return store.dispatch('app/init', {
     locale,
     structure,

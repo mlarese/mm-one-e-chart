@@ -1,5 +1,7 @@
 export const getters = {
-  totalPax: state => state.cart.insurance.totalPax,
   insuranceType: state => state.cart.insurance.insuranceType,
-  total: state => state.cart.insurance.total
+  insuranceTotal: (state, getters) => state.cart.insurance.totals[getters.insuranceType],
+  protectionTotal: (state, getters) => state.cart.insurance.totals['protection'],
+  protectionPlusTotal: (state, getters) => state.cart.insurance.totals['protectionPlus'],
+  insuranceTotals: (state, getters) => state.cart.insurance.totals
 }

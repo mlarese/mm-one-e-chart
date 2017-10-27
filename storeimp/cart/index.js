@@ -20,7 +20,10 @@ export const state = () => {
       insurance: {
         hasInsurance: false,
         insuranceType: null,
-        total: 0
+        totals: {
+          protection: 0,
+          protectionPlus: 0
+        }
       }
     }
   }
