@@ -1,3 +1,5 @@
+import {actions as insuranceActions} from './insurance/actions'
+
 export const actions = {
   init ({commit}, {cart, structureId, portalId}) {
     console.log('--- cart.init')
@@ -51,5 +53,6 @@ export const actions = {
         commit('restoreBackup')
         return err
       })
-  }
+  },
+  ...insuranceActions
 }

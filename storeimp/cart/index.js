@@ -10,13 +10,17 @@ export const state = () => {
   return {
     structureId: 0,
     portalId: 0,
-    backupCart: {
-      id: 0,
-      items: []
-    },
+    backupCart: {},
     cart: {
       id: 0,
-      items: []
+      items: [],
+      insurance: {
+        hasInsurance: false,
+        totalPax: 0,
+        guests: [],
+        insuranceType: null,
+        total: 0
+      }
     }
   }
 }
