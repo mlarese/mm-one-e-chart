@@ -1,0 +1,501 @@
+.ST3{
+	&__title{
+		@extend .ST1-rooms__title;
+		&--lnz{
+			@extend .ST1-rooms__title--lnz;	
+		}
+	}
+	&__tot{
+		@extend .STSS__accList__resume;
+		margin-bottom: 15px;
+		@media (min-width: $screen-sm-min) {
+			margin-bottom: 30px;
+		}
+		div{
+			small{
+				font:{
+					family: $font-family-sans-serif;
+					size: $font-size-base;
+					line-height: $font-size-base;
+				}
+				@media (min-width: $screen-sm-min) {
+					font:{
+						size: $font-size-base + 4px;
+						line-height: $font-size-base + 4px;
+					}
+				}
+			}
+			span{
+				margin: 0 5px 5px;
+				font: {
+					family: $font-price;
+					size: $font-size-base + 5px;
+					line-height: $font-size-base + 5px;
+					style: italic;
+					weight: bold;
+				}
+				@media (min-width: $screen-sm-min) {
+					font:{
+						size: $font-size-base + 12px;
+						line-height: $font-size-base + 12px;
+					}
+				}
+			}
+		}
+		&__goOn{
+			@extend .STSS__accList__resume__goOn, .STSS__accList__resume__back;
+			float: right;
+		}
+		&__notes{
+			text-align:left;
+		}
+	}
+	&__login{
+		float: left;
+		width: 100%;
+		padding: 20px 0 5px;;
+		border-top: 1px solid $st3-sep-border-color;
+		border-bottom: 1px solid $st3-sep-border-color;
+		margin-bottom: $grid-gutter-width / 2;
+		strong{
+			font-size: $font-size-base + 5px;
+			line-height: $font-size-base + 7px;
+			text-transform: uppercase;
+			color: $list-title-color;
+			display: inline-block;
+			float: left;
+			margin-top: 0px;
+			font-weight: 300;
+			margin-bottom: 15px;
+			@media (min-width: $screen-md-min) {
+				margin-top: 25px;
+				margin-bottom: 0;
+			}
+		}
+		&__lbl{
+			color: $st3-font-label-color;
+			font: {
+				family: $font-family-sans-serif; 
+				size: $font-size-base;
+				weight: 300;
+			}
+		}
+		&__btn{
+			@extend .normal-button;
+			width: 100%;
+			@media (min-width: $screen-md-min) {
+				margin-top: 23px;
+			}
+			&:hover{
+				@extend .hvr-bob;
+			}
+		}
+	}
+	&__lnzBtn{
+		background-color: $st3-all-title-bkg-color;
+		float: left;
+		width: 100%;
+		margin: 5px 0 0;
+		position: relative;
+		margin-bottom: 20px;
+		&__logo{
+			width: 79px;
+			height: 50px;
+			display: block;
+			float: left;
+			margin-right: 10px;
+			background: {
+				repeat: no-repeat;
+				image: url('../images/allianz.jpg');
+			}
+		}
+		&__close{
+			position: absolute;
+			right: 15px;
+			top: 5px;
+			text-transform: uppercase;
+			font: {
+				family: $font-family-sans-serif; 
+				size: $font-size-base;
+				weight: 400;
+			}
+		}
+		&__txt{
+			font: {
+				family: $font-family-sans-serif; 
+				size: $font-size-base + 7px;
+				weight: 400;
+			}
+			max-width: calc(100% - 120px);
+			display: inline-block;
+			margin: 14px 0;
+			line-height: $font-size-base + 9px;
+			text-transform: uppercase;
+		}
+		.allianz-title-button-label{
+			display: block;
+			position: relative;
+			float: left;
+			margin-top: 5px;
+			small{
+				font-size: $font-size-base;
+				float: left; 
+				display: block;
+				padding-top: 8px;
+			}
+		}
+		.allianz-title-container-button-logo{
+			height: 25px;
+			width: 25px;
+			display: block;
+			position: relative;
+			margin-top: 7px;
+			margin-left:5px;
+			float: right;
+			@extend .rot-90;
+			&:before{
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top:-1px;
+				content: "";
+				width: 100%;
+				height: 2px;
+				background-color: $font-base-color;
+			}
+			&:after{
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left:-1px;
+				content: "";
+				width: 2px;
+				height: 100%;
+				background-color: $font-base-color;
+			}
+			&.insurance-open{
+				transform: rotate(45deg);
+			}
+		}
+	}
+	&__lnzWrapp{
+		float: left;
+		border: 1px solid $st3-all-wrapp-borer-color;
+		padding: 15px 0;
+		margin-top:-20px;
+		margin-bottom: 20px;
+		&__desc{
+			color: $st3-all-base-font-color;
+			margin-bottom: 21px;
+		}
+	}
+		//BEM elemento padre ST3__lnzWrapp
+		&__lnzBox{
+			margin-bottom:10px;
+			> ul{
+				
+				$height-logo: 61px;
+				$widht-logo: 55px;
+
+				border: 1px solid $st3-all-wrapp-borer-color;
+				list-style: none;
+				padding: 30px;
+
+				.logo-container{
+					display: block;
+				    height:$height-logo;
+				    width: $widht-logo;
+				    float: right;
+				     > span{
+					    height:$height-logo;
+					    width: $widht-logo;
+					    display: block;
+						background: {
+							repeat: no-repeat;
+						}
+				     }
+				}
+				.logo-cancel{
+					background-image: url('../images/all_base.jpg');
+				}
+				.logo-all{
+					background-image: url('../images/all_plus.jpg');
+				}
+
+				h3{
+					margin: 0px;
+					text-transform: uppercase;
+					max-width: calc(100% - 60px);
+					font: {
+						family: $font-family-sans-serif; 
+						size: $font-size-base + 3px;
+						weight: 600;
+					}
+					@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+						min-height: 40px;
+					}
+				}
+			}
+
+				&__list{
+					list-style-type: none;
+					padding-left:0;
+					margin:15px 0;
+					color: $st3-all-box-base-color;
+					@media (min-width: $screen-sm-min) {
+						height: 115px;
+					}
+					li{
+						background: url('../images/svg/sign.svg') no-repeat 0 50%;
+						padding-left: 20px;
+						margin-bottom: 5px;
+						background-size: 12px;
+					}
+				}
+
+				&__trt{
+					color: $st3-all-box-base-color;
+					&__price{
+						text-align: center;
+						display: inline-block;
+						width: 100%;
+						padding: 15px 0;
+						.amount-insurance{
+							margin: 0 5px 5px;
+							font: {
+								family: $font-price;
+								size: $font-size-base + 12px;
+								line-height: $font-size-base + 12px;
+								style: italic;
+								weight: bold;
+							}
+							color: $st3-all-norm-price-color;
+						}
+						.label-ins-selected{
+							color:$st3-all-plus-price-color;
+						}
+					}
+					.select2 {
+						width: 100% !important;
+					}
+				}
+
+						&__addBtn{
+							color:  $st3-all-norm-price-color;;
+							border: 2px solid  $st3-all-norm-price-color;
+							border-radius: 5px;
+							background-color: #FFf;
+							text-transform: uppercase;
+							padding: 8px 20px;
+							display: inline-block;
+							margin-top: 15px;
+							cursor: pointer;
+							font: {
+								family: $font-family-sans-serif; 
+								size: $font-size-base;
+								weight: bold;
+							}
+							&--plus{
+								color: $st3-all-plus-price-color;
+								border: 2px solid $st3-all-plus-price-color;
+							}
+							&.insurance-selected{
+								outline-color: transparent !important;
+								color: $st3-all-plus-price-color;
+								border: 2px solid $st3-all-plus-price-color;
+							}
+							&:hover{
+								@extend .hvr-bob;
+							}
+						}
+
+				.terms-insurance{
+					text-align: center;
+				}
+		}
+	&__fieldTit{
+		font-size: $font-size-base + 5px;
+		line-height: $font-size-base + 7px;
+		text-transform: uppercase;
+		color: $list-title-color;
+		display: inline-block;
+		float: left;
+		margin-top: 0px;
+		font-weight: 300;
+		margin-bottom: 15px;
+		width: 100%;
+		padding-left:15px;
+		@media (min-width: $screen-sm-min) {
+			padding-left:0px;
+		}
+	}
+	&__fieldSub{
+		font-size: $font-size-base + 1px;
+		line-height: $font-size-base + 5px;
+		font-style: italic;
+		text-transform: none;
+		float: left;
+		margin-top: 0;
+		width: 100%;
+		strong{
+			@extend .ST3__fieldTit;
+			width: auto;
+			font-style: normal;
+			font-size: $font-size-base + 3px;
+			line-height: $font-size-base + 5px;
+			margin-right: 5px;
+			margin-bottom: 0;
+		}
+	}
+	&__wrapForm{
+		border-bottom: 1px solid $st3-sep-border-color;
+		margin-bottom: 30px;
+		.row{
+			@media (min-width: $screen-sm-min) {
+				margin-left: -30px;
+				margin-right: -30px;
+			}
+		}
+
+		&--left{
+			.row{
+				@media (min-width: $screen-sm-min) {
+					margin-left: -30px;
+					margin-right: -30px;
+				}
+				@media (min-width: $screen-md-min) {
+					margin-left: -30px;
+					margin-right: -10px;
+				}
+			}
+		}
+		&--right{
+			.row{
+				@media (min-width: $screen-sm-min) {
+					margin-left: -30px;
+					margin-right: -30px;
+				}
+				@media (min-width: $screen-md-min) {
+					margin-left: -10px;
+					margin-right: -30px;
+				}
+			}
+		}
+
+		&__item{
+			@media (min-width: $screen-sm-min) {
+				margin-bottom: 30px;
+			}
+			&__lbl{
+				@extend .ST3__login__lbl;
+				width: 100%;
+			}
+			> span:not(.select2)
+				/* style */{
+				display: inline-block;
+				float: left;
+				margin: 10px 15px;
+			}
+			.form-control{
+				font-weight: 600;
+			}
+			&--cc{
+				.select2{
+					max-width: 75px;
+					float: left;
+				}
+			}
+		}
+	}
+
+	&__pay{
+		float:left;
+		margin: 0 15px;
+		@media (min-width: $screen-sm-min) {
+			margin: 0;
+			width: 100%;
+		}
+		&__cc{
+			border: 2px solid $st3-cc-border-color;
+			border-radius: 2px;
+			padding: 15px 0;
+			margin: 15px 0;
+			float: left;
+			width: 100%;
+			position: relative
+		}
+			&__certified{
+
+				@media (min-width: $screen-md-min) {
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+			}
+	}
+
+	.cc__input{
+		float: left;
+		width: 80px;
+	}
+
+	&__check{
+		margin-bottom: 15px;
+		.checkbox{
+			@media (min-width: $screen-sm-min) {
+				margin-left: -15px;
+			}
+		 	label{
+				margin-bottom: 10px;
+				width: auto;
+			}
+			input{
+				margin-left: 0;
+			}
+		}
+		select{
+			width: auto;
+			display: inline;
+			height: 30px;
+		}
+
+	}
+	
+	&__submit{
+		@extend .active-button;
+		border: none;
+		padding: 15px;
+		font-size: $font-size-base + 4px;
+		width: 100%;
+		margin-bottom:15px;						
+		&:hover{
+			@extend .hvr-bob;
+		}
+	}
+	.campi_obb{
+		font-style: italic;
+	}
+	&__cro-modify{
+		padding: 15px;
+	    border: 1px solid #ddd;
+	    margin: 15px;
+	    box-sizing: border-box;
+	    min-height: 58px;
+	}
+	&__cro-btn{
+		@extend .active-button;
+		border: none;
+		padding: 5px 15px;
+	}
+}
+
+//Customizzazione select2 Allianz
+//
+.select2-container--bootstrap .ST3__lnzBox__select{
+	@extend .base-select-custom;
+	@extend .base-select-custom--ico;
+	background-image: url('../images/svg/family26.svg');
+	background-size: 26px;
+	width: 100%;
+	margin-top: 5px;
+}

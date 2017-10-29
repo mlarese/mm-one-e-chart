@@ -1,0 +1,938 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+      <base href="/">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title ng-bind="pageTitle"></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+
+      <link rel="stylesheet" href="file:///D:/Dropbox/Dropbox/mmone/carrello-booking/main.css">
+	  
+  </head>
+  <body>
+
+    <div class="container no-pd-xs">
+      <div class="steps">
+        <ul class="steps__label-top">
+          <li class="steps__label-top__item col-xs-3 is-active">
+            <span class="hidden-xs">STEP 1</span>
+            <em class="visible-xxs">1. Scegli</em>
+            <small></small>
+          </li>
+          <li class="steps__label-top__item col-xs-3">
+            <span class="hidden-xs">STEP 2</span>
+            <em class="visible-xxs">2. Personalizza</em>
+            <small></small>
+          </li>
+          <li class="steps__label-top__item col-xs-3">
+            <span class="hidden-xs">STEP 3</span>
+            <em class="visible-xxs">3. Conferma</em>
+            <small></small>
+          </li>
+          <li class="steps__label-top__item col-xs-3">
+            <span class="hidden-xs">STEP 4</span>
+            <em class="visible-xxs">3. Conferma</em>
+            <small></small>
+          </li>
+        </ul>
+        <ul class="steps__label-bottom hidden-xs">
+          <li class="steps__label-bottom__item col-xs-4 is-active">
+            <!-- <span>Scegli</span>-->
+          </li>
+          <li class="steps__label-bottom__item col-xs-4">
+            <!-- <span>Personalizza</span>-->
+          </li>
+          <li class="steps__label-bottom__item col-xs-4">
+            <!-- <span>Conferma</span>-->
+          </li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <div class="search-bar__mobile">
+          <button type="button" class="btn pull-right search-bar__mobile__show">Modifica</button>
+          <div class=" search-bar__mobile__resume">
+
+          <!-- calendars12.svg -->
+          <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 612 612" xml:space="preserve">
+          <g>
+            <path d="M566.162,82.872h-59.953v-33.3c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H197.605v-33.3
+              c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H45.907C20.761,82.872,0,103.564,0,128.779V542.42
+              c0,25.146,20.692,45.907,45.907,45.907h520.186c25.146,0,45.907-20.692,45.907-45.907V128.779
+              C612,103.564,591.308,82.872,566.162,82.872z M444.817,51.765h34.053v45.153v36.246h-34.053V96.918V51.765z M136.213,51.765h34.053
+              v45.153v36.246h-34.053V96.918V51.765z M46.661,110.279h62.899v24.392c0,14.046,11.854,25.9,25.9,25.9h37
+              c14.046,0,25.9-11.854,25.9-25.9v-24.392H417.41v24.392c0,14.046,11.854,25.9,25.9,25.9h37c14.046,0,25.9-11.854,25.9-25.9v-24.392
+              h60.707c10.346,0,18.5,8.154,18.5,18.5v73.999H28.161v-73.999C28.161,118.364,36.314,110.279,46.661,110.279z M566.162,560.92
+              H46.661c-10.346,0-18.5-8.154-18.5-18.5V230.117h556.501V542.42C584.661,552.766,576.508,560.92,566.162,560.92z M148.82,304.869
+              c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399
+              C142.859,290.823,148.82,297.47,148.82,304.869z M276.811,304.869c0,7.4-5.893,13.292-13.292,13.292H219.12
+              c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,290.823,276.811,297.47,276.811,304.869z
+               M404.117,304.869c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+              h44.399C398.156,290.823,404.117,297.47,404.117,304.869z M532.108,304.869c0,7.4-5.893,13.292-13.292,13.292h-44.4
+              c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,290.823,532.108,297.47,532.108,304.869z
+               M148.82,395.861c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+              h44.399C142.859,382.569,148.82,388.461,148.82,395.861z M276.811,395.861c0,7.4-5.893,13.292-13.292,13.292H219.12
+              c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,382.569,276.811,388.461,276.811,395.861z
+               M404.117,395.861c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+              h44.399C398.156,382.569,404.117,388.461,404.117,395.861z M532.108,395.861c0,7.4-5.893,13.292-13.292,13.292h-44.4
+              c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,382.569,532.108,388.461,532.108,395.861z
+               M148.82,487.675c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+              h44.399C142.859,473.56,148.82,479.521,148.82,487.675z M276.811,487.675c0,7.4-5.893,13.292-13.292,13.292H219.12
+              c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,473.56,276.811,479.521,276.811,487.675z
+               M404.117,487.675c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+              h44.399C398.156,473.56,404.117,479.521,404.117,487.675z M532.108,487.675c0,7.4-5.893,13.292-13.292,13.292h-44.4
+              c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,473.56,532.108,479.521,532.108,487.675z"/>
+          </g>
+          </svg>
+          <span>22/02/2016 - 27/02/2016</span>
+
+           <!-- user.svg -->
+          <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 78 78" style="enable-background:new 0 0 78 78;" xml:space="preserve">
+          <g>
+            <path id="User" d="M48.3,41.2C54.8,37.2,59,29.3,59,22c0-10.4-8.5-22-20-22S19,11.6,19,22c0,7.3,4.2,15.2,10.7,19.2
+              C14.3,45.3,3,59.4,3,76c0,1.1,0.9,2,2,2h68c1.1,0,2-0.9,2-2C75,59.4,63.7,45.3,48.3,41.2z M23,22c0-10.3,8.5-18,16-18s16,7.7,16,18
+              s-8.5,18-16,18S23,32.3,23,22z M7.1,74c1-16.7,15-30,31.9-30s30.9,13.3,31.9,30H7.1z"/>
+          </g>
+
+          </svg>
+          <span>4 Adulti, 3 Bambini</span>
+          </div>
+        </div>
+          <div class="col-xs-12">
+            <form class="row" id="formSearch" method="get" action="http://localhost:3000/">
+              <b class="cls visible-xs"></b>
+              <div class="col-md-2 col-sm-4 five-cols hidden-sm"><span class="search-title">Dati soggiorno</span></div>
+              <div class="col-md-2 col-sm-4 five-cols box checkin">
+                <div class="form-control">
+                  <span>Dal</span>
+                  <input type="text" name="bform[checkin]" class="input-checkin" readonly="readonly" value="03-02-2016">
+                </div>
+                  <!-- calendars12.svg -->
+                  <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <path d="M566.162,82.872h-59.953v-33.3c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H197.605v-33.3
+                      c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H45.907C20.761,82.872,0,103.564,0,128.779V542.42
+                      c0,25.146,20.692,45.907,45.907,45.907h520.186c25.146,0,45.907-20.692,45.907-45.907V128.779
+                      C612,103.564,591.308,82.872,566.162,82.872z M444.817,51.765h34.053v45.153v36.246h-34.053V96.918V51.765z M136.213,51.765h34.053
+                      v45.153v36.246h-34.053V96.918V51.765z M46.661,110.279h62.899v24.392c0,14.046,11.854,25.9,25.9,25.9h37
+                      c14.046,0,25.9-11.854,25.9-25.9v-24.392H417.41v24.392c0,14.046,11.854,25.9,25.9,25.9h37c14.046,0,25.9-11.854,25.9-25.9v-24.392
+                      h60.707c10.346,0,18.5,8.154,18.5,18.5v73.999H28.161v-73.999C28.161,118.364,36.314,110.279,46.661,110.279z M566.162,560.92
+                      H46.661c-10.346,0-18.5-8.154-18.5-18.5V230.117h556.501V542.42C584.661,552.766,576.508,560.92,566.162,560.92z M148.82,304.869
+                      c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399
+                      C142.859,290.823,148.82,297.47,148.82,304.869z M276.811,304.869c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,290.823,276.811,297.47,276.811,304.869z
+                       M404.117,304.869c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,290.823,404.117,297.47,404.117,304.869z M532.108,304.869c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,290.823,532.108,297.47,532.108,304.869z
+                       M148.82,395.861c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C142.859,382.569,148.82,388.461,148.82,395.861z M276.811,395.861c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,382.569,276.811,388.461,276.811,395.861z
+                       M404.117,395.861c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,382.569,404.117,388.461,404.117,395.861z M532.108,395.861c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,382.569,532.108,388.461,532.108,395.861z
+                       M148.82,487.675c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C142.859,473.56,148.82,479.521,148.82,487.675z M276.811,487.675c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,473.56,276.811,479.521,276.811,487.675z
+                       M404.117,487.675c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,473.56,404.117,479.521,404.117,487.675z M532.108,487.675c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,473.56,532.108,479.521,532.108,487.675z"/>
+                  </g>
+                  </svg>
+               </div>
+               <div class="col-md-2 col-sm-4 five-cols box checkout">
+                <div class="form-control">
+                  <span>Al</span>
+                  <input type="text" name="bform[checkout]" class="input-checkout" readonly="readonly" value="04-02-2016">
+                </div>
+                  <!-- calendars12.svg -->
+                  <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <path d="M566.162,82.872h-59.953v-33.3c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H197.605v-33.3
+                      c0-14.046-11.854-25.9-25.9-25.9h-37c-14.046,0-25.9,11.854-25.9,25.9v33.3H45.907C20.761,82.872,0,103.564,0,128.779V542.42
+                      c0,25.146,20.692,45.907,45.907,45.907h520.186c25.146,0,45.907-20.692,45.907-45.907V128.779
+                      C612,103.564,591.308,82.872,566.162,82.872z M444.817,51.765h34.053v45.153v36.246h-34.053V96.918V51.765z M136.213,51.765h34.053
+                      v45.153v36.246h-34.053V96.918V51.765z M46.661,110.279h62.899v24.392c0,14.046,11.854,25.9,25.9,25.9h37
+                      c14.046,0,25.9-11.854,25.9-25.9v-24.392H417.41v24.392c0,14.046,11.854,25.9,25.9,25.9h37c14.046,0,25.9-11.854,25.9-25.9v-24.392
+                      h60.707c10.346,0,18.5,8.154,18.5,18.5v73.999H28.161v-73.999C28.161,118.364,36.314,110.279,46.661,110.279z M566.162,560.92
+                      H46.661c-10.346,0-18.5-8.154-18.5-18.5V230.117h556.501V542.42C584.661,552.766,576.508,560.92,566.162,560.92z M148.82,304.869
+                      c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399
+                      C142.859,290.823,148.82,297.47,148.82,304.869z M276.811,304.869c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,290.823,276.811,297.47,276.811,304.869z
+                       M404.117,304.869c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,290.823,404.117,297.47,404.117,304.869z M532.108,304.869c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,290.823,532.108,297.47,532.108,304.869z
+                       M148.82,395.861c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C142.859,382.569,148.82,388.461,148.82,395.861z M276.811,395.861c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,382.569,276.811,388.461,276.811,395.861z
+                       M404.117,395.861c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,382.569,404.117,388.461,404.117,395.861z M532.108,395.861c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.893-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,382.569,532.108,388.461,532.108,395.861z
+                       M148.82,487.675c0,7.4-5.893,13.292-13.292,13.292H91.128c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C142.859,473.56,148.82,479.521,148.82,487.675z M276.811,487.675c0,7.4-5.893,13.292-13.292,13.292H219.12
+                      c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.399C270.165,473.56,276.811,479.521,276.811,487.675z
+                       M404.117,487.675c0,7.4-5.892,13.292-13.292,13.292h-44.399c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292
+                      h44.399C398.156,473.56,404.117,479.521,404.117,487.675z M532.108,487.675c0,7.4-5.893,13.292-13.292,13.292h-44.4
+                      c-7.4,0-13.292-5.892-13.292-13.292c0-7.4,5.893-13.292,13.292-13.292h44.4C526.216,473.56,532.108,479.521,532.108,487.675z"/>
+                  </g>
+                  </svg>
+               </div>
+               <div class="col-md-2 col-sm-4 five-cols guestWrap pointer">
+                  <div class="box guests form-control">
+                    <span class="sLable">Per</span>
+                    <small>
+                      <span class="num-guests-adults">2</span> Adulti, 
+                      <span class="num-guests-childs">0</span> Bambini</small>
+                  </div>
+                   <!-- user.svg -->
+                  <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 78 78" style="enable-background:new 0 0 78 78;" xml:space="preserve">
+                  <g>
+                    <path id="User" d="M48.3,41.2C54.8,37.2,59,29.3,59,22c0-10.4-8.5-22-20-22S19,11.6,19,22c0,7.3,4.2,15.2,10.7,19.2
+                      C14.3,45.3,3,59.4,3,76c0,1.1,0.9,2,2,2h68c1.1,0,2-0.9,2-2C75,59.4,63.7,45.3,48.3,41.2z M23,22c0-10.3,8.5-18,16-18s16,7.7,16,18
+                      s-8.5,18-16,18S23,32.3,23,22z M7.1,74c1-16.7,15-30,31.9-30s30.9,13.3,31.9,30H7.1z"/>
+                  </g>
+
+                  </svg>
+                  <div class="numGuests">
+          					<span>Seleziona le camere e gli ospiti<b class="cls"></b></span>
+          					<div class="numRooms">
+          						<small>Numero Camere</small>
+          						<button value="1" type="button" id="numRooms_button-1">1</button>
+          						<button  class="selected" value="2" type="button" id="numRooms_button-2">2</button>
+          						<button value="3" type="button" id="numRooms_button-3">3</button>
+          						<button class="last" value="4" type="button" id="numRooms_button-4">4</button>
+          					</div>
+          					<div class="roomGuests 1">
+          						<span class="titleRoom">Camera 1</span>
+          						<div class="numAdults">
+          							<small>Numero Adulti</small>
+                        <div class="wrapper-buttons">
+            							<button value="1" type="button" id="room_adults-1-1">1</button>
+            							<button class="selected" value="2" type="button" id="room_adults-1-2">2</button>
+            							<button value="3" type="button" id="room_adults-1-3">3</button>
+            							<button value="4" type="button" id="room_adults-1-4">4</button>
+                          <button value="5" type="button" id="room_adults-1-5">5</button>
+                          <button value="6" type="button" id="room_adults-1-6">6</button>
+                          <button value="1" type="button" id="room_adults-1-1">7</button>
+                          <button value="2" type="button" id="room_adults-1-2">8</button>
+                          <button value="3" type="button" id="room_adults-1-3">9</button>
+                          <button value="4" type="button" id="room_adults-1-4">10</button>
+                          <button value="5" type="button" id="room_adults-1-5">11</button>
+                          <button class="last" value="6" type="button" id="room_adults-1-6">12</button>
+                        </div>
+          						</div>
+          						<div class="numChildren"><small class="large">Numero Bambini</small>
+                      <div class="wrapper-buttons">
+            							<button value="0" type="button" id="room_children-1-0">0</button>
+            							<button value="1" type="button" id="room_children-1-1" class="selected">1</button>
+            							<button value="2" type="button" id="room_children-1-2">2</button>
+            							<button value="3" type="button" id="room_children-1-3">3</button>
+                          <button value="4" type="button" id="room_children-1-4">4</button>
+                          <button value="5" type="button" id="room_children-1-5">5</button>
+                          <button value="6" type="button" id="room_children-1-6">6</button>
+                          <button value="7" type="button" id="room_children-1-7">7</button>
+                          <button value="8" type="button" id="room_children-1-8">8</button>
+                          <button value="9" type="button" id="room_children-1-9">9</button>
+                          <button value="10" type="button" id="room_children-1-10">10</button>
+                          <button class="last" value="11" type="button" id="room_children-1-11">11</button>
+                        </div>
+          							<div class="childrenAge large"><small>Età bambini</small>
+          								<div></div>
+          							</div>
+          						</div>
+          					</div>
+                    <div class="roomGuests 2"> <span class="titleRoom">Camera 2</span>
+                      <div class="numAdults"> <small>Numero Adulti</small>
+                      <div class="wrapper-buttons">
+                        <button value="1" type="button" id="room_adults-2-1">1</button>
+                        <button value="2" class="selected" type="button" id="room_adults-2-2">2</button>
+                        <button value="3" type="button" id="room_adults-2-3">3</button>
+                        <button class="last" value="4" type="button" id="room_adults-2-4">4</button>
+                      </div>
+                      </div>
+                      <div class="numChildren"> <small>Numero Bambini</small>
+                      <div class="wrapper-buttons">
+                        <button value="0" class="selected" type="button" id="room_children-2-0">0</button>
+                        <button value="1" type="button" id="room_children-2-1">1</button>
+                        <button value="2" type="button" id="room_children-2-2">2</button>
+                        <button class="last" value="3" type="button" id="room_children-2-3">3</button>
+                        </div>
+                        <div class="childrenAge"> <small>Età bambini</small>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="roomGuests 3"> <span class="titleRoom">Camera 3</span>
+                      <div class="numAdults"> <small>Numero Adulti</small>
+                        <button value="1" type="button" id="room_adults-3-1">1</button>
+                        <button value="2" class="selected" type="button" id="room_adults-3-2">2</button>
+                        <button value="3" type="button" id="room_adults-3-3">3</button>
+                        <button class="last" value="4" type="button" id="room_adults-3-4">4</button>
+                      </div>
+                      <div class="numChildren"> <small>Numero Bambini</small>
+                        <button value="0" class="selected" type="button" id="room_children-3-0">0</button>
+                        <button value="1" type="button" id="room_children-3-1">1</button>
+                        <button value="2" type="button" id="room_children-3-2">2</button>
+                        <button class="last" value="3" type="button" id="room_children-3-3">3</button>
+                        <div class="childrenAge"> <small>Età bambini</small>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="roomGuests 4"> <span class="titleRoom">Camera 4</span>
+                      <div class="numAdults"> <small>Numero Adulti</small>
+                        <button value="1" type="button" id="room_adults-4-1">1</button>
+                        <button value="2" class="selected" type="button" id="room_adults-4-2">2</button>
+                        <button value="3" type="button" id="room_adults-4-3">3</button>
+                        <button class="last" value="4" type="button" id="room_adults-4-4">4</button>
+                      </div>
+                      <div class="numChildren"> <small>Numero Bambini</small>
+                        <button value="0" class="selected" type="button" id="room_children-4-0">0</button>
+                        <button value="1" type="button" id="room_children-4-1">1</button>
+                        <button value="2" type="button" id="room_children-4-2">2</button>
+                        <button class="last" value="3" type="button" id="room_children-4-3">3</button>
+                        <div class="childrenAge"> <small>Età bambini</small>
+                          <div></div> 
+                        </div>
+                      </div>
+                    </div>
+                </div>  
+              </div>
+              <div class="col-md-2 col-sm-4 col-sm-pull-4 col-md-pull-0 five-cols buttonWrap">
+                <button type="button" class="btn form-control search-btn">
+                  Cerca
+                  <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="30.239px" height="30.239px" viewBox="0 0 30.239 30.239" style="enable-background:new 0 0 30.239 30.239;"
+                     xml:space="preserve">
+                    <g>
+                      <path d="M20.194,3.46c-4.613-4.613-12.121-4.613-16.734,0c-4.612,4.614-4.612,12.121,0,16.735
+                        c4.108,4.107,10.506,4.547,15.116,1.34c0.097,0.459,0.319,0.897,0.676,1.254l6.718,6.718c0.979,0.977,2.561,0.977,3.535,0
+                        c0.978-0.978,0.978-2.56,0-3.535l-6.718-6.72c-0.355-0.354-0.794-0.577-1.253-0.674C24.743,13.967,24.303,7.57,20.194,3.46z
+                         M18.073,18.074c-3.444,3.444-9.049,3.444-12.492,0c-3.442-3.444-3.442-9.048,0-12.492c3.443-3.443,9.048-3.443,12.492,0
+                        C21.517,9.026,21.517,14.63,18.073,18.074z"/>
+                    </g>
+                  </svg>
+                </button>
+                <button type="button" class="btn form-control modify-btn">
+                  Modifica         
+                </button>
+              </div>
+
+              <input type="hidden" name="bform[numRooms]" class="input-numRooms" value="2">
+              <input type="hidden" name="bform[reqRooms][1][adults]" id="bform_reqRooms_1_adults" class="input-adults" value="2">
+              <input type="hidden" name="bform[reqRooms][1][child]" id="bform_reqRooms_1_child" class="input-child" value="0">
+        
+               <input type="hidden" id="bform_reqRooms_2_adults" name="bform[reqRooms][2][adults]" value="2">
+               <input type="hidden" id="bform_reqRooms_2_child" name="bform[reqRooms][2][child]" value="1">
+              
+              </form>
+          </div>
+      </div>
+    <!-- Inizio Step 2-->
+    <div class="bound_box ST2-book STSS__accList">
+
+    <div class="ST2-book__top">
+      <div class="col-md-6"><h2 class="ST2-book__title--opt">Personalizza Soggiorno</h2></div>
+      <div class="col-md-6 no-p-r">
+        <button class="ST2-book__disc-code pull-right">Hai un codice sconto?</button>
+        <div class="ST2-book__dropdown pull-right">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Euro
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="#">Dollaro</a></li>
+          </ul>
+        </div>
+        <div class="ST2-book__dropdown pull-right">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Italiano
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="#">English</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-8 no-p-l STSS__content">
+      <h3 class="STSS__content__subtitle text-uppercase">assicurazione</h3>
+      <span class="ST2-book__choose ST2-book__choose--ins">Per una maggiore serenità consigliamo a tutti i viaggiatori di aggiungere l’assicurazione di viaggio alla prenotazione</span>
+      <div class="STSS__content__moreInfo col-xs-12">
+        <a class="" role="button" data-toggle="collapse" href="#collapseMoreInfo" aria-expanded="false" aria-controls="collapseMoreInfo">+ <i>Maggiori informazioni</i></a>
+        <div class="collapse" id="collapseMoreInfo">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida libero at auctor consequat. Ut quis sodales nibh. Nullam fringilla non tellus a aliquam. Suspendisse rutrum ipsum eu dolor vehicula laoreet. Etiam ac interdum metus, nec varius mi. Phasellus a arcu venenatis, ullamcorper mauris in, accumsan est. Pellentesque sollicitudin vulputate congue. Morbi hendrerit lacus ante, quis efficitur dolor tristique eget. Etiam ut ligula quam.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 STSS__content__protection no-p-l">
+        <div class="STSS__content__protection__container">
+          <h4 class="STSS__content__protection__title text-uppercase">PROTECTION</h4>
+          <img src="file://D:/Dropbox/Dropbox/mmone/carrello-booking/images/all_base.jpg" width="40" height="44" class="pull-right" />
+          <div class="STSS__content__protection__list">
+            <ul>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+                <span>Annullamento del soggiorno</span>
+                <a href="#"><svg version="1.1" class="svg-ico"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ viewBox="0 0 199.943 199.943" style="enable-background:new 0 0 199.943 199.943;" xml:space="preserve">
+<g>
+<g>
+  <path d="M99.972,0.004C44.85,0.004,0,44.847,0,99.968c0,55.125,44.847,99.972,99.972,99.972
+    s99.972-44.847,99.972-99.972C199.943,44.847,155.093,0.004,99.972,0.004z M99.972,190.957c-50.168,0-90.996-40.813-90.996-90.989
+    c0-50.172,40.828-90.992,90.996-90.992c50.175,0,91.003,40.817,91.003,90.992S150.147,190.957,99.972,190.957z"/>
+  <path d="M99.324,67.354c-3.708,0-6.725,3.01-6.725,6.728v75.979c0,3.722,3.017,6.739,6.725,6.739
+    c3.722,0,6.739-3.017,6.739-6.739V74.082C106.063,70.364,103.042,67.354,99.324,67.354z"/>
+    <circle cx="99.746" cy="48.697" r="8.178"/></g>
+</g>
+</g>
+</svg></a>
+              </li>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+              <span>Rimborso importo versato</span></li>
+            </ul>
+          </div>
+          <div class="STSS__content__protection__select">
+            <small>Assicura</small>
+            <select id="price_cancel" name="insuranceBooking" class="insurance hund select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+              <option value="0" selected="selected">Acconto/Caparra</option>
+              <option value="1">Tutto il soggiorno</option>
+            </select>
+          </div>
+          <div class="STSS__content__protection__price text-center">
+            <span>A soli</span> <em>€ 52<sup>,88</sup></em>
+          </div>
+          <div class="STSS__content__protection__button text-center">
+            <button type="submit" class="text-uppercase">Aggiungi</button>
+          </div>
+          <div class="STSS__content__protection__info text-center">
+            <em>(prima dell’acquisto, <a href="#">legga il fascicolo informativo Protection</a>)</em>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 STSS__content__protection STSS__content__protection--plus no-p-l">
+        <div class="STSS__content__protection__container">
+          <h4 class="STSS__content__protection__title text-uppercase">PROTECTION PLUS</h4>
+          <img src="file://D:/Dropbox/Dropbox/mmone/carrello-booking/images/all_plus.jpg" width="40" height="44" class="pull-right" />
+          <div class="STSS__content__protection__list">
+            <ul>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+                <span>Annullamento del soggiorno</span>
+                <a href="#"><svg version="1.1" class="svg-ico"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ viewBox="0 0 199.943 199.943" style="enable-background:new 0 0 199.943 199.943;" xml:space="preserve">
+<g>
+<g>
+  <path d="M99.972,0.004C44.85,0.004,0,44.847,0,99.968c0,55.125,44.847,99.972,99.972,99.972
+    s99.972-44.847,99.972-99.972C199.943,44.847,155.093,0.004,99.972,0.004z M99.972,190.957c-50.168,0-90.996-40.813-90.996-90.989
+    c0-50.172,40.828-90.992,90.996-90.992c50.175,0,91.003,40.817,91.003,90.992S150.147,190.957,99.972,190.957z"/>
+  <path d="M99.324,67.354c-3.708,0-6.725,3.01-6.725,6.728v75.979c0,3.722,3.017,6.739,6.725,6.739
+    c3.722,0,6.739-3.017,6.739-6.739V74.082C106.063,70.364,103.042,67.354,99.324,67.354z"/>
+  <circle cx="99.746" cy="48.697" r="8.178"/>
+</g>
+</g>
+</svg></a>
+              </li>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+              <span>Assistenza 24H</span></li>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+              <span>Spese mediche</span></li>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+              <span>Interruzione del soggiorno</span></li>
+              <li>
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="10px" height="10px" viewBox="0 0 611.99 611.99" style="enable-background:new 0 0 611.99 611.99;"
+ xml:space="preserve">
+<g>
+<g >
+  <g>
+    <path fill="#3abf00" d="M606.453,101.171c-7.422-7.384-19.436-7.384-26.856,0L209.688,470.353L32.71,293.719c-7.499-7.46-19.626-7.46-27.086,0
+      c-7.499,7.46-7.499,19.588,0,27.048L195.341,510.14c0.115,0.115,0.306,0.153,0.421,0.269c0.115,0.114,0.153,0.268,0.229,0.382
+      c7.422,7.422,19.435,7.422,26.856,0l383.605-382.84C613.836,120.566,613.836,108.554,606.453,101.171z"/>
+  </g>
+</g>
+</g>
+
+</svg>
+              <span>Rimborso importo versato</span></li>
+            </ul>
+          </div>
+          <div class="STSS__content__protection__select">
+            <small>Assicura</small>
+            <select id="price_cancel" name="insuranceBooking" class="insurance hund select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+              <option value="0" selected="selected">Acconto/Caparra</option>
+              <option value="1">Tutto il soggiorno</option>
+            </select>
+          </div>
+          <div class="STSS__content__protection__price STSS__content__protection__price--add text-center">
+            <span>A soli</span> <em>€ 153<sup>,20</sup></em>
+          </div>
+          <div class="STSS__content__protection__button STSS__content__protection__button--add text-center">
+            <button type="submit" class="text-uppercase">
+              Aggiunto 
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 x="0px" y="0px" width="78px" height="57px" viewBox="0 0 78 57" enable-background="new 0 0 78 57" xml:space="preserve">
+                <g>
+                  <path d="M78.049,8.572l-48.59,48.591c-0.428,0.429-1.121,0.429-1.548,0L0.32,29.572
+                    c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112L69.798,0.32
+                    c0.43-0.427,1.12-0.427,1.549,0l6.702,6.704C78.478,7.451,78.478,8.144,78.049,8.572"/>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="STSS__content__protection__info text-center">
+            <em>(prima dell’acquisto, <a href="#">legga il fascicolo informativo Protection Plus</a>)</em>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 STSS__content__notes">
+        <p>
+          <strong>NB:</strong><br />
+Il pagamento della polizza assicurativa avviene in modalità separata: Allianz invierà una e-mail con le informazioni necessarie al pagamento (effettuabile solo con carta di credito entro le 24h).
+        </p>
+      </div>
+    </div>
+    <aside class="col-xs-12 col-md-4 no-p-r STSS__roomsNew">
+      <h3 class="STSS__roomsNew__title">Il tuo soggiorno</h3>
+      <form>
+        <div class="STSS__roomsNew__item">
+          <img src="file://D:/Dropbox/Dropbox/mmone/carrello-booking/images/rooms_01.jpg" class="pull-left STSS__roomsNew__item__image" />
+          <h4 class="STSS__roomsNew__item__title text-uppercase">doppia panoramica</h4>
+          <div class="STSS__roomsNew__item__desc">
+            <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 59.178 59.178" style="enable-background:new 0 0 59.178 59.178;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M57.285,56.028H36.721c7.051-2.708,12.247-9.182,13.078-16.957h2.018
+                    c4.059,0,7.361-3.302,7.361-7.36s-3.302-7.361-7.361-7.361H48.42H10.365c-0.829,0-1.5,0.672-1.5,1.5v11.027
+                    c0,8.734,5.493,16.192,13.199,19.151H1.5c-0.829,0-1.5,0.672-1.5,1.5s0.671,1.5,1.5,1.5h55.785c0.829,0,1.5-0.672,1.5-1.5
+                    S58.114,56.028,57.285,56.028z M56.178,31.711c0,2.404-1.956,4.36-4.361,4.36H49.92v-8.722h1.897
+                    C54.221,27.349,56.178,29.305,56.178,31.711z M11.865,36.877V27.35H46.92v9.527c0,9.665-7.863,17.527-17.527,17.527
+                    S11.865,46.542,11.865,36.877z"/>
+                  <path d="M17.809,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.16-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C14.364,7.648,17.424,9.111,17.809,9.285z"/>
+                  <path d="M28.155,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.161-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C24.71,7.648,27.769,9.111,28.155,9.285z"/>
+                  <path d="M38.219,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.161-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C34.774,7.648,37.833,9.111,38.219,9.285z"/>
+                </g>
+              </g>
+            </svg>
+            <span>Camera e Colazione</span>
+          </div>
+          <div class="STSS__roomsNew__item__price">
+            <del>&euro; 840,00</del> <span>-20%</span> <em>&euro;700<sup>,00</sup></em>
+          </div>
+          <div class="STSS__roomsNew__item__ssr col-xs-12 no-p-r">
+            <div>
+              <strong>Ingresso centro termale</strong>
+              <a href="#" class="STSS__roomsNew__item__ssr__remove">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                          c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                          l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                          C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                          c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                          C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <div class="STSS__roomsNew__item__ssr__qty pull-left">
+                <span class="STSS__roomsNew__item__ssr__qty__label">Q.ta</span>
+                <select name="accessorySel[3]" id="accessorySel_3" class="STSS__roomsNew__item__ssr__qty__select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                      <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+              </div>
+              <div class="STSS__roomsNew__item__price pull-right"><em>&euro;20<sup>,00</sup></em></div>
+            </div>
+          </div>
+          <div class="STSS__roomsNew__item__ssr col-xs-12 no-p-r">
+            <div>
+              <strong>Transfer aeroporto VCE</strong>
+              <a href="#" class="STSS__roomsNew__item__ssr__remove">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                          c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                          l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                          C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                          c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                          C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <div class="STSS__roomsNew__item__ssr__qty pull-left">
+                <span class="STSS__roomsNew__item__ssr__qty__label">Q.ta</span>
+                <select name="accessorySel[3]" id="accessorySel_3" class="STSS__roomsNew__item__ssr__qty__select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                      <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+              </div>
+              <div class="STSS__roomsNew__item__price pull-right"><del>&euro; 100,00</del> <span>-40%</span> <em>&euro;60<sup>,00</sup></em></div>
+            </div>
+          </div>
+        </div>
+        <div class="STSS__roomsNew__item">
+          <img src="file://D:/Dropbox/Dropbox/mmone/carrello-booking/images/rooms_01.jpg" class="pull-left STSS__roomsNew__item__image" />
+          <h4 class="STSS__roomsNew__item__title text-uppercase">Tripla deluxe</h4>
+          <div class="STSS__roomsNew__item__desc">
+            <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 59.178 59.178" style="enable-background:new 0 0 59.178 59.178;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M57.285,56.028H36.721c7.051-2.708,12.247-9.182,13.078-16.957h2.018
+                    c4.059,0,7.361-3.302,7.361-7.36s-3.302-7.361-7.361-7.361H48.42H10.365c-0.829,0-1.5,0.672-1.5,1.5v11.027
+                    c0,8.734,5.493,16.192,13.199,19.151H1.5c-0.829,0-1.5,0.672-1.5,1.5s0.671,1.5,1.5,1.5h55.785c0.829,0,1.5-0.672,1.5-1.5
+                    S58.114,56.028,57.285,56.028z M56.178,31.711c0,2.404-1.956,4.36-4.361,4.36H49.92v-8.722h1.897
+                    C54.221,27.349,56.178,29.305,56.178,31.711z M11.865,36.877V27.35H46.92v9.527c0,9.665-7.863,17.527-17.527,17.527
+                    S11.865,46.542,11.865,36.877z"/>
+                  <path d="M17.809,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.16-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C14.364,7.648,17.424,9.111,17.809,9.285z"/>
+                  <path d="M28.155,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.161-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C24.71,7.648,27.769,9.111,28.155,9.285z"/>
+                  <path d="M38.219,9.285c1.744,0.736,2.751,1.59,2.837,2.404c0.127,1.204-1.534,2.781-2.358,3.356
+                    c-0.68,0.471-0.85,1.403-0.38,2.084c0.291,0.422,0.76,0.648,1.236,0.648c0.293,0,0.59-0.086,0.85-0.266
+                    c0.408-0.281,3.974-2.842,3.637-6.126c-0.207-2.013-1.773-3.649-4.619-4.85c-0.744-0.337-1.581-1.058-1.572-1.353
+                    c0-0.009,0.169-0.906,3.369-2.13c0.773-0.297,1.161-1.164,0.865-1.938c-0.295-0.772-1.161-1.16-1.937-0.865
+                    c-3.505,1.342-5.238,2.926-5.295,4.842C34.774,7.648,37.833,9.111,38.219,9.285z"/>
+                </g>
+              </g>
+            </svg>
+            <span>Mezza pensione</span>
+          </div>
+          <div class="STSS__roomsNew__item__price">
+            <em>&euro;890<sup>,00</sup></em>
+          </div>
+          <div class="STSS__roomsNew__item__ssr col-xs-12 no-p-r">
+            <div>
+              <strong>Transfer aeroporto VCE</strong>
+              <a href="#" class="STSS__roomsNew__item__ssr__remove">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                          c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                          l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                          C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                          c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                          C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <div class="STSS__roomsNew__item__ssr__qty pull-left">
+                <span class="STSS__roomsNew__item__ssr__qty__label">Q.ta</span>
+                <select name="accessorySel[3]" id="accessorySel_3" class="STSS__roomsNew__item__ssr__qty__select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                      <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+              </div>
+              <div class="STSS__roomsNew__item__price pull-right"><del>&euro; 100,00</del> <span>-40%</span> <em>&euro;60<sup>,00</sup></em></div>
+            </div>
+          </div>
+        </div>
+        <div class="STSS__roomsNew__total text-right">
+          <a class="STSS__roomsNew__total__link" href="#">Condizioni di prenotazione</a>
+          <strong class="STSS__roomsNew__total__label">Totale soggiorno</strong> <em class="STSS__roomsNew__total__price">€ 1760<sup>,00</sup></em>
+          <span class="STSS__roomsNew__total__highlight">Stai risparmiando € 240,00</span>
+        </div>
+        <div class="STSS__roomsNew__acc col-xs-12">
+            <div>
+              <strong>Biancheria bagno doppia</strong>
+              <a href="#" class="STSS__roomsNew__item__ssr__remove">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                          c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                          l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                          C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                          c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                          C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <div class="STSS__roomsNew__item__ssr__qty pull-left">
+                <span class="STSS__roomsNew__item__ssr__qty__label">Q.ta</span>
+                <select name="accessorySel[3]" id="accessorySel_3" class="STSS__roomsNew__item__ssr__qty__select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                      <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+              </div>
+              <div class="STSS__roomsNew__item__price pull-right"><em>&euro;12<sup>,00</sup></em></div>
+              <i class="STSS__roomsNew__acc__msg">Il pagamento avviene all’arrivo nella struttura turistica il giorno del check-in</i>
+            </div>
+          </div>
+          <div class="STSS__roomsNew__acc col-xs-12">
+            <div>
+              <a href="#" class="STSS__roomsNew__item__ssr__remove">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                          c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                          l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                          C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                          c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                          C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <div class="STSS__roomsNew__acc__price text-right">
+                <b class="STSS__roomsNew__total__label">Totale assicurazione</b> <em class="STSS__roomsNew__total__price">€ 153<sup>,20</sup></em>
+              </div>
+              <i class="STSS__roomsNew__acc__msg">Il pagamento della polizza assicurativa avviene in modalità separata</i>
+            </div>
+          </div>
+          <div class="STSS__roomsNew__send text-center">
+            <button class="btn form-control text-uppercase">prosegui</button>
+          </div>
+      </form>
+    </aside>
+
+  </div>
+
+    <!-- Fine Step 2 -->
+  </div>
+
+<div class="hidden" id="modal-repo">
+  
+  <!-- #image-1 -->
+  <div class="item" data-gal-ref="image-1">
+    <img class="thumbnail img-responsive" title="Image 11" src="http://dummyimage.com/600x350/ccc/969696">
+  </div>
+  <div class="item-text" data-gal-ref="image-1">
+    <h3>Camera doppia</h3>
+    <div class="visualpax ST2-item__roomTxt__pax">
+      <span>Max</span>
+      <!-- user.svg -->
+      <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 78 78" style="enable-background:new 0 0 78 78;" xml:space="preserve">
+      <g>
+      <path id="User" d="M48.3,41.2C54.8,37.2,59,29.3,59,22c0-10.4-8.5-22-20-22S19,11.6,19,22c0,7.3,4.2,15.2,10.7,19.2
+        C14.3,45.3,3,59.4,3,76c0,1.1,0.9,2,2,2h68c1.1,0,2-0.9,2-2C75,59.4,63.7,45.3,48.3,41.2z M23,22c0-10.3,8.5-18,16-18s16,7.7,16,18
+        s-8.5,18-16,18S23,32.3,23,22z M7.1,74c1-16.7,15-30,31.9-30s30.9,13.3,31.9,30H7.1z"></path>
+      </g>
+      </svg>
+      <!-- user.svg -->
+      <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 78 78" style="enable-background:new 0 0 78 78;" xml:space="preserve">
+      <g>
+      <path id="User" d="M48.3,41.2C54.8,37.2,59,29.3,59,22c0-10.4-8.5-22-20-22S19,11.6,19,22c0,7.3,4.2,15.2,10.7,19.2
+        C14.3,45.3,3,59.4,3,76c0,1.1,0.9,2,2,2h68c1.1,0,2-0.9,2-2C75,59.4,63.7,45.3,48.3,41.2z M23,22c0-10.3,8.5-18,16-18s16,7.7,16,18
+        s-8.5,18-16,18S23,32.3,23,22z M7.1,74c1-16.7,15-30,31.9-30s30.9,13.3,31.9,30H7.1z"></path>
+      </g>
+      </svg>
+    </div>
+    <div class="clearfix"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem facilis, earum alias ipsa perferendis. Expedita rerum aliquam illum possimus! Dolores a quasi repellat assumenda deserunt repellendus perferendis deleniti similique neque.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quo, ab. Impedit eligendi dolorem, ducimus facere magni quaerat quo dolore, aliquid tenetur velit inventore vero voluptas, natus, commodi architecto assumenda!
+    </p>
+  </div>        
+  
+</div>
+
+<div class="modal fade" id="modal-gallery" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal">
+        <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="612px" height="612px" viewBox="0 0 612 612" xml:space="preserve">
+        <g>
+          <g>
+            <g>
+              <path d="M415.338,196.662c-7.535-7.535-19.737-7.535-27.253,0l-82.181,82.18l-81.033-81.032c-7.478-7.478-19.584-7.478-27.042,0
+                c-7.478,7.478-7.478,19.584,0,27.042l81.033,81.033l-81.587,81.587c-7.535,7.535-7.535,19.736,0,27.253s19.737,7.517,27.253,0
+                l81.588-81.587l81.032,81.032c7.478,7.478,19.584,7.478,27.043,0c7.478-7.478,7.478-19.584,0-27.043l-81.033-81.032l82.181-82.18
+                C422.873,216.399,422.873,204.179,415.338,196.662z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306
+                c168.988,0,306-137.012,306-306S475.008,0,306,0z M306,573.75C158.125,573.75,38.25,453.875,38.25,306
+                C38.25,158.125,158.125,38.25,306,38.25c147.875,0,267.75,119.875,267.75,267.75C573.75,453.875,453.875,573.75,306,573.75z"/>
+            </g>
+          </g>
+        </g>
+
+        </svg>
+      </button>
+      <div class="modal-body">
+          <div id="modal-carousel" class="carousel slide">
+   
+            <div class="carousel-inner">           
+            </div>
+            
+            <a class="carousel-control left" href="#modal-carousel" data-slide="prev">
+              <i class="glyphicon glyphicon-chevron-left">
+                <svg version="1.1" class="svg-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                   width="306px" height="306px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
+                <g>
+                  <g>
+                    <polygon points="247.35,270.3 130.05,153 247.35,35.7 211.65,0 58.65,153 211.65,306    "/>
+                  </g>
+                </g>
+                </svg>
+              </i>
+            </a>
+            <a class="carousel-control right" href="#modal-carousel" data-slide="next">
+              <i class="glyphicon glyphicon-chevron-right">
+                <svg version="1.1" class="svg-ico select-arrow"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
+                <g>
+                  <g>
+                    <polygon points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153     "/>
+                  </g>
+                </g>
+                </svg>    
+              </i>
+            </a>
+            
+          </div>
+          <div class="modal-text"> 
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+	<script type="text/javascript">
+	var trad = new Array();
+	    trad['iso2Lang']          = 'it';
+	    trad['dp-checkin-msg']    = 'Seleziona la data di arrivo';
+	    trad['dp-checkout-msg']   = 'Seleziona la data di partenza';
+	    trad['dp-day-not-valid']  = 'Giorno non disponibile';
+
+	var ABS_activeSearch    = false;  
+	//Occhio la valorizzazione del mese deve essere NUM-MESE - 1 ( 0 -> Jan, 1->Feb ...)
+	var ABS_searchCheckin   = new Date('2016','05','22');
+	var ABS_searchCheckout  = new Date('2016','05','27');
+
+	var ABS_bookedRooms			= 2;
+	var ABS_Adults          = []
+	var ABS_childrenAge 		= [];
+
+	ABS_Adults[1]           = 3;
+	ABS_Adults[2]           = 3;
+
+	ABS_childrenAge[1] 			= [];
+	ABS_childrenAge[2] 			= [];
+
+	ABS_childrenAge[1][0]		= 0;
+	ABS_childrenAge[2][1] 		= 6;
+	ABS_childrenAge[2][2] 		= 7;
+
+  ABS_minAge = 5;
+  ABS_maxAge = 10;
+
+	</script>
+	<script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+a,
+.btn,
+select{
+	&:focus{
+		outline-color: transparent !important;
+	}
+}
+
+.rot-90{
+	cursor: pointer;
+	transition: transform .1s ease-out;
+	&:hover{
+		transform: rotate(90deg);
+		transition: transform .1s ease-in;
+	}
+}
+
+.close-btn{
+    $size: 15px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: $size;
+	height:  $size;
+	background: { 
+		size: 100% 100%;
+		image: url('/images/svg/close47.svg');
+		position: 0 0;
+	}
+	@extend .rot-90;
+}
+
+.active-button{
+	background: $search-button-search-color;
+	border-radius: 3px;
+	color: $search-button-search-text;
+	font: {
+		family: $font-family-sans-serif; 
+		size: $font-size-base - 2;
+		weight: bold;
+	}
+	text-transform: uppercase;
+	outline: none !important;
+}
+
+.normal-button{
+	background: $search-button-modify-color;
+    border-radius: 3px;
+	font: {
+		family: $font-family-sans-serif; 
+		size: $font-size-base - 2;
+		weight: bold;
+	}
+    text-transform: uppercase;
+    outline: none !important;
+}
+
+.anim-shake {
+  animation: shake 0.40s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.right{float: right;}
+.hund{width: 100%;}
+.hund-hard{width: 100% !important;}
+.pointer{cursor: pointer}
+.ma-btn{
+	margin-bottom: 15px;
+	@media (min-width: $screen-sm-min) {
+		margin-bottom: 30px;
+	}
+}
+
+.no-p-l{padding-left:0}
+.no-p-r{padding-right:0}
+.no-p-bs{padding-right:0; padding-left:0}
+
+@keyframes shake {
+  20%, 80% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  50% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+}
+
+
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+//Customizzazione select2 base
+
+.select2-container--bootstrap {
+  display: inline-block;
+  .base-select-custom{
+    border-radius: 0px;
+    font-size: $font-size-base - 2;
+    font-weight: bold;
+    line-height: 28px;
+    height: 40px;
+    border: 1px solid darken($rate-ite-border-color, 10%);
+    @media (min-width: $screen-sm-min) {
+      margin-top: 0;
+    }
+    &--ico{
+      background: url('/images/svg/coffee-shop3.svg') no-repeat 8px 8px;
+      background-size: 20px 20px;
+      padding: 7px 40px;
+    }
+    .select2-selection__arrow{
+      right:15px;
+      b {display: none;}
+      &:after,
+      &:before{
+        content: "";
+        border-color: $rate-select-arrow-color transparent transparent transparent;
+          border-style: solid;
+          border-width: 7px 7px 0 7px;
+          height: 0;
+          left: 0;
+          margin-left: -4px;
+          margin-top: -2px;
+          position: absolute;
+          top: 50%;
+          width: 0;
+      }
+      &:after{
+        margin-top: -4px;
+        border-color: #FFF transparent transparent transparent;
+      }
+    }
+  }
+  .select2-dropdown{
+    border-color: lighten($link-base-color, 20%);
+  }
+  &.select2-container--open.select2-container--focus{
+    .select2-selection__arrow{
+      &:after,
+      &:before{
+        border-color: transparent transparent $rate-select-arrow-color transparent;
+          border-style: solid;
+          border-width: 0 7px 7px 7px;
+      }
+      &:after{
+        margin-top: 0px;
+        border-color: transparent transparent #FFF transparent;
+      }
+    }
+  }
+  .select2-results__option--highlighted[aria-selected]{
+    background-color: $rate-select-bkg-color;
+  }
+}
+
+.RO,
+.OB{
+  .select2-container--bootstrap {
+      .base-select-custom{
+            &--ico{
+                    background: url('/images/svg/sleeping-bed-silhouette.svg') no-repeat 8px 8px;
+                    background-size: 22px 22px;
+            }
+      }
+  }
+}

@@ -1,0 +1,123 @@
+.ST4{
+	margin-top: 0px;
+	float: left;
+	width: 100%;
+	@media (min-width: $screen-md-min) {
+		margin-top: 15px;
+	}
+	&__result{
+		text-align: center;
+		font: {
+			weight: 600; 
+			size: $font-size-base + 6px;
+		}
+	}
+	&__resNum,
+	&__resNote{
+		margin-bottom: 10px;
+		float: left; 
+		width: 100%;
+		p {
+			text-align: center;
+		}
+	}
+	&__title{
+		@extend .ST1-rooms__title;
+		padding-left:15px;
+		padding-right: 15px;
+	}
+	&__room{
+		ul{
+			list-style: none;
+			padding-left: 0;
+			float: left;
+			width: 100%;
+		}
+		&__title{
+			@extend .ST2-resume__room;
+		}
+		&__tot{
+			float: left;
+			width: 100%;
+			text-align: right;
+			p{
+				font: {
+					size: $font-size-base + 4px;
+				}
+				span{
+					color: $list-room-banner-color;
+					display: inline-block;
+					font: {
+						family: $font-price;
+						size: $font-size-base + 5px;
+						line-height: $font-size-base + 5px;
+						style: italic;
+						weight: bold;
+					}
+				}
+			}
+		}
+	}
+	&__resTot{
+		@extend .STSS__accList__resume;
+		margin-bottom:15px;
+	}
+	&__custom-data{
+		margin-bottom: 30px;
+		float: left;
+		@media (min-width: $screen-md-min) {
+			margin-left: -15px;
+    		margin-right: -15px;
+		}
+		> div {
+			margin-bottom: 6px;
+		}
+		&__label{
+			width: 100px;
+			float: left;
+			margin-right: 5px;
+		}
+	}
+	&__lnz-title{
+		@extend .ST3__lnzBtn;
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+
+	.insurance-step4{
+		@media (min-width: $screen-md-min) {
+			padding-left: 0px;
+		}
+		ul {
+			border: none;
+			padding-left: 0;
+			height: auto;
+		}
+	}
+
+	&__lnz-tot{
+		font: {
+			family: $font-price;
+			size: $font-size-base + 10px;
+			line-height: $font-size-base + 12px;
+			style: italic;
+			weight: bold;
+		}
+		margin-left:5px;
+		color: $list-room-banner-color;
+	}
+	&__print,
+	&__lnz-pay{
+		@extend .ST3__submit;
+		margin-top: 10px;
+		float: left;
+		display: block;
+		width: auto;
+		&:hover{
+			color: #FFF;
+		}
+	}
+	&__print{
+		margin:15px auto;
+	}
+}

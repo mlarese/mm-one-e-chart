@@ -1,0 +1,393 @@
+@import '../../node_modules/jquery-ui/themes/base/jquery.ui.datepicker';
+@import 'searchBarMobileResume';
+@import 'datePickerCustom';
+@import 'guestSelection';
+
+.search-bar{
+  float: left;
+  width: 100%;
+  margin-bottom:15px;
+}
+
+#formSearch{
+  $inputHeight:45px;
+  color: #262626;
+  background-color: $seach-back-color;
+  padding:15px;
+  margin-top: -$mobile-resume-height;
+
+  > .cls{
+    $size: 25px;
+    @extend .close-btn;
+    right: 15px;
+    top: auto;
+    width: $size;
+    height: $size;
+    background-image: url('../images/svg/close42.svg');
+    z-index: 10
+  }
+
+  #block-click{
+  	position: absolute;
+  	left: 0;
+  	top: $grid-gutter-width/2;
+  	height: $inputHeight;
+  	background-color: transparent;
+  	z-index: 10;
+  	display: none;
+ 	@media (min-width: $screen-md-min) { 
+		left: $grid-gutter-width;
+	}
+  }
+
+  @media (min-width: $screen-sm-min) { 
+    display: block!important;
+    margin-top: 0;
+  }
+
+  .five-cols{
+    width: 20%;
+    text-align: center;
+    .svg-ico{
+      $size: 22px;
+      right: 25px;
+      top: 13px;
+      width: $size;
+      height: $size;
+      position: absolute;
+      fill: $sarch-ico-fill;
+    }
+    &:hover{
+      .svg-ico{
+        @extend .anim-shake;        
+      }
+    }
+
+  }
+  .search-title{
+    font: {
+      family: $font-family-sans-serif;
+      size: font-size-base + 1px;
+      weight: bold;
+    };
+    height: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+  }
+  .form-control{
+    height: $inputHeight;
+    border-radius: 0;
+    cursor: pointer;
+    padding:9px 12px;
+    border: none;
+    border-radius: 2px;
+    > * {
+      float: left;
+      display: block;
+      font:{        
+        size: $font-size-base - 1px;
+        family: $font-family-sans-serif;
+      }
+      line-height: $font-size-base;
+    }
+    input{
+      font-weight: bold;
+      clear: left;
+      margin-left: -12px;
+      padding-left: 12px;
+      max-width: 100%;
+    }
+  }
+  .hasDatepicker{
+    cursor: pointer;
+    border: none;
+  }
+  .formSearchBtn{
+    background: #000;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 600;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+  }
+  .guests{
+  	&:before,
+  	&:after{
+  		content: "";
+  		position: absolute;
+  		width: 0;
+  		height: 0;
+  		border-style: solid;
+  		border-width: 10px 6.5px 0 6.5px;
+  		border-color: $date-picker-bkg-color transparent transparent transparent;
+  		bottom: -8px;
+  		left: 30px;
+  		z-index: 1002;
+  		opacity: 0;
+  		transition: opacity 0s ease-out .1s;
+  	}
+  	&:after{
+  		border-color: $date-picker-border-color transparent transparent transparent;
+  		bottom: -10px;
+  		z-index: 1001;
+  		opacity: 0;
+  	}
+  	&.active{
+  		&:before,
+  		&:after{
+  			opacity: 1;
+  			transition: opacity 0s ease-in .2s;
+  		}
+	 }
+
+  }
+  .sLable{
+    display: block;
+    &+small{
+      position: relative;
+      clear: left;
+      font-weight: bold;
+    }
+  }
+  .buttonWrap{
+    .search-btn,
+    .modify-btn{
+      @extend .active-button;
+      display: none;
+      font-size: $font-size-base;
+    }
+    .modify-btn{
+      background: $search-button-modify-color;
+      color: $font-base-color;
+    }
+    &.start-modify{
+      .modify-btn{
+        display: block;
+      }
+    }
+    &.start-search{
+      .search-btn{
+        display: block;
+        .svg-ico{
+            fill: $search-button-search-text;;
+        }
+        &:hover{
+          .svg-ico{
+            @extend .anim-shake;        
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+
+// TOGGLE RICERCA NORMALE / RICERCA STRUTTURA
+#searchFormTypeToggleWrap{
+  position: absolute;
+  top: -30px;
+  left:0;
+  height: 30px;
+  background: fade(yellow, 60%);
+  .visualInner &,
+  .visualInnerMulti &{
+    width: 100%;
+  }
+  button{
+    background: transparent;
+    height: 30px;
+    font-size: 17px;
+    line-height: 1em;
+    padding: 0 50px 0 15px;
+    color: #fff;
+  }
+  svg{
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 100%;
+    fill:fade(yellow, 60%);
+  }
+}
+#boxFormSearch{
+
+  &.src-type-search{
+    button[data-type="search"],
+    .formTitleOffer{
+      display: none;
+    }
+  }
+  &.src-type-offer{
+    button[data-type="offer"],
+    .formTitleSearch,
+    .links,
+    #formSearchTypeSelectWrap{
+      display: none;
+    
+    }
+    .five-cols{
+      width: 25%;
+    }
+  }
+}
+
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+/* MD */
+@media (max-width: $screen-md-max) {
+  #boxFormSearch{
+    .formWrap{
+      width: 100%;
+      margin-left: 0;
+    }
+    .five-cols{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+/* SM */
+@media (max-width: $screen-sm-max) {
+  
+  #boxFormSearch{
+    .links{
+      position: relative;
+      top: auto;
+      right: auto;
+      text-align: left;
+      .visualInner &,
+      .visualInnerMulti &{
+        display: none;
+      }
+    }
+  }
+  #formSearch{
+    .five-cols{
+      width: 33.3333%!important;
+      &.buttonWrap{
+        float: right;
+        margin-top: 15px;
+      }
+      &.guestWrap{
+        .src-type-offer &{
+          margin-top:0;
+        }
+      }
+    }
+    .numGuests {
+      right: auto;
+      left:$grid-gutter-width/2;      
+    }
+  }
+
+
+}
+
+/* XS */
+@media (max-width: $screen-xs-max) {
+
+  #searchFormTypeToggleWrap{
+    width: 100%;
+    button{
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  #boxFormSearch{
+    position: relative;
+    bottom: auto;
+    margin-top: 30px;
+    .formTitle{
+      text-align: center;
+      display: block;
+      line-height: 1.2em;
+      b{
+        display: block;
+      }
+    }
+    .links{
+      a{
+        display: block;
+        margin-left: 0;
+      }
+    }
+  }
+  #formSearch{
+    .numGuests{
+      position: relative;
+      left:auto;
+      right: auto;
+      bottom: auto;
+      top:auto!important;
+      &.multiRooms{
+        width: 100%;
+      }
+    }
+    .roomGuests{
+      width: 100%;
+    }
+    .five-cols{
+      width: 100%!important;
+      padding-bottom: 15px !important;
+      &.buttonWrap{
+        float: left;
+        margin-top: 0;
+      }
+      &.guestWrap{
+        margin-top: 0;
+      }
+    }
+    button[type="submit"]{
+      text-align: center;
+    }
+  }
+
+  // Toggle mobile form search
+  // .t_page_home,
+  // .t_search{
+    #boxFormSearch {
+      .formTitle{
+        display: none;
+        &.searchFormToggle{
+          display: block;
+          background: transparent;
+          width: 100%;
+          border:0 none;
+          outline: none;
+          &:hover,
+          &:focus,
+          &:active{
+            color: #fff;
+            box-shadow: none;
+          }
+          &>span{
+            display: block;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    #formSearch{
+      display: none;
+    }
+  #formSearch{
+    .guests{
+      &:before{ bottom: 6px;}
+      &:after{ bottom: 4px;}
+    }
+  }
+
+
+}
+/* XXS */
+@media (max-width: 450px) {
+
+}
+

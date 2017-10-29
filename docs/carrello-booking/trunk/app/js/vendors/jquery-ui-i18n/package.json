@@ -1,0 +1,72 @@
+{
+  "_args": [
+    [
+      "jquery-ui-i18n",
+      "c:\\Users\\giuseppe.donato\\workspace-abs-zf2\\BookingRestyle\\trunk"
+    ]
+  ],
+  "_from": "jquery-ui-i18n@latest",
+  "_id": "jquery-ui-i18n@1.11.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jquery-ui-i18n",
+  "_npmUser": {
+    "email": "omerfarukak@yandex.com",
+    "name": "omerak"
+  },
+  "_npmVersion": "2.0.0-alpha-5",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "jquery-ui-i18n",
+    "raw": "jquery-ui-i18n",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery-ui-i18n/-/jquery-ui-i18n-1.11.3.tgz",
+  "_shasum": "7078e5d82034ed818a6888660a81a89f405fb647",
+  "_shrinkwrap": null,
+  "_spec": "jquery-ui-i18n",
+  "_where": "c:\\workingcopy\\frontend2016\\trunk",
+  "author": {
+    "name": "jquery"
+  },
+  "dependencies": {},
+  "description": "jquery ui i18n",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "7078e5d82034ed818a6888660a81a89f405fb647",
+    "tarball": "http://registry.npmjs.org/jquery-ui-i18n/-/jquery-ui-i18n-1.11.3.tgz"
+  },
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "jquery",
+    "jquery",
+    "ui"
+  ],
+  "license": "ISC",
+  "main": "jquery-ui-i18n.min.js",
+  "maintainers": [
+    {
+      "name": "omerak",
+      "email": "omerfarukak@yandex.com"
+    }
+  ],
+  "name": "jquery-ui-i18n",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jquery/jquery-ui/tree/master/ui/i18n"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.11.3"
+}

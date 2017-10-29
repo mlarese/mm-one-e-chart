@@ -1,0 +1,84 @@
+.modal-content{
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
+	$close-size: 40px;
+	.close{
+		height: $close-size;
+		width: $close-size;
+		background-color: transparent;
+		border: none;
+		float: right;
+		.svg-ico{
+			height: 100%;
+			width: 100%;
+			float: right;
+			fill: #FFF;
+		}
+		&:hover{
+			@extend .rot-90;
+		}
+	}
+	.modal-body{
+		padding: 0;
+		float: left;
+	}
+	.carousel-did{
+		position: absolute;
+		bottom: 15px;
+		left: 15px;
+		z-index: 100;
+		font-style: italic;
+		color: #FFF;
+		text-shadow: 0px 0px 4px #000;
+	}
+	.modal-text{
+		background-color: #FFF;
+		padding: 15px;
+		float: left;
+		width: 100%;
+		h3{
+			@extend .ST1-rooms__title;
+			border-bottom: 0;
+			padding-left: 0;
+			margin-bottom: 10px;
+			max-width: 50%;
+			padding-right: 0;
+		}
+		.modal-pax{
+			@extend .ST1-list__item__pax;
+			margin-bottom: 15px;
+		}
+	}
+	.carousel-control{
+		background-color: transparent;
+		background-image: none;
+		min-width: 40px;
+		i{
+			$size-i: 50px;
+			height: $size-i;
+			width: $size-i;
+			background-color: rgba( #000, 0.7);
+			opacity: 1;
+			left: 0;
+			margin: 0;
+			.svg-ico{
+				$size: 20px;
+				$center: ($size-i/2) - ($size/2);
+				height: $size;
+				width: $size;
+				fill: #FFF;
+
+				margin-top: $center;
+			}
+		}
+		&.right{
+			i{
+				left: auto;
+				right: 0;
+			}
+		}
+
+	}
+}
+

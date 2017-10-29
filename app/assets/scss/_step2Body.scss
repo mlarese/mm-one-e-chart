@@ -1,0 +1,512 @@
+.ST2{
+	&-book{
+		overflow: hidden;
+		float: left;
+		width: 100%;
+		&__top {
+			border-bottom: 4px solid $list-top-boder-color;
+			float: left;
+			width: 100%;
+		}
+		&__title{
+			@extend .ST1-rooms__title;
+			&--lnz{
+				@extend .ST1-rooms__title--lnz;	
+			}
+			&--opt{
+				@extend .ST1-rooms__title;
+				border-bottom: none;
+				padding-left: 0;
+				padding-right: 0;
+				padding-bottom: 25px;
+				margin-bottom: 0;
+			}
+		}
+		&__disc-code {
+			background: transparent;
+			border-radius: 2px;
+			border: 2px solid $seach-back-color;
+			font-size: 14px;
+			padding: 10px 35px;
+			margin-bottom: 15px;
+			&:hover {
+				background: $hover-button-color;
+				border-color: $hover-button-color;
+				color: $white;
+			}
+			/* XS */
+			@media (max-width: $screen-xs-max) {
+				padding: 10px 5px;
+				margin-right: 5px;
+			}
+		}
+		&__dropdown {
+			position: relative;
+			margin-right: 30px;
+			line-height: 44px;
+			button {
+				background: transparent;
+				border: none;
+			}
+			>.dropdown-menu { right: auto; }
+			@media (max-width: $screen-xs-max) { margin-right: 5px; }
+		}
+		&__slider {
+			padding: 20px 15px;
+			float: left;
+			width: 100%;
+			border-bottom: 1px solid $border-color;
+			position: relative;
+			> div {
+				float: left;
+				width: 25%;
+				@media (max-width: $screen-xs-max) { width: 100%; }
+			}
+			&.withSlider { 
+				padding: 25px;
+				> div {
+					float: none;
+					width: auto;
+					@media (max-width: 374px) { margin-top: 15px; }
+				}
+			}
+			.slick-prev { left:0; }
+			.slick-next { right:0; }
+			.slick-prev::before, .slick-next::before { color: $hover-button-color; }
+			label {
+				font-size: 15px;
+				font-weight: normal;
+			}
+			[type="radio"]:checked,
+			[type="radio"]:not(:checked) {
+			    position: absolute;
+			    left: -9999px;
+			}
+			[type="radio"]:checked + label,
+			[type="radio"]:not(:checked) + label
+			{
+			    position: relative;
+			    padding-left: 28px;
+			    cursor: pointer;
+			    line-height: 17px;
+			    display: inline-block;
+			    color: #666;
+			}
+			[type="radio"]:checked + label:before,
+			[type="radio"]:not(:checked) + label:before {
+			    content: '';
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    width: 18px;
+			    height: 18px;
+			    border: 1px solid #ddd;
+			    border-radius: 100%;
+			    background: #fff;
+			}
+			[type="radio"]:checked + label:after,
+			[type="radio"]:not(:checked) + label:after {
+			    content: '';
+			    width: 12px;
+			    height: 12px;
+			    background: #696969;
+			    position: absolute;
+			    top: 3px;
+			    left: 3px;
+			    border-radius: 100%;
+			    -webkit-transition: all 0.2s ease;
+			    transition: all 0.2s ease;
+			}
+			[type="radio"]:not(:checked) + label:after {
+			    opacity: 0;
+			    -webkit-transform: scale(0);
+			    transform: scale(0);
+			}
+			[type="radio"]:checked + label:after {
+			    opacity: 1;
+			    -webkit-transform: scale(1);
+			    transform: scale(1);
+			}
+			&:after {
+				border-bottom: 1px solid $border-color;
+				content: '';
+				height: 65px;
+				width: 30px;
+				position: absolute;
+				top: 0;
+				right: -30px;
+				@media (max-width: $screen-xs-max) { display: none; }
+			}
+		}
+		&__choose {
+			font-size: 13px;
+			padding: 25px 15px;
+			width:100%;
+			float: left;
+			&--ins { padding-bottom: 10px; }
+		}
+	}
+	&-item{
+		float: left;
+		background-color: $list-odd-item-bkg-color;
+		width: 100%;
+		&__img{
+			@extend .ST1-list__item__img;
+		}
+		&__roomTxt{
+			ul{
+				padding-left:0;
+			}
+			@media (max-width: $screen-sm-max) {
+				margin-left: -15px;
+			}
+			&__title{
+				@extend .ST1-list__item__title;
+			}
+			&__pax{
+				@extend .ST1-list__item__pax;
+			}
+			&__text{
+				@extend .ST1-list__item__text;
+			}
+			&__more-txt{
+				@extend .ST1-list__item__more-txt;
+			}
+		}
+		&__price{
+			margin-bottom: 0;
+			.select2-container--bootstrap {
+				width: 100% !important;
+				@media (min-width: $screen-md-min) {
+					width: auto !important;
+					float: right;
+				}
+			}
+		}
+		&__ico-wrapper{
+			float:left;
+			clear: left;
+			margin: 6px 0 14px 0;
+			a{
+				float:left;
+				display: inline-block;
+				.svg-ico{
+					display: block;
+					height: 33px;
+					fill: $rate-svg-ico-color1;
+				}
+				&:hover{
+					@extend .hvr-bob;
+				}
+			}
+		}
+	}
+			//BEM elemento padre ST2-item__price
+			&-opt{
+				float:left;
+				width: 100%;
+				background-color: $rate-item-bkg-color;
+				border: 1px solid $seach-back-color;
+				padding: $grid-gutter-width / 2;
+				@media (min-width: $screen-sm-min) {
+					padding: $grid-gutter-width 0;
+				}
+				&__short,
+				&__full{
+					width: 100%;
+					height: auto;
+					float:left;
+				}
+				&__full{
+					//padding-left: 15px;
+					//padding-right: 15px;
+					@media (min-width: $screen-sm-min) {
+						//padding-left: 30px;
+					}
+				} 
+				&__title{
+					font: {
+						family: $font-family-sans-serif;
+						size: $font-size-base + 1;
+						weight: lighter;
+					};
+					color: $rate-item-font-color;
+					margin-bottom: 5px;
+					display: inline-block;
+					@media (min-width: $screen-sm-min) {
+						font-size: $font-size-base + 11;
+						display: block;
+						padding-left: $grid-gutter-width / 2 ;
+					}
+					&--little{
+						font: {
+							family: $font-family-sans-serif;
+							size: $font-size-base + 1;
+							weight: lighter;
+						};
+						color: $rate-item-font-color;
+						@media (min-width: $screen-sm-min) {
+							font-size: $font-size-base + 3;
+							display: block;
+						}
+					}
+				}
+				&__img{
+					padding-left: 0;
+					margin-top: 10px;
+					@media (min-width: $screen-sm-min) {
+						padding-left: $grid-gutter-width;
+						margin-left: -5px;
+					}
+				}
+				&__text{
+					font: {
+						family: $font-family-sans-serif;
+						size: $font-size-base - 1;
+					};
+					margin-top:  $grid-gutter-width / 2;
+					margin-bottom:  $grid-gutter-width / 2;
+					color: lighten($rate-item-font-color, 30%);
+					padding-left: 0;
+					@media (min-width: $screen-sm-min) {
+						padding-left:$grid-gutter-width / 2;
+					}
+				}
+				&__hide-full{
+					@extend  .ST2-item__roomTxt__more-txt;
+					background-color: transparent;
+					border: none;
+					padding-top: 0;
+					padding-right: 0;
+					padding-bottom: 0;
+					margin-bottom:  $grid-gutter-width / 2;
+					@media (min-width: $screen-sm-min) {
+						margin-left:$grid-gutter-width;
+					}
+				}
+				&__treat-sel{
+					border: 1px solid darken($rate-ite-border-color, 10%);
+					width: 100%;
+					display: inline-block;
+					padding: 5px;
+					margin-bottom: $grid-gutter-width / 2;
+					float: right;
+					padding-left: 40px;
+					padding-right: 10px;
+					height: 40px;
+					border: 1px solid darken($rate-ite-border-color, 10%);
+					background: url('/images/svg/coffee-shop3.svg') no-repeat 8px 8px;
+					background-size: 20px 20px;
+					width: 100%;
+					&.RO,
+					&.OB{
+						background: url('/images/svg/sleeping-bed-silhouette.svg') no-repeat 8px 8px;
+                    	background-size: 22px 22px;
+					}
+					@media (min-width: $screen-sm-min) {
+						width: auto;
+					}
+					&--short{
+						float: left;
+					}
+				}
+				&__treat-label {
+					display: block;
+					width: 100%;
+					margin-bottom: 4px;
+				}
+				&__detail{
+					text-align: right;
+					&__discount{
+						size: $font-size-base - 1;
+						display: inline-block;
+						margin-right: 10px;
+						@media (min-width: $screen-lg-min) {
+							margin-top: 15px;
+						}
+						span{
+							color: $rate-item-high-price-color;
+							font-weight: 600;
+							margin-left: 5px;
+						}
+					}
+					&__price{
+						color: $list-room-banner-color;
+						display: inline-block;
+						font: {
+							family: $font-price;
+							size: $font-size-base + 17px;
+							line-height: $font-size-base + 17px;
+							style: italic;
+							weight: bold;
+						}
+					}
+					&__info{
+						margin-left: 5px;
+						position: relative;
+						.svg-ico{
+							$size: 20px;
+							height: $size;
+							width: $size;
+						}
+						&:hover{
+							.svg-ico{
+								@extend .anim-shake;
+							}
+						}
+					}
+				}
+				&__button{
+					@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
+						margin-top: 15px;
+					}
+					@media (min-width: $screen-lg-min) {
+						
+						padding-right: 30px;
+					}
+					input{
+						@extend .active-button;
+						width:100%;
+						border: none;
+						min-height: 40px;
+						&:hover{
+							@extend .hvr-bob;
+						}
+					}
+				}
+				&-short{
+					&__more{
+						padding-left: 0;
+						cursor: pointer;
+						@media (min-width: $screen-sm-min) {
+							padding-left: $grid-gutter-width / 2 ;
+						}
+						@media (min-width: $screen-md-min) {
+							padding-left: $grid-gutter-width;
+						}
+						a{
+							@extend  .ST2-item__roomTxt__more-txt;
+							clear: left;
+							display: block;
+							margin: 0;
+							margin:  0 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
+							@media (min-width: $screen-sm-min) {
+								margin: $grid-gutter-width / 2 0;
+							}
+						}
+						.svg-ico{
+							float: right;
+							width:30px;
+							height: auto;
+							fill: $rate-svg-ico-color1;
+						}
+					}
+						//BEM elemento padre ST2-opt-short__more
+						&__title{
+							@extend .ST2-opt__title--little; 
+							font-weight: normal;
+							padding-left: $grid-gutter-width / 2 ;
+							@media (min-width: $screen-md-min) {
+								padding-left: $grid-gutter-width;
+							}
+						}
+						&__text{
+							@extend .ST2-opt__text; 
+							@media (min-width: $screen-sm-min) {
+								padding-left: 0;
+							}
+							max-width: calc(100% - 60px);
+							display: inline-block;
+							margin: 0;
+						}
+
+					&__treat-sel{
+						@extend  .ST2-opt__treat-sel;
+						margin-top: 10px;
+						margin-bottom: 5px;
+						@media (min-width: $screen-sm-min) {
+							margin-top: 0;
+							margin-bottom: 15px;
+						}
+						span{
+							top: -4px;
+    						display: inline-block;
+    						position: relative;
+    						margin-left: 5px;
+    						line-height: 40px;
+						}
+					}
+				}
+			}
+
+	&__other{
+		&__btn{
+			@extend .active-button;
+			padding: 10px 20px;
+			clear: left;
+			float: right;
+			cursor: pointer;
+			margin-bottom: 15px;
+			@media (min-width: $screen-md-min) {
+				margin-right: 15px;
+			}
+
+			&:hover{
+				@extend .hvr-bob;
+				color: #FFF;
+			}
+		}
+		&__sep{
+			height: 15px;
+			width: 100%;
+			float: left;
+			background-color: #FFF;
+		}
+
+	}
+}
+
+
+//Customizzazione select2 trattamenti
+
+.select2-container--bootstrap {
+	.ST2-opt__treat-sel2{
+		@extend .base-select-custom;
+		@extend .base-select-custom--ico;
+	}
+}
+
+//Vecchiume
+.room_details, .detail, .showtarif, .showalter, .varinfo {
+    border: 1px solid $rate-item-font-color;
+    background: #FFFFFF;
+    color: $rate-item-font-color;
+    padding: 10px;
+    line-height: 1.4;
+    /* width: 100%; */
+    font-size: 11px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 9999;
+    border-radius: 5px;
+	h1{
+		font: {
+			family: $font-family-sans-serif;
+			size: $font-size-base + 6;
+		}
+		text-transform: uppercase;
+	}
+	ul 
+	{
+		list-style-type: none;
+		padding-left: 0;
+	}
+}
+
+
+	#showroomload{
+		text-align:center;
+		margin: 20px 0;
+	}

@@ -1,0 +1,259 @@
+$cellSize: 38px;
+$labelWidth: 110px;
+
+.numGuests {
+	display: none;
+	padding: $grid-gutter-width/2;  
+	position: absolute;
+	top:45px;;
+	border: 1px $date-picker-border-color solid;
+	width: auto;
+	background: $date-picker-bkg-color;
+	color: $search-font-color;
+	float: left;
+	max-width: 	$container-lg;
+	font:{
+		size: $font-size-base;
+		family: $font-family-sans-serif;
+		}
+	z-index: 1000;
+	> span{
+		text-transform: uppercase;
+		font-size: $font-size-base - 1px;
+        border-bottom: 1px solid $date-picker-border-color;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        display: block;
+        text-align: left;
+
+        b{
+        	@extend .close-btn;
+        	right: 15px;
+        	top: 15px;
+
+        }
+	}
+	.guestclose {
+		float:right;
+		height:20px;
+	}
+
+}
+@for $i from 2 through 4 {
+  .multiRooms-#{$i} { width: $guest-select-room-width * $i + $grid-gutter-width + 2; }
+}
+
+.numRooms,
+.numAdults,
+.numChildren {
+	clear:left;
+	width:100%;
+	padding:10px 0; 
+	position:relative;
+	float: left;
+}
+
+.roomGuests {
+	float:left;
+	width:$guest-select-room-width;
+	border-top:1px solid $date-picker-border-color;
+	margin-top: 10px;
+	padding-top: 5px;
+}
+
+.titleRoom {
+	float: left;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	font-size: $font-size-base + 1;
+	color: $font-gary1-color;
+	text-align: left;
+}
+
+.numRooms,
+.numAdults,
+.numChildren,
+.childrenAge{
+	small{
+		$height: 31px;
+		float:left;
+		font-size: $font-size-base;
+		width: $labelWidth;
+		height: $height;
+		padding-top: 2px;
+		font-weight: bold;
+		text-align: left;
+		color: $font-base-color;
+		margin-top: 8px;
+		line-height: $height - 15;
+
+	}
+}
+
+.wrapper-buttons{
+	max-width: 152px;
+	float:left;
+}
+.numChildren{
+	padding-bottom: 0;
+}
+
+.numRooms button,
+.numAdults button,
+.numChildren button {
+
+	float:left;
+	width:$cellSize;
+	height:$cellSize;
+	padding: 0;
+	border:1px solid $date-picker-border-color;
+	background: $date-picker-bkg-color;
+	color:$font-base-color;
+	font-size:17px;
+	line-height: 1em;
+	text-align:center;
+	font-weight: bold;
+	font-size: $font-size-base + 1;
+	outline: none !important;
+}
+.numRooms button.selected,
+.numAdults button.selected,
+.numChildren button.selected {
+	border-color: $date-picker-sel-border-color;
+	border-width: 2px;
+    background-color: $date-picker-sel-bkg-color;
+}
+.numRooms button.last,
+.numAdults button.last,
+.numChildren button.last,
+.childrenAge span.last { margin-right:0; }
+.numRooms i {
+	position:absolute;
+	top:0;
+	left:71px;
+	width:17px;
+	height:14px;
+}
+
+.numGuests i {
+position:absolute;
+top:0;
+right:71px;
+width:17px;
+height:14px;
+z-index:999;
+} 
+.childrenAge {
+	float:left;
+	width:100%;
+	margin-top:20px;
+	&.large{
+		> div{
+			margin: 0;
+		}
+		small{
+			line-height: 16px;
+		}
+	}
+	small{
+		line-height: 70px;
+	}
+	> div {
+		float:left;
+		margin-left: $cellSize;
+	}
+	span {
+		float:left;
+		width:$cellSize;
+		height:89px;
+	}
+}
+
+.childrenAge span a {
+	border:1px solid #d1d1d1;
+	font-size:19px;
+	color:#000000;
+	text-align:center;
+	width:$cellSize - 2;
+	float:left;
+	height:$cellSize - 15;
+	line-height:$cellSize - 15;
+	text-decoration:none;
+	margin-left: 1px;
+	background-color: lighten($date-picker-border-color,15%);
+
+}
+.childrenAge span em {
+	float:left;
+	width:$cellSize;
+	height:$cellSize - 2;    
+	color:#000;
+	font-size: $font-size-base + 1;
+	text-align:center;
+	line-height:31px;
+	font-style:normal;
+	border:2px solid $date-picker-border-color;
+	background: $date-picker-bkg-color;
+	color:$font-base-color;
+	font-weight: bold;
+	border-radius: 2px;
+}
+
+
+  /* MD */
+@media (max-width: $screen-md-max) {
+	.numGuests {
+		max-width: 	$container-md - $grid-gutter-width;
+	}
+}
+
+/* SM */
+@media (max-width: $screen-sm-max) {
+  
+	.numGuests {
+		max-width: 	$container-sm - $grid-gutter-width;
+		left: auto !important;
+		right: $grid-gutter-width/2 !important;
+	}
+
+	.multiRooms-2,
+	.multiRooms-3,
+	.multiRooms-4 { width: $guest-select-room-width * 2 + $grid-gutter-width + 2; }
+
+
+}
+
+/* XS */
+@media (max-width: $screen-xs-max) {
+
+	.numGuests {
+		left: auto !important;
+		right: auto !important;
+		float: left;
+		width: auto;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+
+}
+
+/* XXS */
+@media (max-width: $screen-xs-max) {
+
+.numGuests {
+	margin-top: 0;
+}
+
+.numRooms,
+.numAdults,
+.numChildren,
+.childrenAge{
+	small{
+		width: $labelWidth - 10;
+		margin-top: 6px;
+	}
+}
+
+}
