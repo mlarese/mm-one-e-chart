@@ -13,17 +13,20 @@
         <div class="col-xs-12 col-sm-6 STSS__content__protection no-p-l">
             <insurance-protection />
         </div>
-
+        <div class="col-xs-12 col-sm-6 STSS__content__protection no-p-l">
+            <insurance-protection-full />
+        </div>
 
     </div>
 </template>
 <script>
   import InsuranceProtection from './InsuranceProtection'
+  import InsuranceProtectionFull from './InsuranceProtectionFull'
 
   export default {
     name: 'InsuranceSelector',
     components: {
-      InsuranceProtection
+      InsuranceProtection, InsuranceProtectionFull
     }
   }
 </script>

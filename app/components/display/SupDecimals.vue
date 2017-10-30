@@ -7,7 +7,7 @@
         </del>
         <span v-if="hasDiscount" class="sub-decimals-discount">&nbsp; -{{discount}}% </span>
         <em class="sub-decimals-em">
-            <del v-html="prefix"></del>
+            {{prefix}}
             {{intPart}}
             <sup>{{decimal}}{{decPart}}</sup>
         </em>
@@ -24,7 +24,7 @@
       numberFrom: {default: 0},
       discount: {default: ''},
       number: {default: 2345.897},
-      prefix: {default: '&euro;'},
+      prefix: {default: '€'},
       suffix: {default: ''},
       locale: {default: 'it'},
       decimal: {default: ','},

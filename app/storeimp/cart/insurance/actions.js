@@ -2,7 +2,7 @@ export const actions = {
   initInsurance ({commit}, {insuranceTotals}) {
     commit('setInsuranceTotals', insuranceTotals)
   },
-  addInsurance ({commit, dispatch}, {insuranceType}) {
+  addInsurance ({commit, dispatch}, insuranceType) {
     commit('setInsuranceType', insuranceType)
     commit('hasInsurance', true)
   },

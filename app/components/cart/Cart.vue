@@ -7,17 +7,19 @@
             <template v-for="(item, index) in ecommerceItems">
                 <cart-item-factory :item="item" :index="index" />
             </template>
+            <insurance-cart-item />
         </span>
     </div>
 </template>
 <script>
+  import InsuranceCartItem from '../cartitem/InsuranceCartItem'
   import CartRooms from './CartRooms'
   import CartItemFactory from '../cartitem/CartItemFactory'
   import {mapGetters} from 'vuex'
 
   export default {
     name: 'Cart',
-    components: {CartItemFactory, CartRooms},
+    components: {CartItemFactory, CartRooms, InsuranceCartItem},
     computed: {
       ...mapGetters('cart', ['ecommerceItems'])
     }

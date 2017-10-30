@@ -43,17 +43,20 @@
 
             <sup-decimals :numberFrom="product.priceFrom" :number="realPrice" :discount="product.discount" />
 
+            <number-spinner
+                    :disabled="true"
+                    :min="6"
+                    :max="6"
+                    inputClass="number-spinner"
+                    buttonClass="button-spinner"
+                    :integerOnly="true"
+                    v-model="quantity"
+            />
 
                 <div class="STSS__accItem__qty pull-left" v-if="product">
 
 
-                    <number-input-spinner
-                            :disabled="true"
-                            :min="6"
-                            :max="6"
-                            :integerOnly="true"
-                            v-model="quantity"
-                    />
+
 
                     <!--vue-select
                         class="select2-container--bootstrap"
@@ -103,6 +106,33 @@
             input {
                 width:0 !important;
             }
+        }
+
+        .button-spinner {
+            -webkit-appearance: none;
+            transition: background .5s ease;
+            background: #387e90;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            float: left;
+            font-size: 14px;
+            line-height: 15px;
+            height: 30px;
+            margin: 0;
+            outline: none;
+            width: 30px;
+        }
+        .number-spinner {
+            -webkit-appearance: none;
+            border: 1px solid #ebebeb;
+            float: left;
+            font-size: 12px;
+            height: 30px;
+            margin: 0;
+            outline: none;
+            text-align: center;
+            width: calc(100% - 180px);
         }
     }
 
