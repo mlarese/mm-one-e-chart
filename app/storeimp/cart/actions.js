@@ -1,4 +1,5 @@
 import {actions as insuranceActions} from './insurance/actions'
+import {ROW_ID_INSURANCE, ROW_ID_ECOMMERCE} from './rowIdTypes'
 import _extend from 'lodash/extend'
 import _cloneDeep from 'lodash/cloneDeep'
 
@@ -9,7 +10,6 @@ export const actions = {
     const oldCart = _cloneDeep(getters.cart)
     const newCart = _extend({}, oldCart, cart)
 
-    console.dir(newCart)
     commit('setCart', newCart)
     commit('setStructureId', structureId)
     commit('setPortalId', portalId)
@@ -30,7 +30,14 @@ export const actions = {
     }
     dispatch('cloneToRemote')
   },
-  addProduct ({commit, dispatch}, {rowId, product, quantity}) {
+  addProduct ({commit, dispatch, getters}, {rowId, product, quantity}) {
+    if(product.type === 'specialservice') {
+      rowId = getters.currentRoomIndex
+    } else if(product.type === 'insurance') {
+      rowId = ROW_ID_INSURANCE
+    } else {
+      rowId = ROW_ID_ECOMMERCE
+    }
     commit('addProduct', {rowId, product, quantity})
     dispatch('cloneToRemote')
   },

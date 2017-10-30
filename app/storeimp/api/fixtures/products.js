@@ -158,16 +158,17 @@ export const products = [
 ]
 
 console.log('--- total mock products', products.length)
+
 export const productsFn = c => {
   let selectedProducts = _filter(products, p => p.type !== 'specialservice')
-  console.log('---- Headers ----')
+  console.log('---- Headers ---- productsFn')
   console.dir(c.headers)
   return [200, selectedProducts]
 }
 
 export const servicesFn = c => {
   let selectedProducts = _filter(products, p => p.type === 'specialservice')
-  console.log('---- Headers ----')
+  console.log('---- Headers ---- servicesFn')
   console.dir(c.headers)
   return [200, selectedProducts]
 }

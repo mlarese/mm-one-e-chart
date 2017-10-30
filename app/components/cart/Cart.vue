@@ -4,7 +4,7 @@
 
         <span class="cart-items">
             <cart-rooms />
-            <template v-for="(item, index) in items">
+            <template v-for="(item, index) in ecommerceItems">
                 <cart-item-factory :item="item" :index="index" />
             </template>
         </span>
@@ -19,7 +19,7 @@
     name: 'Cart',
     components: {CartItemFactory, CartRooms},
     computed: {
-      ...mapGetters('cart', ['items'])
+      ...mapGetters('cart', ['ecommerceItems'])
     }
   }
 </script>

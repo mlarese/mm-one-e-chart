@@ -7,6 +7,7 @@ export const getters = {
   cart: state => state.cart,
   items: state => state.cart.items,
   rooms: state => state.cart.rooms,
+  currentRoomIndex: state => state.cart.rooms.length-1,
   itemsByRowId: (state, getters) => rowId => _filter(getters.items, i => i.rowId === rowId),
   itemsByProductId: (state, getters) => productId => _filter(getters.items, i => i.id === productId),
   itemByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).find(i => i.id === productId) || {},

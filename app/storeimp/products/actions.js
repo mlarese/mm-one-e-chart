@@ -12,7 +12,7 @@ export const actions = {
     console.log('--- products.loadProductsOrServices')
     commit('setPage', 0)
 
-    if (category.id === 0) {
+    if (category.id*1 === 0) {
       return dispatch('loadSpecialServices', {portalId, structureId, userLanguageCode, itemId})
         .then(res => {
           commit('setProducts', res.data)

@@ -51,7 +51,7 @@
 
 
                 <div class="STSS__accItem__qty pull-left">
-                    <select tabindex="-1">
+                    <select tabindex="-1" :id="id" v-model="quantity">
                         <option value="0">0</option><option value="1">1</option>
                         <option value="2">2</option><option value="3">3</option>
                         <option value="4">4</option><option value="5">5</option>
@@ -84,29 +84,14 @@
 <script>
   import BaseProductItem from './BaseProductItem'
 
-  let counter = 0
   export default {
-    data () {
-      return {
-        id:0
-      }
-    },
-    extends: BaseProductItem,
-    created () {
-        counter++;
-    },
-    mounted () {
-
-      $(this.$el).ready(() => {
-        $(this.$el).select2(this.config)
-        $(this.$el).on('change', (e) => {
-          this.$emit('input', e.target.value)
-        })
-      })
-    }
+    extends: BaseProductItem
   }
+
 </script>
 
 <style>
-
+    .select2-container--bootstrap .select2-selection {
+        border-radius: 0 !important;
+    }
 </style>
