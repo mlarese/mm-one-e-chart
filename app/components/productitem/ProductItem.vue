@@ -40,29 +40,23 @@
 
             <small>{{$t('Single price')}}</small>
 
-            <span v-if="!isInCart">
-
-
-
-            </span>
-
 
             <sup-decimals :numberFrom="product.priceFrom" :number="realPrice" :discount="product.discount" />
 
 
-                <div class="STSS__accItem__qty pull-left">
-                    <select tabindex="-1" :id="id" v-model="quantity">
-                        <option value="0">0</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                        <option value="6">6</option><option value="7">7</option>
-                        <option value="8">8</option><option value="9">9</option>
-                    </select>
-
+                <div class="STSS__accItem__qty pull-left" v-if="product">
+                    <vue-select
+                        class="select2-container--bootstrap"
+                        :options="optionsQta"
+                        :value.sync="quantity"
+                        :disabled="selectQuantityDisabled"
+                        v-model="quantity"
+                    />
                 </div>
 
             <button
                     v-if="!isInCart"
+                    :disabled="!canAdd"
                     @click="onAdd"
                     class="STSS__accItem__priceNew__button
                     STSS__accItem__priceNew--add text-uppercase pull-right ">
@@ -78,20 +72,26 @@
             <div class="panel-body"><p v-html="product.description"></p></div>
         </div>
     </div>
-
 </template>
 
 <script>
   import BaseProductItem from './BaseProductItem'
-
   export default {
     extends: BaseProductItem
   }
-
 </script>
 
-<style>
-    .select2-container--bootstrap .select2-selection {
-        border-radius: 0 !important;
+<style lang="scss">
+    .product-item{
+        .select2-container--bootstrap .select2-selection,
+        .v-select .dropdown-toggle {
+            border-radius: 0 !important;
+        }
+        .v-select {
+            input {
+                width:0 !important;
+            }
+        }
     }
+
 </style>

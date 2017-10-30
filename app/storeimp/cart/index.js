@@ -3,6 +3,7 @@ import {getters} from './getters'
 import {mutations as insuranceMutations} from './insurance/mutations'
 import _cloneDeep from 'lodash/cloneDeep'
 import _filter from 'lodash/filter'
+import {generateUUID} from '../../assets/uidhlp'
 
 const cartBackup = state => {
   state.backupCart = _cloneDeep(state.cart)
@@ -57,7 +58,8 @@ export const mutations = {
   },
   addProduct (state, {rowId, product, quantity}) {
     cartBackup(state)
-    state.cart.items.push({rowId, ...product, quantity})
+    const uid = generateUUID()
+    state.cart.items.push({uid, rowId, ...product, quantity})
   },
   removeProduct (state, {cartIndex}) {
     if (cartIndex >= 0) {

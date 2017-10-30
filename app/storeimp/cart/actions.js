@@ -14,12 +14,15 @@ export const actions = {
     commit('setStructureId', structureId)
     commit('setPortalId', portalId)
   },
-  removeProduct ({commit, dispatch}, {cartIndex}) {
-    if (cartIndex < 0) return
+  removeProduct ({commit, dispatch, getters}, {cartUid}) {
+    const cartIndex = getters.itemIndexByUid(cartUid)
+
     commit('removeProduct', {cartIndex})
     return dispatch('cloneToRemote')
   },
-  removeQuantity ({state, commit, dispatch, getters}, {cartIndex, quantity = 1}) {
+  removeQuantity ({state, commit, dispatch, getters}, {cartUid, quantity = 1}) {
+    const cartIndex = getters.itemIndexByUid(cartUid)
+
     if (cartIndex < 0) return
     const cartItem = getters.items[cartIndex]
 
@@ -30,7 +33,9 @@ export const actions = {
     }
     dispatch('cloneToRemote')
   },
-  addProduct ({commit, dispatch, getters}, {rowId, product, quantity}) {
+  addProduct ({commit, dispatch, getters}, {product, quantity}) {
+    let rowId;
+
     if(product.type === 'specialservice') {
       rowId = getters.currentRoomIndex
     } else if(product.type === 'insurance') {
@@ -38,21 +43,27 @@ export const actions = {
     } else {
       rowId = ROW_ID_ECOMMERCE
     }
+
     commit('addProduct', {rowId, product, quantity})
     dispatch('cloneToRemote')
   },
-  addQuantity ({commit, dispatch, getters}, {cartIndex, quantity}) {
+  addQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
+    const cartIndex = getters.itemIndexByUid(cartUid)
+
     commit('addQuantity', {cartIndex, quantity})
     dispatch('cloneToRemote')
   },
-  setQuantity ({commit, dispatch, getters}, {cartIndex, quantity}) {
+  setQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
+    const cartIndex = getters.itemIndexByUid(cartUid)
+
     commit('setQuantity', {cartIndex, quantity})
     dispatch('cloneToRemote')
   },
   restoreBackup ({commit}) {
     commit('restoreBackup')
   },
-  changeQuantity ({commit, dispatch}, {cartIndex, quantity}) {
+  changeQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
+    const cartIndex = getters.itemIndexByUid(cartUid)
     if (quantity === 0) {
       return dispatch('removeProduct', {cartIndex})
     } else {

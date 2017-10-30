@@ -2,7 +2,8 @@
   import IconTick from '../icons/IconTick'
   import SupDecimals from '../display/SupDecimalsVx'
   import {mapGetters, mapActions} from 'vuex'
-  import Select2 from './SelectQuantity'
+  import Select2 from 'select2'
+  import VueSelect from 'vue-select'
 
   let counter = 0
 
@@ -12,20 +13,12 @@
       this.id = 'pr_qt_' + counter
     },
     mounted () {
-      $(this.$el).ready(() => {
-        $(this.elId).select2({
-          theme: "bootstrap",
-          minimumResultsForSearch: -1
-        })
-        $(this.elId).on('change', (e) => {
-          this.quantity = e.target.value
-        })
-      })
+      this.quantity = this.getCartItemQuantity || 0
     },
     methods: {
       ...mapActions('cart', ['addProduct']),
       onAdd () {
-        this.addProduct({rowId: 0, product: this.product, quantity: this.quantity})
+        this.addProduct({product: this.product, quantity: this.quantity})
       },
       toggleShowDetails () {
         this.showDetails = !this.showDetails
@@ -38,14 +31,32 @@
         quantity: 0
       }
     },
+    watch: {
+      'getCartItemQuantity' () {
+        // this.quantity = this.getCartItemQuantity
+      }
+    },
     computed: {
+      canAdd () {
+        return this.quantity > 0
+      },
+      selectQuantityDisabled () {
+        return this.getCartItemQuantity > 0
+      },
+      getCartItem () {
+        return this.inCartProduct(this.product)
+      },
+      getCartItemQuantity () {
+        return this.inCartQuantity(this.product) * 1 || 0
+      },
       elId () {
         return '#' + this.id
       },
+      ...mapGetters('app', ['inCartProduct', 'inCartQuantity']),
       ...mapGetters('cart', ['itemsByRowId', 'itemsByProductId', 'itemByRowIdProductId', 'itemIndexByRowIdProductId']),
-      options () {
+      optionsQta () {
         let options = []
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i <= this.product.order; i++) {
           options.push(i + '')
         }
         return options
@@ -54,7 +65,7 @@
         if (!this.product) {
           return false
         }
-        return this.itemsByProductId(this.product.id).length > 0
+        return this.getCartItemQuantity > 0
       },
       shortDescription () {
         if (!this.product.shortDescription) {
@@ -82,6 +93,6 @@
         inventory: 3
       })}
     },
-    components: {IconTick, SupDecimals, Select2}
+    components: {IconTick, SupDecimals, Select2, VueSelect}
   }
 </script>

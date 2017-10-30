@@ -8,7 +8,7 @@
     methods: {
       ...mapActions('cart', ['removeProduct']),
       onRemoveProduct () {
-        this.removeProduct({cartIndex: this.index})
+        this.removeProduct({cartUid: this.item.uid})
       }
     },
     computed: {

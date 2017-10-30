@@ -8,7 +8,7 @@
     methods: {
       ...mapActions('cart', ['addProduct']),
       onAdd () {
-        this.addProduct({rowId: 0, product: this.product, quantity: this.product.order})
+        this.addProduct({product: this.product, quantity: this.product.order})
       },
       toggleShowDetails () {
         this.showDetails = !this.showDetails

@@ -5,7 +5,6 @@
         <div class="STSS__content__protection__list">
             <ul>
                 <li>
-
                     <span>Annullamento del soggiorno</span>
                     <a href="#">
                         <icon-info style="max-width: 26px" />
