@@ -45,13 +45,23 @@
 
 
                 <div class="STSS__accItem__qty pull-left" v-if="product">
-                    <vue-select
+
+
+                    <number-input-spinner
+                            :disabled="true"
+                            :min="6"
+                            :max="6"
+                            :integerOnly="true"
+                            v-model="quantity"
+                    />
+
+                    <!--vue-select
                         class="select2-container--bootstrap"
                         :options="optionsQta"
                         :value.sync="quantity"
                         :disabled="selectQuantityDisabled"
                         v-model="quantity"
-                    />
+                    /-->
                 </div>
 
             <button
@@ -76,7 +86,9 @@
 
 <script>
   import BaseProductItem from './BaseProductItem'
+  import NumberInputSpinner from "../../node_modules/vue-number-input-spinner/src/components/NumberInputSpinner.vue";
   export default {
+    components: {NumberInputSpinner},
     extends: BaseProductItem
   }
 </script>

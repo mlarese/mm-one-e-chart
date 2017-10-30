@@ -4,6 +4,7 @@
   import {mapGetters, mapActions} from 'vuex'
   import Select2 from 'select2'
   import VueSelect from 'vue-select'
+  import NumberInputSpinner from 'vue-number-input-spinner'
 
   let counter = 0
 
@@ -93,6 +94,6 @@
         inventory: 3
       })}
     },
-    components: {IconTick, SupDecimals, Select2, VueSelect}
+    components: {IconTick, SupDecimals, Select2, VueSelect, NumberInputSpinner}
   }
 </script>
