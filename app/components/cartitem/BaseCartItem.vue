@@ -1,7 +1,7 @@
 <script>
   import IconRemove from '../icons/IconRemove'
   import SupDecimals from '../display/SupDecimalsVx'
-  import {mapActions} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
   import Select2 from 'vue-select'
 
   export default {
@@ -12,19 +12,12 @@
       }
     },
     computed: {
+      ...mapGetters('cart', ['itemFinalPriceTotal', 'itemPriceFromTotal', 'itemPriceFrom']),
       priceFrom () {
-        if (!this.item.priceFrom || this.item.priceFrom === '') {
-          return this.item.price * 1 * this.item.quantity
-        } else {
-          return this.item.priceFrom * 1 * this.item.quantity
-        }
+        return this.itemPriceFromTotal(this.item)
       },
       realPrice () {
-        if (!this.item.finalPrice || this.item.finalPrice === '') {
-          return this.item.price * 1 * this.item.quantity
-        } else {
-          return this.item.finalPrice * 1 * this.item.quantity
-        }
+        return this.itemFinalPriceTotal(this.item)
       },
       options () {
         let options = []

@@ -21,14 +21,25 @@ export const getters = {
   payLaterItems: (state, getters) => _filter(getters.items, it => it.rowId === ROW_ID_PAY_LATER),
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId === ROW_ID_INSURANCE),
+  itemFinalPrice: (state, getters) => item => (item.finalPrice === '') ? item.price * 1 : item.finalPrice * 1,
+  itemFinalPriceTotal: (state, getters) => item => getters.itemFinalPrice(item) * item.quantity * 1,
+  itemPriceFrom: (state, getters) => item => (item.priceFrom === '') ? item.price * 1 : item.priceFrom * 1,
+  itemPriceFromTotal: (state, getters) => item => getters.itemPriceFrom(item) * item.quantity * 1,
+
   ...insuranceGetters,
+
   totalRoomsPrice: (state, getters) => {
     let total = 0
     _forEach(getters.rooms, r => total += r.price)
-    _forEach(getters.roomsSpecialServices, i => total += i.price*1 * i.quantity )
+    _forEach(getters.roomsSpecialServices, i => total += getters.itemFinalPriceTotal(i) )
+    return total
+  },
+  totalEcommercePrice: (state, getters) => {
+    let total = 0
+    _forEach(getters.ecommerceItems, i => total += getters.itemFinalPriceTotal(i) )
     return total
   },
   cartTotal: (state, getters) => {
-    return getters.totalRoomsPrice
+    return getters.totalRoomsPrice + getters.totalEcommercePrice
   }
 }
