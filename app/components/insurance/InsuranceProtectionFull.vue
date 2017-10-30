@@ -34,7 +34,7 @@
                 <option value="1">Tutto il soggiorno</option>
             </select>
         </div>
-        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtectionPlus}">
+        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtectionPlus}">
             <span>A soli</span>
 
             <sup-decimals :number="protectionPlusTotal" />

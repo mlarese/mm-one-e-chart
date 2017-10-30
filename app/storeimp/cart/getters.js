@@ -1,6 +1,7 @@
+import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
 import {getters as insuranceGetters} from './insurance/getters'
-import {ROW_ID_PAY_LATER, ROW_ID_ECOMMERCE, ROW_ID_INSURANCE} from './rowIdTypes'
+import {ROW_ID_PAY_LATER, ROW_ID_ECOMMERCE, ROW_ID_INSURANCE, ROW_ID_SPECIAL_MARKER} from './rowIdTypes'
 
 export const getters = {
   id: state => state.cart.id,
@@ -16,8 +17,18 @@ export const getters = {
   itemByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).find(i => i.id === productId) || {},
   itemIndexByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).findIndex(i => i.id === productId) || -1,
   roomSpecialServices: (state, getters) => roomIndex => _filter(getters.items, it => it.rowId === roomIndex),
+  roomsSpecialServices: (state, getters) => _filter(getters.items, it => it.rowId < ROW_ID_SPECIAL_MARKER),
   payLaterItems: (state, getters) => _filter(getters.items, it => it.rowId === ROW_ID_PAY_LATER),
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId === ROW_ID_INSURANCE),
-  ...insuranceGetters
+  ...insuranceGetters,
+  totalRoomsPrice: (state, getters) => {
+    let total = 0
+    _forEach(getters.rooms, r => total += r.price)
+    _forEach(getters.roomsSpecialServices, i => total += i.price*1 * i.quantity )
+    return total
+  },
+  cartTotal: (state, getters) => {
+    return getters.totalRoomsPrice
+  }
 }

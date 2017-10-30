@@ -24,7 +24,7 @@
             </select>
         </div>
 
-        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtection}">
+        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtection}">
             <span>A soli</span> <sup-decimals :number="protectionTotal" />
         </div>
         <div class="STSS__content__protection__button text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtection}">

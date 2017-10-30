@@ -12,11 +12,18 @@
       }
     },
     computed: {
+      priceFrom () {
+        if (!this.item.priceFrom || this.item.priceFrom === '') {
+          return this.item.price * 1 * this.item.quantity
+        } else {
+          return this.item.priceFrom * 1 * this.item.quantity
+        }
+      },
       realPrice () {
         if (!this.item.finalPrice || this.item.finalPrice === '') {
-          return this.item.price
+          return this.item.price * 1 * this.item.quantity
         } else {
-          return this.item.finalPrice
+          return this.item.finalPrice * 1 * this.item.quantity
         }
       },
       options () {
