@@ -6,7 +6,7 @@
             <ul>
                 <li>
                     <icon-slim-tick />
-                    <span>Annullamento del soggiorno</span>
+                    <span>{{$t('Cancellation of stay')}}</span>
 
                     <a href="#">
                         <icon-info />
@@ -14,23 +14,23 @@
                 </li>
                 <li>
                     <icon-slim-tick />
-                    <span>Assistenza 24H</span></li>
+                    <span>{{$t('24h support')}}</span></li>
                 <li>
                     <icon-slim-tick />
-                    <span>Spese mediche</span></li>
+                    <span>{{$t('Medical expenses')}}</span></li>
                 <li>
                     <icon-slim-tick />
-                    <span>Interruzione del soggiorno</span></li>
+                    <span>{{$t('Interruption of stay')}}</span></li>
                 <li>
                     <icon-slim-tick />
-                    <span>Rimborso importo versato</span></li>
+                    <span>{{$t('Refund of penalties')}}</span></li>
             </ul>
         </div>
 
         <div class="STSS__content__protection__select">
-            <small>Assicura</small>
+            <small>{{$t('Insure')}}</small>
             <select id="price_cancel" name="insuranceBooking" class="insurance hund select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                <option value="0" selected="selected">Acconto/Caparra</option>
+                <option value="0" selected="selected">{{$t('Account/Deposit')}}</option>
                 <option value="1">Tutto il soggiorno</option>
             </select>
         </div>

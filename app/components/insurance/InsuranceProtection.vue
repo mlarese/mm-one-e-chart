@@ -6,14 +6,14 @@
             <ul>
                 <li>
                     <icon-slim-tick />
-                    <span>Annullamento del soggiorno</span>
+                    <span>{{$t('Cancellation of stay')}}</span>
                     <a href="#">
                         <icon-info style="max-width: 26px" />
                     </a>
                 </li>
                 <li>
                     <icon-slim-tick />
-                    <span>Rimborso importo versato</span></li>
+                    <span>{{$t('Refund of penalties')}}</span></li>
             </ul>
         </div>
         <div class="STSS__content__protection__select">
