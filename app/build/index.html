@@ -9,6 +9,11 @@
     <script>
       var messages = {
         it: {
+          'OB': 'Camera senza colazione',
+          'BB': 'Bed and Breakfast',
+          'HB': 'Mezza pensione',
+          'FB': 'Pensione completa',
+          'from': 'da',
           'Add': 'Aggiungi',
           'Added': 'Aggiunto',
           'Cancellation of stay': 'Annullamento del soggiorno',
@@ -23,7 +28,10 @@
           'Use Booking protection to insure your stay': 'Per una maggiore serenità consigliamo a tutti i viaggiatori di aggiungere l\’assicurazione di viaggio alla prenotazione'
         },
         en: {
-
+          'OB': 'Only board',
+          'BB': 'Bed and Breakfast',
+          'HB': 'Half board',
+          'FB': 'Full board',
         }
       }
 
@@ -203,11 +211,15 @@
       }
 
       var locale = 'en'
+
       var structure = {
         structureId: 1,
         portalId: 1
       }
       var absServer = 'https://reservation.abs.tmp'
+
+      var step = 'insurance'
+      step = 'ecommerce'
 
       var cart = {
         id: 1,

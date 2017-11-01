@@ -7,6 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 store.dispatch('app/init', {
+  step,
   locale,
   structure,
   store,

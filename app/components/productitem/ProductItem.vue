@@ -41,9 +41,13 @@
             <small>{{$t('Single price')}}</small>
 
 
-            <sup-decimals :numberFrom="product.priceFrom" :number="realPrice" :discount="product.discount" />
+            <span class="STSS__accItem__qty__label" v-if="hasDiscount">
+                <del>{{$t('from')}} € {{priceFrom}}</del> <strong>-{{product.discount}}%</strong>
+            </span>
 
-            <number-spinner
+            <sup-decimals :number="realPrice" />
+
+            <!-- number-spinner
                     :disabled="true"
                     :min="6"
                     :max="6"
@@ -51,20 +55,16 @@
                     buttonClass="button-spinner"
                     :integerOnly="true"
                     v-model="quantity"
-            />
+            / -->
 
                 <div class="STSS__accItem__qty pull-left" v-if="product">
 
-
-
-
-                    <!--vue-select
+                    <vue-select
                         class="select2-container--bootstrap"
                         :options="optionsQta"
-                        :value.sync="quantity"
                         :disabled="selectQuantityDisabled"
                         v-model="quantity"
-                    /-->
+                    />
                 </div>
 
             <button
@@ -75,6 +75,7 @@
                     STSS__accItem__priceNew--add text-uppercase pull-right ">
                 {{$t('Add')}}
             </button>
+
             <button v-if="isInCart" class="STSS__accItem__priceNew__button  text-uppercase pull-right">
                 {{$t('Added')}}
                 <icon-tick />
@@ -106,8 +107,11 @@
             input {
                 width:0 !important;
             }
+            .dropdown-menu {
+                min-width: 65px;
+                max-height: 140px !important;
+            }
         }
-
         .button-spinner {
             -webkit-appearance: none;
             transition: background .5s ease;

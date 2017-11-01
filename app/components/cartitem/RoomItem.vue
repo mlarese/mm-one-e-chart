@@ -4,7 +4,7 @@
         <h4 class="STSS__roomsNew__item__title text-uppercase">{{room.name}}</h4>
         <div class="STSS__roomsNew__item__desc">
             <icon-cup></icon-cup>
-            <span>{{room.treatment}}</span>
+            <span>{{$t(room.treatment)}}</span>
 
         </div>
         <div class="STSS__roomsNew__item__price">
@@ -36,7 +36,7 @@
           price: 453,
           priceFrom: '546',
           discount: 20,
-          treatment: 'Mezza Pensione'
+          treatment: 'BB'
         })
       }
     },

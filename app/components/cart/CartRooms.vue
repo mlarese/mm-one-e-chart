@@ -10,7 +10,7 @@
 
 </template>
 <script>
-  import RoomItem from '../roomitem/RoomItem'
+  import RoomItem from '../cartitem/RoomItem'
   import SpecialServiceCartItem from '../cartitem/SpecialServiceCartItem'
   import {mapGetters} from 'vuex'
 

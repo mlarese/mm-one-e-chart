@@ -3,13 +3,14 @@ import {changeLocale} from '../../assets/localehlp'
 export const actions = {
   init (
     {commit, dispatch, getters, rootGetters},
-    {insuranceTotals = null, flowSetup, structureConfig, locale = 'it', structure, store, absServer, cart}
+    {insuranceTotals = null, flowSetup, structureConfig, locale = 'it', structure, store, absServer, cart, step}
   ) {
     console.log('-- app.init')
     const localeData = changeLocale(locale)
     const userLanguageCode = locale
     commit('setLocale', {...localeData.delimiters, locale})
     commit('setUserLanguageCode', locale)
+    commit('setStep', step)
 
     if (insuranceTotals !== null) {
       dispatch('initInsurance', {insuranceTotals})

@@ -3,7 +3,10 @@
         <div class="col-xs-12 col-md-8 no-p-l STSS__content">
            <products />
             <div class="STSS__content__bottom">
+
                 <a href="http://www.bookingone.it/" target="_blank" class="pull-left"><img src="images/logo_bookingone.jpg" alt="booking one"></a>
+                <div class="clear-resizer"></div>
+
                 <!-- div class="STSS__content__pagination pull-right text-right">
                     <a href="#" class="active">1</a>
                     <a href="#">2</a>
@@ -28,3 +31,12 @@
     components: {Cart, Products}
   }
 </script>
+
+<style>
+    .ecommerce{
+        .clear-resizer{
+            clear:both;
+            height:150px;
+        }
+    }
+</style>
