@@ -8,6 +8,10 @@
   .v-select .dropdown-toggle {
     border-radius: 0 !important;
   }
+
+  .dropdown{
+    width: 45px !important;
+  }
   .v-select {
     .dropdown-toggle{
       height: 24px;
@@ -23,9 +27,7 @@
     input {
       width:0 !important;
     }
-    .dropdown{
-      width: 45px !important;
-    }
+
     .dropdown-menu {
       min-width: 45px;
       max-height: 140px !important;

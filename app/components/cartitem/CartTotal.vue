@@ -5,13 +5,14 @@
 
         <sup-decimals class="STSS__roomsNew__total__price" :number="cartTotal" />
 
-        <span class="STSS__roomsNew__total__highlight">Stai risparmiando € 240,00</span>
+        <span v-if="cartTotalDiscount>0" class="STSS__roomsNew__total__highlight">Stai risparmiando € {{cartTotalDiscountFormatted}}</span>
     </div>
 </template>
 
 <script>
   import {mapGetters} from 'vuex'
   import SupDecimals from '../display/SupDecimalsVx'
+  import numeral from 'numeral'
 
   export default {
     name: 'CartTotal',
@@ -19,7 +20,11 @@
       SupDecimals
     },
     computed: {
-      ...mapGetters('cart', ['cartTotal'])
-    },
+      ...mapGetters('cart', ['cartTotal', 'cartTotalDiscount']),
+      cartTotalDiscountFormatted () {
+        let number = this.cartTotalDiscount * 1 || 0
+        return numeral(number).format('0,0.00')
+      }
+    }
   }
 </script>

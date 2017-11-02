@@ -34,6 +34,17 @@ export const getters = {
     _forEach(getters.roomsSpecialServices, i => total += getters.itemFinalPriceTotal(i) )
     return total
   },
+  totalRoomsPriceFrom: (state, getters) => {
+    let total = 0
+    _forEach(getters.rooms, r => total += r.price)
+    _forEach(getters.roomsSpecialServices, i => total += getters.itemPriceFromTotal(i) )
+    return total
+  },
+  totalEcommercePriceFrom: (state, getters) => {
+    let total = 0
+    _forEach(getters.ecommerceItems, i => total += getters.itemPriceFromTotal(i) )
+    return total
+  },
   totalEcommercePrice: (state, getters) => {
     let total = 0
     _forEach(getters.ecommerceItems, i => total += getters.itemFinalPriceTotal(i) )
@@ -41,5 +52,11 @@ export const getters = {
   },
   cartTotal: (state, getters) => {
     return getters.totalRoomsPrice + getters.totalEcommercePrice
+  },
+  cartTotalFull: (state, getters) => {
+    return getters.totalRoomsPriceFrom + getters.totalEcommercePriceFrom
+  },
+  cartTotalDiscount: (state, getters) => {
+    return getters.cartTotalFull - getters.cartTotal
   }
 }
