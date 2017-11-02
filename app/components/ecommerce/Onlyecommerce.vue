@@ -12,8 +12,6 @@
             <cart />
         </aside>
 
-
-
     </div>
 </template>
 <script>

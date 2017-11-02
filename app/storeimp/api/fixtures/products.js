@@ -157,8 +157,6 @@ export const products = [
   }
 ]
 
-console.log('--- total mock products', products.length)
-
 export const productsFn = c => {
   let selectedProducts = _filter(products, p => p.type !== 'specialservice')
   console.log('---- Headers ---- productsFn')

@@ -104,9 +104,9 @@
             border-radius: 0 !important;
         }
         .v-select {
-            input {
-                width:0 !important;
-            }
+            input[type="search"]{width:0 !important; font-size: 0;}
+            input[type="search"]:focus {width:0 !important; font-size: 0;}
+            input{ width:0 !important; font-size: 0;}
             .dropdown-menu {
                 min-width: 65px;
                 max-height: 140px !important;

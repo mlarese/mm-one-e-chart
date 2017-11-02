@@ -1,4 +1,6 @@
-import './promise-polyfill'
+// import './promise-polyfill'
+import 'babel-polyfill'
+import  'eventsource-polyfill'
 import { application, store } from './app'
 
 // enable progressive web app support (with offline-plugin)
@@ -6,19 +8,20 @@ if (process.env.NODE_ENV === 'production') {
   require('./pwa')
 }
 
-store.dispatch('app/init', {
-  step,
-  locale,
-  structure,
-  store,
-  absServer,
-  cart,
-  structureConfig,
-  flowSetup
-}, {root: true})
-  .then(() => {
-    console.log('-- startup then')
-    application.$mount('#app')
-  })
+if (step === 'comparator') {
+  store.dispatch('comparator/init', {competitors, boBestPrice, absServer}, {root: true})
+    .then(() => application.$mount('#app'))
+} else {
+  store.dispatch('app/init', {
+    step,
+    locale,
+    structure,
+    store,
+    absServer,
+    cart,
+    structureConfig,
+    flowSetup
+  }, {root: true})
+    .then(() => application.$mount('#app'))
 
-
+}

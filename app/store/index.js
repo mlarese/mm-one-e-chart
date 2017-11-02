@@ -6,6 +6,7 @@ import structure from '../storeimp/structure'
 import booking from '../storeimp/booking'
 import categories from '../storeimp/categories'
 import products from '../storeimp/products'
+import comparator from '../storeimp/comparator'
 import cart from '../storeimp/cart'
 
 // import VuexPersistence from 'vuex-persist'
@@ -30,6 +31,7 @@ const createStore = () => {
     modules: {
       app,
       api,
+      comparator,
       booking,
       structure,
       categories,

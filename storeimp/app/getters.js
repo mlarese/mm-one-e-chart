@@ -5,7 +5,6 @@ export const getters = {
   currentCategory: state => state.currentCategory,
   userLanguageCode: state => state.userLanguageCode,
   currentCategoryOb: (state, getters, rootState, rootGetters) => {
-    console.log('--- currentCategoryOb getters.currentCategory', getters.currentCategory)
     return rootGetters['categories/category'](getters.currentCategory)
   }
 }

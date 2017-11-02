@@ -1,0 +1,12 @@
+ip 192.168.1.140 port 22
+us mauro.larese
+pw Mauro.61
+
+sudo su
+Mauro.61
+cd home/giuseppe.donato
+
+cd /home/giuseppe.donato/PhpstormProjects/Abs_Docker/repository/ABS/
+git pull
+user mauro.larese@mm-one.com
+pass

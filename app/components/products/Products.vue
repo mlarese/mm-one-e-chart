@@ -1,7 +1,12 @@
 <template>
     <div class="widget-products">
-        <group-bar :groupList="categories" :groupCurrent="currentCategory" @change-group="changeCategory" />
-        <span class="ST2-book__choose">Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".</span>
+        <div v-if="categories.length > 1">
+            <group-bar :groupList="categories" :groupCurrent="currentCategory" @change-group="changeCategory" />
+        </div>
+
+        <span class="ST2-book__choose">
+            Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".
+        </span>
 
         <span class="produts-list">
                 <template v-for="(product, index) in products">
@@ -21,8 +26,7 @@
       ...mapActions('app', ['changeCategory'])
     },
     computed: {
-      ...mapGetters('app', ['currentCategory']),
-      ...mapGetters('categories', ['categories']),
+      ...mapGetters('app', ['currentCategory', 'categories']),
       ...mapGetters('products', ['products'])
     },
     components: {GroupBar, ProductItemFactory}

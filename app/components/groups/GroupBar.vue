@@ -19,24 +19,19 @@
 
 <script>
   import 'slick-carousel/slick/slick'
-  import $ from 'jquery'
   import _capitalize from 'lodash/capitalize'
 
+  let $loc
+  if (window.$){
+    $loc = window.$
+  } else {
+    $loc = require('jquery')
+  }
   export default {
     computed: {
       hasSlider () {
         // return (this.groupList.length > this.slickOptions.slidesToShow)
         return true
-      }
-    },
-    watch: {
-      'groupList': {
-        handler () {
-          console.dir(arguments)
-          alert("")
-          $(this.$el).slick(this.slickOptions)
-        },
-        deep: true
       }
     },
     methods: {
@@ -60,11 +55,11 @@
       this.current = this.groupCurrent
     },
     mounted () {
-      $(this.$el).slick(this.slickOptions)
-      $(this.$el).on('setPosition', (event, slick, direction) => {})
+      $loc(this.$el).slick(this.slickOptions)
+      $loc(this.$el).on('setPosition', (event, slick, direction) => {})
     },
     beforeDestroy () {
-      $(this.$el).slick('unslick')
+      $loc(this.$el).slick('unslick')
     },
     data () {
       return {

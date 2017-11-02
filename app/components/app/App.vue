@@ -7,15 +7,17 @@
 </template>
 
 <script>
+  import Special from '../ecommerce/Special'
+  import Onlyecommerce from '../ecommerce/Onlyecommerce'
   import Ecommerce from '../ecommerce/Ecommerce'
   import Insurance from '../insurance/Insurance'
   import {mapGetters} from 'vuex'
 
   export default {
     name:'App',
-    components: {Ecommerce, Insurance},
+    components: {Ecommerce, Insurance, Onlyecommerce, Special},
     computed: {
       ...mapGetters('app', ['step'])
-    },
+    }
   }
 </script>

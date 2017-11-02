@@ -10,7 +10,6 @@ module.exports = {
   devtool: "source-map",
   // add these dependencies to a standalone vendor bundle
   vendor: [
-      'jquery',
       'vue',
       'vuex',
       // 'vue-router',
@@ -18,7 +17,6 @@ module.exports = {
       'promise-polyfill',
       'numeral',
       "lodash",
-      // "vee-validate",
       "axios"
   ],
   // disable babelrc by default

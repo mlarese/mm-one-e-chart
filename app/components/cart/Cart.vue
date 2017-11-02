@@ -10,6 +10,7 @@
             <cart-total />
             <insurance-cart-item />
         </span>
+        <div class="widget-cart-resizer"></div>
     </div>
 </template>
 <script>
@@ -27,3 +28,12 @@
     }
   }
 </script>
+
+<style lang="scss">
+    .widget-cart{
+        .widget-cart-resizer{
+            clear:both;
+            margin-bottom: 60px;
+        }
+    }
+</style>

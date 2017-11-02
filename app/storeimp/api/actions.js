@@ -1,5 +1,4 @@
 import axios from 'axios'
-import './mocks'
 
 export const actions = {
   init ({commit, dispatch}, {absServer}) {

@@ -24,13 +24,14 @@
     .open-indicator{
       height: 13px;
     }
-    input {
-      width:0 !important;
-    }
+    input[type="search"]{width:0 !important; font-size: 0;}
+    input[type="search"]:focus {width:0 !important; font-size: 0;}
+    input{ width:0 !important; font-size: 0;}
 
     .dropdown-menu {
       min-width: 45px;
-      max-height: 140px !important;
+      // max-height: 140px !important;
+      overflow-y: auto;
       font-size: 12px;
     }
 

@@ -16,12 +16,12 @@
                     <span>{{$t('Refund of penalties')}}</span></li>
             </ul>
         </div>
+
+        <div><small>{{$t('Insure')}}</small></div>
+
+        {{cart.insurance.insure}}
         <div class="STSS__content__protection__select">
-            <small>Assicura</small>
-            <select aria-hidden="true" tabindex="-1" class="insurance hund select2-hidden-accessible" name="insuranceBooking" id="price_cancel">
-                <option selected="selected" value="0">Acconto/Caparra</option>
-                <option value="1">Tutto il soggiorno</option>
-            </select>
+            <vue-select :options="insureOptions" v-model="cart.insurance.insure" />
         </div>
 
         <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtection}">

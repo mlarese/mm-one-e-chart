@@ -6,7 +6,6 @@ export const getters = {
   currentCategory: state => state.currentCategory,
   userLanguageCode: state => state.userLanguageCode,
   currentCategoryOb: (state, getters, rootState, rootGetters) => {
-    console.log('--- currentCategoryOb getters.currentCategory', getters.currentCategory)
     return rootGetters['categories/category'](getters.currentCategory)
   },
   isCurrentCategorySpecialService: (state, getters) => getters.currentCategory === 0,
@@ -32,5 +31,8 @@ export const getters = {
     } else {
       return 0
     }
+  },
+  categories: (state, getters, rootState, rootGetters) => {
+    return rootGetters['categories/categoriesByStep'](getters.step)
   }
 }
