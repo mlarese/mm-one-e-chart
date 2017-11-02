@@ -1,5 +1,5 @@
 <template>
-    <div class="special-service-cart-item">
+    <div class="special-service-cart-item cart-item">
         <div class="STSS__roomsNew__item">
             <div class="STSS__roomsNew__item__ssr col-xs-12">
                 <div>
@@ -8,8 +8,16 @@
                        <icon-remove />
                     </a>
                     <div class="STSS__roomsNew__item__ssr__qty pull-left">
-                        <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
-                        {{item.quantity}}
+                        <div class="col-xs-2 pl0">
+                            <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
+                        </div>
+                        <div class="col-xs-8 pr0">
+                            <vue-select
+                                    class="select2-container--bootstrap"
+                                    :options="options"
+                                    v-model="item.quantity"
+                            />
+                        </div>
                     </div>
 
                     <div class="STSS__roomsNew__item__price pull-right">
@@ -45,5 +53,7 @@
           padding-right: 0px;
       }
   }
+
+  @import "cartitem";
 
 </style>

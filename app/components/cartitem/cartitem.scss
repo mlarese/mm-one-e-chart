@@ -1,0 +1,41 @@
+.cart-item{
+  select {
+    padding: 2px;
+  }
+
+  .pl0{padding-left:0}
+  .pr0{padding-right:0}
+  .v-select .dropdown-toggle {
+    border-radius: 0 !important;
+  }
+  .v-select {
+    .dropdown-toggle{
+      height: 24px;
+    }
+    .selected-tag {
+      height: 18px;
+      line-height: 11px;
+      font-size: 12px;
+    }
+    .open-indicator{
+      height: 13px;
+    }
+    input {
+      width:0 !important;
+    }
+    .dropdown{
+      width: 45px !important;
+    }
+    .dropdown-menu {
+      min-width: 45px;
+      max-height: 140px !important;
+      font-size: 12px;
+    }
+
+    .open-indicator:before {
+      height: 8px;
+      width: 8px;
+    }
+
+  }
+}

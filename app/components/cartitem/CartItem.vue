@@ -9,8 +9,16 @@
                 </a>
 
                 <div class="STSS__roomsNew__item__ssr__qty pull-left">
-                    <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
-                    <!-- select2 style="width: 50px;display:inline-block" v-model="item.quantity+''" :options="options" / -->
+                    <div class="col-xs-2 pl0">
+                        <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
+                    </div>
+                    <div class="col-xs-8 pr0">
+                        <vue-select
+                            class="select2-container--bootstrap"
+                            :options="options"
+                            v-model="item.quantity"
+                        />
+                    </div>
                 </div>
                 <div class="STSS__roomsNew__item__price pull-right">
                     <sup-decimals :numberFrom="priceFrom" :number="realPrice" :discount="item.discount" />
@@ -29,33 +37,5 @@
 </script>
 
 <style lang="scss">
-  .cart-item{
-      select {
-          padding: 2px;
-      }
-  }
-
-  .default {
-      .v-select input[type=search],
-      .v-select input[type=search]:focus {
-          height: 20px;
-          font-size: 10px;
-          width: 0 !important;
-      }
-      .v-select .selected-tag {
-          height: 20px;
-          padding: 2px .25em;
-          line-height: 10px;
-          font-size: 12px;
-      }
-      .v-select .open-indicator {
-          position: absolute;
-          bottom: 6px;
-          right: 10px;
-          cursor: pointer;
-          pointer-events: all;
-          opacity: 1;
-          height: 15px;
-      }
-  }
+    @import "cartitem";
 </style>

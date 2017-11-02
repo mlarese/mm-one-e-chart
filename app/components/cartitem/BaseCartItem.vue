@@ -2,7 +2,7 @@
   import IconRemove from '../icons/IconRemove'
   import SupDecimals from '../display/SupDecimalsVx'
   import {mapActions, mapGetters} from 'vuex'
-  import Select2 from 'vue-select'
+  import VueSelect from '../vselect/src/components/Select'
 
   export default {
     methods: {
@@ -40,6 +40,6 @@
         })
       }
     },
-    components: {IconRemove, SupDecimals, Select2}
+    components: {IconRemove, SupDecimals, VueSelect}
   }
 </script>

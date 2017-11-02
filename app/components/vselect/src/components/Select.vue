@@ -1,4 +1,5 @@
 <style>
+
   .v-select {
     position: relative;
     font-family: sans-serif;
@@ -37,9 +38,9 @@
     height: 20px; width: 10px;
   }
   .v-select .open-indicator:before {
-    border-color: rgba(60, 60, 60, .5);
+    border-color: rgba(0, 0, 0, .5);
     border-style: solid;
-    border-width: 3px 3px 0 0;
+    border-width: 1px 1px 0 0;
     content: '';
     display: inline-block;
     height: 10px;
@@ -284,6 +285,7 @@
 </style>
 
 <template>
+
   <div :dir="dir" class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" :class="['dropdown-toggle', 'clearfix']">
 
@@ -324,6 +326,8 @@
     </div>
 
     <transition :name="transition">
+
+
       <ul ref="dropdownMenu" v-if="dropdownOpen" class="dropdown-menu" :style="{ 'max-height': maxHeight }">
         <li v-for="(option, index) in filteredOptions" v-bind:key="index" :class="{ active: isOptionSelected(option), highlight: index === typeAheadPointer }" @mouseover="typeAheadPointer = index">
           <a @mousedown.prevent="select(option)">
@@ -336,8 +340,10 @@
           <slot name="no-options">Sorry, no matching options.</slot>
         </li>
       </ul>
+
     </transition>
   </div>
+
 </template>
 
 <script type="text/babel">
@@ -347,7 +353,6 @@
 
   export default {
     mixins: [pointerScroll, typeAheadPointer, ajax],
-
     props: {
       /**
        * Contains the currently selected value. Very similar to a
