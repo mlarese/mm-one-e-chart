@@ -45,6 +45,7 @@
                 <del>{{$t('from')}} € {{priceFrom}}</del> <strong>-{{product.discount}}%</strong>
             </span>
 
+            <span class="STSS__accItem__qty__label" v-if="isSpecialService">{{$t(product.priceType)}}</span>
             <sup-decimals :number="realPrice" />
 
             <!-- number-spinner

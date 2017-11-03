@@ -1,7 +1,12 @@
+import {ROW_ID_PAY_LATER} from '../cart/rowIdTypes'
+
 export const getters = {
   step: state => state.step,
+  nextStep: state => state.nextStep,
   locale: state => state.locale.locale,
+  structureConfig: (state, getters,  rootState, rootGetters) => rootGetters['booking/structureConfig'],
   decimal: state => state.locale.decimal,
+  currency: (state, getters) => getters.structureConfig.currencyUTF8,
   thousands: state => state.locale.thousands,
   currentCategory: state => state.currentCategory,
   userLanguageCode: state => state.userLanguageCode,
@@ -14,9 +19,12 @@ export const getters = {
     let cartItem
 
     if(isSpecial) {
-      const currentRoomIndex = rootGetters['cart/currentRoomIndex']
+      let rowId = rootGetters['cart/currentRoomIndex']
+      if (product.topayapart * 1 === 1) {
+        rowId = ROW_ID_PAY_LATER
+      }
       let fn = rootGetters['cart/itemByRowIdProductId']
-      cartItem = fn(currentRoomIndex, product.id)
+      cartItem = fn(rowId, product.id)
     } else {
       let fn = rootGetters['cart/itemByProductId']
       cartItem = fn(product.id)

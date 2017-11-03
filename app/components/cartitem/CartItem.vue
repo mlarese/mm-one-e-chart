@@ -23,7 +23,9 @@
                 <div class="STSS__roomsNew__item__price pull-right">
                     <sup-decimals :numberFrom="priceFrom" :number="realPrice" :discount="item.discount" />
                 </div>
-                <i v-if="false" class="STSS__roomsNew__acc__msg">Il pagamento avviene all’arrivo nella struttura turistica il giorno del check-in</i>
+                <i v-if="isPayLater" class="STSS__roomsNew__acc__msg">
+                    {{$t('Payment on arrival at the tourist facility on check-in')}}
+                </i>
             </div>
         </div>
     </div>
@@ -38,4 +40,11 @@
 
 <style lang="scss">
     @import "cartitem";
+
+    .cart-item{
+        .STSS__roomsNew__acc{
+            margin-bottom: 2px;
+        }
+    }
+
 </style>

@@ -12,7 +12,11 @@
         if (this.item.type === 'simple') {
           return 'cart-item'
         } else if (this.item.type === 'specialservice') {
-          return 'special-service-cart-item'
+          if (this.item.topayapart * 1 === 1) {
+            return 'cart-item'
+          } else {
+            return 'special-service-cart-item'
+          }
         } else {
           return 'cart-item'
         }

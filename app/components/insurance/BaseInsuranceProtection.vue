@@ -20,6 +20,14 @@
         ]
       }
     },
+    data () {
+      return {
+        currentOption: {}
+      }
+    },
+    created () {
+      this.currentOption = this.insureOptions[0]
+    },
     components: {
       IconSlimTick, IconInfo, SupDecimals, IconTick, VueSelect
     }

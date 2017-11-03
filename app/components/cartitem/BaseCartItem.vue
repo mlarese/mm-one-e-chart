@@ -16,12 +16,15 @@
       priceFrom () {
         return this.itemPriceFromTotal(this.item)
       },
+      isPayLater () {
+        return this.item.topayapart * 1 === 1
+      },
       realPrice () {
         return this.itemFinalPriceTotal(this.item)
       },
       options () {
         let options = []
-        for (let i = 1; i < this.item.order; i++) {
+        for (let i = 1; i <= this.item.availability; i++) {
           options.push(i + '')
         }
         return options

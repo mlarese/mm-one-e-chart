@@ -16,6 +16,8 @@ export const state = () => {
       defaultCategory: 0,
       shops: [],
       partners: {},
+      currency:"EUR",
+      currencyUTF8:"\u20ac",
       ecommerceHosts: {}
     }
   }

@@ -4,6 +4,7 @@ import {getters} from './getters'
 export const state = () => {
   return {
     step: 'ecommerce',
+    nextStep: null,
     currentCategory: null,
     userLanguageCode: 'it',
     locale: {
@@ -27,6 +28,9 @@ export const mutations = {
   },
   setUserLanguageCode (state, payLoad) {
     state.userLanguageCode = payLoad
+  },
+  setNextStep (state, payLoad) {
+    state.nextStep = payLoad
   }
 }
 

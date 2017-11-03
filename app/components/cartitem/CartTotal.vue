@@ -1,11 +1,10 @@
 <template>
     <div class="STSS__roomsNew__total text-right">
-        <a class="STSS__roomsNew__total__link" href="#">Condizioni di prenotazione</a>
-        <strong class="STSS__roomsNew__total__label">Totale soggiorno</strong>
+        <a class="STSS__roomsNew__total__link" href="#">{{$t('Reservation conditions')}}</a>
+        <strong class="STSS__roomsNew__total__label">{{$t('Total Price')}}</strong>
 
         <sup-decimals class="STSS__roomsNew__total__price" :number="cartTotal" />
-
-        <span v-if="cartTotalDiscount>0" class="STSS__roomsNew__total__highlight">Stai risparmiando € {{cartTotalDiscountFormatted}}</span>
+        <span v-if="cartTotalDiscount>0" class="STSS__roomsNew__total__highlight">{{$t('You are saving')}} {{currency}} {{cartTotalDiscountFormatted}}</span>
     </div>
 </template>
 
@@ -21,6 +20,7 @@
     },
     computed: {
       ...mapGetters('cart', ['cartTotal', 'cartTotalDiscount']),
+      ...mapGetters('app', ['currency']),
       cartTotalDiscountFormatted () {
         let number = this.cartTotalDiscount * 1 || 0
         return numeral(number).format('0,0.00')

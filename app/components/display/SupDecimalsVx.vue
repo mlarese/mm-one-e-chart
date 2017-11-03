@@ -3,6 +3,7 @@
       :locale="locale"
       :decimal="decimal"
       :thousands="thousands"
+      :prefix="currency"
       v-bind="$attrs"
     />
 </template>
@@ -17,7 +18,7 @@
       SupDecimals
     },
     computed: {
-      ...mapGetters('app', ['locale', 'decimal', 'thousands'])
+      ...mapGetters('app', ['locale', 'decimal', 'thousands', 'currency'])
     }
   }
 </script>

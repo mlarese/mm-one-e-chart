@@ -56,7 +56,7 @@ export const actions = {
 
     let url = `/catalog/products`
     if (itemId !== null) {
-      url = '/catalog/products/' + itemId
+      url = '/catalog/products/' + itemId + '?page=' + page + '$itemsPerPage=' + itemsPerPage
     }
 
     const options = {
@@ -69,12 +69,6 @@ export const actions = {
       }
     }
 
-    if (page !== null) {
-      options.headers.Page = page
-    }
-    if (itemsPerPage !== null) {
-      options.headers.ItemsPerPage = itemsPerPage
-    }
 
     const serverName = shopId
     return dispatch('api/get', {url, options, serverName}, {root: true})

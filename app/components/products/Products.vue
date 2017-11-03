@@ -5,16 +5,17 @@
         </div>
 
         <span class="ST2-book__choose">
-            Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".
+            {{$t('Choose the services that will make your stay a unique experience, otherwise press the “Continue” button.')}}
         </span>
 
         <span class="produts-list">
-                <template v-for="(product, index) in products">
-                    <product-item-factory :product="product" :index="index" />
-                </template>
-            </span>
+            <template v-for="(product, index) in products">
+                <product-item-factory :product="product" :index="index" :key="product.id" />
+            </template>
+        </span>
     </div>
 </template>
+
 <script>
   import {mapGetters, mapActions} from 'vuex'
   import GroupBar from '../groups/GroupBar'

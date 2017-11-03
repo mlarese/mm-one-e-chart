@@ -11,11 +11,11 @@
         created () {
           counter++;
           this.id = 'pr_qt_' + counter
+          this.quantity = '0'
         },
         mounted () {
           const q = this.getCartItemQuantity || 0
           this.quantity = q + ''
-
         },
         methods: {
           ...mapActions('cart', ['addProduct']),
@@ -58,7 +58,7 @@
           ...mapGetters('cart', ['itemsByRowId', 'itemsByProductId', 'itemByRowIdProductId', 'itemIndexByRowIdProductId']),
           optionsQta () {
             let options = []
-            for (let i = 0; i <= this.product.order; i++) {
+            for (let i = 0; i <= this.product.availability; i++) {
               options.push(i + '')
             }
             return options
@@ -78,6 +78,9 @@
             }
             return this.product.shortDescription
           },
+          isSpecialService () {
+            return this.product.type === 'specialservice'
+          },
           priceFrom () {
             if (!this.product.priceFrom || this.product.priceFrom === '') {
               return this.product.price
@@ -86,6 +89,9 @@
             }
           },
           realPrice () {
+            if (this.isSpecialService) {
+              return this.product.priceFrom * 1
+            }
             if (!this.product.finalPrice || this.product.finalPrice === '') {
               return this.product.price
             } else {

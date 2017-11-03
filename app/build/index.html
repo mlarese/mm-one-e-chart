@@ -5,141 +5,58 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/extend.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
     <script>
 
-      var $jq$ = jQuery;
-      var messages = {
-        it: {
-          'OB': 'Camera senza colazione',
-          'BB': 'Bed and Breakfast',
-          'HB': 'Mezza pensione',
-          'FB': 'Pensione completa',
-          'from': 'da',
-          'Add': 'Aggiungi',
-          'Added': 'Aggiunto',
-          'Cancellation of stay': 'Annullamento del soggiorno',
-          'Medical expenses': 'Spese mediche',
-          'Interruption of stay': 'Interruzione del soggiorno',
-          'Refund of penalties': 'Rimborso importo versato',
-          '24h support': 'Assistenza 24H',
-          'Insurance': 'Assicurazione',
-          'More info': 'Maggiori informazioni',
-          'Insure': 'Assicura',
-          'Account/Deposit': 'Acconto/Caparra',
-          'Full stay': 'Tutto il soggiorno',
-          'Use Booking protection to insure your stay': 'Per una maggiore serenità consigliamo a tutti i viaggiatori di aggiungere l\’assicurazione di viaggio alla prenotazione'
-        },
-        en: {
-          'OB': 'Only board',
-          'BB': 'Bed and Breakfast',
-          'HB': 'Half board',
-          'FB': 'Full board',
-        }
+      var cartid = '010187bedab6e1bb6f2878d0ba6bbea08294f72d5ecb2b11fad38ccfe15fffa8';
+
+      var cart = {};
+      var rooms  = [{"rowId":"8458-1","roomId":8458,"listId":1,"roomCode":"Suite","name":"Suite","treatmentCode":"BB","treatment":"Camera e colazione","price":"94.00","finalPrice":"94.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_8458_family_e7259.jpg&size=100x100c50","checkin":"03-11-2017","checkout":"04-11-2017","numNights":1,"adults":"2","child":"0","pax":2}];
+
+      //  controllare da cart serializzato se le room sono le stesse tramite rowid
+
+      var structureConfig = {"specialServicesEnabled":"1","productCatalogOpen":"1","insuranceEnabled":"1","insuranceOpen":"0","currency":"EUR","currencyUTF8":"\u20ac","defaultCategory":0,"shops":[2],"partners":{"2":3},"ecommerceHosts":{"2":"http://ecommerce.abs-one.dev\/"}};
+
+      var flowSetup = {"stepRoomsEnable":"1","alternativeRoomsEnable":"1","stepEcommerceEnable":"1","stepAllianzEnable":"1","roomsFirst":"0"};
+
+      var numrooms = '1';
+
+      var currentsolution = '0';
+
+      cart.rooms = rooms;
+      cart.id = cartid;
+      cart.numOfRooms = rooms.length;
+      cart.currentRoom = currentsolution;
+
+      var structure = { structureId: 1, portalId: 1 };
+
+      var absServer =  'http://reservation.abs.tmp/';
+
+      var step = 'ecommerce';
+
+      if(step === '') {
+        step = 'ecommerce' ;
       }
 
-      var competitors = {
-        bookingcom: 0,
-        tripadvisor: 0,
-        expedia: 0
-      }
+      var locale = 'it';
 
-      var boBestPrice = 580
 
-      var flowSetup = {
-        stepRoomsEnable: true,
-        alternativeRoomsEnable: false,
-        stepEcommerceEnable: true,
-        stepAllianzEnable: true,
-        roomsFirst: true
-      }
-
-      var structureConfig = {
-        specialServicesEnabled: false,
-        productCatalogOpen: false,
-        defaultCategory: 0,
-        shops: [2],
-        partners: {2: 3},
-        ecommerceHosts: {
-          2: 'https://ecommerce.abs-one.dev'
-        }
-      }
-
+      var nextStep = 'http://reservation.abs.tmp/metis/step_2_room_confirm_n.php?ABS_MMONE_BOOKING=4gj6a7b2418nb3jtap4f8k2en4';
 
       /**
        *
-       * step=onlyecommerce cat<>0
-       * step=ecommerce tutte
-       * step=special cat = 0
+       http://ecommerce.abs-one.com/RESTfulAPI/catalog/partner/categories
+       http://ecommerce.abs-one.dev/RESTfulAPI/catalog/partner/categories
        *
        */
 
-      var locale = 'en'
-
-      var structure = {
-        structureId: 1,
-        portalId: 1
-      }
-
-      var absServer = 'https://reservation.abs.tmp'
-
-      var step = 'onlyecommerce' //  comparator ecommerce  onlyecommerce special insurance
-
-      var cart = {
-        id: 1,
-        numOfRooms: 2,
-        currentRooom:0,
-        rooms: [
-          {name: 'Doppia con vista',  treatment: 'BB', treatmentCode: 'BB', finalPrice: 1500, discount: 0, price: 1200, photo: 'images/rooms_01.jpg', pax: ''},
-          {name: 'Singola con vista', treatment: 'BB', treatmentCode: 'BB', finalPrice: 800, discount: 0, price: 300, photo: 'images/rooms_01.jpg', pax: ''}
-        ],
-        insurance: {
-          hasInsurance: true,
-          insuranceType: 'protection',
-          insure: 0,
-          totals: {
-            protection: 159.28,
-            protectionPlus: 253.20
-          }
-        },
-        items: [
-          {
-            'id': '2168',
-            'order': '6',
-            'sku': 'BU01',
-            'name': 'INGR.PISC.+ WELLNESS GIORNALIERO (anche giorni fest.) - BU01',
-            'description': 'Questo buono comprende l’ingresso GIORNALIERO alle piscine termali e all’area wellness.\r\nLa piscina termale coperta ha una temperatura di 32°-33°C e prosegue anche all\'esterno, cosicché anche nelle fredde giornate d\'inverno si può uscire, rimanendo immersi nell\'acqua calda.\r\nL’ingresso all’Area Wellness comprende la sauna finlandese, la biosauna alle erbe, il bagno alle erbe, il bagno ipersalino, il polarium, le docce emozionali, la piscina termale con idromassaggi e la cabina salina secca.\r\n \r\nInformarsi al n° 0431-441400 per gli orari e giorni di apertura.\r\nBUONO VALIDO 12 MESI DALLA DATA DELL\' ORDINE\r\n \r\ncod. BU01\r\n ',
-            'shortdescription': '',
-            'type': 'specialservice',
-            'photo': 'http://ecommerce.abs-one.com/photobook/eShops_2/bu01_sauna.jpg',
-            'finalPrice': '27',
-            'price': '30.00',
-            'priceFrom': '30.00',
-            'discount': '10',
-            quantity: 2, rowId: 0, uid: 'sadsalllasdasdlas'
-          },
-          {
-            'id': '121843',
-            'order': '7',
-            'sku': 'BU80',
-            'name': 'MASS. SPA OLIO CANDELA  + INGR. GIORN. PISC. E WELL. - BU80',
-            'description': 'Questo buono comprende i seguenti trattamenti: Massaggio SPA Olio Candela e l\'ingresso GIORNALIERO alle piscine termali e all&rsquo;Area Wellness. \r\nMassaggio SPA Olio CandelaMassaggio benessere aromatico.\r\nRilassanti e avvolgenti manualit&agrave; con candela cosmetica composta da olio di argan, burro di karit&egrave; e olio di mandorle in forma solida che fondono a bassa temperatura creando un caldo olio da massaggio completamente naturale, altamente nutriente, dall\'esclusiva fragranza a base di note fresche marine con accenti di sale.\r\nLa piscina termale coperta ha una temperatura di 32&deg;-33&deg;C e prosegue anche all\'esterno, cosicch&eacute; anche nelle fredde giornate d\'inverno si pu&ograve; uscire, rimanendo immersi nell\'acqua calda.\r\nL&rsquo; Area Wellness comprende la sauna finlandese, la biosauna alle erbe, il bagno alle erbe, il bagno ipersalino, il polarium, le docce emozionali, la piscina termale con idromassaggi e la cabina salina secca.\r\nE\' necessaria la prenotazione del trattamento telefonando allo 0431/441200.\r\nBUONO VALIDO 12 MESI DALLA DATA DELL\' ORDINE\r\ncod. BU80',
-            'shortdescription': '',
-            'type': 'simple',
-            'photo': 'http://ecommerce.abs-one.com/photobook/eShops_2/_8389.jpg',
-            'finalPrice': '',
-            'price': '75.00',
-            'priceFrom': '',
-            'discount': '',
-            quantity: 2, rowId: 100002, uid: 'sadsalllasdasdlas'
-          }
-        ]
-      }
 
     </script>
     
   </head>
   <body>
-    <div id="app"></div>
+    <div class="container no-pd-xs">
+      <div id="app"></div>
+    </div>
   </body>
 </html>

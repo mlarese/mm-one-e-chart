@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-8 no-p-l STSS__content">
+      <div class="col-xs-12 col-sm-8 no-p-l STSS__content">
         <form>
           <div class="ST2-book__slider">
             <div><input type="radio" name="optRadio" id="optRadio1" value="Benessere"><label for="optRadio1">Benessere</label></div>

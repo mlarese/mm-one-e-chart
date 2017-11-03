@@ -6,11 +6,15 @@ export const actions = {
     dispatch('addServer', {key: 'abs', url: absServer})
   },
   addServer ({commit}, {key, url}) {
-    const baseURL = url + '/RESTfulAPI'
+    const urlLastChar = url.slice(-1);
+    if (urlLastChar !== '/') {
+      url = url + '/'
+    }
+    const baseURL = url + 'RESTfulAPI'
 
     const instance = axios.create({
       timeout: 90000,
-      withCredentials: true,
+      withCredentials: false,
       baseURL
     })
     commit('addServer', {key, instance, baseURL})
@@ -26,7 +30,7 @@ export const actions = {
       options.headers = {}
     }
 
-    options.headers['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
+    // options.headers['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
     options.headers['Content-Type'] = 'application/json'
 
     return instance.get(url, options)
@@ -49,6 +53,7 @@ export const actions = {
     commit('hasError')
     const instance = getters.server(serverName)
     console.log('******* api.post', url, 'on', serverName)
+    // options.headers['Content-Type'] = 'application/json'
 
     return instance.post(url, data, options)
       .then(res => {
@@ -63,11 +68,13 @@ export const actions = {
         return Promise.reject(err)
       })
   },
+
   put ({commit, getters}, {url, data, options = {}}, serverName = 'abs') {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
     const instance = getters.server(serverName)
+    // options.headers['Content-Type'] = 'application/json'
     return instance.put(url, data, options)
       .then(res => {
         commit('isAjax')

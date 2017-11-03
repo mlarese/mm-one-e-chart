@@ -14,6 +14,7 @@ export const state = () => {
     structureId: 0,
     portalId: 0,
     backupCart: {},
+    rawCart: {},
     cart: {
       id: 0,
       items: [],
@@ -50,6 +51,9 @@ export const mutations = {
   setCart (state, payLoad) {
     cartBackup(state)
     state.cart = payLoad
+  },
+  setRawCart (state, payLoad) {
+    state.rawCart = payLoad
   },
   setPortalId (state, payLoad) {
     state.portalId = payLoad

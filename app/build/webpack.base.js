@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: _.outputPath,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ? './':'/'
+    publicPath: process.env.NODE_ENV === 'production' ? './cartjs/':'/'
   },
   performance: {
     hints: process.env.NODE_ENV === 'production' ? 'warning' : false
