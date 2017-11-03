@@ -11,7 +11,7 @@ export const structureConfig = {
   productCatalogOpen: false,
   defaultCategory: 0,
   shops: [2],
-  partnerIds: {2: 3},
+  partners: {2: 3},
   ecommerceHosts: {
     2: 'http://ecommerce.abs-one.com'
   }

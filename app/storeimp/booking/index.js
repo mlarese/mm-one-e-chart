@@ -15,7 +15,7 @@ export const state = () => {
       productCatalogOpen: false,
       defaultCategory: 0,
       shops: [],
-      partnerIds: {},
+      partners: {},
       ecommerceHosts: {}
     }
   }
