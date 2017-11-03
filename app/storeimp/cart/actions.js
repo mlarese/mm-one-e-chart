@@ -13,10 +13,11 @@ export const actions = {
     commit('setStructureId', structureId)
     commit('setPortalId', portalId)
   },
-  quote ({dispatch, commit, state, getters, rootGetters}, ) {
+  quote ({dispatch, commit, state, getters, rootGetters}, {product}) {
     const url = '/booking/cart/quote/'
     const {adults, child, pax, numNights} = getters.currentRoom
     const userLanguageCode = rootGetters['app/userLanguageCode']
+    const currentCategory = rootGetters['app/currentCategory']
 
     const options = {
       headers: {
@@ -26,12 +27,20 @@ export const actions = {
       }
     }
 
+    //vId 1 , notti
+    //vId 2 , pax
+    //vId 3 , adults
+    //vId 4 , children
+    
     const data = {
-      "itemId":1,
-      "variants":[
-        {"vCatId":0,"vId":1,"vValue":1},{"vCatId":0,"vId":2,"vValue":2}
-       ]}
-      // {adults, child, pax, numNights}
+      'itemId':product.id,
+      'variants':[
+        {'vCatId': currentCategory,'vId': 1,'vValue': numNights},
+        {'vCatId': currentCategory,'vId': 2,'vValue': pax},
+        {'vCatId': currentCategory,'vId': 3,'vValue': 2},
+        {'vCatId': currentCategory,'vId': 4,'vValue': 2}
+       ]
+    }
 
     return dispatch('api/post',{url, data, options},{root: true})
 
