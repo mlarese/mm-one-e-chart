@@ -5,6 +5,8 @@ import VueI18n from 'vue-i18n'
 import createStore from '../store'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.css'
 
+Vue.config.devtools = true
+
 Vue.use(Vuex)
 
 Vue.use(VueI18n)
