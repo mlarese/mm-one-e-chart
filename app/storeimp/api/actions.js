@@ -6,7 +6,7 @@ export const actions = {
     dispatch('addServer', {key: 'abs', url: absServer})
   },
   addServer ({commit}, {key, url}) {
-    const baseURL = `${url}/RESTfulAPI`
+    const baseURL = url + '/RESTfulAPI'
 
     const instance = axios.create({
       timeout: 90000,

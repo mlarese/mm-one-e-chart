@@ -28,7 +28,7 @@ export const actions = {
       })
   },
   compare ({commit, state, dispatch}, {competitor}) {
-    const url = `/comparator/compare/${competitor}`
+    const url = '/comparator/compare/' + competitor
     // fake
     const boPrice = state.boBestPrice
     const pc = randomInt(12, 50)

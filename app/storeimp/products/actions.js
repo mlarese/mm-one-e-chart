@@ -32,7 +32,7 @@ export const actions = {
     let url = `/booking/specialservices`
 
     if (itemId !== null) {
-      url = `/booking/specialservices/${itemId}`
+      url = '/booking/specialservices/' + itemId
     }
     const options = {
       headers: {
@@ -56,7 +56,7 @@ export const actions = {
 
     let url = `/catalog/products`
     if (itemId !== null) {
-      url = `/catalog/products/${itemId}`
+      url = '/catalog/products/' + itemId
     }
 
     const options = {

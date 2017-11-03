@@ -22,11 +22,13 @@
   import _capitalize from 'lodash/capitalize'
 
   let $loc
+
   if (window.$){
     $loc = window.$
   } else {
     $loc = require('jquery')
   }
+
   export default {
     computed: {
       hasSlider () {
