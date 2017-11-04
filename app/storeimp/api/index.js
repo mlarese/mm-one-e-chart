@@ -13,7 +13,7 @@ export const state = () => {
   }
 }
 
-notificationsId = 0
+let notificationsId = 0
 export const mutations = {
   notification (state,{title, type ,text }) {
     if(Vue.i18n){
