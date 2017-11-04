@@ -7,11 +7,26 @@
     input{width:0 !important}
     background-image: url(../../static/images/family26.png);
     background-repeat: no-repeat;
-    background-size: 33px 30px;;
-    background-position-y: 2px;
-    background-position-x: 4px;
+    background-size: 24px 25px;;
+    background-position-y: 4px;
+    background-position-x: 8px;
+    border-radius: 0px;
   }
 
+  .v-select .open-indicator:before {
+    border-color: rgba(0, 0, 0, 0.7);
+    border-width: 2px 2px 0 0;
+  }
+
+  .selected-rivedere {
+    border-color: rgba(238, 119, 19, 0.4);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(238, 119, 19, 0.6);
+    outline: 0 none;
+  }
+  .selected-tag{
+      font-size: 13px;
+      font-family: roboto;
+  }
   .dropdown-menu {
     overflow: hidden;
   }

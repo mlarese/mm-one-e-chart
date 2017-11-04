@@ -35,16 +35,16 @@
         </div>
 
 
-        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtection}">
+        <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtectionPlus}">
             <span>{{$t('For just')}}</span> <sup-decimals :number="currentPrice" />
         </div>
 
-        <div class="STSS__content__protection__button text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtection}">
-            <button @click="onAdd" type="submit" class="text-uppercase" v-if="!hasInsuranceProtection">
+        <div class="STSS__content__protection__button text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtectionPlus}">
+            <button @click="onAdd" type="submit" class="text-uppercase" v-if="!hasInsuranceProtectionPlus">
                 {{$t('Add')}}
             </button>
 
-            <button type="submit" class="button-added text-uppercase" v-if="hasInsuranceProtection">
+            <button type="submit" class="button-added text-uppercase" v-if="hasInsuranceProtectionPlus">
                 {{$t('Added')}} <icon-tick />
             </button>
         </div>
