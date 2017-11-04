@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+const notifyError = err => ({title:'Error ' + err.response.status  ,text: err.response.statusText, type:'error'})
+const notifySuccess = ({title,text}) => ({title , text ,type:'success'})
+
 export const actions = {
   init ({commit, dispatch}, {absServer}) {
     console.log('--- api.init')
@@ -44,6 +47,8 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
+        commit('notification',notifyError(err))
+
         return Promise.reject(err)
       })
   },
@@ -65,6 +70,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
+        commit('notification',notifyError(err))
         return Promise.reject(err)
       })
   },
@@ -85,6 +91,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
+        commit('notification',notifyError(err))
         return Promise.reject(err)
       })
   },
@@ -103,6 +110,7 @@ export const actions = {
         commit('isAjax')
         commit('error', err)
         commit('hasError', true)
+        commit('notification',notifyError(err))
         return Promise.reject(err)
       })
   }

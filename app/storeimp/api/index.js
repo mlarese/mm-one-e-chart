@@ -8,11 +8,21 @@ export const state = () => {
     serversUrls: {},
     isAjax: false,
     error: {},
-    hasError: false
+    hasError: false,
+    notification: {title: '', type: '' ,text: '', id: 0}
   }
 }
 
+notificationsId = 0
 export const mutations = {
+  notification (state,{title, type ,text }) {
+    if(Vue.i18n){
+      text =  Vue.i18n.translate(text)
+      title =  Vue.i18n.translate(title)
+    }
+    notificationsId++;
+    state.notification={title, type ,text, id: notificationsId};
+  },
   addServer (state, {key, instance, baseURL}) {
     state.servers[key] = instance
     state.serversUrls[key] = baseURL

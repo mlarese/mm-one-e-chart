@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueI18n from 'vue-i18n'
-
+import Notifications from 'vue-notification'
 import createStore from '../store'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.css'
 
@@ -10,6 +10,8 @@ Vue.config.devtools = true
 Vue.use(Vuex)
 
 Vue.use(VueI18n)
+
+Vue.use(Notifications)
 
 const messages = {
   it: {
