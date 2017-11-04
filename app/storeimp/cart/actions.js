@@ -67,7 +67,8 @@ export const actions = {
   addProduct ({commit, dispatch, getters, rootGetters}, {product, quantity}) {
     let rowId;
 
-    if(product.type === 'specialservice') {
+    const isSpecialService = (product.type === 'specialservice')
+    if (isSpecialService) {
       rowId = getters.currentRoomIndex
     } else if(product.type === 'insurance') {
       rowId = ROW_ID_INSURANCE
@@ -79,6 +80,12 @@ export const actions = {
       rowId = ROW_ID_PAY_LATER
     }
 
+    if (!isSpecialService && false) {
+      commit('addProduct', {rowId, product, quantity})
+      dispatch('cloneToRemote')
+      return
+    }
+
     dispatch('quote', {product})
       .then(res => {
         product.price = res.data * 1
@@ -88,7 +95,6 @@ export const actions = {
       .catch(err => {
         console.dir(err)
       })
-
   },
   addQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
     const cartIndex = getters.itemIndexByUid(cartUid)
