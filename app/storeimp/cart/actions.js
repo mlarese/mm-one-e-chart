@@ -85,6 +85,9 @@ export const actions = {
         commit('addProduct', {rowId, product, quantity})
         dispatch('cloneToRemote')
       })
+      .catch(err => {
+        console.dir(err)
+      })
 
   },
   addQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
