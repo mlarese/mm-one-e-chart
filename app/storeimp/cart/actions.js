@@ -79,7 +79,7 @@ export const actions = {
       rowId = ROW_ID_PAY_LATER
     }
 
-    //dispatch('quote')
+    dispatch('quote')
     commit('addProduct', {rowId, product, quantity})
     dispatch('cloneToRemote')
   },
