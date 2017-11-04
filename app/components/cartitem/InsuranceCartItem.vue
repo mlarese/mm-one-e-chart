@@ -1,7 +1,7 @@
 <template>
     <div class="STSS__roomsNew__acc col-xs-12" v-if="hasInsurance">
         <div>
-            <a href="#" class="STSS__roomsNew__item__ssr__remove" @click="onRemove">
+            <a href="#" class="STSS__roomsNew__item__ssr__remove" @click="onRemove" v-if="!cartLocked">
                  <icon-remove />
             </a>
             <div class="STSS__roomsNew__acc__price text-right">

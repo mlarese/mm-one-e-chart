@@ -13,6 +13,7 @@
     },
     computed: {
       ...mapGetters('cart', ['itemFinalPriceTotal', 'itemPriceFromTotal', 'itemPriceFrom']),
+      ...mapGetters('app', ['cartLocked']),
       priceFrom () {
         return this.itemPriceFromTotal(this.item)
       },

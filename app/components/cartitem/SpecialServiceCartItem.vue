@@ -4,7 +4,7 @@
             <div class="STSS__roomsNew__item__ssr col-xs-12">
                 <div>
                     <strong>{{item.name}}</strong>
-                    <a class="STSS__roomsNew__item__ssr__remove" href="#" @click="onRemoveProduct">
+                    <a class="STSS__roomsNew__item__ssr__remove" href="#" @click="onRemoveProduct" v-if="!cartLocked">
                        <icon-remove />
                     </a>
                     <div class="STSS__roomsNew__item__ssr__qty pull-left">
@@ -13,6 +13,7 @@
                         </div>
                         <div class="col-xs-8 pr0">
                             <vue-select
+                                    :disabled="cartLocked"
                                     class="select2-container--bootstrap"
                                     :options="options"
                                     v-model="item.quantity"
