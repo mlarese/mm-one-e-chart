@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-const notifyError = err => ({title:'Error ' + err.response.status  ,text: err.response.statusText, type:'error'})
+const notifyError = err => {
+  let text = err.response.statusText
+  if (err.response.data && err.response.data.error_message) {
+    text = err.response.data.error_message
+  }
+  return {title:'Error ' + err.response.status  ,text, type:'error'}
+}
+
 const notifySuccess = ({title,text}) => ({title , text ,type:'success'})
 
 export const actions = {

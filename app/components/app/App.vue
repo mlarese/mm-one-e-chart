@@ -1,10 +1,8 @@
 <template>
-
-        <div class="bound_box ST2-book STSS__accList">
-            <notifications group="foo" />
-            <component :is="step" />
-        </div>
-
+    <div class="bound_box ST2-book STSS__accList">
+        <notifications position="bottom right" />
+        <component :is="step" />
+    </div>
 </template>
 
 <script>

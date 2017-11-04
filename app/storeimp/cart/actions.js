@@ -80,7 +80,7 @@ export const actions = {
       rowId = ROW_ID_PAY_LATER
     }
 
-    if (!isSpecialService && false) {
+    if (!isSpecialService) {
       commit('addProduct', {rowId, product, quantity})
       dispatch('cloneToRemote')
       return
