@@ -15,6 +15,10 @@ Vue.use(Notifications)
 
 const messages = {
   it: {
+    'per reservation': 'per prenotazione',
+    'per room/night': 'per camera/notte',
+    'per day': 'per giorno',
+    'per person': 'per persona',
     'Payment on arrival at the tourist facility on check-in': 'Il pagamento avviene all’arrivo nella struttura turistica il giorno del check-in',
     'Choose the services that will make your stay a unique experience, otherwise press the “Continue” button.':'Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".',
     'Your stay': 'Il tuo soggiorno',
