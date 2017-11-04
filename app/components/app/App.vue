@@ -16,6 +16,7 @@
     name:'App',
     watch:{
       'notification.id'(val){
+        console.log('---- notification')
         this.$notify(this.notification);
       },
     },
