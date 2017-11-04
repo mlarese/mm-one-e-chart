@@ -38,7 +38,7 @@ export const actions = {
         {'vCatId': currentCategory,'vId': 1,'vValue': numNights},
         {'vCatId': currentCategory,'vId': 2,'vValue': pax},
         {'vCatId': currentCategory,'vId': 3,'vValue': adults},
-        {'vCatId': currentCategory,'vId': 4,'vValue': children}
+        {'vCatId': currentCategory,'vId': 4,'vValue': child}
        ]
     }
 
