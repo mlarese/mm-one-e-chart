@@ -21,8 +21,13 @@ export const getters = {
   insurancePriceAllUrl: (state, getters) => state.insuranceConfig.price_all_url,
   insuranceSourceField: (state, getters) => {
     let type = getters.insuranceType
-    let amount = '_' + getters.insuranceAmount
-    if (amount === 'total') amount = ''
+    let amount
+    if (getters.insuranceAmount === 'total') {
+      amount = ''
+    } else {
+      amount = '_' + getters.insuranceAmount
+    }
+
     return `price_${type}${amount}`
   }
 }
