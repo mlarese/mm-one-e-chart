@@ -1,8 +1,8 @@
 export const getters = {
-  hasInsurance: state => state.cart.insurance.insuranceType !== null,
-  hasInsuranceProtection: state => state.cart.insurance.insuranceType === 'protection',
-  hasInsuranceProtectionPlus: state => state.cart.insurance.insuranceType === 'protectionPlus',
-  insuranceType: state => state.cart.insurance.insuranceType,
+  hasInsurance: state => (state.cart.insurance.type && state.cart.insurance.type !== ''),
+  hasInsuranceProtection: state => state.cart.insurance.insuranceType === 'cancel',
+  hasInsuranceProtectionPlus: state => state.cart.insurance.insuranceType === 'all',
+  insuranceType: state => state.cart.insurance.type,
   insuranceTotal: (state, getters) => 0, // state.cart.insurance.totals[getters.insuranceType],
   protectionTotal: (state, getters) => 0, // state.cart.insurance.totals['protection'],
   protectionPlusTotal: (state, getters) => 0, // state.cart.insurance.totals['protectionPlus'],
