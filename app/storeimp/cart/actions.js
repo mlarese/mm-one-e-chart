@@ -81,8 +81,7 @@ export const actions = {
 
     dispatch('quote', {product})
       .then(res => {
-        // product.price = res
-        console.dir(res)
+        product.price = res.data * 1
         commit('addProduct', {rowId, product, quantity})
         dispatch('cloneToRemote')
       })
