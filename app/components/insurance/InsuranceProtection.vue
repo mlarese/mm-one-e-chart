@@ -84,21 +84,21 @@
         }
       },
       contractUrl () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceCancelUrl
         } else {
           return this.insurancePriceCancelDepositUrl
         }
       },
       contract () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceCancelPid
         } else {
           return this.insurancePriceCancelDepositPid
         }
       },
       currentPrice () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceCancel
         } else {
           return this.insurancePriceCancelDeposit

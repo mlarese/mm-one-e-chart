@@ -8,13 +8,12 @@
         </div>
         <div class="STSS__roomsNew__item__price">
             <sup-decimals
-                    :numberFrom="room.priceFrom"
-                    :number="room.price"
+                    :numberFrom="room.price"
+                    :number="room.finalPrice"
                     :discount="room.discount"
             />
 
         </div>
-
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="STSS__roomsNew__acc col-xs-12" v-if="hasInsurance">
         <div>
-            <a href="#" class="STSS__roomsNew__item__ssr__remove" @click="onRemove" v-if="!cartLocked">
+            <a href="#" class="STSS__roomsNew__item__ssr__remove" @click="onRemove" v-if="!insuranceLocked">
                  <icon-remove />
             </a>
             <div class="STSS__roomsNew__acc__price text-right">
@@ -25,7 +25,8 @@
       }
     },
     computed: {
-      ...mapGetters('cart', ['hasInsurance', 'insuranceTotal'])
+      ...mapGetters('cart', ['hasInsurance', 'insuranceTotal']),
+      ...mapGetters('app', ['cartLocked', 'insuranceLocked'])
     },
     components: {
       IconRemove, SupDecimals

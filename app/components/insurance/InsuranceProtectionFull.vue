@@ -94,21 +94,21 @@
         }
       },
       contractUrl () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceAllUrl
         } else {
           return this.insurancePriceAllDepositUrl
         }
       },
       contract () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceAllPid
         } else {
           return this.insurancePriceAllDepositPid
         }
       },
       currentPrice () {
-        if (this.currentType.value * 1 === 0) {
+        if (this.currentType.value * 1 === 1) {
           return this.insurancePriceAll
         } else {
           return this.insurancePriceAllDeposit

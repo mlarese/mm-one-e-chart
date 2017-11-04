@@ -29,24 +29,20 @@
 .STSS__accItem__priceNew__button {
     cursor: default;
 }
-.STSS__accItem__priceNew--add {
-    cursor: pointer;
-}
-
+.STSS__accItem__priceNew--add {  cursor: pointer;  }
 .STSS__accItem__desc__tgl-txt .panel-body{
     padding-top: 10px;
 }
-
 .STSS__accItem__desc__tgl-txt {
     color: rgb(143, 143, 143);
 }
+.STSS__accItem__desc__tgl{  position: absolute;  bottom:0;  }
+.STSS__content__protection__list {  min-height: 100px;  }
 
-
-.STSS__accItem__desc__tgl{
-    position: absolute;
-    bottom:0;
+.STSS__content__protection__select small {
+    left: 0px !important;
 }
 
-.STSS__content__protection__list {
-    min-height: 100px;
+.STSS__content__protection__select .dropdown-toggle {
+    background-image: url('https://reservation.cmsone.it/metis/images/svg/family26.svg') !important;
 }

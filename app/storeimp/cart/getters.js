@@ -18,8 +18,8 @@ export const getters = {
   itemByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).find(i => i.id === productId) || {},
   itemIndexByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).findIndex(i => i.id === productId) || -1,
   roomSpecialServices: (state, getters) => roomIndex => _filter(getters.items, it => it.rowId*1 === roomIndex),
-  roomsSpecialServices: (state, getters) => _filter(getters.items, it => it.rowId*1 < ROW_ID_SPECIAL_MARKER),
-  payLaterItems: (state, getters) => _filter(getters.items, it => (it.rowId*1 >= ROW_ID_PAY_LATER || it.rowId*1 <= ROW_ID_PAY_LATER_MAX)),
+  roomsSpecialServices: (state, getters) => _filter(getters.items, it => it.rowId*1 < ROW_ID_PAY_LATER),
+  payLaterItems: (state, getters) => _filter(getters.items, it => (it.rowId*1 >= ROW_ID_PAY_LATER && it.rowId*1 <= ROW_ID_PAY_LATER_MAX)),
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId*1 === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId*1 === ROW_ID_INSURANCE),
   itemFinalPrice: (state, getters) => item => (item.finalPrice === '') ? item.price * 1 : item.finalPrice * 1,
@@ -43,7 +43,7 @@ export const getters = {
 
   totalRoomsPrice: (state, getters) => {
     let total = 0
-    _forEach(getters.rooms, r => total += r.price * 1)
+    _forEach(getters.rooms, r => total += r.finalPrice * 1)
     _forEach(getters.roomsSpecialServices, i => total += getters.itemFinalPriceTotal(i) )
     return total
   },
