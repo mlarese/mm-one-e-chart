@@ -80,8 +80,13 @@ export const actions = {
     }
 
     dispatch('quote', {product})
-    commit('addProduct', {rowId, product, quantity})
-    dispatch('cloneToRemote')
+      .then(res => {
+        // product.price = res
+        console.dir(res)
+        commit('addProduct', {rowId, product, quantity})
+        dispatch('cloneToRemote')
+      })
+
   },
   addQuantity ({commit, dispatch, getters}, {cartUid, quantity}) {
     const cartIndex = getters.itemIndexByUid(cartUid)
