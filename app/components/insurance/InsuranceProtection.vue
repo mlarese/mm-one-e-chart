@@ -17,17 +17,18 @@
             </ul>
         </div>
 
-        <div class="STSS__content__protection__select">
-            <small v-if="false">{{$t('Insure')}}</small>
-            {{cart.insurance.insure}}
-            <vue-select :options="insureOptions" v-model="cart.insurance.insure">
-
-            </vue-select>
+        <div class="STSS__content__protection__select" style="margin-bottom:28px">
+            <small>{{$t('Insure')}}</small>
         </div>
+        <div class="STSS__content__protection__select">
+            <vue-select :options="insureOptions" v-model="currentType" />
+        </div>
+
 
         <div class="STSS__content__protection__price text-center" :class="{'STSS__content__protection__price--add': hasInsuranceProtection}">
-            <span>A soli</span> <sup-decimals :number="protectionTotal" />
+            <span>{{$t('For just')}}</span> <sup-decimals :number="currentPrice" />
         </div>
+
         <div class="STSS__content__protection__button text-center" :class="{'STSS__content__protection__button--add': hasInsuranceProtection}">
             <button @click="onAdd" type="submit" class="text-uppercase" v-if="!hasInsuranceProtection">
                 {{$t('Add')}}
@@ -38,40 +39,81 @@
             </button>
         </div>
         <div class="STSS__content__protection__info text-center">
-            <em>(prima dell’acquisto, <a href="#">legga il fascicolo informativo Protection</a>)</em>
+            <em>({{$t('before you buy')}}, <a :href="contractUrl" target="_blank">{{$t('read the information leaflet')}} Protection</a>)</em>
         </div>
     </div>
 </template>
 <script>
   import BaseInsuranceProtection from './BaseInsuranceProtection'
+  import {mapState, mapGetters} from 'vuex'
   export default {
     name: 'InsuranceProtection',
     extends: BaseInsuranceProtection,
+    data () {
+      return {
+        currentType: {}
+      }
+    },
+    created () {
+      this.currentType = this.insureOptions[0]
+    },
     methods: {
       onAdd () {
-        this.addInsurance('protection')
+        const type = 'cancel'
+        const premium = this.currentPrice
+        const amount = this.amount
+        const contract = this.contract
+
+        this.addInsurance({type, premium, amount, contract })
+      }
+    },
+    computed: {
+      ...mapGetters('cart', [
+        'insurancePriceCancelDeposit',
+        'insurancePriceCancel',
+        'insurancePriceCancelDepositUrl',
+        'insurancePriceCancelUrl',
+        'insurancePriceCancelPid',
+        'insurancePriceCancelDepositPid'
+      ]),
+      amount () {
+        if (this.currentType.value * 1 === 0) {
+          return 'deposit'
+        } else {
+          return 'total'
+        }
+      },
+      contractUrl () {
+        if (this.currentType.value * 1 === 0) {
+          return this.insurancePriceCancelUrl
+        } else {
+          return this.insurancePriceCancelDepositUrl
+        }
+      },
+      contract () {
+        if (this.currentType.value * 1 === 0) {
+          return this.insurancePriceCancelPid
+        } else {
+          return this.insurancePriceCancelDepositPid
+        }
+      },
+      currentPrice () {
+        if (this.currentType.value * 1 === 0) {
+          return this.insurancePriceCancel
+        } else {
+          return this.insurancePriceCancelDeposit
+        }
+      },
+      priceAll () {
+        return this.insurancePriceCancel
+      },
+      priceDeposit () {
+        return this.insurancePriceCancelDeposit
       }
     }
   }
 </script>
 
 <style lang="scss">
-    .insurance-protection{
-       .dropdown-toggle{
-           padding-left: 35px;
-           input{width:0 !important}
-           background-image: url(../../static/images/family26.png);
-           background-repeat: no-repeat;
-           background-size: 33px 30px;;
-           background-position-y: 2px;
-           background-position-x: 4px;
-       }
-
-       .dropdown-menu {
-           overflow: hidden;
-       }
-    }
-    .button-added {
-        cursor: default;
-    }
+    @import "insuranceprotection";
 </style>

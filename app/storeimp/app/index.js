@@ -7,6 +7,10 @@ export const state = () => {
     nextStep: null,
     currentCategory: null,
     userLanguageCode: 'it',
+    checkin: '',
+    checkout: '',
+    childrenData: [],
+    adultsCount: 0,
     locale: {
       thousands: '.',
       decimal: ',',
@@ -17,6 +21,18 @@ export const state = () => {
 }
 
 export const mutations = {
+  setCheckin (state, payLoad) {
+    state.checkin = payLoad
+  },
+  setCheckout (state, payLoad) {
+    state.checkout = payLoad
+  },
+  setChildrenData (state, payLoad) {
+    state.childrenData = payLoad
+  },
+  setAdultsCount (state, payLoad) {
+    state.adultsCount = payLoad
+  },
   setStep (state, payLoad) {
     state.step = payLoad
   },

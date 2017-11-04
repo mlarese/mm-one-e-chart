@@ -1,18 +1,25 @@
 export const actions = {
-  initInsurance ({commit}, {insuranceTotals}) {
-    commit('setInsuranceTotals', insuranceTotals)
-  },
-  addInsurance ({commit, dispatch}, insuranceType) {
-    commit('setInsuranceType', insuranceType)
-    commit('hasInsurance', true)
+  addInsurance ({commit, dispatch}, {type, amount, premium, contract}) {
+    commit('setInsuranceType', type)
+    commit('setAmount', amount)
+    commit('setPremium', premium)
+    commit('setContract', contract)
   },
   removeInsurance ({commit, dispatch}) {
-    commit('setInsuranceType', null)
-    commit('hasInsurance', false)
+    commit('setInsuranceType', '')
+    commit('setAmount', '')
+    commit('setPremium', 0)
+    commit('setContract', '')
   },
-  quoteInsurance ({commit, dispatch, getters, rootGetters}, {total, checkIn, checkOut, adults, children, insuranceType}) {
+  quoteInsurance ({commit, dispatch, getters, rootGetters}) {
     const url = '/booking/allianz/quote'
     const userLanguageCode = rootGetters['app/userLanguageCode']
+    const checkIn = rootGetters['app/checkin']
+    const checkOut = rootGetters['app/checkout']
+    const childrenData = rootGetters['app/childrenData']
+    const adults = rootGetters['app/adultsCount']
+    const total = getters.cartTotal
+    const insuranceType = 0
 
     const options = {
       headers: {
@@ -24,9 +31,13 @@ export const actions = {
         Adults: adults,
         Checkin: checkIn,
         Checkout: checkOut,
-        Children: children
+        Children: childrenData
       }
     }
     return dispatch('api/get', {url, options}, {root: true})
+      .then(res => {
+        commit('setInsuranceConfig', res.data)
+        return res
+      })
   }
 }

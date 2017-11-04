@@ -1,0 +1,22 @@
+.insurance-protection{
+  .STSS__content__protection__select small {
+    left: 0px !important;
+  }
+  .dropdown-toggle{
+    padding-left: 35px;
+    input{width:0 !important}
+    background-image: url(../../static/images/family26.png);
+    background-repeat: no-repeat;
+    background-size: 33px 30px;;
+    background-position-y: 2px;
+    background-position-x: 4px;
+  }
+
+  .dropdown-menu {
+    overflow: hidden;
+  }
+
+  .button-added {
+    cursor: default;
+  }
+}

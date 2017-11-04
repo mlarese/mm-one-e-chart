@@ -1,7 +1,7 @@
 import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
 import {getters as insuranceGetters} from './insurance/getters'
-import {ROW_ID_PAY_LATER, ROW_ID_ECOMMERCE, ROW_ID_INSURANCE, ROW_ID_SPECIAL_MARKER} from './rowIdTypes'
+import {ROW_ID_PAY_LATER, ROW_ID_ECOMMERCE, ROW_ID_INSURANCE, ROW_ID_SPECIAL_MARKER, ROW_ID_PAY_LATER_MAX} from './rowIdTypes'
 
 export const getters = {
   id: state => state.cart.id,
@@ -19,7 +19,7 @@ export const getters = {
   itemIndexByRowIdProductId: (state, getters) => (rowId, productId) => getters.itemsByRowId(rowId).findIndex(i => i.id === productId) || -1,
   roomSpecialServices: (state, getters) => roomIndex => _filter(getters.items, it => it.rowId*1 === roomIndex),
   roomsSpecialServices: (state, getters) => _filter(getters.items, it => it.rowId*1 < ROW_ID_SPECIAL_MARKER),
-  payLaterItems: (state, getters) => _filter(getters.items, it => it.rowId*1 === ROW_ID_PAY_LATER),
+  payLaterItems: (state, getters) => _filter(getters.items, it => (it.rowId*1 >= ROW_ID_PAY_LATER || it.rowId*1 <= ROW_ID_PAY_LATER_MAX)),
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId*1 === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId*1 === ROW_ID_INSURANCE),
   itemFinalPrice: (state, getters) => item => (item.finalPrice === '') ? item.price * 1 : item.finalPrice * 1,

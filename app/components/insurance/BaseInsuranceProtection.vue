@@ -11,12 +11,13 @@
       ...mapActions('cart', ['addInsurance'])
     },
     computed: {
+      ...mapGetters('app', ['currency']),
       ...mapState('cart', ['cart']),
       ...mapGetters('cart', ['hasInsuranceProtection', 'hasInsuranceProtectionPlus', 'protectionPlusTotal', 'protectionTotal', 'insuranceType', 'hasInsurance']),
       insureOptions () {
         return [
-          {value:0, label: this.$t('Account/Deposit')},
-          {value:1, label: this.$t('Full stay')}
+          {value: 0, label: this.$t('Account/Deposit')},
+          {value: 1, label: this.$t('Full stay')}
         ]
       }
     },

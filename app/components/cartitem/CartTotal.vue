@@ -1,6 +1,6 @@
 <template>
     <div class="STSS__roomsNew__total text-right">
-        <a class="STSS__roomsNew__total__link" href="#">{{$t('Reservation conditions')}}</a>
+        <a class="STSS__roomsNew__total__link" href="https://reservation.cmsone.it/metis/show_terms.php" target="_blank">{{$t('Reservation conditions')}}</a>
         <strong class="STSS__roomsNew__total__label">{{$t('Total Price')}}</strong>
 
         <sup-decimals class="STSS__roomsNew__total__price" :number="cartTotal" />

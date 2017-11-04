@@ -25,7 +25,10 @@
       }
     },
     computed: {
-      ...mapGetters('cart', ['hasInsurance', 'insuranceTotal'])
+      // ...mapGetters('cart', ['hasInsurance', 'insuranceTotal'])
+      insuranceTotal () {
+        return 0
+      }
     },
     components: {
       IconRemove, SupDecimals

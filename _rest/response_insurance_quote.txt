@@ -1,0 +1,21 @@
+{
+   "price_cancel_deposit":3.02,
+   "price_all_deposit":4.78,
+   "price_cancel_deposit_url":"resources\/pdf\/Conditions_of_Insurance_CANCEL.pdf",
+   "price_all_deposit_url":"resources\/pdf\/Conditions_of_Insurance_ALLINCLUSIVE.pdf",
+   "price_all_deposit_pid":"",
+   "price_cancel_deposit_pid":"",
+   "price_cancel":6.97,
+   "price_all":8.74,
+   "price_cancel_url":"resources\/pdf\/Conditions_of_Insurance_CANCEL.pdf",
+   "price_all_url":"resources\/pdf\/Conditions_of_Insurance_ALLINCLUSIVE.pdf",
+   "price_cancel_pid":"",
+   "price_all_pid":""
+}
+
+{
+    type: all cancel
+    amount: total deposit
+    premium:
+    contract uno dei pid
+}

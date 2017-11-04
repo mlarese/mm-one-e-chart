@@ -23,6 +23,14 @@
 
       var currentsolution = '0';
 
+      var childrenData = [];
+
+      var adultsCount =  2;
+
+      var checkin =  '03-11-2017';
+
+      var checkout=  '04-11-2017';
+
       cart.rooms = rooms;
       cart.id = cartid;
       cart.numOfRooms = rooms.length;
@@ -32,7 +40,8 @@
 
       var absServer =  'http://reservation.abs.tmp/';
 
-      var step = 'ecommerce';
+      /*comparator ecommerce  onlyecommerce special insurance*/
+      var step = 'insurance';
 
       if(step === '') {
         step = 'ecommerce' ;

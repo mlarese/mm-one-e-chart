@@ -77,7 +77,7 @@ export const actions = {
     }
 
     if (product.topayapart * 1 === 1) {
-      rowId = ROW_ID_PAY_LATER
+      rowId = ROW_ID_PAY_LATER + getters.currentRoomIndex
     }
 
     if (!isSpecialService) {

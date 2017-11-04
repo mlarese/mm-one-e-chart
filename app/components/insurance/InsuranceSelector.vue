@@ -12,7 +12,6 @@
             </div>
         </div>
 
-
         <div class="col-xs-12 col-sm-6 STSS__content__protection no-p-l">
             <insurance-protection />
         </div>

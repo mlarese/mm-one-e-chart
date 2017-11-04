@@ -3,8 +3,22 @@ import {changeLocale} from '../../assets/localehlp'
 export const actions = {
   init (
     {commit, dispatch, getters, rootGetters},
-    {insuranceTotals = null, flowSetup, structureConfig, locale = 'it', structure, store, absServer, cart, step, nextStep}
-  ) {
+    {
+      checkin,
+      checkout,
+      childrenData,
+      adultsCount,
+      flowSetup,
+      structureConfig,
+      locale = 'it',
+      structure,
+      store,
+      absServer,
+      cart,
+      step,
+      nextStep
+  })
+  {
     console.log('-- app.init')
 
     if (step === 'allianz') {
@@ -17,10 +31,10 @@ export const actions = {
     commit('setUserLanguageCode', locale)
     commit('setStep', step)
     commit('setNextStep', nextStep)
-
-    if (insuranceTotals !== null) {
-      dispatch('initInsurance', {insuranceTotals})
-    }
+    commit('setCheckin', checkin)
+    commit('setCheckout', checkout)
+    commit('setChildrenData', childrenData)
+    commit('setAdultsCount', adultsCount)
 
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
@@ -34,12 +48,23 @@ export const actions = {
               .then(() => {
                 return dispatch('categories/loadCategories', {userLanguageCode, partners: rootGetters['booking/partners']}, {root: true})
                   .then(() => {
-                    return dispatch('changeCategory', rootGetters['booking/structureConfig'].defaultCategory)
+                    let currentCategory = rootGetters['booking/structureConfig'].defaultCategory
+                    if (step === 'onlyecommerce') {
+                      currentCategory  = rootGetters['categories/categories'][1].id
+                    }
+                    return dispatch('changeCategory', currentCategory)
+                      .then(res => {
+                        if(step === 'insurance') {
+                          return dispatch('cart/quoteInsurance',null, {root: true})
+                        }
+                      })
+
                   })
               })
           })
       })
   },
+
   changeCategory ({commit, dispatch}, categoryId) {
     commit('setCurrentCategory', categoryId)
     dispatch('loadPaginatedProductsOrServices')

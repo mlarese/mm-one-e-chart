@@ -11,9 +11,6 @@ export const actions = {
     commit('setLocale', {...localeData.delimiters, locale})
     commit('setUserLanguageCode', locale)
 
-    if (insuranceTotals !== null) {
-      dispatch('initInsurance', {insuranceTotals})
-    }
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
         return dispatch('structure/init', structure, {root: true})

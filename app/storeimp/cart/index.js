@@ -15,18 +15,35 @@ export const state = () => {
     portalId: 0,
     backupCart: {},
     rawCart: {},
+    insuranceConfig:{
+      price_cancel_deposit:0,
+      price_all_deposit:0,
+      price_cancel_deposit_url:"",
+      price_all_deposit_url:"",
+      price_all_deposit_pid:"",
+      price_cancel_deposit_pid:"",
+      price_cancel:0,
+      price_all:8.74,
+      price_cancel_url:"",
+      price_all_url:"",
+      price_cancel_pid:"",
+      price_all_pid:""
+    },
     cart: {
       id: 0,
       items: [],
       rooms: [],
+      insuranceResult:{
+        type: '',
+        amount: '',
+        premium: 0,
+        contract: ''
+      },
       insurance: {
-        hasInsurance: false,
-        insuranceType: null,
-        insure: 0,
-        totals: {
-          protection: 0,
-          protectionPlus: 0
-        }
+        type: '',
+        amount: '',
+        premium: 0,
+        contract: ''
       }
     }
   }

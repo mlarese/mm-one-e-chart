@@ -15,6 +15,9 @@ Vue.use(Notifications)
 
 const messages = {
   it: {
+    'before you buy': "prima dell’acquisto",
+    'read the information leaflet': 'legga il fascicolo informativo',
+    'For just': 'A soli',
     'per reservation': 'per prenotazione',
     'per room/night': 'per camera/notte',
     'per day': 'per giorno',

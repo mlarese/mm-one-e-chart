@@ -25,6 +25,7 @@
                 </div>
                 <i v-if="isPayLater" class="STSS__roomsNew__acc__msg">
                     {{$t('Payment on arrival at the tourist facility on check-in')}}
+                    <icon-info style="width:13px; height:13px;" />
                 </i>
             </div>
         </div>
@@ -33,8 +34,12 @@
 
 <script>
   import BaseCartItem from './BaseCartItem'
+  import IconInfo from '../icons/IconInfo'
   export default {
-    extends: BaseCartItem
+    extends: BaseCartItem,
+    components: {
+      IconInfo
+    },
   }
 </script>
 

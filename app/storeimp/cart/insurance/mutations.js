@@ -1,14 +1,17 @@
 export const mutations = {
-  hasInsurance (state, flag) {
-    state.cart.insurance.hasInsurance = flag
-  },
   setInsuranceType (state, payLoad) {
-    state.cart.insurance.insuranceType = payLoad
+    state.cart.insurance.type = payLoad
   },
-  setInsure (state, payLoad) {
-    state.cart.insurance.insure = payLoad
+  setAmount (state, payLoad) {
+    state.cart.insurance.amount = payLoad
   },
-  setInsuranceTotals (state, payLoad) {
-    state.cart.insurance.totals = payLoad
+  setPremium (state, payLoad) {
+    state.cart.insurance.premium = payLoad
+  },
+  setContract (state, payLoad) {
+    state.cart.insurance.contract = payLoad
+  },
+  setInsuranceConfig (state, payLoad) {
+    state.insuranceConfig = payLoad
   }
 }

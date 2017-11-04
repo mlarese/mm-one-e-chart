@@ -13,6 +13,10 @@ if (step === 'comparator') {
     .then(() => application.$mount('#app'))
 } else {
   store.dispatch('app/init', {
+    checkin,
+    checkout,
+    childrenData,
+    adultsCount,
     nextStep,
     step,
     locale,
