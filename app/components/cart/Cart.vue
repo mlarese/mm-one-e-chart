@@ -11,7 +11,7 @@
             <template v-for="(item, index) in payLaterItems">
                 <cart-item-factory :item="item" :index="index" />
             </template>
-            <!-- insurance-cart-item /-->
+            <insurance-cart-item />
             <cart-next-button />
 
         </span>

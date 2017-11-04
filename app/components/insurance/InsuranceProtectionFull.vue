@@ -31,7 +31,7 @@
             <small>{{$t('Insure')}}</small>
         </div>
         <div class="STSS__content__protection__select">
-            <vue-select :options="insureOptions" v-model="currentType" />
+            <vue-select :options="insureOptions" v-model="currentType" :disabled="hasInsuranceProtectionPlus" />
         </div>
 
 

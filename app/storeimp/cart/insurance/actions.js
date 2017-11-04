@@ -4,12 +4,14 @@ export const actions = {
     commit('setAmount', amount)
     commit('setPremium', premium)
     commit('setContract', contract)
+    dispatch('cloneToRemote')
   },
   removeInsurance ({commit, dispatch}) {
     commit('setInsuranceType', '')
     commit('setAmount', '')
     commit('setPremium', 0)
     commit('setContract', '')
+    dispatch('cloneToRemote')
   },
   quoteInsurance ({commit, dispatch, getters, rootGetters}) {
     const url = '/booking/allianz/quote'
