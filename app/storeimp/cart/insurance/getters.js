@@ -3,10 +3,7 @@ export const getters = {
   hasInsuranceProtection: state => state.cart.insurance.type === 'cancel',
   hasInsuranceProtectionPlus: state => state.cart.insurance.type === 'all',
   insuranceType: state => state.cart.insurance.type,
-  insuranceTotal: (state, getters) => 0, // state.cart.insurance.totals[getters.insuranceType],
-  protectionTotal: (state, getters) => 0, // state.cart.insurance.totals['protection'],
-  protectionPlusTotal: (state, getters) => 0, // state.cart.insurance.totals['protectionPlus'],
-  insuranceTotals: (state, getters) => state.cart.insurance.totals,
+  insuranceTotal: (state, getters) => state.cart.insurance.premium || 0,
 
   insurancePriceCancel: (state, getters) => state.insuranceConfig.price_cancel,
   insurancePriceCancelDeposit: (state, getters) => state.insuranceConfig.price_cancel_deposit,
