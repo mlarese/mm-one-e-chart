@@ -24,3 +24,9 @@
     }
   }
 </script>
+
+<style lang="scss">
+    // @import '../../assets/scss/vars';
+    // @import '_vars.scss';
+    // @import '_betterPriceBar.scss';
+</style>

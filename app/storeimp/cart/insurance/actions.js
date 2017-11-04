@@ -13,6 +13,19 @@ export const actions = {
     commit('setContract', '')
     dispatch('cloneToRemote')
   },
+  recalculateInsurance ({commit, dispatch, getters, rootGetters}) {
+    if (getters.recalculateInsurance) {
+      return dispatch('quoteInsurance')
+        .then(res => dispatch('setPremiumFromConfig'))
+    }
+  },
+  setPremiumFromConfig ({commit, dispatch, getters, rootGetters, state}) {
+    if (!getters.hasInsurance) {
+      let type = state.insurance.type
+      let amount = state.insurance
+      let field = `price_${type}_${amount}`
+    }
+  },
   quoteInsurance ({commit, dispatch, getters, rootGetters}) {
     const url = '/booking/allianz/quote'
     const userLanguageCode = rootGetters['app/userLanguageCode']

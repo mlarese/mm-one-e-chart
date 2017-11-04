@@ -15,6 +15,9 @@ Vue.use(Notifications)
 
 const messages = {
   it: {
+    "The insurance policy payment is separate from the reservation process" : "Il pagamento della polizza assicurativa avviene in modalità separata" ,
+    "Total Insurance price"  : "Totale assicurazione",
+
     'before you buy': "prima dell’acquisto",
     'read the information leaflet': 'legga il fascicolo informativo',
     'For just': 'A soli',

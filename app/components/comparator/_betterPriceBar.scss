@@ -1,0 +1,154 @@
+.betterPriceBar{
+  .color-base{
+    color:$bpb-color;
+  }
+  .color-light{
+    color:$bpb-color-light;
+  }
+
+  float: left;
+  width: 100%;
+  border: 2px solid $bpb-color-light;
+  margin-bottom: 30px;
+  display: flex;
+  font-size: 15px;
+  
+  .svg-ico-thumbs{
+    fill:darken($bpb-color-light,20%);
+    width: 26px;
+    height: 26px;
+    margin-right: 15px;
+  }
+
+  &__col{
+    padding: 7px;
+    flex-grow:1;
+    flex-basis:0;
+    &.vcenter{
+      display: flex;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    &--loader{
+      background: $bpb-color-light;
+      justify-content:flex-end;     
+      font-size: 14px;
+    }
+  }
+  
+  // Loading
+  &__progress{
+    width: 40%;
+    height: 16px;
+    background: $bpb-color-light-dark;
+    border-radius: 16px;
+    margin: 0 20px;
+    overflow: hidden;
+    position: relative;
+    @media (max-width: $screen-xs-max) {
+      flex-basis:100%;
+      width: 100%;
+      margin:5px 0;
+    }
+    &__text{
+      @media (max-width: $screen-xs-max) {
+        flex-basis:100%;
+        width: 100%;
+        text-align: right;
+      }
+    }
+    &__inner{
+      position: absolute;
+      top:0;
+      left:0;
+      height: 100%;
+      background:$bpb-color; 
+      transition:all .2s ease-in-out;
+    }
+    &__perc{
+      font-size: 17px;
+
+    }
+  }
+
+
+  // Risultati
+  &__results{
+    flex-wrap:wrap;
+    &-table{
+      padding: 10px;
+      @media (max-width: $screen-sm-max) {
+        flex-basis:50%;
+        width:50%;
+      }
+
+
+      &__title{
+        margin:0 0 15px;
+        font-size: 15px;
+        font-weight: 500;
+        color:$bpb-color-text;
+      }
+
+      table{
+        width: 100%;
+      }
+
+      td{
+        width: 50%;
+        padding: 5px 0;
+        border-bottom:1px solid rgba($bpb-color-text,.3);
+        &+td{
+          text-align: right;
+        }
+      }
+
+    }
+
+    &-one{
+      padding: 10px;
+      background: $bpb-color-light;
+      text-align: center;
+      font-size: 16px;
+      @media (max-width: $screen-sm-max) {
+        flex-basis:50%;
+        width:50%;
+      }
+      .svg-ico{
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &-msg{
+      padding: 20px 10px 10px;
+      color:$bpb-color-text;
+      @media (max-width: $screen-sm-max) {
+        flex-basis:100%;
+        width:100%;
+      }
+      .svg-ico-arrow-down{
+        width: 30px;
+        height: 30px;
+        fill:rgba($bpb-color-text,.3);
+        transform:rotate(-90deg);
+        margin-top: 15px;
+      }
+
+    }
+
+    &__payoff{
+      font-size: 19px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &__price{
+      font-size: 23px;
+      font-weight: 700;
+      color:$primary-color;
+    }
+
+
+  }
+}

@@ -2,6 +2,8 @@ import {ROW_ID_PAY_LATER} from '../cart/rowIdTypes'
 
 export const getters = {
   step: state => state.step,
+  isStepInsurance: state => state.step === 'insurance',
+  recalculateInsurance: (state, getters, rootState, rootGetters) => getters.isStepInsurance || rootGetters['cart/hasInsurance'],
   nextStep: state => state.nextStep,
   locale: state => state.locale.locale,
   structureConfig: (state, getters,  rootState, rootGetters) => rootGetters['booking/structureConfig'],
