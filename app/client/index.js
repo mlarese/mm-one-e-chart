@@ -8,6 +8,12 @@ if (process.env.NODE_ENV === 'production') {
   require('./pwa')
 }
 
+let infoText = ''
+
+if (window.bookInfo) {
+  infoText = window.bookInfo
+}
+
 if (step === 'comparator') {
   store.dispatch('comparator/init', {competitors, boBestPrice, absServer}, {root: true})
     .then(() => application.$mount('#app'))
