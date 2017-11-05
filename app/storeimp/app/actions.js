@@ -1,6 +1,22 @@
 import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
+  initStep3 ({commit, dispatch, getters, rootGetters},{structure, store, cart, step, nextStep, locale = 'it', absServer}) {
+    const localeData = changeLocale(locale)
+    const userLanguageCode = locale
+    commit('setLocale', {...localeData.delimiters, locale})
+    commit('setUserLanguageCode', locale)
+    commit('setStep', step)
+    commit('setNextStep', nextStep)
+
+    return dispatch('api/init', {absServer}, {root: true})
+      .then(() => {
+        return dispatch('structure/init', structure, {root: true})
+          .then(() => {
+            return dispatch('cart/init', {cart, ...structure}, {root: true})
+          })
+      })
+  },
   init (
     {commit, dispatch, getters, rootGetters},
     {

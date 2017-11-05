@@ -29,10 +29,11 @@ const messages = {
     'Choose the services that will make your stay a unique experience, otherwise press the “Continue” button.':'Scegli i servizi che renderanno unico il tuo soggiorno, altrimenti premi il pulsante "prosegui".',
     'Your stay': 'Il tuo soggiorno',
     'OB': 'Camera senza colazione',
-    'BB': 'Bed and Breakfast',
+    'BB': 'Camera e colazione',
     'HB': 'Mezza pensione',
     'FB': 'Pensione completa',
     'from': 'da',
+    'Q.ty': 'Q.ta',
     'continue': 'prosegui',
     'Total Price': 'Totale soggiorno',
     'You are saving': 'Stai risparmiando',
@@ -70,6 +71,8 @@ let App
 if (step === 'comparator') {
   require('../storeimp/api/comparatormocks')
   App = require('../components/app/ElementComparator')
+} else if (step === 'step3') {
+  App = require('../components/app/AppStep3')
 } else {
   // const mock = require('../storeimp/api/mocks')
   App = require('../components/app/App')

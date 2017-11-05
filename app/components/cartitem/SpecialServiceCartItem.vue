@@ -9,7 +9,7 @@
                     </a>
                     <div class="STSS__roomsNew__item__ssr__qty pull-left">
                         <div class="col-xs-2 pl0">
-                            <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ta')}}</span>
+                            <span class="STSS__roomsNew__item__ssr__qty__label">{{$t('Q.ty')}}</span>
                         </div>
                         <div class="col-xs-8 pr0">
                             <vue-select
