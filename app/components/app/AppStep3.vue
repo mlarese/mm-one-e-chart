@@ -1,14 +1,14 @@
 <template>
-    <div class="bound_box ST2-book STSS__accList">
-        <ecommerce />
-    </div>
+    <aside class="col-xs-12 col-sm-4 no-p-r STSS__roomsNew">
+        <cart />
+    </aside>
 </template>
 
 <script>
-  import Ecommerce from '../ecommerce/Ecommerce'
+  import Cart from '../cart/Cart'
 
   export default {
     name: 'AppStep3',
-    components: {Ecommerce}
+    components: {Cart}
   }
 </script>
