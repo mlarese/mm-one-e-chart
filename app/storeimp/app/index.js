@@ -7,6 +7,7 @@ export const state = () => {
     nextStep: null,
     currentCategory: null,
     userLanguageCode: 'it',
+    infoText: '',
     checkin: '',
     checkout: '',
     childrenData: [],
@@ -21,6 +22,9 @@ export const state = () => {
 }
 
 export const mutations = {
+  setInfoText (state, payLoad) {
+    state.infoText = payLoad
+  },
   setCheckin (state, payLoad) {
     state.checkin = payLoad
   },
