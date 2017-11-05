@@ -7,12 +7,12 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import $jq from 'jquery'
   export default {
     name: 'CartNextButton',
     methods: {
       triggerClick () {
-        $jq( "#submit_butt" ).trigger( "click" );
+        document.getElementById('submit_butt').click()
+       
       },
       onClick () {
         window.location = this.nextStep
