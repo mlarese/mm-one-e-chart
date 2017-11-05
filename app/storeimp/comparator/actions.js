@@ -8,7 +8,7 @@ export const actions = {
     commit('setBoBestPrice', boBestPrice)
 
     const numOfCompetitors = _keys(competitors).length
-    const singleIncrement = 100 / numOfCompetitors
+    const singleIncrement = Math.floor(100 / numOfCompetitors)
     commit('setSingleIncrement', singleIncrement)
 
     return dispatch('api/init', {absServer}, {root: true})
@@ -21,7 +21,9 @@ export const actions = {
         // versione fake
         dispatch('compare', {competitor: 'bookingcom'})
           .then(() => dispatch('compare', {competitor: 'tripadvisor'})
-              .then(() => dispatch('compare', {competitor: 'expedia'}))
+              .then(() => dispatch('compare', {competitor: 'expedia'})
+                .then(() => dispatch('compare', {competitor: 'expedia'}))
+              )
           )
 
         return
@@ -33,7 +35,7 @@ export const actions = {
     const boPrice = state.boBestPrice
     const pc = randomInt(12, 50)
 
-    let competitorPrice = boPrice*pc/100 + boPrice
+    let competitorPrice = Math.floor( boPrice*pc/100 + boPrice )
 
     console.log('*******************', competitor)
     return dispatch('api/get', {url}, {root: true})

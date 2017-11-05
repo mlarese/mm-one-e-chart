@@ -12,7 +12,7 @@
     methods: {
       triggerClick () {
         document.getElementById('submit_butt').click()
-       
+
       },
       onClick () {
         window.location = this.nextStep

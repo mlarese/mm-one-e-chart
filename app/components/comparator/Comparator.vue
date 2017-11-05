@@ -26,7 +26,9 @@
 </script>
 
 <style lang="scss">
-    // @import '../../assets/scss/vars';
-    // @import '_vars.scss';
-    // @import '_betterPriceBar.scss';
+    @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+    @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+    @import '../../assets/scss/vars';
+    @import '_vars.scss';
+    @import '_betterPriceBar.scss';
 </style>

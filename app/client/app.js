@@ -17,11 +17,17 @@ const messages = {
   it: {
     "The insurance policy payment is separate from the reservation process" : "Il pagamento della polizza assicurativa avviene in modalità separata" ,
     "Total Insurance price"  : "Totale assicurazione",
+    "Online booking portals prices"  : "Prezzo dei portali online",
 
+    'From this site you can book at the best price on the web': "Prenotando in questo sito sei sicuro di prenotare alla migliore tariffa del web",
+    'choose below the accommodation that best suits your needs': "scegli qui sotto la sistemazione più adatta alle tue esigenze",
     'before you buy': "prima dell’acquisto",
     'read the information leaflet': 'legga il fascicolo informativo',
     'For just': 'A soli',
     'Book': 'Prenota',
+    'Comparing prices': 'Sto comparando i prezzi',
+    'Official web site': 'Sito web ufficiale',
+    'Best price Guaranteed': 'Miglior prezzo garantito',
     'per reservation': 'per prenotazione',
     'per room/night': 'per camera/notte',
     'per day': 'per giorno',

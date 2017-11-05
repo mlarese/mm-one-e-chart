@@ -5,7 +5,7 @@ export const state = () => {
   return {
     comparationResult: 'best',
     comparatorCurrentStatus: 'progress',
-    progressPercent: 0,
+    progressPercent: 10,
     bestPrice: 0,
     boBestPrice: 0,
     singleIncrement:0,
@@ -34,7 +34,7 @@ export const mutations = {
     if (increment === -1) {
       increment = state.singleIncrement
     }
-    if (state.progressPercent + increment > 98) {
+    if (state.progressPercent + increment > 100) {
       state.progressPercent = 100
     } else {
       state.progressPercent += increment

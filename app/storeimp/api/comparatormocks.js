@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
 
-const mock = new MockAdapter(axios, {delayResponse: 500})
+const mock = new MockAdapter(axios, {delayResponse: 700})
 
 mock
   .onGet('/comparator/compare/bookingcom').reply(config => [200, {result: 'ok', value: 0}])
