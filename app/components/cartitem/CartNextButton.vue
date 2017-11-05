@@ -1,15 +1,19 @@
 <template>
     <div class="STSS__roomsNew__send text-center cart-next-button">
         <button v-if="!isStep3" class="btn form-control text-uppercase" @click="onClick">{{$t('continue')}}</button>
-        <input v-if="isStep3" type="button" onclick="submitForm(this.form)" class="confirm confirm_it ST3__submit" id="submit_butt" name="submit_butt" :value="$t('Book')" />
+        <input v-if="isStep3" type="button" @click="triggerClick" class="confirm confirm_it ST3__submit" name="submit_butt_c" :value="$t('Book')" />
         <div v-if="isStep3" v-html="infoText"></div>
     </div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import $jq from 'jquery'
   export default {
     name: 'CartNextButton',
     methods: {
+      triggerClick () {
+        $jq( "#submit_butt" ).trigger( "click" );
+      },
       onClick () {
         window.location = this.nextStep
       }
