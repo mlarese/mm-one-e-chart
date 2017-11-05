@@ -128,13 +128,16 @@ export const actions = {
         PortalId: state.portalId
       }
     }
-    return dispatch('api/put', {url, data, options}, {root: true})
-      .then(res => {
-        return res
-      })
-      .catch(err => {
-        commit('restoreBackup')
-        return err
+    return dispatch('recalculateInsurance')
+      .then (() => {
+        return dispatch('api/put', {url, data, options}, {root: true})
+          .then(res => {
+            return res
+          })
+          .catch(err => {
+            commit('restoreBackup')
+            return err
+          })
       })
   },
   ...insuranceActions

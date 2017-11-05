@@ -55,7 +55,13 @@
       }
     },
     created () {
-      this.currentType = this.insureOptions[0]
+      let idx = 0
+      if (this.hasInsuranceProtection) {
+        if (this.insuranceAmount === 'total') {
+          idx = 1
+        }
+      }
+      this.currentType = this.insureOptions[idx]
     },
     methods: {
       onAdd () {

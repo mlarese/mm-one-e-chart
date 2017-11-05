@@ -13,7 +13,7 @@
     computed: {
       ...mapGetters('app', ['currency']),
       ...mapState('cart', ['cart']),
-      ...mapGetters('cart', ['hasInsuranceProtection', 'hasInsuranceProtectionPlus', 'protectionPlusTotal', 'protectionTotal', 'insuranceType', 'hasInsurance']),
+      ...mapGetters('cart', ['hasInsuranceProtection', 'hasInsuranceProtectionPlus', 'protectionPlusTotal', 'protectionTotal', 'insuranceType', 'hasInsurance' , 'insuranceAmount']),
       insureOptions () {
         return [
           {value: 0, label: this.$t('Account/Deposit')},

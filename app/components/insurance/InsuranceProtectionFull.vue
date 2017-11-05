@@ -1,6 +1,6 @@
 <template>
     <div class="STSS__content__protection__container insurance-protection">
-        <h4 class="STSS__content__protection__title text-uppercase">PROTECTION</h4>
+        <h4 class="STSS__content__protection__title text-uppercase">PROTECTION PLUS</h4>
         <img width="40" height="44" class="pull-right" src="images/all_plus.jpg">
         <div class="STSS__content__protection__list">
             <ul>
@@ -49,7 +49,7 @@
             </button>
         </div>
         <div class="STSS__content__protection__info text-center">
-            <em>({{$t('before you buy')}}, <a :href="contractUrl" target="_blank">{{$t('read the information leaflet')}} Protection</a>)</em>
+            <em>({{$t('before you buy')}}, <a :href="contractUrl" target="_blank">{{$t('read the information leaflet')}} Protection Plus</a>)</em>
         </div>
     </div>
 </template>
@@ -65,7 +65,13 @@
       }
     },
     created () {
-      this.currentType = this.insureOptions[0]
+      let idx = 0
+      if (this.hasInsuranceProtectionPlus) {
+        if (this.insuranceAmount === 'total') {
+          idx = 1
+        }
+      }
+      this.currentType = this.insureOptions[idx]
     },
     methods: {
       onAdd () {

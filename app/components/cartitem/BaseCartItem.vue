@@ -5,8 +5,13 @@
   import VueSelect from '../vselect/src/components/Select'
 
   export default {
+    watch: {
+      'item.quantity' () {
+        this.cloneToRemote()
+      }
+    },
     methods: {
-      ...mapActions('cart', ['removeProduct']),
+      ...mapActions('cart', ['removeProduct', 'cloneToRemote']),
       onRemoveProduct () {
         this.removeProduct({cartUid: this.item.uid})
       }
