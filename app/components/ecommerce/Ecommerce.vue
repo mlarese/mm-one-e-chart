@@ -1,9 +1,11 @@
 <template>
-    <div class="ecommerce">
+    <div class="ecommerce" >
         <div class="col-xs-12 col-sm-8 no-p-l STSS__content">
-           <products />
+            <products :products="visibleProducts" />
+            <mugen-scroll class="scroller" :threshold="1" :handler="fetch" :should-handle="!loading" :handleOnMount="false">
+                <spinner size="15" v-if="loading"/>
+            </mugen-scroll>
             <div class="STSS__content__bottom">
-                <!-- a href="http://www.bookingone.it/" target="_blank" class="pull-left"><img src="images/logo_bookingone.jpg" alt="booking one"></a-->
                 <div class="clear-resizer"></div>
             </div>
         </div>
@@ -12,24 +14,29 @@
             <cart />
         </aside>
 
-
+        <div style="clear: both"></div>
 
     </div>
 </template>
+
 <script>
-  import Cart from '../cart/Cart'
-  import Products from '../products/Products'
+  import BaseEcommerce from './BaseEcommerce'
+  import {mapGetters, mapActions} from 'vuex'
 
   export default {
-    components: {Cart, Products}
+    name: 'Onlyecommerce',
+    extends: BaseEcommerce
   }
 </script>
 
-<style>
+<style lang="css">
     .ecommerce{
         .clear-resizer{
             clear:both;
             height:150px;
+        }
+        .scroller{
+
         }
     }
 </style>

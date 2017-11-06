@@ -1,13 +1,12 @@
 <template>
     <div class="bound_box ST2-book STSS__accList">
         <notifications position="bottom right" />
-        <component :is="step" />
+        <component :is="currentComponent" />
     </div>
 </template>
 
 <script>
   import Special from '../ecommerce/Special'
-  import Onlyecommerce from '../ecommerce/Onlyecommerce'
   import Ecommerce from '../ecommerce/Ecommerce'
   import Insurance from '../insurance/Insurance'
   import {mapGetters, mapState} from 'vuex'
@@ -20,10 +19,17 @@
         this.$notify(this.notification);
       },
     },
-    components: {Ecommerce, Insurance, Onlyecommerce, Special},
+    components: {Ecommerce, Insurance, Special},
     computed: {
       ...mapGetters('app', ['step']),
-      ...mapState('api', ['notification'])
+      ...mapState('api', ['notification']),
+      currentComponent () {
+        if (this.step === 'onlyecommerce') {
+          return 'ecommerce'
+        } else {
+          return this.step
+        }
+      }
     }
   }
 </script>

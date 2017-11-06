@@ -4,13 +4,11 @@ import VueI18n from 'vue-i18n'
 import Notifications from 'vue-notification'
 import createStore from '../store'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.css'
+import VuePaginate from 'vue-paginate'
 
-Vue.config.devtools = true
-
+Vue.use(VuePaginate)
 Vue.use(Vuex)
-
 Vue.use(VueI18n)
-
 Vue.use(Notifications)
 
 const messages = {
@@ -69,10 +67,7 @@ const messages = {
   }
 }
 
-const i18n = new VueI18n({
-  locale,
-  messages
-})
+const i18n = new VueI18n({locale, messages})
 
 let App
 if (step === 'comparator') {
@@ -81,7 +76,7 @@ if (step === 'comparator') {
 } else if (step === 'step3') {
   App = require('../components/app/AppStep3')
 } else {
-  // const mock = require('../storeimp/api/mocks')
+  const mock = require('../storeimp/api/mocks')
   App = require('../components/app/App')
 
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="widget-products" >
+    <div class="widget-products">
         <div v-if="categories.length > 1">
             <group-bar :groupList="categories" :groupCurrent="currentCategory" @change-group="changeCategory" />
         </div>
@@ -8,13 +8,11 @@
             {{$t('Choose the services that will make your stay a unique experience, otherwise press the “Continue” button.')}}
         </span>
 
-            <span class="produts-list" >
-                <template v-for="(product, index) in products">
-                    <product-item-factory :product="product" :index="index" :key="product.id" />
-                </template>
-            </span>
-            <div style="clear:both"></div>
-
+        <span class="produts-list">
+            <template v-for="(product, index) in products">
+                <product-item-factory :product="product" :index="index" :key="product.id" />
+            </template>
+        </span>
     </div>
 </template>
 
@@ -25,12 +23,12 @@
 
   export default {
     name: 'Products',
-    props: ['products'],
     methods: {
       ...mapActions('app', ['changeCategory'])
     },
     computed: {
-      ...mapGetters('app', ['currentCategory', 'categories'])
+      ...mapGetters('app', ['currentCategory', 'categories']),
+      ...mapGetters('products', ['products'])
     },
     components: {GroupBar, ProductItemFactory}
   }

@@ -80,11 +80,11 @@
     </div>
 </template>
 <script>
-  import {mapState} from 'vuex'
+  import BaseComparator from './BaseComparator'
+
   export default {
-    computed: {
-      ...mapState('comparator', ['boBestPrice', 'competitors', 'currency'])
-    }
+    name: 'ComparatorResult',
+    extends: BaseComparator
   }
 </script>
 <style>

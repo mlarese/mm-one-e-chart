@@ -4,6 +4,8 @@ const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + mi
 
 export const actions = {
   init ({commit, dispatch, getters, rootGetters}, {competitors, boBestPrice, absServer, currency = '€'}) {
+    boBestPrice = Math.floor(boBestPrice)
+
     commit('setCompetitors', competitors)
     commit('setBoBestPrice', boBestPrice)
     commit('setCurrency', currency)
@@ -31,7 +33,7 @@ export const actions = {
   compare ({commit, state, dispatch}, {competitor, index}) {
     const url = '/comparator/compare/' + competitor
     // fake
-    const boPrice = state.boBestPrice
+    const boPrice = state.boBestPrice * 1
     const pc = boPrice * boPrice * boPrice
     const letSpc = pc + '#'
 

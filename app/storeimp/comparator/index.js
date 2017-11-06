@@ -45,10 +45,10 @@ export const mutations = {
     }
   },
   setBestPrice (state, payLoad) {
-    state.bestPrice = payLoad
+    state.bestPrice = payLoad *1
   },
   setBoBestPrice (state, payLoad) {
-    state.boBestPrice = payLoad
+    state.boBestPrice = payLoad * 1
   },
   setCompetitors (state, payLoad) {
     state.competitors = payLoad
