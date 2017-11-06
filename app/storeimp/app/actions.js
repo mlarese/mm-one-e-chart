@@ -1,7 +1,7 @@
 import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
-  initStep3 ({commit, dispatch, getters, rootGetters},{infoText, structure, store, cart, step, nextStep, locale = 'it', absServer}) {
+  initStep3 ({commit, dispatch, getters, rootGetters},{flowSetup = {}, structureConfig, infoText, structure, store, cart, step, nextStep, locale = 'it', absServer}) {
     const localeData = changeLocale(locale)
     const userLanguageCode = locale
     commit('setLocale', {...localeData.delimiters, locale})
@@ -14,7 +14,10 @@ export const actions = {
       .then(() => {
         return dispatch('structure/init', structure, {root: true})
           .then(() => {
-            return dispatch('cart/init', {cart, ...structure}, {root: true})
+            return dispatch('booking/init', {flowSetup, structureConfig}, {root: true})
+              .then(() => {
+                return dispatch('cart/init', {cart, ...structure}, {root: true})
+              })
           })
       })
   },

@@ -7,7 +7,6 @@
                 <li>
                     <icon-slim-tick />
                     <span>{{$t('Cancellation of stay')}}</span>
-
                     <a href="#">
                         <icon-info />
                     </a>

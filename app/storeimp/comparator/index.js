@@ -5,6 +5,7 @@ export const state = () => {
   return {
     comparationResult: 'best',
     comparatorCurrentStatus: 'progress',
+    currency: '€',
     progressPercent: 10,
     bestPrice: 0,
     boBestPrice: 0,
@@ -18,6 +19,9 @@ export const state = () => {
 }
 
 export const mutations = {
+  setCurrency (state, payLoad) {
+    state.currency = payLoad
+  },
   setComparationResult (state, payLoad) {
     state.comparationResult = payLoad
   },

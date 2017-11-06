@@ -11,15 +11,15 @@
                 <table class="better-price-result-table">
                     <tr>
                         <td><img src="http://reservation.cmsone.it/common/images/logo-bkco.png?v=1" alt="logo" /></td>
-                        <td>€ {{competitors.bookingcom}}</td>
+                        <td>{{currency}} {{competitors.bookingcom}}.00</td>
                     </tr>
                     <tr>
                         <td><img src="http://reservation.cmsone.it/common/images/logo-ex.png" alt="logo" /></td>
-                        <td>€ {{competitors.expedia}}</td>
+                        <td>{{currency}} {{competitors.expedia}}.00</td>
                     </tr>
                     <tr>
                         <td><img src="http://reservation.cmsone.it/common/images/logo-trp.png?v=1" alt="logo" /></td>
-                        <td>€ {{competitors.tripadvisor}}</td>
+                        <td>{{currency}} {{competitors.tripadvisor}}.00</td>
                     </tr>
                 </table>
             </div>
@@ -53,7 +53,7 @@
       </svg><br />
                 <span>{{$t('Official web site')}}</span><br />
                 <b class="color-base betterPriceBar__results__payoff"> {{$t('Best Price Guaranteed')}}!</b><br />
-                <b class="betterPriceBar__results__price">€ {{boBestPrice}}</b><br />
+                <b class="betterPriceBar__results__price">{{currency}} {{boBestPrice}}.00</b><br />
 
 
             </div>
@@ -83,7 +83,7 @@
   import {mapState} from 'vuex'
   export default {
     computed: {
-      ...mapState('comparator', ['boBestPrice', 'competitors'])
+      ...mapState('comparator', ['boBestPrice', 'competitors', 'currency'])
     }
   }
 </script>

@@ -3,9 +3,10 @@ import _delay from 'lodash/delay'
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {competitors, boBestPrice, absServer}) {
+  init ({commit, dispatch, getters, rootGetters}, {competitors, boBestPrice, absServer, currency = '€'}) {
     commit('setCompetitors', competitors)
     commit('setBoBestPrice', boBestPrice)
+    commit('setCurrency', currency)
 
     const numOfCompetitors = _keys(competitors).length
     const singleIncrement = Math.floor(100 / numOfCompetitors)
@@ -19,23 +20,27 @@ export const actions = {
         }
         **/
         // versione fake
-        dispatch('compare', {competitor: 'bookingcom'})
-          .then(() => dispatch('compare', {competitor: 'tripadvisor'})
-              .then(() => dispatch('compare', {competitor: 'expedia'})
-                .then(() => dispatch('compare', {competitor: 'expedia'}))
-              )
+        dispatch('compare', {competitor: 'bookingcom', index: 0})
+          .then(() => dispatch('compare', {competitor: 'tripadvisor', index: 1})
+              .then(() => dispatch('compare', {competitor: 'expedia', index: 2}))
           )
 
         return
       })
   },
-  compare ({commit, state, dispatch}, {competitor}) {
+  compare ({commit, state, dispatch}, {competitor, index}) {
     const url = '/comparator/compare/' + competitor
     // fake
     const boPrice = state.boBestPrice
-    const pc = randomInt(12, 50)
+    const pc = boPrice * boPrice * boPrice
+    const letSpc = pc + '#'
 
-    let competitorPrice = Math.floor( boPrice*pc/100 + boPrice )
+    let increment = letSpc[index]+letSpc[index+1]
+    increment = increment * 1
+    if ( increment * 1 < 10){
+      increment = 12
+    }
+    let competitorPrice = Math.floor( increment + boPrice )
 
     console.log('*******************', competitor)
     return dispatch('api/get', {url}, {root: true})
