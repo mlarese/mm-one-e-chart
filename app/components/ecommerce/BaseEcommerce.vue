@@ -20,7 +20,7 @@
         loading: false,
         currentIdx: 0,
         increments: 10,
-        visibleProducts: [],
+        visibleProducts: []
       }
     },
 
@@ -28,30 +28,31 @@
       reset () {
         this.currentIdx = 0
         this.visibleProducts = []
+        this.increments = 10
       },
       fetch () {
-        if (this.products.length <= this.visibleProducts.length){
-          this.loading = false
+        if (!this.hasMore) {
           return
         }
 
-        console.log("--- before", this.products.length, this.visibleProducts.length)
+        console.log('fetching')
         this.loading = true
         const start = this.currentIdx
         this.currentIdx += this.increments
         const end = this.currentIdx
 
-        _delay(() => {
-          this.visibleProducts.push(..._slice(this.products, start, end ))
-          this.loading = false
-          console.log("--- after", this.products.length, this.visibleProducts.length)
-        }, 200)
-
-
+        this.visibleProducts = _slice(this.products, 0, end )
+        this.loading = false
       }
     },
     computed: {
-      ...mapGetters('products', ['products'])
+      ...mapGetters('products', ['products']),
+      hasMore () {
+        if(this.products.length === 0) {
+          return false
+        }
+        return this.products.length > this.visibleProducts.length
+      }
     },
     components: {Cart, Products, MugenScroll, Spinner}
   }

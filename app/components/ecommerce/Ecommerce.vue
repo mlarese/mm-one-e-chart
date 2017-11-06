@@ -1,9 +1,10 @@
 <template>
-    <div class="ecommerce" >
-        <div class="col-xs-12 col-sm-8 no-p-l STSS__content">
+    <div class="ecommerce" ref="scrollContainer" >
+        <div class="col-xs-12 col-sm-8 no-p-l STSS__content wrap">
             <products :products="visibleProducts" />
-            <mugen-scroll class="scroller" :threshold="1" :handler="fetch" :should-handle="!loading" :handleOnMount="false">
-                <spinner size="15" v-if="loading"/>
+            <spinner size="25" v-if="hasMore"></spinner>
+            <mugen-scroll
+                    class="scroller" :handler="fetch" :should-handle="!loading" :handleOnMount="false">
             </mugen-scroll>
             <div class="STSS__content__bottom">
                 <div class="clear-resizer"></div>
@@ -15,6 +16,7 @@
         </aside>
 
         <div style="clear: both"></div>
+
 
     </div>
 </template>
@@ -29,14 +31,17 @@
   }
 </script>
 
-<style lang="css">
-    .ecommerce{
-        .clear-resizer{
+<style lang="scss">
+    .ecommerce {
+        .clear-resizer {
             clear:both;
             height:150px;
         }
-        .scroller{
-
+        .scroller {
+            height:30px;
+            // position: relative;
+            // top:-50px;
         }
+
     }
 </style>
