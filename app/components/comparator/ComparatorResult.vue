@@ -10,15 +10,15 @@
                 <h4 class="betterPriceBar__results-table__title">{{$t('Online booking portals prices')}}</h4>
                 <table class="better-price-result-table">
                     <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-bkco.png?v=1" alt="logo" /></td>
+                        <td><img src="https://reservation.cmsone.it/common/images/logo-bkco.png?v=2" alt="logo" /></td>
                         <td>{{currency}} {{competitors.bookingcom}}.00</td>
                     </tr>
                     <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-ex.png" alt="logo" /></td>
+                        <td><img src="https://reservation.cmsone.it/common/images/logo-ex.png?v=2" alt="logo" /></td>
                         <td>{{currency}} {{competitors.expedia}}.00</td>
                     </tr>
                     <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-trp.png?v=1" alt="logo" /></td>
+                        <td><img src="https://reservation.cmsone.it/common/images/logo-trp.png?v=2" alt="logo" /></td>
                         <td>{{currency}} {{competitors.tripadvisor}}.00</td>
                     </tr>
                 </table>

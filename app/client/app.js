@@ -76,7 +76,7 @@ if (step === 'comparator') {
 } else if (step === 'step3') {
   App = require('../components/app/AppStep3')
 } else {
-  const mock = require('../storeimp/api/mocks')
+  //const mock = require('../storeimp/api/mocks')
   App = require('../components/app/App')
 
 }
