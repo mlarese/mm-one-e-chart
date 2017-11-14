@@ -1,0 +1,117 @@
+.ST2{
+	&-resume{
+		overflow: hidden;
+		float: left;
+		width: 100%;
+		margin-bottom: 15px;
+		&__title{
+			@extend .ST1-rooms__title;
+		}
+		&__room{
+			font-size: $font-size-base + 3px;
+			line-height: $font-size-base + 5px;
+			text-transform: uppercase;
+			color: $list-title-color;
+			display: inline-block;
+			float: left;
+			margin-top: 5px;
+			padding-left: 15px;
+			@media (min-width: $screen-sm-min) {
+				padding-left: 0;
+			}
+		}
+		&__price{
+			color: $list-room-banner-color;
+			display: inline-block;
+			float: left;
+			padding-left: 15px;
+			font: {
+				family: $font-price;
+				size: $font-size-base + 5px;
+				line-height: $font-size-base + 5px;
+				style: italic;
+				weight: bold;
+			}
+			@media (min-width: $screen-sm-min) {
+				float: right;
+				padding-left:0;
+			}
+		}
+		&__show{
+			float: left;
+			width: 100%;
+			margin-top: 15px;
+			margin-bottom: 15px;	
+			background-color: $room-ss-item-bkg-color;
+			display: none;
+			.thumb_new{
+				@extend .ST1-list__item__img;
+				float: left;
+			}
+			&__desc{
+				padding:15px 30px 0 0;
+				&__price{
+					color: $list-room-banner-color;
+					display: inline-block;
+					font: {
+						family: $font-price;
+						size: $font-size-base + 5px;
+						line-height: $font-size-base + 5px;
+						style: italic;
+						weight: bold;
+					}
+					@media (min-width: $screen-sm-min) {
+						float: right;
+						margin-top: -8px;
+					}
+				}
+
+				.mtips{
+					margin-left: 5px;
+					position: relative;
+					.svg-ico{
+						$size: 20px;
+						height: $size;
+						width: $size;
+					}
+				}
+			}
+		}
+		&__specOff{
+			@extend .STSS__specOff;
+			&__list{
+				@extend .STSS__specOff__list;
+				span{
+					font-weight: bold;
+				}
+				.price_normal{
+					@extend .ST2-resume__price;
+				}
+				&__rm{
+					width: 18px;
+   					height: 18px;
+   					display: inline-block;
+   					.svg-ico{
+						@extend .rot-90;
+   						width: 100%;
+   						height: 100%;
+   					}
+				}
+			}
+		}
+		&__btnOpen,
+		&__btnClose{
+			@extend .active-button;
+			border: none;
+			margin-left: 10px;
+			padding: 5px 15px;
+			margin-right: 15px;
+			cursor: pointer;
+			@media (min-width: $screen-sm-min) {
+				margin-right: 0;
+			}
+		}
+		&__btnClose{display: none;}
+	}
+}
+

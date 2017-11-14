@@ -38,6 +38,7 @@
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.28.7",
     "es6-promise": "^4.1.1",
+    "glyphicons": "^0.2.0",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4",
