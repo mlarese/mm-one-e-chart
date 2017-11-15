@@ -1,7 +1,7 @@
 <template>
     <div>
-        <!--==================================
-     =            BETTER PRICE - LOADING            =
+     <!--==================================
+     =        BETTER PRICE - LOADING      =
      ===================================-->
         <div class="betterPriceBar">
             <div class="betterPriceBar__col vcenter">

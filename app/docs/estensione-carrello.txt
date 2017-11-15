@@ -1,0 +1,85 @@
+Seguono gli approfondimenti necessari alla quantificazione:
+
+Messa in sicurezza carrello:
+1. controllo disponibilità camere pre-checkout  (deve tenere conto delle camere virtuali e condivise e che il processo di prenotazione può essere multicamera)
+
+Prima del checkout e all'ingresso dello step 3 bisogna ripetere la procedure di simulazione della prenotazione.
+La procedura è eseguita dalla classe simulate_booking_search che restituisce tutte le offerte possibili per ogni camera.
+E' quindi necessario per ogni camera del cart verificarne la presenza nei risultati e verificarne la corrispondenza di prezzo .
+Inoltre in caso di prenotazioni multi camera bisogna sottrarre la disponibilità di tutte le camere selezionate tenendo conto che
+ le camere possono essere virtualizzate o in disponibilità condivisa.
+Per sapere la reale disponibilità è necessario utilizzare la classe Abs_Room_Ex per individuare il controller corretto per la gestione della disponibilità tramite il
+metodo getAllotmentController.
+
+2. controllo prezzo e disponibilità prodotti (tramite chiamate rest server 2 server)
+
+Prima del checkout e all'ingresso dello step 3 bisogna riverificare la disponibilità e i prezzi dei prodotti.
+La funzionalità è realizzabile tramite la creazione di un cart fornito dalla classe ecommerce_merchant che con il metodo
+getCart genererà una classe Ecommerce_Cart.
+L'ecommerce merchant deve essere opportunamente configurato con i dati dello shop. Una volta creato il
+cart basterà aggiungere tutti i prodotti e le relative varianti per poter ricalcolare il prezzo complessivo dei prodotti. I dati
+sono calcolabili tramite la funzione getCartInformation.
+In caso di prodotti non disponibili il cart genererà un errore.
+
+3. (COMUNICAZIONE  x FAZZINI) dovrà fornire comunicazione per mancata disponibilità prodotti e camere.
+
+
+Scheda dettaglio prodotto per i prodotti non semplici (BOZZA x FAZZINI):
+
+1. sviluppare nel l'ordine: prodotti con varianti, trattamenti, gift card, prodotti bundle
+    1.Estendere l'api quote per poter calcolare i prezzi dei prodotti con varianti.
+    2.Estendere l'api products per poter leggere le varianti del prodotto
+    3. Seguiranno specifiche tecniche per poter calcolare i prezzi dei prodotti con varianti , giftcard e bundle
+
+
+2. Sviluppo API REST da poter usare i trattamenti nei vecchi ecommerce  in particolare le api devo permettere la verifica e il blocco di fasce orarie dei trattamenti
+    Attualmente non esiste questa funzionalità e presente tuttavia una tabella del db da cui è possibile estrarre le informazioni necessarie.
+    La tabelle e i campi saranno illustrati in seguito
+
+
+3.Sviluppo widget che sia utilizzabile su tutti gli ecommerce: il widget deve permettere di calcolare il prezzo di ogni genere di prodotto anche con la selezione di varianti e gestire la disponibilità dei trattamenti per giorno e fascia oraria.
+
+Come utente/cliente del booking o del ecommerce ,
+Voglio che all'interno della scheda prodotto siano presenti tutte le varianti del prodotto,
+Voglio poter compilare le varianti e aggiungere il prodotto al carrello,
+Voglio poter vedere il costo del prodotto al variare delle varianti,
+Voglio poter specificare anche le varianti libere "campi di testo ad esempio nome da scrivere sul fazzoletto"
+Voglio che se selezionata una giftcard sia possibile stabilire il valore della giftcard e aggiungere un messaggio di auguri o altro alla giftcard
+Voglio che se selezionato un trattamento sia possibile prenotare il giorno e la fascia oraria del trattamento,
+Voglio che nella scelta del giorno sia generato un calendario con le date verdi se selezionabili e rosse le non selezionabili
+Voglio che selezionato il giorno siano solo visibili le fasce orarie disponibili.
+Perchè devo poter personalizzare il prodotto
+
+Come Frontend,
+voglio che il widget sia installabile su qualsiasi scheda prodotto,
+voglio che la grafica e i controlli del widget sian personalizzabili con un css
+voglio che i template html del widget siano personalizzabili
+voglio che il widget sia in multilingua
+voglio poter agganciarmi al cart locale definendo una funzione di callback sull'inserimento di un prodotto tramite widget
+Perché il widget dovrà diventare un elemento del ecommerce e dovrà essere centralizzato
+
+Selezione delle categorie ecommerce e dei prodotti da pubblicare nel booking (GRAFICA E INTERFACCE COME VECCHIO ABS):
+1.Sviluppo interfaccia di selezione e convergenza categorie (multi shop)
+
+Le interfacce dovranno essere tutte multilingua
+
+Come Albergatore,
+Voglio che A livello di struttura sia possibile creare un elenco di categorie di prodotti.
+Voglio specificare nel elenco la categoria di default dell'ecommerce
+Voglio far corrispondere a ciascuna categoria "interna" una o più categorie degli ecommerce esterni a me collegati
+Voglio che nello strumento di selezione e raggruppamento sia visibile il nome della categoria e lo shop di provenienza
+Voglio poter modificare le associazioni e cancellarle
+Voglio poter cancellare una categoria aggregata
+Voglio che se non è presente nessuna categoria interna allora vengano usate tutte le categorie
+Voglio poter creare una categoria interna semplicemente selezionando un categoria esterna . La categoria interna
+avrà lo stesso nome di quella esterna.
+Voglio poter rinominare le categorie interne
+Perché voglio migliorare la visualizzazione dei prodotti nello step ecommerce e visualizzare solo i prodotti che ritengo interessanti
+
+2. Sviluppo interfaccia filtraggio prodotti(multi shop)
+
+Come Albergatore,
+Voglio che a livello di struttura per ogni catergoria "interna" selezionare un sotto insieme di prodotti da visualizzare
+Voglio che per ogni prodotto sia visibile il nome, la categoria originale e lo shop di provenienza
+Voglio che in mancanza di una selezione di prodotti vengano presi tutti i prodotti
+Perché voglio selezionare in modo molto accurato i prodotti che metto in vendita nel mio booking
