@@ -10,15 +10,26 @@ export const state = () => {
     bestPrice: 0,
     boBestPrice: 0,
     singleIncrement:0,
-    competitors: {
-      bookingcom: 0,
-      tripadvisor: 0,
-      expedia: 0
+    storeId:0,
+    boardingId:0,
+    roomId:0,
+    channels: {
+      6: {name:'bookingcom', id: 6, price: 0},
+      5: {name: 'expedia', id: 5, price: 0}
     }
   }
 }
 
 export const mutations = {
+  setStoreId (state, payLoad) {
+    state.storeId = payLoad
+  },
+  setBoardingId (state, payLoad) {
+    state.boardingId = payLoad
+  },
+  setRoomId (state, payLoad) {
+    state.roomId = payLoad
+  },
   setCurrency (state, payLoad) {
     state.currency = payLoad
   },
@@ -38,7 +49,7 @@ export const mutations = {
     if (increment === -1) {
       increment = state.singleIncrement
     }
-    if (state.progressPercent + increment > 100) {
+    if (state.progressPercent + increment >= 100) {
       state.progressPercent = 100
     } else {
       state.progressPercent += increment
@@ -50,11 +61,11 @@ export const mutations = {
   setBoBestPrice (state, payLoad) {
     state.boBestPrice = payLoad * 1
   },
-  setCompetitors (state, payLoad) {
-    state.competitors = payLoad
+  setChannels (state, payLoad) {
+    state.channels = payLoad
   },
-  setCompetitorPrice (state, {competitor, competitorPrice}) {
-    state.competitors[competitor] = competitorPrice
+  setChannelPrice (state, {id, channelPrice}) {
+    state.channels[id].price = channelPrice
   }
 }
 

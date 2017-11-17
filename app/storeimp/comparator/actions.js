@@ -3,53 +3,52 @@ import _delay from 'lodash/delay'
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {competitors, boBestPrice, absServer, currency = '€'}) {
+  init ({commit, dispatch, getters, rootGetters}, {checkin, checkout, boardId, storeId, roomId, channels, boBestPrice, absServer, currency = '€'}) {
     boBestPrice = Math.floor(boBestPrice)
 
-    commit('setCompetitors', competitors)
+    if (channels.length === 0) {
+      commit('incrementProgressPercent', 100)
+      return
+    }
+
+    commit('setChannels', channels)
     commit('setBoBestPrice', boBestPrice)
     commit('setCurrency', currency)
-
-    const numOfCompetitors = _keys(competitors).length
-    const singleIncrement = Math.floor(100 / numOfCompetitors)
-    commit('setSingleIncrement', singleIncrement)
+    commit('setStoreId', storeId)
+    commit('setRoomId', roomId)
+    commit('setCheckin', checkin)
+    commit('setCheckout', checkout)
+    commit('setBoardId', boardId)
+    commit('setSingleIncrement', Math.floor(100/channels.length))
 
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
-        /** versione per produzione
-        for(let competitor in competitors){
-          dispatch('compare', {competitor})
+        let allCalls = []
+        for(let channel in channels){
+          allCalls.push(dispatch('compare', channel))
         }
-        **/
-        // versione fake
-        dispatch('compare', {competitor: 'bookingcom', index: 0})
-          .then(() => dispatch('compare', {competitor: 'tripadvisor', index: 1})
-              .then(() => dispatch('compare', {competitor: 'expedia', index: 2}))
-          )
-
-        return
+        Promise.all(allCalls)
+          .then(ret => commit('incrementProgressPercent', 100))
       })
   },
-  compare ({commit, state, dispatch}, {competitor, index}) {
-    const url = '/comparator/compare/' + competitor
-    // fake
-    const boPrice = state.boBestPrice * 1
-    const pc = boPrice * boPrice * boPrice
-    const letSpc = pc + '#'
-
-    let increment = letSpc[index]+letSpc[index+1]
-    increment = increment * 1
-    if ( increment * 1 < 10){
-      increment = 12
+  compare ({commit, state, dispatch, getters}, {name, id}) {
+    const url = '/booking/comparator/compare'
+    const options = {
+      headers: {
+        StoreId: state.storeId,
+        ChannelId: id,
+        RoomId: state.roomId,
+        Checkin: state.checkin,
+        Checkout: state.checkout,
+        BoardId: state.boardId
+      }
     }
-    let competitorPrice = Math.floor( increment + boPrice )
 
-    console.log('*******************', competitor)
     return dispatch('api/get', {url}, {root: true})
       .then(res => {
-        commit('setCompetitorPrice', {competitor, competitorPrice})
+        const channelPrice = Math.floor(res.data)
+        commit('setChannelPrice', {id, channelPrice})
         commit('incrementProgressPercent')
-
       })
 
   }
