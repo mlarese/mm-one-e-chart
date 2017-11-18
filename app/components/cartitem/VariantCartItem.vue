@@ -37,7 +37,7 @@
   import BaseCartItem from './BaseCartItem'
   import IconInfo from '../icons/IconInfo'
   export default {
-    name: 'CartItem',
+    name: 'VariantCartItem',
     extends: BaseCartItem,
     components: {
       IconInfo

@@ -3,5 +3,8 @@ export const getters = {
   itemsPerPage: state => state.pagination.itemsPerPage,
   products: state => state.products,
   isCategorySpecialService: state => category => category.id * 1 === 0,
-  isProductSpecialService: state => product => product.type === 'specialservice'
+  isProductSpecialService: state => product => product.type === 'specialservice',
+  hasVariants: (state, getters) => {id} => {
+    return false
+  }
 }

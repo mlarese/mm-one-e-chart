@@ -3,13 +3,19 @@
 </template>
 <script>
   import ProductItem from './ProductItem'
+  import VariantProductItem from './VariantProductItem'
+  import {mapGetters} from 'vuex'
+
   export default {
-    components: {ProductItem},
+    components: {ProductItem, VariantProductItem},
     props: ['product'],
     computed: {
+      ...mapGetters('products'. ['hasVariants']),
       currentComponent () {
-        if (this.product.type === 'test') {
-          return 'product-item'
+        const hasVariants = this.hasVariants(product)
+
+        if (hasVariants) {
+          return 'variant-product-item'
         } else {
           return 'product-item'
         }

@@ -4,11 +4,20 @@
 <script>
   import CartItem from './CartItem'
   import SpecialServiceCartItem from './SpecialServiceCartItem'
+  import VariantCartItem from './VariantCartItem'
+  import {mapGetters} from 'vuex'
+
   export default {
-    components: {CartItem, SpecialServiceCartItem},
+    components: {CartItem, SpecialServiceCartItem, VariantCartItem},
     props: ['item', 'index'],
     computed: {
+      ...mapGetters('products', ['hasVariants']),
       currentComponent () {
+        const hasVariants = this.hasVariants(item)
+        if(hasVariants) {
+          return 'variant-cart-item'
+        }
+
         if (this.item.type === 'simple') {
           return 'cart-item'
         } else if (this.item.type === 'specialservice') {

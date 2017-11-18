@@ -93,7 +93,7 @@
   import BaseProductItem from './BaseProductItem'
   import NumberInputSpinner from "../../node_modules/vue-number-input-spinner/src/components/NumberInputSpinner.vue";
   export default {
-    name: 'ProductItem',
+    name: 'VariantProductItem',
     components: {NumberInputSpinner},
     extends: BaseProductItem
   }

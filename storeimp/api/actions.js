@@ -2,27 +2,11 @@ import axios from 'axios'
 import './mocks'
 
 export const actions = {
-  init ({commit, dispatch}, {absServer}) {
-    console.log('--- api.init')
-    dispatch('addServer', {key: 'abs', url: absServer})
-  },
-  addServer ({commit}, {key, url}) {
-    const baseURL = `${url}/RESTfulAPI`
-
-    const instance = axios.create({
-      timeout: 90000,
-      withCredentials: true,
-      baseURL
-    })
-    commit('addServer', {key, instance, baseURL})
-  },
   get ({commit, getters}, {url, options = {}, serverName = 'abs'}) {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
 
-    const instance = getters.server(serverName)
-    console.log('******* api.get', url, 'on', serverName)
     if (!options.headers) {
       options.headers = {}
     }
@@ -30,7 +14,7 @@ export const actions = {
     options.headers['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
     options.headers['Content-Type'] = 'application/json'
 
-    return instance.get(url, options)
+    return axios.get(url, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -48,10 +32,8 @@ export const actions = {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    const instance = getters.server(serverName)
-    console.log('******* api.post', url, 'on', serverName)
 
-    return instance.post(url, data, options)
+    return axios.post(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -68,8 +50,8 @@ export const actions = {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    const instance = getters.server(serverName)
-    return instance.put(url, data, options)
+
+    return axios.put(url, data, options)
       .then(res => {
         commit('isAjax')
         return res
@@ -86,8 +68,8 @@ export const actions = {
     commit('isAjax', true)
     commit('error')
     commit('hasError')
-    const instance = getters.server(serverName)
-    return instance.delete(url, options)
+
+    return axios.delete(url, options)
       .then(res => {
         commit('isAjax')
         return res
