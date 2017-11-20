@@ -3,7 +3,7 @@ import _delay from 'lodash/delay'
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
 export const actions = {
-  init ({commit, dispatch, getters, rootGetters}, {checkin, checkout, boardId, storeId, roomId, channels, boBestPrice, absServer, currency = '€'}) {
+  init ({commit, dispatch, getters, rootGetters}, {adults, children, checkin, checkout, boardId, structureId, channels, boBestPrice, absServer, currency = '€'}) {
     boBestPrice = Math.floor(boBestPrice)
 
     if (channels.length === 0) {
@@ -14,10 +14,12 @@ export const actions = {
     commit('setChannels', channels)
     commit('setBoBestPrice', boBestPrice)
     commit('setCurrency', currency)
-    commit('setStoreId', storeId)
+    commit('setStructureId', structureId)
     commit('setRoomId', roomId)
     commit('setCheckin', checkin)
     commit('setCheckout', checkout)
+    commit('setAdults', adults)
+    commit('setChildren', children)
     commit('setBoardId', boardId)
     commit('setSingleIncrement', Math.floor(100/channels.length))
 
@@ -35,11 +37,12 @@ export const actions = {
     const url = '/booking/comparator/compare'
     const options = {
       headers: {
-        StoreId: state.storeId,
+        StructureId: state.structureId,
         ChannelId: id,
-        RoomId: state.roomId,
         Checkin: state.checkin,
         Checkout: state.checkout,
+        Adults: state.adults,
+        Children: state.children,
         BoardId: state.boardId
       }
     }
