@@ -71,12 +71,12 @@ const i18n = new VueI18n({locale, messages})
 
 let App
 if (step === 'comparator') {
-  require('../storeimp/api/comparatormocks')
+  // require('../storeimp/api/comparatormocks')
   App = require('../components/app/ElementComparator')
 } else if (step === 'step3') {
   App = require('../components/app/AppStep3')
 } else {
-  //const mock = require('../storeimp/api/mocks')
+  // const mock = require('../storeimp/api/mocks')
   App = require('../components/app/App')
 
 }

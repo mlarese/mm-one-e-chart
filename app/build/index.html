@@ -8,13 +8,7 @@
 
     <script>
 
-      var competitors = {
-        bookingcom: 0,
-          tripadvisor: 0,
-          expedia: 0
-      };
 
-      var boBestPrice = 512.314;
 
       var cartid = '010187bedab6e1bb6f2878d0ba6bbea08294f72d5ecb2b11fad38ccfe15fffa8';
 
@@ -32,25 +26,43 @@
 
       var currentsolution = '0';
 
-      var childrenData = [];
 
+      var childrenData = [];
       var adultsCount =  2;
 
-      var checkin =  '03-11-2017';
+      var structure = { structureId: 1, portalId: 1 };
 
-      var checkout=  '04-11-2017';
+      //--------------------------------
+      //--------------------- comparator
+      var boBestPrice = 512.314;
+      var channels = {
+        6: {name:'bookingcom', id: 6, price: 0},
+        5: {name: 'expedia', id: 5, price: 0}
+      };
+
+      var children = childrenData;
+      var adults = adultsCount;
+
+      var checkin =  '2018-06-01';
+      var checkout=  '2018-06-05';
+      var boardId = 2;
+
+      var structureId = 157
       var currency = '$'
+      //--------------------- comparator
+      //--------------------------------
+
       cart.rooms = rooms;
       cart.id = cartid;
       cart.numOfRooms = rooms.length;
       cart.currentRoom = currentsolution;
 
-      var structure = { structureId: 1, portalId: 1 };
+
 
       var absServer =  'http://reservation.abs.tmp/';
 
       /*comparator ecommerce  onlyecommerce special insurance step3*/
-      var step = 'onlyecommerce';
+      var step = 'comparator';
 
       if(step === '') {
         step = 'ecommerce' ;

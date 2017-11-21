@@ -6,7 +6,9 @@ export const actions = {
   init ({commit, dispatch, getters, rootGetters}, {adults, children, checkin, checkout, boardId, structureId, channels, boBestPrice, absServer, currency = '€'}) {
     boBestPrice = Math.floor(boBestPrice)
 
-    if (channels.length === 0) {
+    const channelKeys = _keys(channels);
+
+    if (channelKeys.length === 0) {
       commit('incrementProgressPercent', 100)
       return
     }
@@ -15,19 +17,18 @@ export const actions = {
     commit('setBoBestPrice', boBestPrice)
     commit('setCurrency', currency)
     commit('setStructureId', structureId)
-    commit('setRoomId', roomId)
     commit('setCheckin', checkin)
     commit('setCheckout', checkout)
     commit('setAdults', adults)
     commit('setChildren', children)
     commit('setBoardId', boardId)
-    commit('setSingleIncrement', Math.floor(100/channels.length))
+    commit('setSingleIncrement', Math.floor(100/channelKeys.length))
 
     return dispatch('api/init', {absServer}, {root: true})
       .then(() => {
         let allCalls = []
         for(let channel in channels){
-          allCalls.push(dispatch('compare', channel))
+          allCalls.push(dispatch('compare', channels[channel]))
         }
         Promise.all(allCalls)
           .then(ret => commit('incrementProgressPercent', 100))
@@ -43,13 +44,16 @@ export const actions = {
         Checkout: state.checkout,
         Adults: state.adults,
         Children: state.children,
-        BoardId: state.boardId
+        Boarding: state.boardId
       }
     }
 
-    return dispatch('api/get', {url}, {root: true})
+    return dispatch('api/get', {url, options}, {root: true})
       .then(res => {
-        const channelPrice = Math.floor(res.data)
+        let channelPrice = res.data.reservationAmount
+        if (channelPrice !== 'N.D.') {
+          channelPrice = Math.floor(channelPrice)
+        }
         commit('setChannelPrice', {id, channelPrice})
         commit('incrementProgressPercent')
       })

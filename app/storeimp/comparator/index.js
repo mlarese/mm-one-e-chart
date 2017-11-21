@@ -11,10 +11,11 @@ export const state = () => {
     boBestPrice: 0,
     singleIncrement:0,
     structureId:0,
-    boardingId:0,
-    roomId:0,
     adults: 0,
     children: [],
+    checkin: '',
+    checkout: '',
+    boardId:0,
     channels: {
       6: {name:'bookingcom', id: 6, price: 0},
       5: {name: 'expedia', id: 5, price: 0}
@@ -23,6 +24,15 @@ export const state = () => {
 }
 
 export const mutations = {
+  setCheckin (state, payLoad){
+    state.checkin = payLoad
+  },
+  setCheckout (state, payLoad){
+    state.checkout = payLoad
+  },
+  setBoardId (state, payLoad){
+    state.boardId = payLoad
+  },
   setChildren (state, payLoad) {
     state.children = payLoad
   },

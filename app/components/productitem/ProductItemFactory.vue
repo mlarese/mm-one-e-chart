@@ -10,10 +10,9 @@
     components: {ProductItem, VariantProductItem},
     props: ['product'],
     computed: {
-      ...mapGetters('products'. ['hasVariants']),
+      ...mapGetters('products', ['hasVariants']),
       currentComponent () {
         const hasVariants = this.hasVariants(product)
-
         if (hasVariants) {
           return 'variant-product-item'
         } else {

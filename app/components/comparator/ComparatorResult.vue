@@ -9,17 +9,9 @@
             <div class="betterPriceBar__col betterPriceBar__results-table">
                 <h4 class="betterPriceBar__results-table__title">{{$t('Online booking portals prices')}}</h4>
                 <table class="better-price-result-table">
-                    <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-bkco.png?v=2" alt="logo" /></td>
-                        <td>{{currency}} {{competitors.bookingcom}}.00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-ex.png?v=2" alt="logo" /></td>
-                        <td>{{currency}} {{competitors.expedia}}.00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="https://reservation.cmsone.it/common/images/logo-trp.png?v=2" alt="logo" /></td>
-                        <td>{{currency}} {{competitors.tripadvisor}}.00</td>
+                    <tr v-for="c in channels">
+                        <td><img :src="'https://reservation.cmsone.it/common/images/channels/'+c.id+'.png?v=2'" alt="logo" /></td>
+                        <td><span v-if="c.price !== 'N.D.'">{{currency}}</span> {{c.price}}<span v-if="c.price !== 'N.D.'">.00</span></td>
                     </tr>
                 </table>
             </div>
@@ -89,6 +81,6 @@
 </script>
 <style>
     .betterPriceBar__results .better-price-result-table img{
-        height:20px;
+        height:30px;
     }
 </style>
