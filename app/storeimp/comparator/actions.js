@@ -4,7 +4,7 @@ const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + mi
 
 export const actions = {
   init ({commit, dispatch, getters, rootGetters}, {adults, children, checkin, checkout, boardId, structureId, channels, boBestPrice, absServer, currency = '€'}) {
-    boBestPrice = Math.floor(boBestPrice)
+    boBestPrice = boBestPrice
 
     const channelKeys = _keys(channels);
 
@@ -52,7 +52,7 @@ export const actions = {
       .then(res => {
         let channelPrice = res.data.reservationAmount
         if (channelPrice !== 'N.D.') {
-          channelPrice = Math.floor(channelPrice)
+          channelPrice = channelPrice
           if (channelPrice < state.boBestPrice ) {
             channelPrice = 'N.D.'
           }

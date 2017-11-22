@@ -11,7 +11,10 @@
                 <table class="better-price-result-table">
                     <tr v-for="c in channels">
                         <td><img :src="'https://reservation.cmsone.it/common/images/channels/'+c.id+'.png?v=2'" alt="logo" /></td>
-                        <td><span v-if="c.price !== 'N.D.'">{{currency}}</span> {{c.price}}<span v-if="c.price !== 'N.D.'">.00</span></td>
+                        <td>
+                            <span v-if="c.price !== 'N.D.'">{{currency}} {{format(c.price)}}</span>
+                            <span v-if="c.price === 'N.D.'">{{c.price}}</span>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -45,9 +48,7 @@
       </svg><br />
                 <span>{{$t('Official web site')}}</span><br />
                 <b class="color-base betterPriceBar__results__payoff"> {{$t('Best Price Guaranteed')}}!</b><br />
-                <b class="betterPriceBar__results__price">{{currency}} {{boBestPrice}}.00</b><br />
-
-
+                <b class="betterPriceBar__results__price">{{currency}} {{format(boBestPrice)}}</b><br />
             </div>
             <div class="betterPriceBar__col betterPriceBar__results-msg">
                 <div>
@@ -55,14 +56,14 @@
                     <b>{{$t('choose below the accommodation that best suits your needs')}}!</b>
 
                 </div>
-                <svg version="1.1" class="svg-ico svg-ico-arrow-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <!--svg version="1.1" class="svg-ico svg-ico-arrow-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        width="20px" height="20px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
       <g>
         <g>
           <polygon points="247.35,270.3 130.05,153 247.35,35.7 211.65,0 58.65,153 211.65,306    "/>
         </g>
       </g>
-    </svg>
+    </svg -->
 
             </div>
         </div>
@@ -73,10 +74,16 @@
 </template>
 <script>
   import BaseComparator from './BaseComparator'
+  import numeral from 'numeral'
 
   export default {
     name: 'ComparatorResult',
-    extends: BaseComparator
+    extends: BaseComparator,
+    methods: {
+      format (value) {
+        return numeral(value).format('0,0.00')
+      }
+    }
   }
 </script>
 <style>
