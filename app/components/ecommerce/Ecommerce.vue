@@ -26,7 +26,7 @@
   import {mapGetters, mapActions} from 'vuex'
 
   export default {
-    name: 'Onlyecommerce',
+    name: 'Ecommerce',
     extends: BaseEcommerce
   }
 </script>

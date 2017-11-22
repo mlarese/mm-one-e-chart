@@ -13,7 +13,6 @@
             </template>
             <insurance-cart-item />
             <cart-next-button />
-
         </span>
         <div class="widget-cart-resizer"></div>
     </div>

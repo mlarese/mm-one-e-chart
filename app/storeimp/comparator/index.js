@@ -1,5 +1,7 @@
 import {actions} from './actions'
 import {getters} from './getters'
+import _isArray from 'lodash/isArray'
+import _keyBy from 'lodash/keyBy'
 
 export const state = () => {
   return {
@@ -80,6 +82,9 @@ export const mutations = {
     state.boBestPrice = payLoad * 1
   },
   setChannels (state, payLoad) {
+    if (_isArray(payLoad)) {
+      payLoad = _keyBy(payLoad, 'id')
+    }
     state.channels = payLoad
   },
   setChannelPrice (state, {id, channelPrice}) {

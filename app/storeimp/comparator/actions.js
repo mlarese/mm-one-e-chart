@@ -53,6 +53,9 @@ export const actions = {
         let channelPrice = res.data.reservationAmount
         if (channelPrice !== 'N.D.') {
           channelPrice = Math.floor(channelPrice)
+          if (channelPrice < state.boBestPrice ) {
+            channelPrice = 'N.D.'
+          }
         }
         commit('setChannelPrice', {id, channelPrice})
         commit('incrementProgressPercent')

@@ -51,6 +51,7 @@
         if(this.products.length === 0) {
           return false
         }
+
         return this.products.length > this.visibleProducts.length
       }
     },

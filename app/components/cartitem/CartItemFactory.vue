@@ -9,15 +9,18 @@
 
   export default {
     components: {CartItem, SpecialServiceCartItem, VariantCartItem},
-    props: ['item', 'index'],
+    props: {
+      'item': {default: () => {}},
+      'index': {default: 0}
+    },
     computed: {
       ...mapGetters('products', ['hasVariants']),
       currentComponent () {
-        const hasVariants = this.hasVariants(item)
-        if(hasVariants) {
-          return 'variant-cart-item'
-        }
+        // const hasVariants = this.hasVariants(item)
 
+        // if(hasVariants) {
+          // return 'variant-cart-item'
+        // }
         if (this.item.type === 'simple') {
           return 'cart-item'
         } else if (this.item.type === 'specialservice') {
