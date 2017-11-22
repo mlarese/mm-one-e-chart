@@ -10,7 +10,7 @@
                 <h4 class="betterPriceBar__results-table__title">{{$t('Online booking portals prices')}}</h4>
                 <table class="better-price-result-table">
                     <tr v-for="c in channels">
-                        <td><img :src="'https://reservation.cmsone.it/common/images/channels/'+c.id+'.png?v=2'" alt="logo" /></td>
+                        <td><img :src="'https://reservation.cmsone.it/common/images/channels/'+c.id+'.png?v=2'" :alt="c.name" /></td>
                         <td>
                             <span v-if="c.price !== 'N.D.'">{{currency}} {{format(c.price)}}</span>
                             <span v-if="c.price === 'N.D.'">{{c.price}}</span>
