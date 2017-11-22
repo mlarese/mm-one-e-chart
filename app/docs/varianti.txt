@@ -1,0 +1,102 @@
+1. sviluppare nel l'ordine: prodotti con varianti, trattamenti, gift card, prodotti bundle
+    1.Estendere l'api quote per poter calcolare i prezzi dei prodotti con varianti.
+    2.Estendere l'api products per poter leggere le varianti del prodotto
+    3. Seguiranno specifiche tecniche per poter calcolare i prezzi dei prodotti con varianti , giftcard e bundle
+
+PRODOTTI CON VARIANTI e PRODOTTI BUNDLE e PRODOTTI CON VARIANTI CUSTOM
+
+I valori delle varianti sono recuperabili dal prodotto.
+E' fondamentale che il prodotto venga letto con il parametro from_config  $ecommerce->product()->absSelectById( $ecommerce->db(), $PAGE['product_id'], array('language' => $iso2, 'setup' => 'from_config'));
+
+Se le varianti di sono di tipo "proprietà" (category_type=1) teoricamente non dovrebbero essere selezionabili,.
+
+In caso di varianti custom sarà possibile specificare un valore speciale per il campo. Le varianti custom sono identificate dell'attributo "is_custom"
+
+Come Utente,
+voglio che vengano visualizzate tutte le varianti del prodotto selezionato . Ogni variante è rappresentata da un selettore.
+voglio che selezionate le varianti il pulsante aggiungi al cart si abiliti voglio che selezionate le varianti il prezzo finale venga calcolato ed evidenziato voglio che se premuto aggiungi al cart o al hover vengano evidenziate con un messaggio di warning le varianti non selezionate.
+Perché devo configurare il prodotto prima di acquistarlo
+
+
+PRODOTTI CHILD
+I child products vengono creati a backend a partire da un prodotto singolo.
+I prodotti child sono dei prodotti con varianti con disponibilità differenti per ogni combinazione di varianti ovvero vengono utilizzati nel caso ci siano da gestire a magazzino differenti declinazioni dello stesso prodotto con quantità specifiche per ogni combinazione.
+Es. Maglia Rossa XL, Maglia Rossa L, Maglia Rossa S, Maglia Verde M, ecc.
+
+Come Utente,
+voglio che l'interfaccia prenda i dati "base" dal prodotto padre (Titolo, testo, ecc).
+voglio presentare prezzo, foto, ed altre caratteristiche specifiche del primo child product a disposizione con le relative varianti selezionabili voglio chel al cambio di una variante, sulla base dei child product disponibili, le select delle altre varianti andranno ripopolate con le varianti disponibili per la data combinazione.
+Perché devo configurare il prodotto prima di acquistarlo
+
+ES:
+Supponendo di avere 4 varianti per il prodotto, al cambio della seconda, la terza e la quarta andranno resettate e verranno proposte le possibili varianti in base alle combinazioni aventi come variante 1 e 2 quelle preselezionate.
+Scopo della procedura è raggiungere un child product singolo da aggiungere poi al carrello.
+Il prodotto padre funge da contenitore e non dovrà di fatto mai essere acquistato.
+
+
+GIFT CARD e GIFT CARD CUSTOM
+Non sono prodotti ma dovranno essere mostrate in un categoria se presenti La lista delle giftcard e recuperabile tramite $ecommerce->gift()->step1($ecommerce->db());
+
+I dati della singola giftcard nella pagina vengono restitui dalla api base $ecommerce->url()->isValidUrl;
+
+Le foto sono contenute nel campo "gift_photos" e sono selezionabili dall'utente a frontend se più di una, rappresentano l'immagine che verrà stampata nel pdf inviato.
+L'invio del pdf viene fatto dall'ecommerce.
+Sono previsti campi input ulteriori presenti nell'array "data":
+	- Nome del mittente
+	- Nome del ricevente
+	- Email del ricevente
+	- Eventuale importo da inserire da parte dell'utente
+
+Per il salvataggio utilizzare addExtendedFields sul carrello centralizzato
+
+
+PRODOTTI A NOLEGGIO
+I prodotti a noleggio sono utlizzabile tramite  le seguenti api
+
+$objProduct = new Ecommerce_ProductItem($prod['product_id']);
+$controller = $objProduct->getProductController();
+$controller->resetStartDate();
+$controller->resetOriginId();
+$controller->resetEndDate();
+$controller->resetDestinationId();
+
+$availability = $controller->getAvailabilityData(); //Legge le date di partenza $controller->setStartDate($boardingDate); // Imposta la data di partenza $availability = $controller->getAvailabilityData(); //Legge le origini disponibili $controller->setOriginId($_POST['boardingPort']); // imposta l'origine $availability = $controller->getAvailabilityData(); // legge le date di ritorno disponibili $controller->setEndDate($landingDate); // imposta la data di arrivo $availability = $controller->getAvailabilityData(); // legge le destinazioni diponibili $controller->setDestinationId($_POST['landingPort']); // imposta la destinazione $finalAvailability = $controller->checkAvailability(); // verifica la disonibilità
+
+$finalListPrice = $controller->getPriceList(); // legge il costo
+
+Se tutto va bene si può aggiungere il prodotto al carrello
+
+Come Utente,
+voglio poter scegliere la data di inizio noleggio voglio vedere dove poter ritirare il mezzo o altro quel giorno voglio vedere entro quando lo posso restituire voglio vedere dove è possibile restituire il mezzo o altro voglio quindi sapere quanto costa il noleggio Perché devo configurare il prodotto prima di acquistarlo
+
+
+PRODOTTI TRATTAMENTI
+
+Come Utente,
+voglio poter scegliere la durata del trattamento se presente come variante voglio poter scegliere la data del trattamento tra quelle disponibili voglio poter scegliere la fascia oraria tra quelle disponibili Perché devo configurare il prodotto prima di acquistarlo
+
+
+2. Sviluppo API REST da poter usare i trattamenti nei vecchi ecommerce  in particolare le api devo permettere la verifica e il blocco di fasce orarie dei trattamenti
+    Attualmente non esiste questa funzionalità e presente tuttavia una tabella del db da cui è possibile estrarre le informazioni necessarie.
+    La tabelle e i campi saranno illustrati in seguito:
+             -  product_availability_period , questa tabella fa corrispondere uno o più periodi a un prodotto. I periodi sono definiti solo in termini di fascia oraria le fasce orarie possono essere al massimo di 10 minuti in 10 minuti.
+
+                CAMPI:
+                1. product_availability_period_id , identificativo del periodo (non ha senso per la lavorazione)
+                2. product_availability_period_description, descrizione del periodo (mattina/pomeriggi etc)
+                3. product_id, prodotto associato al periodo
+                4. product_availability_period_order,i periodi sono fasce orarie quindi è un campo di ordinamento delle fasce orarie
+                5. product_availability_period_start_time, fascia oraria in formato h:i:s
+
+             -  product_availability , contiene la disponibilità giorno per giorno del prodotto con un riferiment  alla fascia oraria
+
+            CAMPI:
+             1. availability_id, chiave della riga (non ha senso per la lavorazione)
+             2. product_id,  codice del prodotto associato
+             3. always_available, sempre disponibile
+             4. availability_date, giorno della disponibilità
+             5. availability_time, fascia oraria in h:i:s
+             6. availability_min, minima disponibilità
+             7. availability_max, massima disponibilità
+             8. availability, disponibilità della fascia oraria
+             9. storage_id, risevato per i servizi di rent
