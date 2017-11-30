@@ -60,27 +60,15 @@
 
                 <div class="STSS__accItem__qty pull-left" v-if="product">
 
-                    <vue-select
-                        class="select2-container--bootstrap"
-                        :options="optionsQta"
-                        :disabled="selectQuantityDisabled"
-                        v-model="quantity"
-                    />
                 </div>
 
             <button
-                    v-if="!isInCart"
-                    :disabled="!canAdd"
-                    @click="onAdd"
+                    @click="onAddVariant"
                     class="STSS__accItem__priceNew__button
                     STSS__accItem__priceNew--add text-uppercase pull-right ">
-                {{$t('Add')}}
+                {{$t('Select')}}
             </button>
 
-            <button v-if="isInCart" class="STSS__accItem__priceNew__button  text-uppercase pull-right">
-                {{$t('Added')}}
-                <icon-tick />
-            </button>
         </div>
 
         <div class="col-xs-12 panel-collapse STSS__accItem__desc__tgl-txt" :class="{collapse: !showDetails, 'collapse.in': showDetails}" >

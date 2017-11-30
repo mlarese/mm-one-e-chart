@@ -12,9 +12,7 @@
     computed: {
       ...mapGetters('products', ['hasVariants']),
       currentComponent () {
-        // const hasVariants = this.hasVariants(product)
-        const hasVariant = false
-
+        const hasVariant = this.hasVariants(this.product)
         if (hasVariant) {
           return 'variant-product-item'
         } else {

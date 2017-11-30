@@ -5,6 +5,7 @@ import _keyBy from 'lodash/keyBy'
 
 export const state = () => {
   return {
+    test: true,
     comparationResult: 'best',
     comparatorCurrentStatus: 'progress',
     currency: '€',
@@ -26,6 +27,9 @@ export const state = () => {
 }
 
 export const mutations = {
+  setTest (state, payLoad){
+    state.test = payLoad
+  },
   setCheckin (state, payLoad){
     state.checkin = payLoad
   },

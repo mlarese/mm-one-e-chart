@@ -16,6 +16,7 @@ const messages = {
     "The insurance policy payment is separate from the reservation process" : "Il pagamento della polizza assicurativa avviene in modalità separata" ,
     "Total Insurance price"  : "Totale assicurazione",
     "Online booking portals prices"  : "Prezzo dei portali online",
+    "Select"  : "Selezione",
 
     'From this site you can book at the best price on the web': "Prenotando in questo sito sei sicuro di prenotare alla migliore tariffa del web",
     'choose below the accommodation that best suits your needs': "scegli qui sotto la sistemazione più adatta alle tue esigenze",
@@ -71,7 +72,6 @@ const i18n = new VueI18n({locale, messages})
 
 let App
 if (step === 'comparator') {
-  // require('../storeimp/api/comparatormocks')
   App = require('../components/app/ElementComparator')
 } else if (step === 'step3') {
   App = require('../components/app/AppStep3')

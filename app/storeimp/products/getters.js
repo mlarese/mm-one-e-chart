@@ -5,6 +5,8 @@ export const getters = {
   isCategorySpecialService: state => category => category.id * 1 === 0,
   isProductSpecialService: state => product => product.type === 'specialservice',
   hasVariants: (state, getters) => ({id}) => {
+    // prodotto spa
+    // if (id*1 === 2166) { return true }
     return false
   }
 }

@@ -19,6 +19,9 @@
         },
         methods: {
           ...mapActions('cart', ['addProduct']),
+          onAddVariant () {
+            alert("")
+          },
           onAdd () {
             this.addProduct({product: this.product, quantity: this.quantity})
           },
