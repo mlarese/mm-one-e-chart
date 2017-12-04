@@ -47,6 +47,6 @@ export const getters = {
   categories: (state, getters, rootState, rootGetters) => {
     return rootGetters['categories/categoriesByStep'](getters.step)
   },
-  cartLocked: (state, getters) => getters.step === 'step3',
-  insuranceLocked: (state, getters) => getters.step === 'step3'
+  cartLocked: (state, getters) => getters.step === 'step3' && false,
+  insuranceLocked: (state, getters) => getters.step === 'step3' && false
 }

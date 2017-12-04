@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const config = require('./config')
 const _ = require('./utils')
 
+// const VueComponentFinderPlugin = require('vue-component-finder-plugin');
+
 module.exports = {
   entry: {
     client: './client/index.js'
@@ -35,10 +37,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.vue$/,
-        loaders: ['vue-loader']
-      },
+      { test: /\.vue$/,  loaders: ['vue-loader'] },
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
@@ -61,8 +60,10 @@ module.exports = {
       },
         { test: /\.json$/, loader: 'json' }
     ]
+    // , rules: [{ test: /\.(vue)$/, loader: 'vue-component-finder-loader', enforce: "pre", include: ['src'] }]
   },
   plugins: [
+    // new VueComponentFinderPlugin({  editor: 'phpstorm', cmd: 'C:\\Program Files (x86)\\JetBrains\\PhpStorm 2016.3\\bin\\phpstorm64.exe' }),
     new HtmlWebpackPlugin({
       title: config.title,
       template: path.resolve(__dirname, 'index.html'),

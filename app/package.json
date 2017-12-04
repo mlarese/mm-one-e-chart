@@ -40,6 +40,8 @@
     "vue": "^2.5.8",
     "vue-avatar": "^2.1.1",
     "vue-clickaway": "^2.1.0",
+    "vue-component-finder-loader": "^1.0.3",
+    "vue-component-finder-plugin": "^1.0.2",
     "vue-container": "^1.1.1",
     "vue-element-queries": "^0.1.14",
     "vue-fab": "^1.0.12",
