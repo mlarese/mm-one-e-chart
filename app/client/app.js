@@ -17,6 +17,7 @@ const messages = {
     "Total Insurance price"  : "Totale assicurazione",
     "Online booking portals prices"  : "Prezzo dei portali online",
     "Select"  : "Selezione",
+    "Coupon"  : "Codice sconto",
 
     'From this site you can book at the best price on the web': "Prenotando in questo sito sei sicuro di prenotare alla migliore tariffa del web",
     'choose below the accommodation that best suits your needs': "scegli qui sotto la sistemazione più adatta alle tue esigenze",

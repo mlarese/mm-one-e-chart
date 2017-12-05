@@ -1,5 +1,5 @@
 export const getters = {
-  hasInsurance: state => (state.cart.insurance.type && state.cart.insurance.type !== ''),
+  hasInsurance: state => state.cart.insurance.type !== '',
   hasInsuranceProtection: state => state.cart.insurance.type === 'cancel',
   hasInsuranceProtectionPlus: state => state.cart.insurance.type === 'all',
   insuranceType: state => state.cart.insurance.type,

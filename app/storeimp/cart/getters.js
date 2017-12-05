@@ -5,7 +5,25 @@ import {ROW_ID_PAY_LATER, ROW_ID_ECOMMERCE, ROW_ID_INSURANCE, ROW_ID_SPECIAL_MAR
 
 export const getters = {
   id: state => state.cart.id,
+  bookingConditionsLink: state => state.bookingConditionsLink,
   cart: state => state.cart,
+  inited: state => state.inited,
+  hasCoupon: state => state.cart.coupon >0,
+  couponValue: (state, getters) => {
+    if (getters.coupon === 0) {
+      return 0
+    }
+    if (getters.couponType === 'p') {
+      console.log("------------- coupon", getters.totalRoomsAndEcommerce, getters.coupon)
+      return getters.totalRoomsAndEcommerce * getters.coupon / 100
+    } else {
+      return getters.coupon
+    }
+  },
+  isPercentCoupon: (state, getters) => getters.couponType === 'p',
+  coupon: state => state.cart.coupon,
+  couponType: state => state.cart.couponType,
+  cartChanges: state => state.cartChanges,
   items: state => state.cart.items,
   rooms: state => state.cart.rooms,
   currentRoomIndex: state => state.cart.currentRoom * 1,
@@ -58,13 +76,17 @@ export const getters = {
     _forEach(getters.ecommerceItems, i => total += getters.itemPriceFromTotal(i) )
     return total
   },
-  totalEcommercePrice: (state, getters) => {
+  totalEcommercePriceNoCoupon: (state, getters) => {
     let total = 0
     _forEach(getters.ecommerceItems, i => total += getters.itemFinalPriceTotal(i) )
     return total
   },
-  cartTotal: (state, getters) => {
+  totalEcommercePrice: (state, getters) => getters.totalEcommercePriceNoCoupon,
+  totalRoomsAndEcommerce: (state, getters) => {
     return getters.totalRoomsPrice + getters.totalEcommercePrice
+  },
+  cartTotal: (state, getters) => {
+    return getters.totalRoomsAndEcommerce - getters.couponValue
   },
   cartTotalFull: (state, getters) => {
     return getters.totalRoomsPriceFrom + getters.totalEcommercePriceFrom

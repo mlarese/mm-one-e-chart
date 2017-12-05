@@ -11,10 +11,13 @@ const cartBackup = state => {
 
 export const state = () => {
   return {
+    bookingConditionsLink: '',
     structureId: 0,
     portalId: 0,
     backupCart: {},
     rawCart: {},
+    cartChanges: 0,
+    inited: false,
     insuranceConfig:{
       price_cancel_deposit:0,
       price_all_deposit:0,
@@ -33,6 +36,8 @@ export const state = () => {
       id: 0,
       items: [],
       rooms: [],
+      coupon: 0,
+      couponType: 'v', // v, p
       insuranceResult:{
         type: '',
         amount: '',
@@ -50,6 +55,19 @@ export const state = () => {
 }
 
 export const mutations = {
+  setCoupon (state, {value, type}) {
+    state.cart.coupon = value
+    state.cart.couponType = type
+  },
+  setBookingConditionsLink (state, payLoad) {
+    state.bookingConditionsLink = payLoad
+  },
+  setInited (state, payLoad = true) {
+    state.inited = payLoad
+  },
+  newCartChange (state) {
+    state.cartChanges++
+  },
   addRoom (state, payLoad) {
     cartBackup(state)
     state.cart.rooms.push(payLoad)

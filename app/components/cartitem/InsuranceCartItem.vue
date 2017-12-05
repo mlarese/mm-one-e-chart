@@ -6,7 +6,8 @@
             </a>
             <div class="STSS__roomsNew__acc__price text-right">
                 <b class="STSS__roomsNew__total__label">{{$t('Total Insurance price')}}</b>
-                <sup-decimals class="STSS__roomsNew__total__price" :number="insuranceTotal" />
+                <sup-decimals v-if="inited" class="STSS__roomsNew__total__price" :number="insuranceTotal" />
+                <sup-decimals v-if="!inited" class="STSS__roomsNew__total__price" :number="0" />
             </div>
             <i class="STSS__roomsNew__acc__msg">{{$t('The insurance policy payment is separate from the reservation process')}}</i>
         </div>
@@ -25,7 +26,7 @@
       }
     },
     computed: {
-      ...mapGetters('cart', ['hasInsurance', 'insuranceTotal']),
+      ...mapGetters('cart', ['hasInsurance', 'insuranceTotal', 'inited']),
       ...mapGetters('app', ['cartLocked', 'insuranceLocked'])
     },
     components: {

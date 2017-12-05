@@ -1,7 +1,7 @@
 import {changeLocale} from '../../assets/localehlp'
 
 export const actions = {
-  initStep3 ({commit, dispatch, getters, rootGetters},{flowSetup = {}, structureConfig, infoText, structure, store, cart, step, nextStep, locale = 'it', absServer}) {
+  initStep3 ({commit, dispatch, getters, rootGetters},{bookingConditionsLink, flowSetup = {}, structureConfig, infoText, structure, store, cart, step, nextStep, locale = 'it', absServer}) {
     const localeData = changeLocale(locale)
     const userLanguageCode = locale
     commit('setLocale', {...localeData.delimiters, locale})
@@ -16,7 +16,7 @@ export const actions = {
           .then(() => {
             return dispatch('booking/init', {flowSetup, structureConfig}, {root: true})
               .then(() => {
-                return dispatch('cart/init', {cart, ...structure}, {root: true})
+                return dispatch('cart/init', {bookingConditionsLink, cart, ...structure}, {root: true})
               })
           })
       })
@@ -24,6 +24,7 @@ export const actions = {
   init (
     {commit, dispatch, getters, rootGetters},
     {
+      bookingConditionsLink,
       checkin,
       checkout,
       childrenData,
@@ -61,7 +62,7 @@ export const actions = {
         return dispatch('structure/init', structure, {root: true})
           .then(() => {
             const configActions = [
-              dispatch('cart/init', {cart, ...structure}, {root: true}),
+              dispatch('cart/init', {bookingConditionsLink, cart, ...structure}, {root: true}),
               dispatch('booking/init', {flowSetup, structureConfig}, {root: true})
             ]
             return Promise.all(configActions)

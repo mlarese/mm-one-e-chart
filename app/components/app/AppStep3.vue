@@ -6,9 +6,22 @@
 
 <script>
   import Cart from '../cart/Cart'
-
+  import {mapGetters, mapActions} from 'vuex'
   export default {
     name: 'AppStep3',
-    components: {Cart}
+    components: {Cart},
+    computed: {
+      ...mapGetters('cart', ['cartChanges', 'cart', 'hasInsurance'])
+    },
+    watch: {
+      cartChanges () {
+        if (window.onStep3CartChange) {
+          window.onStep3CartChange(this.cart, this.hasInsurance)
+        }
+      }
+    },
+    methods: {
+      ...mapActions('cart', ['addCoupon', 'removeCoupon'])
+    }
   }
 </script>

@@ -4,14 +4,27 @@ import _extend from 'lodash/extend'
 import _cloneDeep from 'lodash/cloneDeep'
 
 export const actions = {
-  init ({commit, state, getters}, {cart, structureId, portalId}) {
+  init ({commit, state, getters, dispatch}, {bookingConditionsLink = '', cart, structureId, portalId}) {
     const oldCart = _cloneDeep(getters.cart)
     const newCart = _extend({}, oldCart, cart)
 
     commit('setRawCart', cart)
-    commit('setCart', newCart)
+
     commit('setStructureId', structureId)
     commit('setPortalId', portalId)
+    commit('setBookingConditionsLink', bookingConditionsLink)
+
+    commit('setCart', newCart)
+    dispatch('cloneToRemote')
+      .then(() => commit('setInited'))
+  },
+  addCoupon ({dispatch, commit, state, getters, rootGetters}, {value, type}) {
+    commit('setCoupon', {value, type})
+    return dispatch('cloneToRemote')
+  },
+  removeCoupon ({dispatch, commit, state, getters, rootGetters}) {
+    commit('setCoupon', {value: 0, type: 'v'})
+    return dispatch('cloneToRemote')
   },
   quote ({dispatch, commit, state, getters, rootGetters}, {product}) {
     const url = '/booking/cart/quote/'
@@ -132,6 +145,7 @@ export const actions = {
       .then (() => {
         return dispatch('api/put', {url, data, options}, {root: true})
           .then(res => {
+            commit('newCartChange')
             return res
           })
           .catch(err => {
