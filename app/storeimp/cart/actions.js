@@ -18,12 +18,12 @@ export const actions = {
     dispatch('cloneToRemote')
       .then(() => commit('setInited'))
   },
-  addCoupon ({dispatch, commit, state, getters, rootGetters}, {value, type}) {
-    commit('setCoupon', {value, type})
+  addCoupon ({dispatch, commit, state, getters, rootGetters}, {value, type, label, code}) {
+    commit('setCoupon', {value, type, label, code})
     return dispatch('cloneToRemote')
   },
   removeCoupon ({dispatch, commit, state, getters, rootGetters}) {
-    commit('setCoupon', {value: 0, type: 'v'})
+    commit('setCoupon', {value: 0, type: '', label: '', code: ''})
     return dispatch('cloneToRemote')
   },
   quote ({dispatch, commit, state, getters, rootGetters}, {product}) {

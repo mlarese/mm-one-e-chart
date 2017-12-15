@@ -36,8 +36,7 @@ export const state = () => {
       id: 0,
       items: [],
       rooms: [],
-      coupon: 0,
-      couponType: 'v', // v, p
+      coupon: {value: 0, label: '' , type: '', code: ''},
       insuranceResult:{
         type: '',
         amount: '',
@@ -55,9 +54,8 @@ export const state = () => {
 }
 
 export const mutations = {
-  setCoupon (state, {value, type}) {
-    state.cart.coupon = value
-    state.cart.couponType = type
+  setCoupon (state, {value, type, label, code}) {
+    state.cart.coupon = {value, type, label, code}
   },
   setBookingConditionsLink (state, payLoad) {
     state.bookingConditionsLink = payLoad

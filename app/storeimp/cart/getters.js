@@ -8,21 +8,23 @@ export const getters = {
   bookingConditionsLink: state => state.bookingConditionsLink,
   cart: state => state.cart,
   inited: state => state.inited,
-  hasCoupon: state => state.cart.coupon >0,
-  couponValue: (state, getters) => {
-    if (getters.coupon === 0) {
+  hasCoupon: (state, getters) => getters.couponValue >0,
+  couponAmount: (state, getters) => {
+    if (getters.couponValue === 0) {
       return 0
     }
     if (getters.couponType === 'p') {
-      console.log("------------- coupon", getters.totalRoomsAndEcommerce, getters.coupon)
-      return getters.totalRoomsAndEcommerce * getters.coupon / 100
+      return getters.totalRoomsAndEcommerce * getters.couponValue / 100
     } else {
-      return getters.coupon
+      return getters.couponValue
     }
   },
   isPercentCoupon: (state, getters) => getters.couponType === 'p',
   coupon: state => state.cart.coupon,
-  couponType: state => state.cart.couponType,
+  couponValue: (state, getters) => getters.coupon.value,
+  couponType: (state, getters) => getters.coupon.type,
+  couponLabel: (state, getters) => getters.coupon.label,
+  couponCode: (state, getters) => getters.coupon.code,
   cartChanges: state => state.cartChanges,
   items: state => state.cart.items,
   rooms: state => state.cart.rooms,
@@ -86,7 +88,7 @@ export const getters = {
     return getters.totalRoomsPrice + getters.totalEcommercePrice
   },
   cartTotal: (state, getters) => {
-    return getters.totalRoomsAndEcommerce - getters.couponValue
+    return getters.totalRoomsAndEcommerce - getters.couponAmount
   },
   cartTotalFull: (state, getters) => {
     return getters.totalRoomsPriceFrom + getters.totalEcommercePriceFrom

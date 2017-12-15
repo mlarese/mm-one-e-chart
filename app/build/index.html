@@ -77,8 +77,8 @@
        *
        */
 
-      var addCoupon = function (value, type) {
-          application.addCoupon({value: value, type: type}) // v, p
+      var addCoupon = function (value, type, label, code) {
+          application.addCoupon({value: value, type: type, label: label, code: code}) // v, p
       }
 
       var removeCoupon = function () {
@@ -92,8 +92,8 @@
     <div class="container no-pd-xs">
       <div id="app"></div>
       <input ref="submit_butt" type="button" onclick="alert('submit')" id="submit_butt" value="Submit">
-      <input type="button" onclick="addCoupon(100, 'v')" value="Add Coupon 100€">
-      <input type="button" onclick="addCoupon(20, 'p')" value="Add Coupon 20%">
+      <input type="button" onclick="addCoupon(100, 'v', 'Promozioni inverno', 'WINTER17')" value="Add Coupon 100€">
+      <input type="button" onclick="addCoupon(20, 'p', 'Welcome', 'WELCOME')" value="Add Coupon 20%">
       <input type="button" onclick="removeCoupon()" value="Remove Coupon">
     </div>
   </body>

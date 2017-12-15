@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 
 let infoText = ''
 
-if (window.bookInfo) {
+if (window && window.bookInfo) {
   infoText = window.bookInfo
 }
 
@@ -23,17 +23,17 @@ if (window.reservationConditionsLink) {
 
 if (step === 'comparator') {
   let currency = '€'
-  let isTest = true
+  let hasTest = false
 
-  if (window.currency) {
+  if (window && window.currency) {
     currency = window.currency
   }
 
-  if (!window.isTest) {
-    isTest = true
+  if (window && window.isTest) {
+    hasTest = window.isTest
   }
 
-  store.dispatch('comparator/init', {isTest, adults, children, checkin, checkout, boardId, structureId, channels, boBestPrice, absServer, currency}, {root: true})
+  store.dispatch('comparator/init', {isTest: hasTest, adults, children, checkin, checkout, boardId, structureId, channels, boBestPrice, absServer, currency}, {root: true})
     .then(() => application.$mount('#app'))
 } else if (step === 'step3') {
     store.dispatch('app/initStep3', {bookingConditionsLink, flowSetup, structureConfig, infoText, structure, store, cart, step, nextStep, locale, absServer}, {root: true})

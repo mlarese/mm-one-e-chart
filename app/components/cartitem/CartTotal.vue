@@ -4,8 +4,8 @@
 
         <div v-if="hasCoupon">
             <span class="STSS__roomsNew__total__highlight">
-                {{$t('Coupon')}} <span v-if="isPercentCoupon"> - {{coupon}}% </span>
-                <sup-decimals class="STSS__roomsNew__total__price" :number="couponValue" /></span>
+                {{couponLabel}} <span v-if="isPercentCoupon"> - {{couponValue}}% </span>
+                <sup-decimals class="STSS__roomsNew__total__price" :number="couponAmount" /></span>
         </div>
         <div>
             <strong class="STSS__roomsNew__total__label">{{$t('Total Price')}}</strong>
@@ -26,7 +26,7 @@
       SupDecimals
     },
     computed: {
-      ...mapGetters('cart', ['cartTotal', 'cartTotalDiscount', 'bookingConditionsLink', 'hasCoupon', 'coupon', 'couponValue', 'isPercentCoupon']),
+      ...mapGetters('cart', ['cartTotal', 'cartTotalDiscount', 'bookingConditionsLink', 'hasCoupon', 'coupon', 'couponAmount', 'couponValue', 'isPercentCoupon', 'couponLabel']),
       ...mapGetters('app', ['currency']),
       cartTotalDiscountFormatted () {
         let number = this.cartTotalDiscount * 1 || 0
