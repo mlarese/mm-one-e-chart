@@ -52,10 +52,12 @@ export const actions = {
         Checkin: state.checkin,
         Checkout: state.checkout,
         Adults: state.adults,
-        Children: state.children,
+        Children: JSON.stringify( state.children ),
         Boarding: state.boardId
       }
     }
+
+    // console.dir(options)
     const priceNd = 'N.D.'
     return dispatch('api/get', {url, options}, {root: true})
       .then(res => {

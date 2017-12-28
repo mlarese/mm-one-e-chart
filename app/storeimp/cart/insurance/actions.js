@@ -44,7 +44,7 @@ export const actions = {
         Adults: adults,
         Checkin: checkIn,
         Checkout: checkOut,
-        Children: childrenData
+        Children: JSON.stringify( childrenData )
       }
     }
     return dispatch('api/get', {url, options}, {root: true})
