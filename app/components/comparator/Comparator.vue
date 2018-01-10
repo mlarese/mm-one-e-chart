@@ -1,5 +1,5 @@
 <template>
-    <div class="widget-comparator">
+    <div class="widget-comparator" v-if="visible">
         <component :is="currentView" />
     </div>
 </template>
@@ -13,7 +13,10 @@
       ComparatorBar, ComparatorResult
     },
     computed: {
-      ...mapGetters('comparator', ['comparationDone']),
+      ...mapGetters('comparator', ['comparationDone', 'channelsCount']),
+      visible () {
+        return this.channelsCount > 0
+      },
       currentView () {
         if (this.comparationDone){
           return 'comparator-result'

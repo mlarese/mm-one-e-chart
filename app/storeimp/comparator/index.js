@@ -19,10 +19,7 @@ export const state = () => {
     checkin: '',
     checkout: '',
     boardId:0,
-    channels: {
-      6: {name:'bookingcom', id: 6, price: 0},
-      5: {name: 'expedia', id: 5, price: 0}
-    }
+    channels: {}
   }
 }
 

@@ -47,7 +47,7 @@
         </g>
       </svg><br />
                 <span>{{$t('Official web site')}}</span><br />
-                <b class="color-base betterPriceBar__results__payoff"> {{$t('Best Price Guaranteed')}}!</b><br />
+                <b class="color-base betterPriceBar__results__payoff"> {{$t('Best price Guaranteed')}}!</b><br />
                 <b class="betterPriceBar__results__price">{{currency}} {{format(boBestPrice)}}</b><br />
             </div>
             <div class="betterPriceBar__col betterPriceBar__results-msg">
