@@ -5,11 +5,14 @@ import Notifications from 'vue-notification'
 import createStore from '../store'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.css'
 import VuePaginate from 'vue-paginate'
+import axios from 'axios'
+import _isString from 'lodash/isString'
 
 Vue.use(VuePaginate)
 Vue.use(Vuex)
 Vue.use(VueI18n)
 Vue.use(Notifications)
+
 
 const messages = {
   it: {
@@ -18,7 +21,6 @@ const messages = {
     "Online booking portals prices"  : "Prezzo dei portali online",
     "Select"  : "Selezione",
     "Coupon"  : "Codice sconto",
-
     'From this site you can book at the best price on the web': "Prenotando in questo sito sei sicuro di prenotare alla migliore tariffa del web",
     'choose below the accommodation that best suits your needs': "scegli qui sotto la sistemazione più adatta alle tue esigenze",
     'before you buy': "prima dell’acquisto",
@@ -65,11 +67,37 @@ const messages = {
     'OB': 'Only board',
     'BB': 'Bed and Breakfast',
     'HB': 'Half board',
-    'FB': 'Full board',
+    'FB': 'Full board'
+  },
+  es: {
+    'Official web site': 'Sitio web oficial',
+    'Best price Guaranteed': 'Mejor Precio Garantizado',
+    'From this site you can book at the best price on the web': "Desde este sitio web puede reservar al mejor precio online",
+    'choose below the accommodation that best suits your needs': "seleccione abajo el alojamiento mejor para sus necesidades",
+    "Online booking portals prices"  : "Precios de sitios de reserva online"
+  },
+  ru: {
+    'Official web site': 'Официальный вебсайт',
+    'Best price Guaranteed': 'ГАРАНТИЯ ЛУЧШЕЙ ЦЕНЫ!',
+    'From this site you can book at the best price on the web': "На этом вебсайте вы можете забронировать номер с гарантией лучшей цены",
+    'choose below the accommodation that best suits your needs': "выберите самый подходящий вариант размещения из списка ниже!",
+    "Online booking portals prices"  : "Цены на сайтах онлайн-бронирования"
   }
 }
 
 const i18n = new VueI18n({locale, messages})
+
+
+/**
+console.dir(i18n)
+
+axios.get('./locale/it.json',{responseType: 'text'})
+  .then(res => {
+    let msgs = res.data
+    i18n.setMessages(msgs)
+  })
+**/
+
 
 let App
 if (step === 'comparator') {

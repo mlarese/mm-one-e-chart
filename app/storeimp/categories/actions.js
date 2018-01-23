@@ -47,7 +47,7 @@ export const actions = {
     const url = '/catalog/partner/categories/' + id
     return dispatch('api/get', {url, options, serverName}, {root: true})
       .then(res => {
-        commit('setSelectedCategory, res.data')
+        commit('setSelectedCategory', res.data)
         return res
       })
   }

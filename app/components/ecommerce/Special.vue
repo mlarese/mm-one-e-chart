@@ -1,5 +1,5 @@
 <template>
-    <div class="ecommerce">
+    <div class="ecommerce special">
         <div class="col-xs-12 col-sm-8 no-p-l STSS__content">
            <products />
             <div class="STSS__content__bottom">

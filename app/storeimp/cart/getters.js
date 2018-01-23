@@ -42,10 +42,35 @@ export const getters = {
   payLaterItems: (state, getters) => _filter(getters.items, it => (it.rowId*1 >= ROW_ID_PAY_LATER && it.rowId*1 <= ROW_ID_PAY_LATER_MAX)),
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId*1 === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId*1 === ROW_ID_INSURANCE),
-  itemFinalPrice: (state, getters) => item => (item.finalPrice === '') ? item.price * 1 : item.finalPrice * 1,
-  itemFinalPriceTotal: (state, getters) => item => getters.itemFinalPrice(item) * item.quantity * 1,
-  itemPriceFrom: (state, getters) => item => (item.priceFrom === '') ? item.price * 1 : item.priceFrom * 1,
-  itemPriceFromTotal: (state, getters) => item => getters.itemPriceFrom(item) * item.quantity * 1,
+  itemFinalPrice: (state, getters) => item => {
+    if(item.finalPrice === '') {
+      return item.price * 1
+      // console.log('---- using price ', item.price)
+    } else {
+      return item.finalPrice * 1
+      // console.log('---- using finalPrice ', item.finalPrice)
+    }
+  },
+  itemFinalPriceTotal: (state, getters) => item => {
+    let res = getters.itemFinalPrice(item) * item.quantity * 1
+    return res
+    console.log('---- itemFinalPriceTotal', res)
+  },
+  itemPriceFrom: (state, getters) => item => {
+    if(item.priceFrom !== '' && item.discount !== '') {
+      return item.priceFrom * 1
+    }  {
+      return item.price * 1
+    }
+  },
+  itemPriceFromTotal: (state, getters) => item => {
+    let price = getters.itemPriceFrom(item)
+    let quantity = item.quantity * 1
+    let total =  price * quantity
+
+    // console.log('-- itemPriceFromTotal', price, quantity)
+    return total
+  },
   extractPhoto: state => item => {
     let currentPhoto = item.photo
     if (currentPhoto && currentPhoto !=='') {
@@ -64,13 +89,19 @@ export const getters = {
   totalRoomsPrice: (state, getters) => {
     let total = 0
     _forEach(getters.rooms, r => total += r.finalPrice * 1)
-    _forEach(getters.roomsSpecialServices, i => total += getters.itemFinalPriceTotal(i) )
+    _forEach(getters.roomsSpecialServices, item => {
+      total += getters.itemFinalPriceTotal(item)
+    })
     return total
   },
   totalRoomsPriceFrom: (state, getters) => {
     let total = 0
     _forEach(getters.rooms, r => total += r.price * 1)
-    _forEach(getters.roomsSpecialServices, i => total += getters.itemPriceFromTotal(i) )
+    _forEach(getters.roomsSpecialServices, i => {
+      let value = getters.itemPriceFromTotal(i);
+      // console.log('------', value, total)
+      total += value
+    })
     return total
   },
   totalEcommercePriceFrom: (state, getters) => {
