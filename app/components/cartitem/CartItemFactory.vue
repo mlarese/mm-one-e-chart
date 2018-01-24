@@ -8,6 +8,7 @@
   import {mapGetters} from 'vuex'
 
   export default {
+    name: 'CartItemFactory',
     components: {CartItem, SpecialServiceCartItem, VariantCartItem},
     props: {
       'item': {default: () => {}},

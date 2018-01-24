@@ -9,6 +9,7 @@ export const getters = {
   cart: state => state.cart,
   inited: state => state.inited,
   hasCoupon: (state, getters) => getters.couponValue >0,
+  isToPayApart: state => product => (product.topayapart * 1 === 1),
   couponAmount: (state, getters) => {
     if (getters.couponValue === 0) {
       return 0
@@ -28,7 +29,7 @@ export const getters = {
   cartChanges: state => state.cartChanges,
   items: state => state.cart.items,
   rooms: state => state.cart.rooms,
-  currentRoomIndex: state => state.cart.currentRoom * 1,
+  currentRoomIndex: state => (state.cart.currentRoom * 1 - 1),
   currentRoom: (state, getters) => state.cart.rooms[getters.currentRoomIndex] ,
   itemsByRowId: (state, getters) => rowId => _filter(getters.items, i => i.rowId * 1 === rowId),
   itemsByProductId: (state, getters) => productId => _filter(getters.items, i => i.id === productId),
@@ -40,6 +41,17 @@ export const getters = {
   roomSpecialServices: (state, getters) => roomIndex => _filter(getters.items, it => it.rowId*1 === roomIndex),
   roomsSpecialServices: (state, getters) => _filter(getters.items, it => it.rowId*1 < ROW_ID_PAY_LATER),
   payLaterItems: (state, getters) => _filter(getters.items, it => (it.rowId*1 >= ROW_ID_PAY_LATER && it.rowId*1 <= ROW_ID_PAY_LATER_MAX)),
+  payLaterItemRoom: (state, getters) => item => {
+    const idx = item.rowId - ROW_ID_PAY_LATER
+    return getters.rooms[idx]
+  },
+  roomIndexFromItem: (state, getters) => item => {
+    if (getters.isToPayApart(item)) {
+      return item.rowId - ROW_ID_PAY_LATER
+    } else {
+      return item.rowId
+    }
+  },
   ecommerceItems: (state, getters) => _filter(getters.items, it => it.rowId*1 === ROW_ID_ECOMMERCE),
   insuranceItem: (state, getters) => getters.items.find(it => it.rowId*1 === ROW_ID_INSURANCE),
   itemFinalPrice: (state, getters) => item => {
@@ -54,7 +66,7 @@ export const getters = {
   itemFinalPriceTotal: (state, getters) => item => {
     let res = getters.itemFinalPrice(item) * item.quantity * 1
     return res
-    console.log('---- itemFinalPriceTotal', res)
+    // console.log('---- itemFinalPriceTotal', res)
   },
   itemPriceFrom: (state, getters) => item => {
     if(item.priceFrom !== '' && item.discount !== '') {

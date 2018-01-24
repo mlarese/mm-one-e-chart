@@ -17,13 +17,30 @@
       }
     },
     computed: {
-      ...mapGetters('cart', ['itemFinalPriceTotal', 'itemPriceFromTotal', 'itemPriceFrom']),
-      ...mapGetters('app', ['cartLocked']),
+      ...mapGetters('cart', ['itemFinalPriceTotal', 'itemPriceFromTotal', 'itemPriceFrom', 'payLaterItemRoom', 'roomIndexFromItem']),
+      ...mapGetters('app', ['cartLocked', 'isToPayApart']),
       priceFrom () {
         return this.itemPriceFromTotal(this.item)
       },
+      itemRoom () {
+        const room = this.payLaterItemRoom(this.item)
+        if (!room) {
+          return null
+        }
+        return room
+      },
+      roomNumber() {
+        if (!this.hasRoom) {
+          return 0
+        }
+
+        return this.roomIndexFromItem(this.item) + 1
+      },
+      hasRoom () {
+        return this.itemRoom !== null
+      },
       isPayLater () {
-        return this.item.topayapart * 1 === 1
+        return this.isToPayApart(this.item)
       },
       realPrice () {
         return this.itemFinalPriceTotal(this.item)

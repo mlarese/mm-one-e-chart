@@ -2,7 +2,14 @@
     <div class="cart-item">
         <div class="STSS__roomsNew__acc col-xs-12">
             <div>
-                <strong>{{item.name}}</strong>
+                <strong>
+                    {{item.name}}
+                    <div v-if="isPayLater && hasRoom">
+                        <span class="cart-item-room-name">
+                            {{roomNumber}}) {{itemRoom.name}}
+                        </span>
+                    </div>
+                </strong>
 
                 <a class="STSS__roomsNew__item__ssr__remove" href="#" @click="onRemoveProduct" v-if="!cartLocked">
                    <icon-remove />
@@ -51,6 +58,10 @@
     .cart-item{
         .STSS__roomsNew__acc{
             margin-bottom: 2px;
+        }
+        .cart-item-room-name{
+            font-weight: normal;
+            font-size: 12px;
         }
     }
 

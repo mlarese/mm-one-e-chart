@@ -5,6 +5,7 @@ export const getters = {
   infoText: state => state.infoText,
   isStepInsurance: state => state.step === 'insurance',
   isStep3: state => state.step === 'step3',
+  isToPayApart: state => product => (product.topayapart * 1 === 1),
   recalculateInsurance: (state, getters, rootState, rootGetters) => getters.isStepInsurance || rootGetters['cart/hasInsurance'],
   nextStep: state => state.nextStep,
   locale: state => state.locale.locale,
@@ -24,8 +25,8 @@ export const getters = {
 
     if(isSpecial) {
       let rowId = rootGetters['cart/currentRoomIndex']
-      if (product.topayapart * 1 === 1) {
-        rowId = ROW_ID_PAY_LATER
+      if (getters.isToPayApart(product)) {
+        rowId = ROW_ID_PAY_LATER + rowId
       }
       let fn = rootGetters['cart/itemByRowIdProductId']
       cartItem = fn(rowId, product.id)

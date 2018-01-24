@@ -8,6 +8,7 @@ import VuePaginate from 'vue-paginate'
 import axios from 'axios'
 import _isString from 'lodash/isString'
 
+
 Vue.use(VuePaginate)
 Vue.use(Vuex)
 Vue.use(VueI18n)
@@ -98,6 +99,9 @@ axios.get('./locale/it.json',{responseType: 'text'})
   })
 **/
 
+if (process.env.NODE_ENV === 'development') {
+  require('vue-clicky');
+}
 
 let App
 if (step === 'comparator') {
