@@ -7,39 +7,35 @@
     <link rel="stylesheet" href="css/extend.css">
 
     <script>
-      var cartid = '8bdded921944ac0549599c5942604248299e1b8b402382b01a9c8f9c1213c21a';
+      var cartid = 'abf71944863d6fec5623c8a247f4696700a58fb0d8c51e5fb04bc909ac4b9145';
 
-      var cart = {"id":"8bdded921944ac0549599c5942604248299e1b8b402382b01a9c8f9c1213c21a","items":[{"uid":"630f9e4d-9acb-4fd3-bdaa-00cccbb0a304","rowId":1000,"id":"532","code":"GARAGE","name":"Garage","photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https:\/\/booking.bookingone.it\/reservation.cmsone.it\/photobook\/1\/accessory\/1_532_5970ae8c7c619.jpg&size=125x125c50","description":"Proteggi la tua macchina coni nostri garage privati!","shortdescription":"Proteggi la tua macchina coni nostri garage privati!","type":"specialservice","finalPrice":"","availability":10,"price":25,"priceFrom":"5.00","priceType":"per room\/night","discount":"","topayapart":"1","order":"0","quantity":"1"}],"rooms":[{"rowId":"8801-1-1","roomId":8801,"listId":1,"roomCode":"Classic","name":"Double Classic","treatmentCode":"BB","treatment":"Camera e colazione","price":"700.00","finalPrice":"700.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_8801_double_overlookh_27baa.jpg&size=100x100c50","checkin":"07-05-2018","checkout":"12-05-2018","numNights":5,"adults":"2","child":"0","pax":2},{"rowId":"13225-1-2","roomId":13225,"listId":1,"roomCode":"Junior","name":"Junior Suite","treatmentCode":"BB","treatment":"Camera e colazione","price":"1240.00","finalPrice":"1240.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_13225_fm_938b3.jpg&size=100x100c50","checkin":"07-05-2018","checkout":"12-05-2018","numNights":5,"adults":"3","child":"0","pax":3}],"coupon":{"value":0,"label":"","type":"","code":""},"insuranceResult":{"type":"","amount":"","premium":0,"contract":""},"insurance":{"type":"","amount":"","premium":0,"contract":""},"numOfRooms":2,"currentRoom":1};
+      var cart = {"id":"abf71944863d6fec5623c8a247f4696700a58fb0d8c51e5fb04bc909ac4b9145","items":[],"rooms":[{"rowId":"13225-1-1","roomId":13225,"listId":1,"roomCode":"Junior","name":"Junior Suite","treatmentCode":"BB","treatment":"Camera e colazione","price":"320.00","finalPrice":"320.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_13225_fm_938b3.jpg&size=100x100c50","checkin":"01-05-2018","checkout":"03-05-2018","numNights":2,"adults":"2","child":"0","pax":2}],"coupon":{"value":0,"label":"","type":"","code":""},"insuranceResult":{"type":"","amount":"","premium":0,"contract":""},"insurance":{"type":"","amount":"","premium":0,"contract":""},"numOfRooms":1,"currentRoom":0};
 
-      var rooms  = [{"rowId":"8801-1-1","roomId":8801,"listId":1,"roomCode":"Classic","name":"Double Classic","treatmentCode":"BB","treatment":"Camera e colazione","price":"700.00","finalPrice":"700.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_8801_double_overlookh_27baa.jpg&size=100x100c50","checkin":"07-05-2018","checkout":"12-05-2018","numNights":5,"adults":"2","child":"0","pax":2},{"rowId":"13225-1-2","roomId":13225,"listId":1,"roomCode":"Junior","name":"Junior Suite","treatmentCode":"BB","treatment":"Camera e colazione","price":"1240.00","finalPrice":"1240.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_13225_fm_938b3.jpg&size=100x100c50","checkin":"07-05-2018","checkout":"12-05-2018","numNights":5,"adults":"3","child":"0","pax":3}];
+      var rooms  = [{"rowId":"13225-1-1","roomId":13225,"listId":1,"roomCode":"Junior","name":"Junior Suite","treatmentCode":"BB","treatment":"Camera e colazione","price":"320.00","finalPrice":"320.00","discount":0,"photo":"https:\/\/reservation.cmsone.it\/common\/libs\/resizer\/resize.php?url=https%3A%2F%2Fbooking.bookingone.it%2Freservation.cmsone.it%2Fphotobook%2F1%2Froom%2F1_13225_fm_938b3.jpg&size=100x100c50","checkin":"01-05-2018","checkout":"03-05-2018","numNights":2,"adults":"2","child":"0","pax":2}];
 
       //  controllare da cart serializzato se le room sono le stesse tramite rowid
 
-      var structureConfig = {"specialServicesEnabled":"1","productCatalogOpen":"1","insuranceEnabled":"1","insuranceOpen":"1","currency":"EUR","currencyUTF8":"\u20ac","defaultCategory":0,"shops":[1],"partners":{"1":6},"ecommerceHosts":{"1":"https://ecommerce.abs-one.com\/"}};
+      var structureConfig = {"specialServicesEnabled":"1","productCatalogOpen":"1","insuranceEnabled":"1","insuranceOpen":"1","currency":"EUR","currencyUTF8":"\u20ac","defaultCategory":0,"shops":[-1],"partners":[],"ecommerceHosts":{"-1":"https://ecommerce.abs-one.com\/"}};
 
       var flowSetup = {"stepRoomsEnable":"1","alternativeRoomsEnable":"1","stepEcommerceEnable":"1","stepAllianzEnable":"1","roomsFirst":"0"};
-      var numrooms = '2';
 
-      var currentsolution = '2';
+      var numrooms = '1';
 
-      var nextStep = 'https://test.abs-one.com/metis/step_2_room_confirm_n.php?ABS_TST_BOOKING=6rekg3qj790paa602tu6s4tso2';
-      var reservationConditionsLink = 'https://reservation.abs.tmp/metis/show_terms.php';
+      var currentsolution = '1';
 
-      window.onStep3CartChange = function (cart, hasInsurance) {
-
-      }
+      var nextStep = 'https://test.abs-one.com/metis/step_2_room_confirm_n.php?ABS_TST_BOOKING=q3510p9t5ou44tisjfvudsfps3&endEcommerce=endEcommerce&allianzDone=allianzDone';
 
       var childrenData = {};
 
-      var adultsCount =  5;
+      var adultsCount =  4;
 
       var children = {};
 
-      var adults =  5;
+      var adults =  4;
 
       var checkin =  '07-05-2018';
 
-      var checkout=  '12-05-2018';
+      var checkout=  '11-05-2018';
       var structure = { structureId: 1, portalId: 1 };
 
       //--------------------------------
@@ -62,7 +58,7 @@
       cart.rooms = rooms;
       cart.id = cartid;
       cart.numOfRooms = rooms.length;
-      cart.currentRoom = currentsolution;
+      cart.currentRoom = currentsolution*1  - 1;
 
       // var absServer =  'http://reservation.abs.tmp/';
       var absServer =  '//test.abs-one.com';
@@ -83,6 +79,12 @@
        http://ecommerce.abs-one.dev/RESTfulAPI/catalog/partner/categories
        *
        */
+
+
+      window.onStep3CartChange = function (cart, hasInsurance) {
+        console.log("--- onStep3CartChange",'hasInsurance',hasInsurance)
+      }
+
 
       var addCoupon = function (value, type, label, code) {
           application.addCoupon({value: value, type: type, label: label, code: code}) // v, p

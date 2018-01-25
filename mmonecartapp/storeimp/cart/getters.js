@@ -29,7 +29,7 @@ export const getters = {
   cartChanges: state => state.cartChanges,
   items: state => state.cart.items,
   rooms: state => state.cart.rooms,
-  currentRoomIndex: state => (state.cart.currentRoom * 1 - 1),
+  currentRoomIndex: state => (state.cart.currentRoom * 1),
   currentRoom: (state, getters) => state.cart.rooms[getters.currentRoomIndex] ,
   itemsByRowId: (state, getters) => rowId => _filter(getters.items, i => i.rowId * 1 === rowId),
   itemsByProductId: (state, getters) => productId => _filter(getters.items, i => i.id === productId),

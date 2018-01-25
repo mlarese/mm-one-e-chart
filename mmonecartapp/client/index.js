@@ -4,7 +4,7 @@ import  'eventsource-polyfill'
 import { application, store } from './app'
 
 window.application = application
-
+console.dir(application)
 // enable progressive web app support (with offline-plugin)
 if (process.env.NODE_ENV === 'production') {
   require('./pwa')

@@ -1,0 +1,82 @@
+'use strict'
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const config = require('./config')
+const _ = require('./utils')
+
+// const VueComponentFinderPlugin = require('vue-component-finder-plugin');
+
+module.exports = {
+  entry: {
+    client: './client/index.js'
+  },
+  output: {
+    path: _.outputPath,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production' ? './cartjs/':'/'
+  },
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.css', '.json'],
+    alias: {
+      root: path.join(__dirname, '../client'),
+      components: path.join(__dirname, '../client/components'),
+      jquery: "jquery/src/jquery",
+      vue:'vue/dist/vue.common.js'
+    },
+    modules: [
+      _.cwd('node_modules'),
+      // this meanse you can get rid of dot hell
+      // for example import 'components/Foo' instead of import '../../components/Foo'
+      _.cwd('client')
+    ]
+  },
+  module: {
+    loaders: [
+      { test: /\.vue$/,  loaders: ['vue-loader'] },
+      {
+        test: /\.js$/,
+        loaders: ['babel-loader'],
+        exclude: [/node_modules/]
+      },
+      {
+        test: /\.es6$/,
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.(ico|jpg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'file-loader',
+        query: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader'
+      },
+        { test: /\.json$/, loader: 'json' }
+    ]
+    // , rules: [{ test: /\.(vue)$/, loader: 'vue-component-finder-loader', enforce: "pre", include: ['src'] }]
+  },
+  plugins: [
+    // new VueComponentFinderPlugin({  editor: 'phpstorm', cmd: 'C:\\Program Files (x86)\\JetBrains\\PhpStorm 2016.3\\bin\\phpstorm64.exe' }),
+    new HtmlWebpackPlugin({
+      title: config.title,
+      template: path.resolve(__dirname, 'index.html'),
+      filename: _.outputIndexPath
+    }),
+    new webpack.LoaderOptionsPlugin(_.loadersOptions()),
+    new CopyWebpackPlugin([
+      {
+        from: _.cwd('./static'),
+        // to the roor of dist path
+        to: './'
+      }
+    ])
+  ],
+  target: _.target
+}
