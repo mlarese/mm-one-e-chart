@@ -1,13 +1,13 @@
 <template>
     <div>
-        {{noVirtuals}}
+        {{currentRooms}}
     </div>
 </template>
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex'
   export default {
     computed: {
-      ...mapGetters('rooms', ['noVirtuals'])
+      ...mapGetters('app', ['currentRooms'])
     }
   }
 </script>

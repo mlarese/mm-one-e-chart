@@ -1,12 +1,12 @@
 <template>
     <div class="app-synclyst">
         <notifications position="bottom right" />
-        <room-picker />
+        <rate-picker />
     </div>
 </template>
 
 <script>
-  import RoomPicker from '../rooms/RoomPicker'
+  import RatePicker from '../rates/RatePicker'
 
   export default {
     name:'App',
@@ -15,7 +15,7 @@
         this.$notify(this.notification);
       },
     },
-    components: {RoomPicker},
+    components: {RatePicker},
     computed: {
 
     }
