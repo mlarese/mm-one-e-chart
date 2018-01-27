@@ -29,6 +29,9 @@ export const mutations = {
   setUi (state, payLoad) {
     state.ui = payLoad
   },
+  setUiSourceRate (state, payLoad) {
+    state.ui.sourceRate = payLoad
+  },
   mergeUi (state, payLoad) {
     state.ui = _extend(state.ui, payLoad)
   },
