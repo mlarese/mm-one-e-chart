@@ -13,6 +13,7 @@
 
     </div>
 </template>
+
 <script>
   import MaskedInput from 'vue-masked-input'
   import {mapState, mapGetters, mapMutations} from 'vuex'
