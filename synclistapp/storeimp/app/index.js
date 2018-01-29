@@ -8,7 +8,9 @@ export const state = () => {
     structureId: null,
     onlyMultiRate: false,
     roomsAndRates: [],
+
     ui: {
+      updates:0,
       sourceRate: null,
       targetRate: null,
       sourceRoom: null,
@@ -17,7 +19,8 @@ export const state = () => {
       allRooms: false,
       futureDates: false,
       fromDate: null,
-      toDate: null
+      toDate: null,
+      dateRange: false
     }
   }
 }
@@ -26,11 +29,28 @@ export const mutations = {
   setStructureId (state, payLoad) {
     state.structureId = payLoad
   },
+  update (state) {
+    if( state.ui.updates>= 2000) {
+      state.ui.updates = 0
+    } else {
+      state.ui.updates++
+    }
+  },
   setUi (state, payLoad) {
     state.ui = payLoad
   },
   setUiSourceRate (state, payLoad) {
+    if(payLoad === '') {
+      payLoad = null
+    }
     state.ui.sourceRate = payLoad
+    state.ui.sourceRoom = null
+  },
+  setUiSourceRoom (state, payLoad) {
+    if(payLoad === '') {
+      payLoad = null
+    }
+    state.ui.sourceRoom = payLoad
   },
   mergeUi (state, payLoad) {
     state.ui = _extend(state.ui, payLoad)

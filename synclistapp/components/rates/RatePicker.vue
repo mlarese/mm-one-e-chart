@@ -1,7 +1,9 @@
 <template>
     <div class="rate-picker">
+        <div v-text="$t('Listino di origine') + ': '"></div>
         <select v-model="sourceRateId">
-            <template v-for="r in rates">
+            <option value=""></option>
+            <template v-for="r in ratesWithCommonRooms">
                 <option :value="r.multirate_id" v-text="r.multirate_name"></option>
             </template>
         </select>
@@ -27,7 +29,7 @@
     },
     computed: {
       ...mapState('app', ['ui']),
-      ...mapGetters('app', ['rates'])
+      ...mapGetters('app', ['rates', 'ratesWithCommonRooms'])
     }
   }
 </script>
